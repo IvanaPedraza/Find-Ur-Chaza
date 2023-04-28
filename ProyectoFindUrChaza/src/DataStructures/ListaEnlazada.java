@@ -7,13 +7,12 @@ package DataStructures;
 
  // @author Camilo
 //LinkedList simplemente enlazada
-public class LinkedList <T> {
+public class ListaEnlazada <T> {
     
     Node<T> head;
     int size = 0;
 
-    
-
+   
     public void printList() {
         Node ref = this.head;
         while (ref != null) {
