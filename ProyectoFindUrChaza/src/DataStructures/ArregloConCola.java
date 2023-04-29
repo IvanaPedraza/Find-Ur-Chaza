@@ -28,12 +28,12 @@ public class ArregloConCola <T>{
     }
     
     public void pushFront(T key){
-        int[] nuevaLista;
+        T[] nuevaLista;
         if(estaLleno()){
             System.out.println("Esta lleno");
         }else{
             this.tamano++;
-            nuevaLista = new int[this.capacidad];
+            nuevaLista = (T[]) new Object[this.capacidad];
             nuevaLista[0] = key;
             for(int i = 1; i < tamano;i++){
                 nuevaLista[i] = arrayInicial[i - 1];
@@ -43,12 +43,12 @@ public class ArregloConCola <T>{
     }
     
     public void popBack(){
-        int[] nuevaLista;
+        T[] nuevaLista;
         if(estaVacio()){
             System.out.println("Esta vacio");
         }else{
             this.tamano--;
-            nuevaLista = new int[this.capacidad];
+            nuevaLista = (T[]) new Object[this.capacidad];
             for(int i = 0;i < this.tamano;i++){
                 nuevaLista[i] = arrayInicial[i];
             }
@@ -57,7 +57,7 @@ public class ArregloConCola <T>{
         }
     }
     
-    public boolean find(int key){
+    public boolean find(T key){
         boolean seEncuentra = false;
         for(int i = 0; i < tamano;i++){
             if(arrayInicial[i] == key){
@@ -68,8 +68,8 @@ public class ArregloConCola <T>{
     }
     
     
-    public void delete(int key){
-        int[] nuevaLista = new int[this.capacidad];
+    public void delete(T key){
+        T[] nuevaLista = (T[]) new Object[this.capacidad];
         int i = 0;
         while(i < tamano){
             if(arrayInicial[i] == key){
@@ -106,12 +106,12 @@ public class ArregloConCola <T>{
     */
     
     public void popFront(){
-        int[] nuevaLista;
+        T[] nuevaLista;
         if(estaVacio()){
             System.out.println("Esta vacio");
         }else{
             this.tamano--;
-            nuevaLista = new int[this.capacidad];
+            nuevaLista = (T[]) new Object[this.capacidad];
             for(int i = 0;i<tamano;i++){
                 nuevaLista[i] = arrayInicial[i++];
             }

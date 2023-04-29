@@ -28,14 +28,6 @@ public class EstructuraDeDatos <T>{
     public void agregarElemento(T elemento){
         
         /*Arreglo Dinamico Con Cola*/
-        long tiemIniArr = System.nanoTime();
-        // Ejecutamos el código
-        arregloConCola.(elemento);
-        long tiemFinArr = System.nanoTime();
-        long tiempoTotalArr = tiemFinArr - tiemIniArr;
-        System.out.println("Tiempo total: " + tiempoTotalArr + " nanosegundos");
-        
-        /*Arreglo Dinamico Con Cola*/
         long tiemIniArrDina = System.nanoTime();
         // Ejecutamos el código
         arregloDinamicoConCola.pushBack(elemento);
