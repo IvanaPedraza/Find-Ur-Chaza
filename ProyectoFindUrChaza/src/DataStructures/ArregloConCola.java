@@ -9,17 +9,17 @@ package DataStructures;
  * @author kelly
  */
 public class ArregloConCola <T>{
-    private int[] arrayInicial;
+    private T[] arrayInicial;
     private int tamano;
     private int capacidad;
     
     public ArregloConCola(int capacidad){
         this.capacidad = capacidad;
-        this.arrayInicial = new int[capacidad];
+        this.arrayInicial = (T[]) (T) new Object[capacidad];
         this.tamano = 0;
     }
     
-    public void pushBack(int key){
+    public void pushBack(T key){
         if(estaLleno()){
             System.out.println("Esta lleno");
         }else{
@@ -27,7 +27,7 @@ public class ArregloConCola <T>{
         }
     }
     
-    public void pushFront(int key){
+    public void pushFront(T key){
         int[] nuevaLista;
         if(estaLleno()){
             System.out.println("Esta lleno");

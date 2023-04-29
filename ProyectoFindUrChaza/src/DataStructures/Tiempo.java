@@ -10,16 +10,6 @@ package DataStructures;
  */
 public class Tiempo {
 
-    public static void medirTiempo(Runnable runnable) {
-        long tiempoInicio = System.nanoTime();
-        
-        // Ejecutamos el código
-        runnable.run();
-        
-        long tiempoFin = System.nanoTime();
-        long tiempoTotal = tiempoFin - tiempoInicio;
-        System.out.println("Tiempo total: " + tiempoTotal + " nanosegundos");
-    }
-
+    
     
 }
