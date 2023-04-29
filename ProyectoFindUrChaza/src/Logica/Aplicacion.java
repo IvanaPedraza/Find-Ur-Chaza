@@ -10,4 +10,6 @@ package Logica;
  */
 public class Aplicacion {
     
+    
+    
 }
