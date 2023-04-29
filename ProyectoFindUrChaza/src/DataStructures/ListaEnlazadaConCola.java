@@ -11,6 +11,10 @@ public class ListaEnlazadaConCola <T> {
         cantidad++;
     }
 
+    public ListaEnlazadaConCola() {
+        
+    }
+    
     public void pushFront(T newHead){
         Node nuevoNodo = new Node(newHead);
         nuevoNodo.setNext(this.head);

@@ -137,6 +137,11 @@ public class Controlador {
     
     public void agregarNuevaChaza(String nombreChaza, String ubicacion, String descripcion, Vendedor vendedor){
         Chaza nuevaChaza = new Chaza(nombreChaza,ubicacion,descripcion,vendedor);
+        listaEnlazadaColaChazas.pushBack(nuevaChaza);
+        System.out.println("Se ha ingresado correctamente "+ nuevaChaza.getNombreChaza());
+    }
+    
+    public void eliminarChaza(){
         
     }
     
