@@ -147,5 +147,7 @@ public class ArregloDinamicoConCola<T> {
     public int getConteo() {
         return conteo;
     }
+    
+    
 
 }
