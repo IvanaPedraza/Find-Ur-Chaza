@@ -235,5 +235,10 @@ public class ListaEnlazadaConCola <T> {
             current = current.getNext();
         }
     }
+    
+    public Node getElement(){
+        Node<T> ptr = this.head;
+        return ptr;
+    }
 
 }

@@ -148,8 +148,9 @@ public class ListaEnlazada <T> {
         size--;
     }
      
-    public T getElement(T data){
-        Node iterator = 
+    public Node getElement(){
+        Node<T> ptr = this.head;
+        return ptr;
     }
 
     public boolean isEmpty() {
