@@ -240,5 +240,9 @@ public class ListaEnlazadaConCola <T> {
         Node<T> ptr = this.head;
         return ptr;
     }
+    
+    public int cantidad(){
+        return this.cantidad;
+    }
 
 }

@@ -31,7 +31,7 @@ public class EstructuraDeDatos <T>{
         arregloDinamicoConCola.pushBack(elemento);
         long tiemFinArrDina = System.nanoTime();
         long tiempoTotalArrDina = tiemFinArrDina - tiemIniArrDina;
-        System.out.println("Tiempo total: " + tiempoTotalArrDina + " nanosegundos");
+        System.out.println("Tiempo total arreglo dinámico con cola: " + tiempoTotalArrDina + " nanosegundos");
         
         /*Lista enlazada*/
         long tiemIniListaEnla = System.nanoTime();
@@ -39,7 +39,7 @@ public class EstructuraDeDatos <T>{
         listaEnlazada.pushBack(elemento);
         long tiemFinListaEnla = System.nanoTime();
         long tiempoTotalListaEnla = tiemFinListaEnla - tiemIniListaEnla;
-        System.out.println("Tiempo total: " + tiempoTotalListaEnla + " nanosegundos");
+        System.out.println("Tiempo total lista enlazado simple: " + tiempoTotalListaEnla + " nanosegundos");
         
         /*Lista Enlazada con Cola*/
         long tiemIniListaEnlaCola = System.nanoTime();
@@ -47,7 +47,7 @@ public class EstructuraDeDatos <T>{
         listaEnlazadaConCola.pushBack(elemento);
         long tiemFinListaEnlaCola = System.nanoTime();
         long tiempoTotalListaEnlaCola = tiemFinListaEnlaCola - tiemIniListaEnlaCola;
-        System.out.println("Tiempo total: " + tiempoTotalListaEnlaCola + " nanosegundos");
+        System.out.println("Tiempo total lista enlazada con cola: " + tiempoTotalListaEnlaCola + " nanosegundos");
     }
     
     public void eliminarElemento(T elemento){
@@ -57,7 +57,7 @@ public class EstructuraDeDatos <T>{
         arregloDinamicoConCola.delete(elemento);
         long tiemFinArrDina = System.nanoTime();
         long tiempoTotalArrDina = tiemFinArrDina - tiemIniArrDina;
-        System.out.println("Tiempo total: " + tiempoTotalArrDina + " nanosegundos");
+        System.out.println("Tiempo total lista arreglo dinámico con cola: " + tiempoTotalArrDina + " nanosegundos");
         
         /*Lista enlazada*/
         long tiemIniListaEnla = System.nanoTime();
@@ -65,7 +65,7 @@ public class EstructuraDeDatos <T>{
         listaEnlazada.delete(elemento);
         long tiemFinListaEnla = System.nanoTime();
         long tiempoTotalListaEnla = tiemFinListaEnla - tiemIniListaEnla;
-        System.out.println("Tiempo total: " + tiempoTotalListaEnla + " nanosegundos");
+        System.out.println("Tiempo total lista enlazada: " + tiempoTotalListaEnla + " nanosegundos");
         
         /*Lista Enlazada con Cola*/
         long tiemIniListaEnlaCola = System.nanoTime();
@@ -73,7 +73,7 @@ public class EstructuraDeDatos <T>{
         listaEnlazadaConCola.delete(elemento);
         long tiemFinListaEnlaCola = System.nanoTime();
         long tiempoTotalListaEnlaCola = tiemFinListaEnlaCola - tiemIniListaEnlaCola;
-        System.out.println("Tiempo total: " + tiempoTotalListaEnlaCola + " nanosegundos");
+        System.out.println("Tiempo total lista enlazada con cola: " + tiempoTotalListaEnlaCola + " nanosegundos");
     }
     
     public T visualizarElemento(T elemento){
@@ -84,7 +84,7 @@ public class EstructuraDeDatos <T>{
         elementoRetornado = (T) arregloDinamicoConCola.getElement((int) elemento);
         long tiemFinArrDina = System.nanoTime();
         long tiempoTotalArrDina = tiemFinArrDina - tiemIniArrDina;
-        System.out.println("Tiempo total: " + tiempoTotalArrDina + " nanosegundos");
+        System.out.println("Tiempo total arreglo dinámico con cola: " + tiempoTotalArrDina + " nanosegundos");
         
         /*Lista enlazada*/
         long tiemIniListaEnla = System.nanoTime();
@@ -92,7 +92,7 @@ public class EstructuraDeDatos <T>{
         elementoRetornado = (T) listaEnlazada.getElement();
         long tiemFinListaEnla = System.nanoTime();
         long tiempoTotalListaEnla = tiemFinListaEnla - tiemIniListaEnla;
-        System.out.println("Tiempo total: " + tiempoTotalListaEnla + " nanosegundos");
+        System.out.println("Tiempo total lista enlazada: " + tiempoTotalListaEnla + " nanosegundos");
         
         /*Lista Enlazada con Cola*/
         long tiemIniListaEnlaCola = System.nanoTime();
@@ -100,7 +100,7 @@ public class EstructuraDeDatos <T>{
         elementoRetornado = (T) listaEnlazadaConCola.getElement();
         long tiemFinListaEnlaCola = System.nanoTime();
         long tiempoTotalListaEnlaCola = tiemFinListaEnlaCola - tiemIniListaEnlaCola;
-        System.out.println("Tiempo total: " + tiempoTotalListaEnlaCola + " nanosegundos");
+        System.out.println("Tiempo total lista enlazada con cola: " + tiempoTotalListaEnlaCola + " nanosegundos");
         
         return elementoRetornado;
     }
@@ -113,7 +113,7 @@ public class EstructuraDeDatos <T>{
         arregloDinamicoConCola.update(elementoViejo, elementoNuevo);
         long tiemFinArrDina = System.nanoTime();
         long tiempoTotalArrDina = tiemFinArrDina - tiemIniArrDina;
-        System.out.println("Tiempo total: " + tiempoTotalArrDina + " nanosegundos");
+        System.out.println("Tiempo total arreglo dinamico con cola: " + tiempoTotalArrDina + " nanosegundos");
         
         /*Lista enlazada*/
         long tiemIniListaEnla = System.nanoTime();
@@ -121,7 +121,7 @@ public class EstructuraDeDatos <T>{
         listaEnlazada.ActualizarData(elementoViejo, elementoViejo);
         long tiemFinListaEnla = System.nanoTime();
         long tiempoTotalListaEnla = tiemFinListaEnla - tiemIniListaEnla;
-        System.out.println("Tiempo total: " + tiempoTotalListaEnla + " nanosegundos");
+        System.out.println("Tiempo total lista enlazada: " + tiempoTotalListaEnla + " nanosegundos");
         
         /*Lista Enlazada con Cola*/
         long tiemIniListaEnlaCola = System.nanoTime();
@@ -129,6 +129,6 @@ public class EstructuraDeDatos <T>{
         listaEnlazadaConCola.ActualizarData(elementoViejo, elementoViejo);
         long tiemFinListaEnlaCola = System.nanoTime();
         long tiempoTotalListaEnlaCola = tiemFinListaEnlaCola - tiemIniListaEnlaCola;
-        System.out.println("Tiempo total: " + tiempoTotalListaEnlaCola + " nanosegundos");
+        System.out.println("Tiempo total lista enlazada con cola: " + tiempoTotalListaEnlaCola + " nanosegundos");
     }
 }

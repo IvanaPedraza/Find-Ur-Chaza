@@ -160,4 +160,8 @@ public class ListaEnlazada <T> {
     public void emptyList() {
         this.head = null;
     }
+    
+    public int size(){
+        return this.size;
+    }
 }
