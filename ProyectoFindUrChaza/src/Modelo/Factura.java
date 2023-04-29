@@ -8,7 +8,9 @@ package Modelo;
  *
  * @author kelly
  */
-public class Orden {
+public class Factura {
     
+    private Producto producto;
+    private Orden orden;
     
 }

@@ -9,11 +9,9 @@ package Modelo;
  * @author kelly
  */
 public class Vendedor extends Usuario{
-    
-    public Vendedor(String correo, String nombre, String contraseña) {
-        super(correo, nombre, contraseña);
+
+    public Vendedor(String nombre, String apellido, String correo, String contraseña) {
+        super(nombre, apellido, correo, contraseña);
     }
-    
-    
     
 }

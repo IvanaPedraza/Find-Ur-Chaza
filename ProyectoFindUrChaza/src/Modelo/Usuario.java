@@ -11,14 +11,33 @@ import java.util.Date;
  * @author kelly
  */
 public class Usuario {
-    private String correo;
     private String nombre;
+    private String apellido;
+    private String correo;
     private String contraseña;
 
-    public Usuario(String correo, String nombre, String contraseña) {
-        this.correo = correo;
+    public Usuario(String nombre, String apellido, String correo, String contraseña) {
         this.nombre = nombre;
+        this.apellido = apellido;
+        this.correo = correo;
         this.contraseña = contraseña;
+    }
+    
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 
     public String getCorreo() {
@@ -29,14 +48,6 @@ public class Usuario {
         this.correo = correo;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
     public String getContraseña() {
         return contraseña;
     }
@@ -44,4 +55,6 @@ public class Usuario {
     public void setContraseña(String contraseña) {
         this.contraseña = contraseña;
     }
+
+    
 }

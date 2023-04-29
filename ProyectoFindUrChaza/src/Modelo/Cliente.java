@@ -8,7 +8,11 @@ package Modelo;
  *
  * @author kelly
  */
-public class Orden {
+public class Cliente extends Usuario{
+    
+    public Cliente(String correo, String nombre, String contraseña) {
+        super(correo, nombre, contraseña);
+    }
     
     
 }
