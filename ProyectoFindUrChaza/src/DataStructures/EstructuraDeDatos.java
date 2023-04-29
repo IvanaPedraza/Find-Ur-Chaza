@@ -49,8 +49,8 @@ public class EstructuraDeDatos <T>{
         long tiempoTotalListaEnlaCola = tiemFinListaEnlaCola - tiemIniListaEnlaCola;
         System.out.println("Tiempo total: " + tiempoTotalListaEnlaCola + " nanosegundos");
     }
-    public void eliminarElemento(T elemento){
-        
+    
+    public void eliminarElemento(){
         /*Arreglo Dinamico Con Cola*/
         long tiemIniArrDina = System.nanoTime();
         // Ejecutamos el código
