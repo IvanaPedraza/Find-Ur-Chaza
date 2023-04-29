@@ -10,16 +10,26 @@ package Modelo;
  */
 public class Chaza {
     
+    private int idChaza;
     private String nombreChaza;
     private String ubicacion;
     private String descripcion;
     private Vendedor vendedor;
 
-    public Chaza(String nombreChaza, String ubicacion, String descripcion, Vendedor vendedor) {
+    public Chaza(int idChaza, String nombreChaza, String ubicacion, String descripcion, Vendedor vendedor) {
+        this.idChaza = idChaza;
         this.nombreChaza = nombreChaza;
         this.ubicacion = ubicacion;
         this.descripcion = descripcion;
         this.vendedor = vendedor;
+    }
+
+    public int getIdChaza() {
+        return idChaza;
+    }
+
+    public void setIdChaza(int idChaza) {
+        this.idChaza = idChaza;
     }
 
     public String getNombreChaza() {
@@ -53,6 +63,8 @@ public class Chaza {
     public void setVendedor(Vendedor vendedor) {
         this.vendedor = vendedor;
     }
+
+    
     
     
     

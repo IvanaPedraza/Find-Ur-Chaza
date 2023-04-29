@@ -24,7 +24,8 @@ public class ArregloDinamicoConCola<T> {
         if (estaLleno()) {
             incrementarTamano();
         }
-        arrayInicial[this.tamano++] = elemento;
+        arrayInicial[conteo] = elemento;
+        conteo++;
 
     }
 
@@ -33,13 +34,13 @@ public class ArregloDinamicoConCola<T> {
         if (estaLleno()) {
             incrementarTamano();
         }
-        this.tamano++;
         nuevaLista = (T[]) new Object[this.conteo];
         nuevaLista[0] = elemento;
         for (int i = 1; i < tamano; i++) {
             nuevaLista[i] = arrayInicial[i - 1];
         }
         arrayInicial = nuevaLista;
+        conteo++;
     }
 
     public void popBack() {
@@ -47,12 +48,13 @@ public class ArregloDinamicoConCola<T> {
         if (estaVacio()) {
             incrementarTamano();
         }
-        this.tamano--;
+        
         nuevaLista = (T[]) new Object[this.conteo];
         for (int i = 0; i < this.tamano; i++) {
             nuevaLista[i] = arrayInicial[i];
         }
         arrayInicial = nuevaLista;
+        conteo--;
 
     }
 
@@ -81,7 +83,7 @@ public class ArregloDinamicoConCola<T> {
             i++;
         }
         arrayInicial = nuevaLista;
-        tamano--;
+        conteo--;
 
     }
     
@@ -100,12 +102,13 @@ public class ArregloDinamicoConCola<T> {
         if (estaVacio()) {
             System.out.println("Esta vacio");
         } else {
-            this.tamano--;
+            
             nuevaLista = (T[]) new Object[this.conteo];
             for (int i = 0; i < tamano; i++) {
                 nuevaLista[i] = arrayInicial[i++];
             }
             arrayInicial = nuevaLista;
+            conteo--;
         }
     }
     
@@ -127,9 +130,9 @@ public class ArregloDinamicoConCola<T> {
         T temporal[] = null;
         if (conteo == tamano) {
             temporal = (T[]) new Object[tamano * 2];
-            for (int i = 0; i < tamano; i++) {
-                temporal[i] = arrayInicial[i];
-            }
+        }
+        for (int i = 0; i < tamano; i++) {
+            temporal[i] = arrayInicial[i];
         }
         this.arrayInicial = temporal;
         this.tamano = tamano * 2;
@@ -141,8 +144,8 @@ public class ArregloDinamicoConCola<T> {
         }
     }
 
-    public int getTamano() {
-        return tamano;
+    public int getConteo() {
+        return conteo;
     }
 
 }
