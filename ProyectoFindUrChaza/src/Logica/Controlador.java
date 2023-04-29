@@ -4,9 +4,8 @@
  */
 package Logica;
 
-import DataStructures.ArregloDinamicoConCola;
-import Modelo.Cliente;
-import Modelo.Vendedor;
+import DataStructures.*;
+import Modelo.*;
 
 /**
  *
@@ -16,11 +15,16 @@ public class Controlador {
     
     private ArregloDinamicoConCola arregloDinamicoClientes;
     private ArregloDinamicoConCola arregloDinamicoVendedor;
+    private Node nodo;
+    private ListaEnlazadaConCola listaEnlazadaColaChazas;
+    
     
     public Controlador(){
         arregloDinamicoClientes = new ArregloDinamicoConCola();
         arregloDinamicoVendedor = new ArregloDinamicoConCola();
     }
+    
+    /*Cliente*/
     
     public Cliente iniciarSesionCliente(String correo, String contrasena){
         Cliente clienteIngreso = new Cliente();
@@ -36,8 +40,6 @@ public class Controlador {
         }
         return clienteRetorno;
     }
-    
-    /*Cliente*/
     
     public void agregarNuevoCliente(String correo, String nombre, String apellido,String contrasena){
         Cliente nuevoCliente = new Cliente(correo, nombre, apellido, contrasena);
@@ -133,6 +135,11 @@ public class Controlador {
     
     /*Chaza*/
     
+    public void agregarNuevaChaza(String nombreChaza, String ubicacion, String descripcion, Vendedor vendedor){
+        Chaza nuevaChaza = new Chaza(nombreChaza,ubicacion,descripcion,vendedor);
+        
+    }
+    
     
     
     /*Comentario*/
@@ -154,6 +161,7 @@ public class Controlador {
     /*Usuario*/
     
     
+    /*Vendedor*/
     
     public Vendedor iniciarSesionVendedor(String correo, String contrasena){
         Vendedor vendedorIngreso = new Vendedor();
@@ -169,8 +177,6 @@ public class Controlador {
         }
         return vendedorRetorno;
     }
-    
-    /*Vendedor*/
     
     public void agregarNuevoVendedor(String correo, String nombre, String apellido,String contrasena){
         Vendedor nuevoVendedor = new Vendedor(correo, nombre, apellido, contrasena);

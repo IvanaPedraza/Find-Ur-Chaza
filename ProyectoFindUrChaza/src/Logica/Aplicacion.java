@@ -129,11 +129,44 @@ public class Aplicacion {
     public void enviarUsuarioVendedor(Vendedor vendedor) {
         System.out.println("------------------ Bienvenido(a) " + vendedor.getNombre() + " " + vendedor.getApellido() + " ------------------");
         System.out.println("Ingrese la opción que quiere realizar: ");
+        System.out.println("[1] Crear chaza");
+        System.out.println("[2] Ver mis chazas");
+        System.out.println("[3] Salir al inicio");
+        int opcionIngreso = Integer.parseInt(escaner.next());
+        switch (opcionIngreso) {
+            case 1:
+                crearNuevaChaza();
+                break;
+            case 2:
+                visualizarChazasPropias(vendedor);
+                break;
+            case 3:
+                iniciarSistema();
+                break;
+            default:
+                System.out.println("La opcion ingresada no es compatible, vuelva a intentar.");
+                enviarUsuarioVendedor(vendedor);
+                break;
+        }
+        
+    }
+    
+    public void visualizarChazasPropias(Vendedor vendedor){
+        System.out.println("------------------ Bienvenido(a) " + vendedor.getNombre() + " " + vendedor.getApellido() + " ------------------");
+        System.out.println("Estas son las chazas que haz creado por el momento");
+        
+        System.out.println("Ingrese la opción que quiere realizar: ");
+        System.out.println("[1] Crear chaza");
+        System.out.println("[2] Ver mis chazas");
+        System.out.println("[3] Salir al inicio");
+    }
+    
+    
         System.out.println("[1] Ver productos");
         System.out.println("[2] Ver ordenes");
         System.out.println("[3] Comentario de tu chaza");
-        System.out.println("[4] Salir al inicio");
-        int opcionIngreso = Integer.parseInt(escaner.next());
+        
+        
         switch (opcionIngreso) {
             case 1:
                 visualizarProductosVendedor();
@@ -152,7 +185,6 @@ public class Aplicacion {
                 enviar();
                 break;
         }
-    }
 
     public void enviarUsuarioCliente(Cliente cliente) {
         System.out.println("------------------ Bienvenido(a) " + cliente.getNombre() + " " + cliente.getApellido() + " ------------------");

@@ -10,18 +10,20 @@ package Modelo;
  */
 public class Chaza {
     
-    private int idChaza;
+    private static int idChaza;
     private String nombreChaza;
     private String ubicacion;
     private String descripcion;
     private Vendedor vendedor;
+    private int estadoChaza;
 
-    public Chaza(int idChaza, String nombreChaza, String ubicacion, String descripcion, Vendedor vendedor) {
-        this.idChaza = idChaza;
+    public Chaza(String nombreChaza, String ubicacion, String descripcion, Vendedor vendedor) {
+        idChaza += 1;
         this.nombreChaza = nombreChaza;
         this.ubicacion = ubicacion;
         this.descripcion = descripcion;
         this.vendedor = vendedor;
+        this.estadoChaza = 1;
     }
 
     public int getIdChaza() {
@@ -64,9 +66,13 @@ public class Chaza {
         this.vendedor = vendedor;
     }
 
+    public int getEstadoChaza(){
+        return estadoChaza;
+    }
     
-    
-    
+    public void setEstadoChaza(int estadoChaza){
+        this.estadoChaza = estadoChaza;
+    }
     
     
 }
