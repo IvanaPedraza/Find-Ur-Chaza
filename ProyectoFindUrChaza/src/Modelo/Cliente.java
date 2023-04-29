@@ -9,10 +9,12 @@ package Modelo;
  * @author kelly
  */
 public class Cliente extends Usuario{
-    
-    public Cliente(String correo, String nombre, String contraseña) {
-        super(correo, nombre, contraseña);
+
+    public Cliente(String nombre, String apellido, String correo, String contraseña) {
+        super(nombre, apellido, correo, contraseña);
     }
+    
+    
     
     
 }
