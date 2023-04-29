@@ -10,22 +10,112 @@ package DataStructures;
  */
 public class ArregloDinamicoConCola<T> {
 
-    private T arreglo[];
-    private int conteo; //conteo es la misma cola 
+    private T[] arrayInicial;
     private int tamano;
+    private int conteo;
 
     public ArregloDinamicoConCola() {
-        this.arreglo = (T[]) new Object[1];
         this.conteo = 0;
+        this.arrayInicial = (T[]) new Object[1];
         this.tamano = 1;
     }
 
-    public void agregarElemento(T elemento) {
-        if (conteo == tamano) {
+    public void pushBack(T elemento) {
+        if (estaLleno()) {
             incrementarTamano();
         }
-        this.arreglo[conteo] = elemento;
-        conteo++;
+        arrayInicial[this.tamano++] = elemento;
+
+    }
+
+    public void pushFront(T elemento) {
+        T[] nuevaLista;
+        if (estaLleno()) {
+            incrementarTamano();
+        }
+        this.tamano++;
+        nuevaLista = (T[]) new Object[this.conteo];
+        nuevaLista[0] = elemento;
+        for (int i = 1; i < tamano; i++) {
+            nuevaLista[i] = arrayInicial[i - 1];
+        }
+        arrayInicial = nuevaLista;
+    }
+
+    public void popBack() {
+        T[] nuevaLista;
+        if (estaVacio()) {
+            incrementarTamano();
+        }
+        this.tamano--;
+        nuevaLista = (T[]) new Object[this.conteo];
+        for (int i = 0; i < this.tamano; i++) {
+            nuevaLista[i] = arrayInicial[i];
+        }
+        arrayInicial = nuevaLista;
+
+    }
+
+    public boolean find(T elemento) {
+        boolean seEncuentra = false;
+        for (int i = 0; i < tamano; i++) {
+            if (arrayInicial[i] == elemento) {
+                seEncuentra = true;
+            }
+        }
+        return seEncuentra;
+    }
+
+    public void delete(T elemento) {
+        T[] nuevaLista = (T[]) new Object[this.conteo];
+        int i = 0;
+        while (i < tamano) {
+            if (arrayInicial[i] == elemento) {
+                for (int k = i; k < tamano - 1; k++) {
+                    nuevaLista[k] = arrayInicial[k + 1];
+                }
+                break;
+            } else {
+                nuevaLista[i] = arrayInicial[i];
+            }
+            i++;
+        }
+        arrayInicial = nuevaLista;
+        tamano--;
+
+    }
+    
+    public void update(T elemento, T elementoNuevo){
+        int posicionElemento = 0;
+        for(int i = 0;i < conteo;i++){
+            if(arrayInicial[i] == elemento){
+                posicionElemento = i;
+            }
+        }
+        arrayInicial[posicionElemento] = elementoNuevo;
+    }
+
+    public void popFront() {
+        T[] nuevaLista;
+        if (estaVacio()) {
+            System.out.println("Esta vacio");
+        } else {
+            this.tamano--;
+            nuevaLista = (T[]) new Object[this.conteo];
+            for (int i = 0; i < tamano; i++) {
+                nuevaLista[i] = arrayInicial[i++];
+            }
+            arrayInicial = nuevaLista;
+        }
+    }
+    
+
+    public boolean estaLleno() {
+        return tamano == conteo;
+    }
+
+    public boolean estaVacio() {
+        return this.tamano == 0;
     }
 
     public void incrementarTamano() {
@@ -33,27 +123,21 @@ public class ArregloDinamicoConCola<T> {
         if (conteo == tamano) {
             temporal = (T[]) new Object[tamano * 2];
             for (int i = 0; i < tamano; i++) {
-                temporal[i] = arreglo[i];
+                temporal[i] = arrayInicial[i];
             }
         }
-        this.arreglo = temporal;
+        this.arrayInicial = temporal;
         this.tamano = tamano * 2;
     }
-    
-    public void agregarElemento(int index, T elemento){
-        if(conteo==tamano){
-            incrementarTamano();
+
+    public void imprimir() {
+        for (int i = 0; i < this.conteo; i++) {
+            System.out.println(arrayInicial[i]);
         }
-        for(int i = conteo - 1;i>= index;i--){
-            arreglo[i + 1] = arreglo[i];
-        }
-        arreglo[index] = elemento;
-        conteo++;
     }
-    
-    public T eliminarElemento(){
-        if(conteo > 0){
-        }
+
+    public int getTamano() {
+        return tamano;
     }
 
 }
