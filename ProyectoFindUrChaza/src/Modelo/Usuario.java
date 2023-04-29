@@ -15,6 +15,10 @@ public class Usuario {
     private String apellido;
     private String correo;
     private String contraseña;
+    
+    public Usuario(){
+        
+    }
 
     public Usuario(String nombre, String apellido, String correo, String contraseña) {
         this.nombre = nombre;

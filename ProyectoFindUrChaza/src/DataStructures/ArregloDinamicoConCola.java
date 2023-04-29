@@ -109,6 +109,11 @@ public class ArregloDinamicoConCola<T> {
         }
     }
     
+    
+    public T getElement(int index){
+        return arrayInicial[index];
+    }
+    
 
     public boolean estaLleno() {
         return tamano == conteo;

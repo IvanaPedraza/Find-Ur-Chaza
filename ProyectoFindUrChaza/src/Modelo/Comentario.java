@@ -8,17 +8,6 @@ package Modelo;
  *
  * @author kelly
  */
-public class Cliente extends Usuario{
-    
-    public Cliente(){
-        
-    }
-
-    public Cliente(String nombre, String apellido, String correo, String contraseña) {
-        super(nombre, apellido, correo, contraseña);
-    }
-    
-    
-    
+public class Comentario {
     
 }
