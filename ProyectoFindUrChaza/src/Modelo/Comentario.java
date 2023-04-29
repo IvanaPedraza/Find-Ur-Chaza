@@ -4,10 +4,57 @@
  */
 package Modelo;
 
+import java.util.Date;
+
 /**
  *
  * @author kelly
  */
 public class Comentario {
+    private Date fechaComentario;
+    private String contenido;
+    private Cliente cliente;
+    private Chaza chaza;
+
+    public Comentario(Date fechaComentario, String contenido, Cliente cliente, Chaza chaza) {
+        this.fechaComentario = fechaComentario;
+        this.contenido = contenido;
+        this.cliente = cliente;
+        this.chaza = chaza;
+    }
+
+    public Date getFechaComentario() {
+        return fechaComentario;
+    }
+
+    public void setFechaComentario(Date fechaComentario) {
+        this.fechaComentario = fechaComentario;
+    }
+
+    public String getContenido() {
+        return contenido;
+    }
+
+    public void setContenido(String contenido) {
+        this.contenido = contenido;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public Chaza getChaza() {
+        return chaza;
+    }
+
+    public void setChaza(Chaza chaza) {
+        this.chaza = chaza;
+    }
+    
+    
     
 }

@@ -21,6 +21,8 @@ public class Controlador {
         arregloDinamicoVendedor = new ArregloDinamicoConCola();
     }
     
+    /*Cliente*/
+    
     public void agregarNuevoCliente(String nombre, String apellido, String correo, String contrasena){
         Cliente nuevoCliente = new Cliente(nombre, apellido, correo, contrasena);
         arregloDinamicoClientes.pushBack(nuevoCliente);
@@ -72,7 +74,6 @@ public class Controlador {
         
     }
         
-    
     public void imprimirClientes(){
         Cliente clienteIterado = new Cliente();
         for(int i = 0;i < arregloDinamicoClientes.getTamano();i++){
@@ -107,6 +108,40 @@ public class Controlador {
         }
         return clienteEncontrado;
     }
+    
+    /*Productos*/
+    
+    
+    
+    /*Chaza*/
+    
+    
+    
+    /*Comentario*/
+    
+    
+    
+    /*Factura*/
+    
+    
+    
+    /*Orden*/
+    
+    
+    
+    /*Producto*/
+    
+    
+    
+    /*Usuario*/
+    
+    
+    
+    /*Vendedor*/
+    
+    
+    
+    
     
     
     
