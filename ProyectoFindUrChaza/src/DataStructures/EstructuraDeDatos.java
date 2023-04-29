@@ -52,8 +52,18 @@ public class EstructuraDeDatos <T>{
         System.out.println("Tiempo total: " + tiempoTotalListaEnlaCola + " nanosegundos");
         
         
-        
     }
+    
+    
+    
+    
+    
+    
+    
+    public void eliminarElemento(){
+        
+    
+    
 
         
         
