@@ -128,6 +128,17 @@ public class ListaEnlazada <T> {
         }
         return false;
     }
+     public void ActualizarData(T anteriorValuer, T nuevoValor) {
+         Node<T> current = head;
+
+         while (current != null) {
+             if (current.getData() == anteriorValuer) {
+                 current.setData(nuevoValor);
+                 return;
+             }
+             current = current.getNext();
+         }
+     }
 
     public boolean isEmpty() {
         return this.head == null;
