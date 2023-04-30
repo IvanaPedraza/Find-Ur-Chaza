@@ -35,6 +35,36 @@ public class ControladorArregloDinamico {
         ArregloDinamicoFactura = new ArregloDinamicoConCola();
         ArregloDinamicoOrden = new ArregloDinamicoConCola();
     }
+
+    public ArregloDinamicoConCola getArregloDinamicoClientes() {
+        return ArregloDinamicoClientes;
+    }
+
+    public ArregloDinamicoConCola getArregloDinamicoVendedor() {
+        return ArregloDinamicoVendedor;
+    }
+
+    public ArregloDinamicoConCola getArregloDinamicoChaza() {
+        return ArregloDinamicoChaza;
+    }
+
+    public ArregloDinamicoConCola getArregloDinamicoProducto() {
+        return ArregloDinamicoProducto;
+    }
+
+    public ArregloDinamicoConCola getArregloDinamicoComentario() {
+        return ArregloDinamicoComentario;
+    }
+
+    public ArregloDinamicoConCola getArregloDinamicoFactura() {
+        return ArregloDinamicoFactura;
+    }
+
+    public ArregloDinamicoConCola getArregloDinamicoOrden() {
+        return ArregloDinamicoOrden;
+    }
+    
+    
     
     /*Cliente*/
     
@@ -82,6 +112,23 @@ public class ControladorArregloDinamico {
         }
         return clienteAEliminar; 
     }
+    
+    public Cliente eliminarCliente(){
+        Cliente clienteAEliminar = new Cliente();
+        try{
+            long time_start, time_end;
+            time_start = System.nanoTime();
+            ArregloDinamicoClientes.popBack();
+            time_end = System.nanoTime();
+            System.out.println("eliminarCliente con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
+            
+        }catch(Exception e){
+            System.out.println("Ha ocurrido un error");
+        }
+        return clienteAEliminar; 
+    }
+    
+    
     
     public Cliente actualizarCategoriaCliente(Cliente clienteActualizar, String categoria, String datoModificado){
         switch(categoria){
