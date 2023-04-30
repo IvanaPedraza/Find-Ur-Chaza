@@ -24,6 +24,7 @@ public class ControladorArregloDinamico {
     private ArregloDinamicoConCola arregloDinamicoProducto;
     private ArregloDinamicoConCola arregloDinamicoComentario;
     private ArregloDinamicoConCola arregloDinamicoFactura;
+    private ArregloDinamicoConCola arregloDinamicoOrden;
     
     public ControladorArregloDinamico(){
         arregloDinamicoClientes = new ArregloDinamicoConCola();
@@ -32,6 +33,7 @@ public class ControladorArregloDinamico {
         arregloDinamicoProducto = new ArregloDinamicoConCola();
         arregloDinamicoComentario = new ArregloDinamicoConCola();
         arregloDinamicoFactura = new ArregloDinamicoConCola();
+        arregloDinamicoOrden = new ArregloDinamicoConCola();
     }
     
     /*Cliente*/
@@ -280,9 +282,6 @@ public class ControladorArregloDinamico {
     }
     
     
-    
-    
-    
     /*Chaza*/
     
     public void agregarNuevaChaza(String nombreChaza, String ubicacion, String descripcion, Vendedor vendedor){
@@ -387,7 +386,11 @@ public class ControladorArregloDinamico {
     
     public void agregarNuevoComentario(long idComentario, Date fechaComentario, String contenido, Cliente cliente, Chaza chaza){
         Comentario nuevoComentario = new Comentario(idComentario, fechaComentario, contenido, cliente, chaza);
+        long time_start, time_end;
+        time_start = System.nanoTime();
         arregloDinamicoComentario.pushBack(nuevoComentario);
+        time_end = System.nanoTime();
+        System.out.println("agregarNuevoComentario con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
         System.out.println("Se ha ingresado correctamente: " + idComentario + " " + contenido);
         
     }
@@ -410,23 +413,37 @@ public class ControladorArregloDinamico {
         }catch(Exception e){
             System.out.println("No se pudo actualizar el comentario, porque no existe");
         }
+        long time_start, time_end;
+        time_start = System.nanoTime();
         Comentario comentarioActualizado = actualizarCategoriaComentario(comentarioAntiguo,categoria, datoModificado);
-       
+        time_end = System.nanoTime();
+        System.out.println("actualizarCategoriaComentario con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
+        
+        long time_start2, time_end2;
+        time_start2 = System.nanoTime();
         arregloDinamicoComentario.update(comentarioAntiguo, comentarioActualizado);
+        time_end2 = System.nanoTime();
+        System.out.println("actualizarComentario con arreglo dinamico tomo "+ ( time_end2 - time_start2 ) +" milliseconds");
         
     }
     
     public void imprimirComentario(){
         Comentario comentarioIterado = new Comentario();
+        long time_start, time_end;
+        time_start = System.nanoTime();
         for(int i = 0;i < arregloDinamicoComentario.getConteo();i++){
             comentarioIterado = (Comentario) arregloDinamicoComentario.getElement(i);
             System.out.println(comentarioIterado.getIdComentario() + " " + comentarioIterado.getContenido() + " " + comentarioIterado.getFechaComentario()+ " ");
         }
+        time_end = System.nanoTime();
+        System.out.println("imprimirComentarios con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
     }
     
     public Comentario buscarComentarioPorId(long idComentario) throws Exception{
         Comentario comentarioEncontrado = new Comentario();
         Comentario comentarioIterado = new Comentario();
+        long time_start, time_end;
+        time_start = System.nanoTime();
         for(int i = 0;i < arregloDinamicoComentario.getConteo();i++){
             comentarioIterado = (Comentario) arregloDinamicoComentario.getElement(i);
             if(comentarioIterado.getIdComentario()==idComentario){
@@ -435,17 +452,25 @@ public class ControladorArregloDinamico {
                 throw new Exception("No existe el comentario");
             }
         }
+        time_end = System.nanoTime();
+        System.out.println("buscarComentarioPorId con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
         return comentarioEncontrado;
     }
     
     /*Factura*/
     public void agregarNuevaFactura(long numReferencia, Date fechaFactura, Producto producto, Orden orden, double costoTotal){
         Factura nuevaFactura = new Factura(numReferencia, fechaFactura, producto, orden, costoTotal);
+        long time_start, time_end;
+        time_start = System.nanoTime();
         arregloDinamicoFactura.pushBack(nuevaFactura);
+        time_end = System.nanoTime();
+        System.out.println("agregarNuevaFactura con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
         System.out.println("Se ha ingresado correctamente: " + numReferencia + " " + orden + " " + producto);
     }
     public Factura eliminarFactura(long numReferencia){
         Factura facturaAEliminar = new Factura();
+        long time_start, time_end;
+        time_start = System.nanoTime();
         try{
             facturaAEliminar = buscarFacturaPorId(numReferencia);
             arregloDinamicoFactura.delete(facturaAEliminar);
@@ -453,6 +478,8 @@ public class ControladorArregloDinamico {
         }catch(Exception e){
             System.out.println("La factura no se encontró");
         }
+        time_end = System.nanoTime();
+        System.out.println("eliminarFactura con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
         return facturaAEliminar; 
     }
     
@@ -465,7 +492,6 @@ public class ControladorArregloDinamico {
                     facturaActualizar.setFechaFactura(fecha);
                 }catch(Exception e){
                     System.out.println("Ha ocurrido un error en el ingreso de la fecha, vuelve a intentar");
-                    actualizarFactura(facturaActualizar, categoria, datoModificado);
                 }
                 
                 break;
@@ -484,32 +510,160 @@ public class ControladorArregloDinamico {
         return facturaActualizar;
     }
     
-    public void actualizarFactura(String referenciaFacturaAntiguo, String categoria, String datoModificado){
+    public void actualizarFactura(long referenciaFacturaAntiguo, String categoria, String datoModificado){
         Factura facturaAntigua = new Factura();
         try{
             facturaAntigua = buscarFacturaPorId(referenciaFacturaAntiguo);
         }catch(Exception e){
             System.out.println("No se pudo actualizar la factura, porque no existe");
         }
+        long time_start, time_end;
+        time_start = System.nanoTime();
         Factura facturaActualizada = actualizarCategoriaFactura(facturaAntigua,categoria, datoModificado);
-       
-        arregloDinamicoFactura.update(facturaAntigua, facturaActualizada);
+        time_end = System.nanoTime();
+        System.out.println("actualizarCategoriaFactura con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
         
+        long time_start2, time_end2;
+        time_start2 = System.nanoTime();
+        arregloDinamicoFactura.update(facturaAntigua, facturaActualizada);
+        time_end2 = System.nanoTime();
+        System.out.println("arregloDinamicoFactura con arreglo dinamico tomo "+ ( time_end2 - time_start2 ) +" milliseconds");
     }
     
     public void imprimirFactura(){
         Factura facturaIterada = new Factura();
+        long time_start, time_end;
+        time_start = System.nanoTime();
         for(int i = 0;i < arregloDinamicoFactura.getConteo();i++){
             facturaIterada = (Factura) arregloDinamicoFactura.getElement(i);
             System.out.println(facturaIterada.getNumReferencia() + " " + facturaIterada.getFechaFactura() + " " + facturaIterada.getOrden()+ " " + facturaIterada.getProducto());
         }
+        time_end = System.nanoTime();
+        System.out.println("imprimirFacturas con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
+    }
+    
+    public Factura buscarFacturaPorId(long referencia) throws Exception{
+        Factura facturaEncontrado = new Factura();
+        Factura facturaIterado = new Factura();
+        long time_start, time_end;
+        time_start = System.nanoTime();
+        for(int i = 0;i < arregloDinamicoFactura.getConteo();i++){
+            facturaIterado = (Factura) arregloDinamicoFactura.getElement(i);
+            if(facturaIterado.getNumReferencia()== referencia){
+                facturaEncontrado = facturaIterado;
+            }else{
+                throw new Exception("No existe la factura");
+            }
+        }
+        time_end = System.nanoTime();
+        System.out.println("buscarFacturaPorId con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
+        return facturaEncontrado;
+    }
+    
+    /*Orden*/
+    
+    public void agregarNuevaOrden(long numOrden, Date fechaOrden, Cliente cliente,Chaza chaza){
+        Orden nuevaOrden = new Orden(numOrden, fechaOrden, cliente, chaza);
+        long time_start, time_end;
+        time_start = System.nanoTime();
+        arregloDinamicoOrden.pushBack(nuevaOrden);
+        time_end = System.nanoTime();
+        System.out.println("agregarNuevaOrden con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
+        System.out.println("Se ha ingresado correctamente: " + numOrden + " " + fechaOrden + " " + cliente + " " + chaza);
+    }
+    
+    public Orden eliminarOrden(long numOrden){
+        Orden ordenAEliminar = new Orden();
+        long time_start, time_end;
+        time_start = System.nanoTime();
+        try{
+            ordenAEliminar = buscarOrdenPorId(numOrden);
+            arregloDinamicoOrden.delete(ordenAEliminar);
+            
+        }catch(Exception e){
+            System.out.println("La orden no se encontró");
+        }
+        time_end = System.nanoTime();
+        System.out.println("eliminarOrden con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
+        return ordenAEliminar; 
+    }
+    
+    public Orden actualizarCategoriaOrden(Orden ordenActualizar, String categoria, Object datoModificado){
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy"); 
+        switch(categoria){
+            case "Fecha orden":
+                try{
+                Date fecha = formato.parse(datoModificado.toString());
+                ordenActualizar.setFechaOrden(fecha);
+                }catch(Exception e ){
+                    System.out.println("Error en la fecha ingresada");
+                }
+                break;
+            case "Cliente":
+                ordenActualizar.setCliente((Cliente) datoModificado);
+                break;
+            case "Chaza":
+                ordenActualizar.setChaza((Chaza) datoModificado);
+                break;
+            default:
+                System.out.println("La categoria no es válida");
+        }
+        return ordenActualizar;
+    }
+    
+    public void actualizarOrden(long numOrdenAntigua, String categoria, Object datoModificado){
+        Orden ordenAntiguo = new Orden();
+        
+        try{
+            ordenAntiguo = buscarOrdenPorId(numOrdenAntigua);
+        }catch(Exception e){
+            System.out.println("No se pudo actualizar la orden, porque no existe");
+        }
+        long time_start, time_end;
+        time_start = System.nanoTime();
+        Orden ordenActualizado = actualizarCategoriaOrden(ordenAntiguo,categoria, datoModificado);
+        time_end = System.nanoTime();
+        System.out.println("actualizarCategoriaOrden con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
+        
+        long time_start2, time_end2;
+        time_start2 = System.nanoTime();
+        arregloDinamicoOrden.update(ordenAntiguo, ordenActualizado);
+        time_end2 = System.nanoTime();
+        System.out.println("actualizarOrden con arreglo dinamico tomo "+ ( time_end2 - time_start2 ) +" milliseconds");
+        
+    }
+    
+    public void imprimirOrden(){
+        Orden ordenIterado = new Orden();
+        long time_start, time_end;
+        time_start = System.nanoTime();
+        for(int i = 0;i < arregloDinamicoOrden.getConteo();i++){
+            ordenIterado = (Orden) arregloDinamicoOrden.getElement(i);
+            System.out.println(ordenIterado.getNumOrden() + " " + ordenIterado.getFechaOrden() + " " + ordenIterado.getCliente()+ " ");
+        }
+        time_end = System.nanoTime();
+        System.out.println("imprimirOrdenes con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
+    }
+    
+    public Orden buscarOrdenPorId(long numOrden) throws Exception{
+        Orden ordenEncontrada = new Orden();
+        Orden ordenIterada= new Orden();
+        long time_start, time_end;
+        time_start = System.nanoTime();
+        for(int i = 0;i < arregloDinamicoOrden.getConteo();i++){
+            vendedorIterado = (Vendedor) arregloDinamicoClientes.getElement(i);
+            if(vendedorIterado.getCorreo().equals(correo)){
+                vendedorEncontrado = vendedorIterado;
+            }else{
+                throw new Exception("No existe el cliente");
+            }
+        }
+        time_end = System.nanoTime();
+        System.out.println("buscarVendedorPorCorreo con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
+        return vendedorEncontrado;
     }
     
     
-    
-    
-    
-    /*Orden*/
     
     
     
@@ -517,7 +671,14 @@ public class ControladorArregloDinamico {
     
     
     
+    
+    
+    
     /*Usuario*/
+    
+    
+    
+    
     
     
     /*Vendedor*/
@@ -525,6 +686,8 @@ public class ControladorArregloDinamico {
     public Vendedor iniciarSesionVendedor(String correo, String contrasena){
         Vendedor vendedorIngreso = new Vendedor();
         Vendedor vendedorRetorno = new Vendedor();
+        long time_start, time_end;
+        time_start = System.nanoTime();
         for(int i = 0;i < arregloDinamicoVendedor.getConteo();i++){
             vendedorIngreso = (Vendedor) arregloDinamicoVendedor.getElement(i);
             if(vendedorIngreso.getCorreo().equals(correo) && vendedorIngreso.getContraseña().equals(contrasena)){
@@ -534,17 +697,25 @@ public class ControladorArregloDinamico {
                 vendedorRetorno = null;
             }
         }
+        time_end = System.nanoTime();
+        System.out.println("buscarFacturaPorId con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
         return vendedorRetorno;
     }
     
     public void agregarNuevoVendedor(String correo, String nombre, String apellido,String contrasena){
         Vendedor nuevoVendedor = new Vendedor(correo, nombre, apellido, contrasena);
+        long time_start, time_end;
+        time_start = System.nanoTime();
         arregloDinamicoVendedor.pushBack(nuevoVendedor);
+        time_end = System.nanoTime();
+        System.out.println("agregarNuevoVendedor con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
         System.out.println("Se ha ingresado correctamente: " + nombre + " " + apellido);
     }
     //Devuelve el cliente borrado
     public Vendedor eliminarVendedor(String correo){
         Vendedor vendedorAEliminar = new Vendedor();
+        long time_start, time_end;
+        time_start = System.nanoTime();
         try{
             vendedorAEliminar = buscarVendedorPorCorreo(correo);
             arregloDinamicoVendedor.delete(vendedorAEliminar);
@@ -552,6 +723,8 @@ public class ControladorArregloDinamico {
         }catch(Exception e){
             System.out.println("El cliente no se encontró");
         }
+        time_end = System.nanoTime();
+        System.out.println("eliminarVendedor con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
         return vendedorAEliminar; 
     }
     
@@ -577,27 +750,42 @@ public class ControladorArregloDinamico {
     
     public void actualizarVendedor(String correoVendedorAntiguo, String categoria, String datoModificado){
         Vendedor vendedorAntiguo = new Vendedor();
+        
         try{
             vendedorAntiguo = buscarVendedorPorCorreo(correoVendedorAntiguo);
         }catch(Exception e){
             System.out.println("No se pudo actualizar el vendedor, porque no existe");
         }
+        long time_start, time_end;
+        time_start = System.nanoTime();
         Vendedor vendedorActualizado = actualizarCategoriaVendedor(vendedorAntiguo,categoria, datoModificado);
-       
-        arregloDinamicoClientes.update(vendedorAntiguo, vendedorActualizado);
+        time_end = System.nanoTime();
+        System.out.println("actualizarCategoriaVendedor con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
+        
+        long time_start2, time_end2;
+        time_start2 = System.nanoTime();
+        arregloDinamicoVendedor.update(vendedorAntiguo, vendedorActualizado);
+        time_end2 = System.nanoTime();
+        System.out.println("actualizarVendedor con arreglo dinamico tomo "+ ( time_end2 - time_start2 ) +" milliseconds");
         
     }
         
     public void imprimirVendedor(){
         Vendedor vendedorIterado = new Vendedor();
+        long time_start, time_end;
+        time_start = System.nanoTime();
         for(int i = 0;i < arregloDinamicoVendedor.getConteo();i++){
             vendedorIterado = (Vendedor) arregloDinamicoClientes.getElement(i);
             System.out.println(vendedorIterado.getNombre() + " " + vendedorIterado.getApellido() + " " + vendedorIterado.getCorreo()+ " ");
         }
+        time_end = System.nanoTime();
+        System.out.println("imprimirVendedores con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
     }
     
     public void buscarVendedor(String nombre, String apellido){
         Vendedor vendedorIterado = new Vendedor();
+        long time_start, time_end;
+        time_start = System.nanoTime();
         for(int i = 0;i < arregloDinamicoVendedor.getConteo();i++){
             vendedorIterado = (Vendedor) arregloDinamicoVendedor.getElement(i);
             if(vendedorIterado.getNombre().equals(nombre) && vendedorIterado.getApellido().equals(apellido)){
@@ -607,11 +795,15 @@ public class ControladorArregloDinamico {
                 System.out.println("El vendedor no se ha encontrado");
             }
         }
+        time_end = System.nanoTime();
+        System.out.println("buscarVendedor con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
     }
     
     public Vendedor buscarVendedorPorCorreo(String correo) throws Exception{
         Vendedor vendedorEncontrado = new Vendedor();
         Vendedor vendedorIterado = new Vendedor();
+        long time_start, time_end;
+        time_start = System.nanoTime();
         for(int i = 0;i < arregloDinamicoVendedor.getConteo();i++){
             vendedorIterado = (Vendedor) arregloDinamicoClientes.getElement(i);
             if(vendedorIterado.getCorreo().equals(correo)){
@@ -620,14 +812,10 @@ public class ControladorArregloDinamico {
                 throw new Exception("No existe el cliente");
             }
         }
+        time_end = System.nanoTime();
+        System.out.println("buscarVendedorPorCorreo con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
         return vendedorEncontrado;
     }
-    
-    
-    
-    
-    
-    
     
     
 }
