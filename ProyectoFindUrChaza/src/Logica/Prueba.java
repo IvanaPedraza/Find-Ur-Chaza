@@ -4,24 +4,22 @@
  */
 package Logica;
 
-import DataStructures.*;
-import Modelo.*;
+
+import Modelo.Chaza;
+import Modelo.Cliente;
+import Modelo.Vendedor;
 
 /**
  *
  * @author kelly
  */
-public class Controlador {
+public class Prueba {
+    
+    private EstructuraDeDatos2 estr2;
     
     
-    
-    //private EstructuraDeDatos estructuraDeDatos;
-    private ArregloDinamicoConCola<Cliente> arregloDinamicoCliente;
-    
-    
-    public Controlador(){
-        //estructuraDeDatos = new EstructuraDeDatos();
-        arregloDinamicoCliente = new ArregloDinamicoConCola<>();
+    public Prueba(){
+        estr2 = new EstructuraDeDatos2();
     }
     
     /*Cliente*/
@@ -29,8 +27,8 @@ public class Controlador {
     public Cliente iniciarSesionCliente(String correo, String contrasena){
         Cliente clienteIngreso = new Cliente();
         Cliente clienteRetorno = new Cliente();
-        for(int i = 0;i < arregloDinamicoCliente.getConteo();i++){
-            clienteIngreso = (Cliente) arregloDinamicoCliente.getElement(i);
+        for(int i = 0;i < estr2.getConteo();i++){
+            clienteIngreso = (Cliente) estr2.visualizarElemento(i);
             if(clienteIngreso.getCorreo().equals(correo) && clienteIngreso.getContraseña().equals(contrasena)){
                 clienteRetorno = clienteIngreso;
             }else{
@@ -43,7 +41,7 @@ public class Controlador {
     
     public void agregarNuevoCliente(String correo, String nombre, String apellido, String telefono, String contrasena){
         Cliente nuevoCliente = new Cliente(correo, nombre, apellido, telefono, contrasena);
-        arregloDinamicoCliente.pushBack(nuevoCliente);
+        estr2.agregarElemento(nuevoCliente);
         System.out.println("Se ha ingresado correctamente: " + nombre + " " + apellido);
     }
     //Devuelve el cliente borrado
@@ -51,7 +49,7 @@ public class Controlador {
         Cliente clienteAEliminar = new Cliente();
         try{
             clienteAEliminar = buscarClientePorCorreo(correo);
-            arregloDinamicoCliente.delete(clienteAEliminar);
+            estr2.eliminarElemento(clienteAEliminar);
             
         }catch(Exception e){
             System.out.println("El cliente no se encontró");
@@ -88,22 +86,22 @@ public class Controlador {
         }
         Cliente clienteActualizado = actualizarCategoriaCliente(clienteAntiguo,categoria, datoModificado);
        
-        arregloDinamicoCliente.update(clienteAntiguo, clienteActualizado);
+        estr2.ActualizarElemento(clienteAntiguo, clienteActualizado);
         
     }
         
     public void imprimirClientes(){
         Cliente clienteIterado = new Cliente();
-        for(int i = 0;i < arregloDinamicoCliente.getConteo();i++){
-            clienteIterado = (Cliente) arregloDinamicoCliente.getElement(i);
+        for(int i = 0;i < estr2.getConteo();i++){
+            clienteIterado = (Cliente) estr2.visualizarElemento(i);
             System.out.println(clienteIterado.getNombre() + " " + clienteIterado.getApellido() + " " + clienteIterado.getCorreo()+ " ");
         }
     }
     
     public void buscarCliente(String nombre, String apellido){
         Cliente clienteIterado = new Cliente();
-        for(int i = 0;i < arregloDinamicoCliente.getConteo();i++){
-            clienteIterado = (Cliente) arregloDinamicoCliente.getElement(i);
+        for(int i = 0;i < estr2.getConteo();i++){
+            clienteIterado = (Cliente) estr2.visualizarElemento(i);
             if(clienteIterado.getNombre().equals(nombre) && clienteIterado.getApellido().equals(apellido)){
                 System.out.println("El cliente se ha encontrado: ");
                 System.out.println(clienteIterado.getNombre() + " " + clienteIterado.getApellido() + " " + clienteIterado.getCorreo());
@@ -116,8 +114,8 @@ public class Controlador {
     public Cliente buscarClientePorCorreo(String correo) throws Exception{
         Cliente clienteEncontrado = new Cliente();
         Cliente clienteIterado = new Cliente();
-        for(int i = 0;i < arregloDinamicoCliente.getConteo();i++){
-            clienteIterado = (Cliente) arregloDinamicoCliente.getElement(i);
+        for(int i = 0;i < estr2.getConteo();i++){
+            clienteIterado = (Cliente) estr2.visualizarElemento(i);
             if(clienteIterado.getCorreo().equals(correo)){
                 clienteEncontrado = clienteIterado;
             }else{
@@ -137,7 +135,7 @@ public class Controlador {
     
     public void agregarNuevaChaza(String nombreChaza, String ubicacion, String descripcion, Vendedor vendedor){
         Chaza nuevaChaza = new Chaza(nombreChaza,ubicacion,descripcion,vendedor);
-        estructuraDeDatos.agregarElemento(nuevaChaza);
+        estr2.agregarElemento(nuevaChaza);
         System.out.println("Se ha ingresado correctamente "+ nuevaChaza.getNombreChaza());
     }
     
@@ -145,7 +143,7 @@ public class Controlador {
         Chaza chazaAEliminar = new Chaza();
         try{
             chazaAEliminar = buscarChazaPorNombre(nombreChaza);
-            estructuraDeDatos.eliminarElemento(chazaAEliminar);
+            estr2.eliminarElemento(chazaAEliminar);
         }catch(Exception e){
             System.out.println("La chaza no se encontró");
         }
@@ -181,14 +179,14 @@ public class Controlador {
         }
         Chaza chazaActualizada = actualizarCategoriaChaza(chazaAntigua,categoria, datoModificado);
        
-        estructuraDeDatos.ActualizarElemento(chazaAntigua, chazaActualizada);
+        estr2.ActualizarElemento(chazaAntigua, chazaActualizada);
         
     }
     
     public void imprimirChazas(){
         Chaza chazaIterado = new Chaza();
-        for(int i = 0;i < estructuraDeDatos.getConteo();i++){
-            chazaIterado = (Chaza) estructuraDeDatos.visualizarElemento(i);
+        for(int i = 0;i < estr2.getConteo();i++){
+            chazaIterado = (Chaza) estr2.visualizarElemento(i);
             System.out.println(chazaIterado.getNombreChaza()+ " " + chazaIterado.getUbicacion() + " " + chazaIterado.getDescripcion() + " ");
         }
     }
@@ -196,8 +194,8 @@ public class Controlador {
     public Chaza buscarChazaPorNombre(String nombreChaza) throws Exception{
         Chaza chazaEncontrada = new Chaza();
         Chaza chazaIterado = new Chaza();
-        for(int i = 0;i < estructuraDeDatos.getConteo();i++){
-            chazaIterado = (Chaza) estructuraDeDatos.visualizarElemento(i);
+        for(int i = 0;i < estr2.getConteo();i++){
+            chazaIterado = (Chaza) estr2.visualizarElemento(i);
             if(chazaIterado.getNombreChaza().equals(nombreChaza)){
                 chazaEncontrada = chazaIterado;
             }else{
@@ -235,8 +233,8 @@ public class Controlador {
     public Vendedor iniciarSesionVendedor(String correo, String contrasena){
         Vendedor vendedorIngreso = new Vendedor();
         Vendedor vendedorRetorno = new Vendedor();
-        for(int i = 0;i < estructuraDeDatos.getConteo();i++){
-            vendedorIngreso = (Vendedor) estructuraDeDatos.visualizarElemento(i);
+        for(int i = 0;i < estr2.getConteo();i++){
+            vendedorIngreso = (Vendedor) estr2.visualizarElemento(i);
             if(vendedorIngreso.getCorreo().equals(correo) && vendedorIngreso.getContraseña().equals(contrasena)){
                 vendedorRetorno = vendedorIngreso;
             }else{
@@ -249,7 +247,7 @@ public class Controlador {
     
     public void agregarNuevoVendedor(String correo, String nombre, String apellido, String telefono, String contrasena){
         Vendedor nuevoVendedor = new Vendedor(correo, nombre, apellido, telefono, contrasena);
-        estructuraDeDatos.agregarElemento(nuevoVendedor);
+        estr2.agregarElemento(nuevoVendedor);
         System.out.println("Se ha ingresado correctamente: " + nombre + " " + apellido);
     }
     //Devuelve el cliente borrado
@@ -257,7 +255,7 @@ public class Controlador {
         Vendedor vendedorAEliminar = new Vendedor();
         try{
             vendedorAEliminar = buscarVendedorPorCorreo(correo);
-            estructuraDeDatos.eliminarElemento(vendedorAEliminar);
+            estr2.eliminarElemento(vendedorAEliminar);
             
         }catch(Exception e){
             System.out.println("El cliente no se encontró");
@@ -294,22 +292,22 @@ public class Controlador {
         }
         Vendedor vendedorActualizado = actualizarCategoriaVendedor(vendedorAntiguo,categoria, datoModificado);
        
-        estructuraDeDatos.ActualizarElemento(vendedorAntiguo, vendedorActualizado);
+        estr2.ActualizarElemento(vendedorAntiguo, vendedorActualizado);
         
     }
         
     public void imprimirVendedor(){
         Vendedor vendedorIterado = new Vendedor();
-        for(int i = 0;i < estructuraDeDatos.getConteo();i++){
-            vendedorIterado = (Vendedor) estructuraDeDatos.visualizarElemento(i);
+        for(int i = 0;i < estr2.getConteo();i++){
+            vendedorIterado = (Vendedor) estr2.visualizarElemento(i);
             System.out.println(vendedorIterado.getNombre() + " " + vendedorIterado.getApellido() + " " + vendedorIterado.getCorreo()+ " ");
         }
     }
     
     public void buscarVendedor(String nombre, String apellido){
         Vendedor vendedorIterado = new Vendedor();
-        for(int i = 0;i < estructuraDeDatos.getConteo();i++){
-            vendedorIterado = (Vendedor) estructuraDeDatos.visualizarElemento(i);
+        for(int i = 0;i < estr2.getConteo();i++){
+            vendedorIterado = (Vendedor) estr2.visualizarElemento(i);
             if(vendedorIterado.getNombre().equals(nombre) && vendedorIterado.getApellido().equals(apellido)){
                 System.out.println("El vendedor se ha encontrado: ");
                 System.out.println(vendedorIterado.getNombre() + " " + vendedorIterado.getApellido() + " " + vendedorIterado.getCorreo());
@@ -322,8 +320,8 @@ public class Controlador {
     public Vendedor buscarVendedorPorCorreo(String correo) throws Exception{
         Vendedor vendedorEncontrado = new Vendedor();
         Vendedor vendedorIterado = new Vendedor();
-        for(int i = 0;i < estructuraDeDatos.getConteo();i++){
-            vendedorIterado = (Vendedor) estructuraDeDatos.visualizarElemento(i);
+        for(int i = 0;i < estr2.getConteo();i++){
+            vendedorIterado = (Vendedor) estr2.visualizarElemento(i);
             if(vendedorIterado.getCorreo().equals(correo)){
                 vendedorEncontrado = vendedorIterado;
             }else{
@@ -332,10 +330,5 @@ public class Controlador {
         }
         return vendedorEncontrado;
     }
-    
-    
-    
-    
-    
     
 }

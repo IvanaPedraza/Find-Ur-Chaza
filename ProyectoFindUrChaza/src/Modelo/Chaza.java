@@ -16,6 +16,10 @@ public class Chaza {
     private String descripcion;
     private Vendedor vendedor;
     private int estadoChaza;
+    
+    public Chaza(){
+        
+    }
 
     public Chaza(String nombreChaza, String ubicacion, String descripcion, Vendedor vendedor) {
         idChaza += 1;

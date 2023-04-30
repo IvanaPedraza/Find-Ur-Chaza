@@ -135,7 +135,7 @@ public class Aplicacion {
         int opcionIngreso = Integer.parseInt(escaner.next());
         switch (opcionIngreso) {
             case 1:
-                crearNuevaChaza();
+                //crearNuevaChaza();
                 break;
             case 2:
                 visualizarChazasPropias(vendedor);
@@ -161,7 +161,7 @@ public class Aplicacion {
         System.out.println("[3] Salir al inicio");
     }
     
-    
+    /*
         System.out.println("[1] Ver productos");
         System.out.println("[2] Ver ordenes");
         System.out.println("[3] Comentario de tu chaza");
@@ -185,6 +185,7 @@ public class Aplicacion {
                 enviar();
                 break;
         }
+*/
 
     public void enviarUsuarioCliente(Cliente cliente) {
         System.out.println("------------------ Bienvenido(a) " + cliente.getNombre() + " " + cliente.getApellido() + " ------------------");
@@ -196,13 +197,13 @@ public class Aplicacion {
         int opcionIngreso = Integer.parseInt(escaner.next());
         switch (opcionIngreso) {
             case 1:
-                visualizarChazas();
+                //visualizarChazas();
                 break;
             case 2:
-                visualizarOrdenesCliente();
+                //visualizarOrdenesCliente();
                 break;
             case 3:
-                visualizarComentarioCliente();
+                //visualizarComentarioCliente();
                 break;
             case 4:
                 iniciarSistema();

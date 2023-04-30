@@ -2,23 +2,24 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package DataStructures;
+package Logica;
+
+import DataStructures.*;
 
 /**
  *
  * @author kelly
  */
-
-public class EstructuraDeDatos <T>{
+public class EstructuraDeDatos2 <T>{
     
-    private ArregloDinamicoConCola<Integer> arregloDinamicoConCola;
-    private ListaEnlazada listaEnlazada;
-    private ListaEnlazadaConCola listaEnlazadaConCola;
+    private ArregloDinamicoConCola<T> arregloDinamicoConCola;
+    private ListaEnlazada<T> listaEnlazada;
+    private ListaEnlazadaConCola<T> listaEnlazadaConCola;
 
-    public EstructuraDeDatos() {
+    public EstructuraDeDatos2() {
         this.arregloDinamicoConCola = new ArregloDinamicoConCola<>();
-        this.listaEnlazada = new ListaEnlazada();
-        this.listaEnlazadaConCola = new ListaEnlazadaConCola();
+        this.listaEnlazada = new ListaEnlazada<>();
+        this.listaEnlazadaConCola = new ListaEnlazadaConCola<>();
     }
     
     public void agregarElemento(T elemento){
