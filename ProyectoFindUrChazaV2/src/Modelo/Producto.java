@@ -12,7 +12,7 @@ import java.util.Date;
  */
 public class Producto {
     
-    private int codigo;
+    private long codigo;
     private String nombre;
     private double precio;
     private String detalle;
@@ -24,7 +24,7 @@ public class Producto {
         
     }
 
-    public Producto(int codigo, String nombre, double precio, String detalle, Date fechaIngreso, Date fechaExpiracion, Date fechaEgreso) {
+    public Producto(long codigo, String nombre, double precio, String detalle, Date fechaIngreso, Date fechaExpiracion, Date fechaEgreso) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.precio = precio;
@@ -36,11 +36,11 @@ public class Producto {
     
     
 
-    public int getCodigo() {
+    public long getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(int codigo) {
+    public void setCodigo(long codigo) {
         this.codigo = codigo;
     }
 
