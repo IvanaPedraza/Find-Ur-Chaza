@@ -139,6 +139,19 @@ public class ListaEnlazada <T> {
              current = current.getNext();
          }
      }
+     
+     public void delete(T item){
+        Node nuevaRef = this.head;
+        while(nuevaRef != null && nuevaRef.getData().toString().compareTo((String) item) < 0){
+            nuevaRef = nuevaRef.getNext();
+        }
+        size--;
+    }
+     
+    public Node getElement(){
+        Node<T> ptr = this.head;
+        return ptr;
+    }
 
     public boolean isEmpty() {
         return this.head == null;
@@ -146,5 +159,9 @@ public class ListaEnlazada <T> {
 
     public void emptyList() {
         this.head = null;
+    }
+    
+    public int size(){
+        return this.size;
     }
 }
