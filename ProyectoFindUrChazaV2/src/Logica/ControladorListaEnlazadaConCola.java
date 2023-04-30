@@ -13,7 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * 
+ *
  * @author kelly
  */
 public class ControladorListaEnlazadaConCola {
@@ -652,33 +652,16 @@ public class ControladorListaEnlazadaConCola {
         time_start = System.nanoTime();
         for(int i = 0;i < ListaEnlazadaConColaOrden.cantidad();i++){
             ordenIterada = (Orden) ListaEnlazadaConColaOrden.getElement(i);
-            if(ordenIterada.getNumOrden()==){
-                vendedorEncontrado = vendedorIterado;
+            if(ordenIterada.getNumOrden()== numOrden){
+                ordenEncontrada = ordenIterada;
             }else{
-                throw new Exception("No existe el cliente");
+                throw new Exception("No existe la orden");
             }
         }
         time_end = System.nanoTime();
-        System.out.println("buscarVendedorPorCorreo con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
-        return vendedorEncontrado;
+        System.out.println("buscarOrdenPorId con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
+        return ordenEncontrada;
     }
-    
-    
-    
-    
-    
-    /*Producto*/
-    
-    
-    
-    
-    
-    
-    /*Usuario*/
-    
-    
-    
-    
     
     
     /*Vendedor*/

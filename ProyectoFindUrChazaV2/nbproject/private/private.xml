@@ -3,12 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/kelly/OneDrive/Documentos/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Modelo/Comentario.java</file>
-            <file>file:/C:/Users/kelly/OneDrive/Documentos/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/EstructurasDeDatos/ListaEnlazada.java</file>
-            <file>file:/C:/Users/kelly/OneDrive/Documentos/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/EstructurasDeDatos/ArregloDinamicoConCola.java</file>
-            <file>file:/C:/Users/kelly/OneDrive/Documentos/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Logica/ControladorArregloDinamico.java</file>
-            <file>file:/C:/Users/kelly/OneDrive/Documentos/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Main/Aplicacion.java</file>
-            <file>file:/C:/Users/kelly/OneDrive/Documentos/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Main/Main.java</file>
+            <file>file:/C:/Users/david/Descargas/ProyectoED1/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Logica/ControladorListaEnlazadaConCola.java</file>
+            <file>file:/C:/Users/david/Descargas/ProyectoED1/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/EstructurasDeDatos/ListaEnlazadaConCola.java</file>
+            <file>file:/C:/Users/david/Descargas/ProyectoED1/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Logica/ArchivoArregloDinamico.java</file>
+            <file>file:/C:/Users/david/Descargas/ProyectoED1/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Logica/ControladorListaEnlazada.java</file>
+            <file>file:/C:/Users/david/Descargas/ProyectoED1/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/EstructurasDeDatos/ListaEnlazada.java</file>
         </group>
     </open-files>
 </project-private>

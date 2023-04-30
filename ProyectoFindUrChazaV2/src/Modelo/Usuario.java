@@ -15,18 +15,16 @@ public class Usuario {
     private String correo;
     private String nombre;
     private String apellido;
-    private String telefono;
     private String contraseña;
     
     public Usuario(){
         
     }
 
-    public Usuario(String correo, String nombre, String apellido, String telefono, String contraseña) {
+    public Usuario(String correo, String nombre, String apellido, String contraseña) {
         this.correo = correo;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.telefono = telefono;
         this.contraseña = contraseña;
     }
 
@@ -62,15 +60,4 @@ public class Usuario {
         this.contraseña = contraseña;
     }
 
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
-    
-
-    
 }
