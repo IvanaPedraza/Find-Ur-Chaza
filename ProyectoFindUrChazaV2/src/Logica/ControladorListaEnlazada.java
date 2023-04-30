@@ -13,12 +13,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * 
+ *
  * @author kelly
  */
 public class ControladorListaEnlazada {
     
-    private ListaEnlazada listaEnlazadaClientes;
+    private ListaEnlazada ListaEnlazadaClientes;
     private ListaEnlazada ListaEnlazadaVendedor;
     private ListaEnlazada ListaEnlazadaChaza;
     private ListaEnlazada ListaEnlazadaProducto;
@@ -27,7 +27,7 @@ public class ControladorListaEnlazada {
     private ListaEnlazada ListaEnlazadaOrden;
     
     public ControladorListaEnlazada(){
-        listaEnlazadaClientes = new ListaEnlazada();
+        ListaEnlazadaClientes = new ListaEnlazada();
         ListaEnlazadaVendedor = new ListaEnlazada();
         ListaEnlazadaChaza = new ListaEnlazada();
         ListaEnlazadaProducto = new ListaEnlazada();
@@ -43,8 +43,8 @@ public class ControladorListaEnlazada {
         Cliente clienteRetorno = new Cliente();
         long time_start, time_end;
         time_start = System.nanoTime();
-        for(int i = 0;i < listaEnlazadaClientes.size();i++){
-            clienteIngreso = (Cliente) listaEnlazadaClientes.getElement(i);
+        for(int i = 0;i < ListaEnlazadaClientes.size();i++){
+            clienteIngreso = (Cliente) ListaEnlazadaClientes.getElement(i);
             if(clienteIngreso.getCorreo().equals(correo) && clienteIngreso.getContraseña().equals(contrasena)){
                 clienteRetorno = clienteIngreso;
             }else{
@@ -61,7 +61,7 @@ public class ControladorListaEnlazada {
         Cliente nuevoCliente = new Cliente(correo, nombre, apellido, contrasena);
         long time_start, time_end;
         time_start = System.nanoTime();
-        listaEnlazadaClientes.pushBack(nuevoCliente);
+        ListaEnlazadaClientes.pushBack(nuevoCliente);
         time_end = System.nanoTime();
         System.out.println("agregarNuevoCliente con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
         System.out.println("Se ha ingresado correctamente: " + nombre + " " + apellido);
@@ -73,7 +73,7 @@ public class ControladorListaEnlazada {
             clienteAEliminar = buscarClientePorCorreo(correo);
             long time_start, time_end;
             time_start = System.nanoTime();
-            listaEnlazadaClientes.delete(clienteAEliminar);
+            ListaEnlazadaClientes.delete(clienteAEliminar);
             time_end = System.nanoTime();
             System.out.println("eliminarCliente con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
             
@@ -117,7 +117,7 @@ public class ControladorListaEnlazada {
         System.out.println("actualizarCategoriaCliente con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
         long time_start2, time_end2;
         time_start2 = System.nanoTime();
-        listaEnlazadaClientes.ActualizarData(clienteAntiguo, clienteActualizado);
+        ListaEnlazadaClientes.ActualizarData(clienteAntiguo, clienteActualizado);
         time_end2 = System.nanoTime();
         System.out.println("actualizarCliente con arreglo dinamico tomo "+ ( time_end2 - time_start2 ) +" milliseconds");
         
@@ -127,8 +127,8 @@ public class ControladorListaEnlazada {
         Cliente clienteIterado = new Cliente();
         long time_start, time_end;
         time_start = System.nanoTime();
-        for(int i = 0;i < listaEnlazadaClientes.size();i++){
-            clienteIterado = (Cliente) listaEnlazadaClientes.getElement(i);
+        for(int i = 0;i < ListaEnlazadaClientes.size();i++){
+            clienteIterado = (Cliente) ListaEnlazadaClientes.getElement(i);
             System.out.println(clienteIterado.getNombre() + " " + clienteIterado.getApellido() + " " + clienteIterado.getCorreo()+ " ");
         }
         time_end = System.nanoTime();
@@ -139,8 +139,8 @@ public class ControladorListaEnlazada {
         Cliente clienteIterado = new Cliente();
         long time_start, time_end;
         time_start = System.nanoTime();
-        for(int i = 0;i < listaEnlazadaClientes.size();i++){
-            clienteIterado = (Cliente) listaEnlazadaClientes.getElement(i);
+        for(int i = 0;i < ListaEnlazadaClientes.size();i++){
+            clienteIterado = (Cliente) ListaEnlazadaClientes.getElement(i);
             if(clienteIterado.getNombre().equals(nombre) && clienteIterado.getApellido().equals(apellido)){
                 System.out.println("El cliente se ha encontrado: ");
                 System.out.println(clienteIterado.getNombre() + " " + clienteIterado.getApellido() + " " + clienteIterado.getCorreo());
@@ -157,8 +157,8 @@ public class ControladorListaEnlazada {
         Cliente clienteIterado = new Cliente();
         long time_start, time_end;
         time_start = System.nanoTime();
-        for(int i = 0;i < listaEnlazadaClientes.size();i++){
-            clienteIterado = (Cliente) listaEnlazadaClientes.getElement(i);
+        for(int i = 0;i < ListaEnlazadaClientes.size();i++){
+            clienteIterado = (Cliente) ListaEnlazadaClientes.getElement(i);
             if(clienteIterado.getCorreo().equals(correo)){
                 clienteEncontrado = clienteIterado;
             }else{
@@ -652,33 +652,16 @@ public class ControladorListaEnlazada {
         time_start = System.nanoTime();
         for(int i = 0;i < ListaEnlazadaOrden.size();i++){
             ordenIterada = (Orden) ListaEnlazadaOrden.getElement(i);
-            if(ordenIterada.getNumOrden()==){
-                vendedorEncontrado = vendedorIterado;
+            if(ordenIterada.getNumOrden()== numOrden){
+                ordenEncontrada = ordenIterada;
             }else{
-                throw new Exception("No existe el cliente");
+                throw new Exception("No existe la orden");
             }
         }
         time_end = System.nanoTime();
-        System.out.println("buscarVendedorPorCorreo con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
-        return vendedorEncontrado;
+        System.out.println("buscarOrdenPorId con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
+        return ordenEncontrada;
     }
-    
-    
-    
-    
-    
-    /*Producto*/
-    
-    
-    
-    
-    
-    
-    /*Usuario*/
-    
-    
-    
-    
     
     
     /*Vendedor*/
@@ -775,7 +758,7 @@ public class ControladorListaEnlazada {
         long time_start, time_end;
         time_start = System.nanoTime();
         for(int i = 0;i < ListaEnlazadaVendedor.size();i++){
-            vendedorIterado = (Vendedor) listaEnlazadaClientes.getElement(i);
+            vendedorIterado = (Vendedor) ListaEnlazadaClientes.getElement(i);
             System.out.println(vendedorIterado.getNombre() + " " + vendedorIterado.getApellido() + " " + vendedorIterado.getCorreo()+ " ");
         }
         time_end = System.nanoTime();
@@ -805,7 +788,7 @@ public class ControladorListaEnlazada {
         long time_start, time_end;
         time_start = System.nanoTime();
         for(int i = 0;i < ListaEnlazadaVendedor.size();i++){
-            vendedorIterado = (Vendedor) listaEnlazadaClientes.getElement(i);
+            vendedorIterado = (Vendedor) ListaEnlazadaClientes.getElement(i);
             if(vendedorIterado.getCorreo().equals(correo)){
                 vendedorEncontrado = vendedorIterado;
             }else{
