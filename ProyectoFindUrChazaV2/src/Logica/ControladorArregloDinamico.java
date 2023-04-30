@@ -651,8 +651,8 @@ public class ControladorArregloDinamico {
         long time_start, time_end;
         time_start = System.nanoTime();
         for(int i = 0;i < arregloDinamicoOrden.getConteo();i++){
-            vendedorIterado = (Vendedor) arregloDinamicoClientes.getElement(i);
-            if(vendedorIterado.getCorreo().equals(correo)){
+            ordenIterada = (Orden) arregloDinamicoOrden.getElement(i);
+            if(ordenIterada.getNumOrden()==){
                 vendedorEncontrado = vendedorIterado;
             }else{
                 throw new Exception("No existe el cliente");
