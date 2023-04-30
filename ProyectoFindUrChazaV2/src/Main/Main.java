@@ -17,22 +17,16 @@ public class Main {
      */
     public static void main(String[] args) {
         
-        /*
+        
         ControladorArregloDinamico miControlador = new ControladorArregloDinamico();
+        
         
         miControlador.agregarNuevoCliente("Hola1", "Hola2", "Hola3", "Hola3");
         miControlador.actualizarCliente("Hola1", "Correo", "CORREOO");
         miControlador.imprimirClientes();
         miControlador.eliminarCliente("CORREOO");
         miControlador.imprimirClientes();
-        */
         
-        
-        Aplicacion miAplicacion = new Aplicacion();
-        miAplicacion.iniciarSistema();
-        
-        
-        //System.out.println("Hola");
         
        
     }
