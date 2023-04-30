@@ -13,9 +13,11 @@ public class Vendedor extends Usuario{
     public Vendedor() {
     }
 
-    public Vendedor(String correo, String nombre, String apellido, String contraseña) {
-        super(correo, nombre, apellido, contraseña);
+    public Vendedor(String correo, String nombre, String apellido, String telefono, String contraseña) {
+        super(correo, nombre, apellido, telefono, contraseña);
     }
+
+    
 
     
 }

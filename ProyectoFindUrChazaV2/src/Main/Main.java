@@ -21,7 +21,7 @@ public class Main {
         ControladorArregloDinamico miControlador = new ControladorArregloDinamico();
         
         
-        miControlador.agregarNuevoCliente("Hola1", "Hola2", "Hola3", "Hola3");
+        miControlador.agregarNuevoCliente("Hola1", "Hola2", "Hola3", "Hola3", "Hola4");
         miControlador.actualizarCliente("Hola1", "Correo", "CORREOO");
         miControlador.imprimirClientes();
         miControlador.eliminarCliente("CORREOO");

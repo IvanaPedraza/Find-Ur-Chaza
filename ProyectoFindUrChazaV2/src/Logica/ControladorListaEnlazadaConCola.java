@@ -57,8 +57,8 @@ public class ControladorListaEnlazadaConCola {
         return clienteRetorno;
     }
     
-    public void agregarNuevoCliente(String correo, String nombre, String apellido,String contrasena){
-        Cliente nuevoCliente = new Cliente(correo, nombre, apellido, contrasena);
+    public void agregarNuevoCliente(String correo, String nombre, String apellido, String telefono, String contrasena){
+        Cliente nuevoCliente = new Cliente(correo, nombre, apellido,telefono, contrasena);
         long time_start, time_end;
         time_start = System.nanoTime();
         ListaEnlazadaConColaClientes.pushBack(nuevoCliente);
@@ -90,6 +90,9 @@ public class ControladorListaEnlazadaConCola {
                 break;
             case "Apellido":
                 clienteActualizar.setApellido(datoModificado);
+                break;
+            case "Telefono":
+                clienteActualizar.setTelefono(datoModificado);
                 break;
             case "Correo":
                 clienteActualizar.setCorreo(datoModificado);
@@ -685,8 +688,8 @@ public class ControladorListaEnlazadaConCola {
         return vendedorRetorno;
     }
     
-    public void agregarNuevoVendedor(String correo, String nombre, String apellido,String contrasena){
-        Vendedor nuevoVendedor = new Vendedor(correo, nombre, apellido, contrasena);
+    public void agregarNuevoVendedor(String correo, String nombre, String apellido, String telefono, String contrasena){
+        Vendedor nuevoVendedor = new Vendedor(correo, nombre, apellido,telefono, contrasena);
         long time_start, time_end;
         time_start = System.nanoTime();
         ListaEnlazadaConColaVendedor.pushBack(nuevoVendedor);
@@ -718,6 +721,9 @@ public class ControladorListaEnlazadaConCola {
                 break;
             case "Apellido":
                 vendedorActualizar.setApellido(datoModificado);
+                break;
+            case "Telefono":
+                vendedorActualizar.setTelefono(datoModificado);
                 break;
             case "Correo":
                 vendedorActualizar.setCorreo(datoModificado);

@@ -92,7 +92,7 @@ public class Aplicacion {
         System.out.println("Ingrese los campos solicitados, separados por comas y sin espacios: ");
         System.out.println("Nombre,Apellido,Correo,Contraseña");
         String[] nuevoCliente = escaner.next().split(",");
-        miControlador.agregarNuevoCliente(nuevoCliente[0], nuevoCliente[1], nuevoCliente[2], nuevoCliente[3]);
+        miControlador.agregarNuevoCliente(nuevoCliente[0], nuevoCliente[1], nuevoCliente[2], nuevoCliente[3], nuevoCliente[4]);
         System.out.println("Se ha agregado correctamente "+nuevoCliente[0]);
         iniciarSistema();
     }
@@ -102,7 +102,7 @@ public class Aplicacion {
         System.out.println("Ingrese los campos solicitados, separados por comas y sin espacios: ");
         System.out.println("Nombre,Apellido,Correo,Contraseña");
         String[] nuevoCliente = escaner.next().split(",");
-        miControlador.agregarNuevoVendedor(nuevoCliente[0], nuevoCliente[1], nuevoCliente[2], nuevoCliente[3]);
+        miControlador.agregarNuevoVendedor(nuevoCliente[0], nuevoCliente[1], nuevoCliente[2], nuevoCliente[3], nuevoCliente[4]);
         System.out.println("Se ha agregado correctamente "+nuevoCliente[0]);
         iniciarSistema();
     }
