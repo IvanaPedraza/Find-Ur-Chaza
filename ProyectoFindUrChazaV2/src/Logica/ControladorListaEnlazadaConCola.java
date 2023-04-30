@@ -13,27 +13,27 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ * 
  * @author kelly
  */
-public class ControladorArregloDinamico {
+public class ControladorListaEnlazadaConCola {
     
-    private ArregloDinamicoConCola ArregloDinamicoClientes;
-    private ArregloDinamicoConCola ArregloDinamicoVendedor;
-    private ArregloDinamicoConCola ArregloDinamicoChaza;
-    private ArregloDinamicoConCola ArregloDinamicoProducto;
-    private ArregloDinamicoConCola ArregloDinamicoComentario;
-    private ArregloDinamicoConCola ArregloDinamicoFactura;
-    private ArregloDinamicoConCola ArregloDinamicoOrden;
+    private ListaEnlazadaConCola ListaEnlazadaConColaClientes;
+    private ListaEnlazadaConCola ListaEnlazadaConColaVendedor;
+    private ListaEnlazadaConCola ListaEnlazadaConColaChaza;
+    private ListaEnlazadaConCola ListaEnlazadaConColaProducto;
+    private ListaEnlazadaConCola ListaEnlazadaConColaComentario;
+    private ListaEnlazadaConCola ListaEnlazadaConColaFactura;
+    private ListaEnlazadaConCola ListaEnlazadaConColaOrden;
     
-    public ControladorArregloDinamico(){
-        ArregloDinamicoClientes = new ArregloDinamicoConCola();
-        ArregloDinamicoVendedor = new ArregloDinamicoConCola();
-        ArregloDinamicoChaza = new ArregloDinamicoConCola();
-        ArregloDinamicoProducto = new ArregloDinamicoConCola();
-        ArregloDinamicoComentario = new ArregloDinamicoConCola();
-        ArregloDinamicoFactura = new ArregloDinamicoConCola();
-        ArregloDinamicoOrden = new ArregloDinamicoConCola();
+    public ControladorListaEnlazadaConCola(){
+        ListaEnlazadaConColaClientes = new ListaEnlazadaConCola();
+        ListaEnlazadaConColaVendedor = new ListaEnlazadaConCola();
+        ListaEnlazadaConColaChaza = new ListaEnlazadaConCola();
+        ListaEnlazadaConColaProducto = new ListaEnlazadaConCola();
+        ListaEnlazadaConColaComentario = new ListaEnlazadaConCola();
+        ListaEnlazadaConColaFactura = new ListaEnlazadaConCola();
+        ListaEnlazadaConColaOrden = new ListaEnlazadaConCola();
     }
     
     /*Cliente*/
@@ -43,8 +43,8 @@ public class ControladorArregloDinamico {
         Cliente clienteRetorno = new Cliente();
         long time_start, time_end;
         time_start = System.nanoTime();
-        for(int i = 0;i < ArregloDinamicoClientes.getConteo();i++){
-            clienteIngreso = (Cliente) ArregloDinamicoClientes.getElement(i);
+        for(int i = 0;i < ListaEnlazadaConColaClientes.cantidad();i++){
+            clienteIngreso = (Cliente) ListaEnlazadaConColaClientes.getElement(i);
             if(clienteIngreso.getCorreo().equals(correo) && clienteIngreso.getContraseña().equals(contrasena)){
                 clienteRetorno = clienteIngreso;
             }else{
@@ -61,7 +61,7 @@ public class ControladorArregloDinamico {
         Cliente nuevoCliente = new Cliente(correo, nombre, apellido, contrasena);
         long time_start, time_end;
         time_start = System.nanoTime();
-        ArregloDinamicoClientes.pushBack(nuevoCliente);
+        ListaEnlazadaConColaClientes.pushBack(nuevoCliente);
         time_end = System.nanoTime();
         System.out.println("agregarNuevoCliente con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
         System.out.println("Se ha ingresado correctamente: " + nombre + " " + apellido);
@@ -73,7 +73,7 @@ public class ControladorArregloDinamico {
             clienteAEliminar = buscarClientePorCorreo(correo);
             long time_start, time_end;
             time_start = System.nanoTime();
-            ArregloDinamicoClientes.delete(clienteAEliminar);
+            ListaEnlazadaConColaClientes.delete(clienteAEliminar);
             time_end = System.nanoTime();
             System.out.println("eliminarCliente con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
             
@@ -117,7 +117,7 @@ public class ControladorArregloDinamico {
         System.out.println("actualizarCategoriaCliente con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
         long time_start2, time_end2;
         time_start2 = System.nanoTime();
-        ArregloDinamicoClientes.update(clienteAntiguo, clienteActualizado);
+        ListaEnlazadaConColaClientes.ActualizarData(clienteAntiguo, clienteActualizado);
         time_end2 = System.nanoTime();
         System.out.println("actualizarCliente con arreglo dinamico tomo "+ ( time_end2 - time_start2 ) +" milliseconds");
         
@@ -127,8 +127,8 @@ public class ControladorArregloDinamico {
         Cliente clienteIterado = new Cliente();
         long time_start, time_end;
         time_start = System.nanoTime();
-        for(int i = 0;i < ArregloDinamicoClientes.getConteo();i++){
-            clienteIterado = (Cliente) ArregloDinamicoClientes.getElement(i);
+        for(int i = 0;i < ListaEnlazadaConColaClientes.cantidad();i++){
+            clienteIterado = (Cliente) ListaEnlazadaConColaClientes.getElement(i);
             System.out.println(clienteIterado.getNombre() + " " + clienteIterado.getApellido() + " " + clienteIterado.getCorreo()+ " ");
         }
         time_end = System.nanoTime();
@@ -139,8 +139,8 @@ public class ControladorArregloDinamico {
         Cliente clienteIterado = new Cliente();
         long time_start, time_end;
         time_start = System.nanoTime();
-        for(int i = 0;i < ArregloDinamicoClientes.getConteo();i++){
-            clienteIterado = (Cliente) ArregloDinamicoClientes.getElement(i);
+        for(int i = 0;i < ListaEnlazadaConColaClientes.cantidad();i++){
+            clienteIterado = (Cliente) ListaEnlazadaConColaClientes.getElement(i);
             if(clienteIterado.getNombre().equals(nombre) && clienteIterado.getApellido().equals(apellido)){
                 System.out.println("El cliente se ha encontrado: ");
                 System.out.println(clienteIterado.getNombre() + " " + clienteIterado.getApellido() + " " + clienteIterado.getCorreo());
@@ -157,8 +157,8 @@ public class ControladorArregloDinamico {
         Cliente clienteIterado = new Cliente();
         long time_start, time_end;
         time_start = System.nanoTime();
-        for(int i = 0;i < ArregloDinamicoClientes.getConteo();i++){
-            clienteIterado = (Cliente) ArregloDinamicoClientes.getElement(i);
+        for(int i = 0;i < ListaEnlazadaConColaClientes.cantidad();i++){
+            clienteIterado = (Cliente) ListaEnlazadaConColaClientes.getElement(i);
             if(clienteIterado.getCorreo().equals(correo)){
                 clienteEncontrado = clienteIterado;
             }else{
@@ -176,7 +176,7 @@ public class ControladorArregloDinamico {
         Producto nuevoProducto = new Producto(codigo,nombre,precio,detalle,fechaIngreso,fechaExpiracion, fechaEgreso);
         long time_start, time_end;
         time_start = System.nanoTime();
-        ArregloDinamicoProducto.pushBack(nuevoProducto);
+        ListaEnlazadaConColaProducto.pushBack(nuevoProducto);
         time_end = System.nanoTime();
         System.out.println("agregarNuevoProducto con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
         System.out.println("Se ha ingresado correctamente "+ nuevoProducto.getNombre());
@@ -188,7 +188,7 @@ public class ControladorArregloDinamico {
             long time_start, time_end;
             time_start = System.nanoTime();
             productoAEliminar = buscarProductoPorCodigo(codigoProducto);
-            ArregloDinamicoProducto.delete(productoAEliminar);
+            ListaEnlazadaConColaProducto.delete(productoAEliminar);
             time_end = System.nanoTime();
             System.out.println("eliminarProducto con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
         }catch(Exception e){
@@ -246,7 +246,7 @@ public class ControladorArregloDinamico {
         System.out.println("actualizarCategoriaProducto con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
         long time_start2, time_end2;
         time_start2 = System.nanoTime();
-        ArregloDinamicoProducto.update(productoAntiguo, productoActualizado);
+        ListaEnlazadaConColaProducto.ActualizarData(productoAntiguo, productoActualizado);
         time_end2 = System.nanoTime();
         System.out.println("actualizarProducto con arreglo dinamico tomo "+ ( time_end2 - time_start2 ) +" milliseconds");
     }
@@ -255,8 +255,8 @@ public class ControladorArregloDinamico {
         Producto productoIterado = new Producto();
         long time_start, time_end;
         time_start = System.nanoTime();
-        for(int i = 0;i < ArregloDinamicoChaza.getConteo();i++){
-            productoIterado = (Producto) ArregloDinamicoProducto.getElement(i);
+        for(int i = 0;i < ListaEnlazadaConColaChaza.cantidad();i++){
+            productoIterado = (Producto) ListaEnlazadaConColaProducto.getElement(i);
             System.out.println(productoIterado.getCodigo()+ " " + productoIterado.getNombre()+ " " + productoIterado.getDetalle()+ " ");
         }
         time_end = System.nanoTime();
@@ -268,8 +268,8 @@ public class ControladorArregloDinamico {
         Producto productoIterado = new Producto();
         long time_start, time_end;
         time_start = System.nanoTime();
-        for(int i = 0;i < ArregloDinamicoProducto.getConteo();i++){
-            productoIterado = (Producto) ArregloDinamicoProducto.getElement(i);
+        for(int i = 0;i < ListaEnlazadaConColaProducto.cantidad();i++){
+            productoIterado = (Producto) ListaEnlazadaConColaProducto.getElement(i);
             if(productoIterado.getCodigo() == codigo){
                 productoEncontrada = productoIterado;
             }else{
@@ -288,7 +288,7 @@ public class ControladorArregloDinamico {
         Chaza nuevaChaza = new Chaza(nombreChaza,ubicacion,descripcion,vendedor);
         long time_start, time_end;
         time_start = System.nanoTime();
-        ArregloDinamicoChaza.pushBack(nuevaChaza);
+        ListaEnlazadaConColaChaza.pushBack(nuevaChaza);
         time_end = System.nanoTime();
         System.out.println("agregarNuevaChaza con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
         System.out.println("Se ha ingresado correctamente "+ nuevaChaza.getNombreChaza());
@@ -300,7 +300,7 @@ public class ControladorArregloDinamico {
             long time_start, time_end;
             time_start = System.nanoTime();
             chazaAEliminar = buscarChazaPorNombre(nombreChaza);
-            ArregloDinamicoChaza.delete(chazaAEliminar);
+            ListaEnlazadaConColaChaza.delete(chazaAEliminar);
             time_end = System.nanoTime();
             System.out.println("eliminarChaza con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
         }catch(Exception e){
@@ -345,7 +345,7 @@ public class ControladorArregloDinamico {
         
         long time_start2, time_end2;
         time_start2 = System.nanoTime();
-        ArregloDinamicoChaza.update(chazaAntigua, chazaActualizada);
+        ListaEnlazadaConColaChaza.ActualizarData(chazaAntigua, chazaActualizada);
         time_end2 = System.nanoTime();
         System.out.println("actualizarChaza con arreglo dinamico tomo "+ ( time_end2 - time_start2 ) +" milliseconds");
     }
@@ -354,8 +354,8 @@ public class ControladorArregloDinamico {
         Chaza chazaIterado = new Chaza();
         long time_start, time_end;
         time_start = System.nanoTime();
-        for(int i = 0;i < ArregloDinamicoChaza.getConteo();i++){
-            chazaIterado = (Chaza) ArregloDinamicoChaza.getElement(i);
+        for(int i = 0;i < ListaEnlazadaConColaChaza.cantidad();i++){
+            chazaIterado = (Chaza) ListaEnlazadaConColaChaza.getElement(i);
             System.out.println(chazaIterado.getNombreChaza()+ " " + chazaIterado.getUbicacion() + " " + chazaIterado.getDescripcion() + " ");
         }
         time_end = System.nanoTime();
@@ -367,8 +367,8 @@ public class ControladorArregloDinamico {
         Chaza chazaIterado = new Chaza();
         long time_start, time_end;
         time_start = System.nanoTime();
-        for(int i = 0;i < ArregloDinamicoChaza.getConteo();i++){
-            chazaIterado = (Chaza) ArregloDinamicoChaza.getElement(i);
+        for(int i = 0;i < ListaEnlazadaConColaChaza.cantidad();i++){
+            chazaIterado = (Chaza) ListaEnlazadaConColaChaza.getElement(i);
             if(chazaIterado.getNombreChaza().equals(nombreChaza)){
                 chazaEncontrada = chazaIterado;
             }else{
@@ -388,7 +388,7 @@ public class ControladorArregloDinamico {
         Comentario nuevoComentario = new Comentario(idComentario, fechaComentario, contenido, cliente, chaza);
         long time_start, time_end;
         time_start = System.nanoTime();
-        ArregloDinamicoComentario.pushBack(nuevoComentario);
+        ListaEnlazadaConColaComentario.pushBack(nuevoComentario);
         time_end = System.nanoTime();
         System.out.println("agregarNuevoComentario con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
         System.out.println("Se ha ingresado correctamente: " + idComentario + " " + contenido);
@@ -421,7 +421,7 @@ public class ControladorArregloDinamico {
         
         long time_start2, time_end2;
         time_start2 = System.nanoTime();
-        ArregloDinamicoComentario.update(comentarioAntiguo, comentarioActualizado);
+        ListaEnlazadaConColaComentario.ActualizarData(comentarioAntiguo, comentarioActualizado);
         time_end2 = System.nanoTime();
         System.out.println("actualizarComentario con arreglo dinamico tomo "+ ( time_end2 - time_start2 ) +" milliseconds");
         
@@ -431,8 +431,8 @@ public class ControladorArregloDinamico {
         Comentario comentarioIterado = new Comentario();
         long time_start, time_end;
         time_start = System.nanoTime();
-        for(int i = 0;i < ArregloDinamicoComentario.getConteo();i++){
-            comentarioIterado = (Comentario) ArregloDinamicoComentario.getElement(i);
+        for(int i = 0;i < ListaEnlazadaConColaComentario.cantidad();i++){
+            comentarioIterado = (Comentario) ListaEnlazadaConColaComentario.getElement(i);
             System.out.println(comentarioIterado.getIdComentario() + " " + comentarioIterado.getContenido() + " " + comentarioIterado.getFechaComentario()+ " ");
         }
         time_end = System.nanoTime();
@@ -444,8 +444,8 @@ public class ControladorArregloDinamico {
         Comentario comentarioIterado = new Comentario();
         long time_start, time_end;
         time_start = System.nanoTime();
-        for(int i = 0;i < ArregloDinamicoComentario.getConteo();i++){
-            comentarioIterado = (Comentario) ArregloDinamicoComentario.getElement(i);
+        for(int i = 0;i < ListaEnlazadaConColaComentario.cantidad();i++){
+            comentarioIterado = (Comentario) ListaEnlazadaConColaComentario.getElement(i);
             if(comentarioIterado.getIdComentario()==idComentario){
                 comentarioEncontrado = comentarioIterado;
             }else{
@@ -462,7 +462,7 @@ public class ControladorArregloDinamico {
         Factura nuevaFactura = new Factura(numReferencia, fechaFactura, producto, orden, costoTotal);
         long time_start, time_end;
         time_start = System.nanoTime();
-        ArregloDinamicoFactura.pushBack(nuevaFactura);
+        ListaEnlazadaConColaFactura.pushBack(nuevaFactura);
         time_end = System.nanoTime();
         System.out.println("agregarNuevaFactura con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
         System.out.println("Se ha ingresado correctamente: " + numReferencia + " " + orden + " " + producto);
@@ -473,7 +473,7 @@ public class ControladorArregloDinamico {
         time_start = System.nanoTime();
         try{
             facturaAEliminar = buscarFacturaPorId(numReferencia);
-            ArregloDinamicoFactura.delete(facturaAEliminar);
+            ListaEnlazadaConColaFactura.delete(facturaAEliminar);
             
         }catch(Exception e){
             System.out.println("La factura no se encontró");
@@ -525,17 +525,17 @@ public class ControladorArregloDinamico {
         
         long time_start2, time_end2;
         time_start2 = System.nanoTime();
-        ArregloDinamicoFactura.update(facturaAntigua, facturaActualizada);
+        ListaEnlazadaConColaFactura.ActualizarData(facturaAntigua, facturaActualizada);
         time_end2 = System.nanoTime();
-        System.out.println("ArregloDinamicoFactura con arreglo dinamico tomo "+ ( time_end2 - time_start2 ) +" milliseconds");
+        System.out.println("ListaEnlazadaConColaFactura con arreglo dinamico tomo "+ ( time_end2 - time_start2 ) +" milliseconds");
     }
     
     public void imprimirFactura(){
         Factura facturaIterada = new Factura();
         long time_start, time_end;
         time_start = System.nanoTime();
-        for(int i = 0;i < ArregloDinamicoFactura.getConteo();i++){
-            facturaIterada = (Factura) ArregloDinamicoFactura.getElement(i);
+        for(int i = 0;i < ListaEnlazadaConColaFactura.cantidad();i++){
+            facturaIterada = (Factura) ListaEnlazadaConColaFactura.getElement(i);
             System.out.println(facturaIterada.getNumReferencia() + " " + facturaIterada.getFechaFactura() + " " + facturaIterada.getOrden()+ " " + facturaIterada.getProducto());
         }
         time_end = System.nanoTime();
@@ -547,8 +547,8 @@ public class ControladorArregloDinamico {
         Factura facturaIterado = new Factura();
         long time_start, time_end;
         time_start = System.nanoTime();
-        for(int i = 0;i < ArregloDinamicoFactura.getConteo();i++){
-            facturaIterado = (Factura) ArregloDinamicoFactura.getElement(i);
+        for(int i = 0;i < ListaEnlazadaConColaFactura.cantidad();i++){
+            facturaIterado = (Factura) ListaEnlazadaConColaFactura.getElement(i);
             if(facturaIterado.getNumReferencia()== referencia){
                 facturaEncontrado = facturaIterado;
             }else{
@@ -566,7 +566,7 @@ public class ControladorArregloDinamico {
         Orden nuevaOrden = new Orden(numOrden, fechaOrden, cliente, chaza);
         long time_start, time_end;
         time_start = System.nanoTime();
-        ArregloDinamicoOrden.pushBack(nuevaOrden);
+        ListaEnlazadaConColaOrden.pushBack(nuevaOrden);
         time_end = System.nanoTime();
         System.out.println("agregarNuevaOrden con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
         System.out.println("Se ha ingresado correctamente: " + numOrden + " " + fechaOrden + " " + cliente + " " + chaza);
@@ -578,7 +578,7 @@ public class ControladorArregloDinamico {
         time_start = System.nanoTime();
         try{
             ordenAEliminar = buscarOrdenPorId(numOrden);
-            ArregloDinamicoOrden.delete(ordenAEliminar);
+            ListaEnlazadaConColaOrden.delete(ordenAEliminar);
             
         }catch(Exception e){
             System.out.println("La orden no se encontró");
@@ -627,7 +627,7 @@ public class ControladorArregloDinamico {
         
         long time_start2, time_end2;
         time_start2 = System.nanoTime();
-        ArregloDinamicoOrden.update(ordenAntiguo, ordenActualizado);
+        ListaEnlazadaConColaOrden.ActualizarData(ordenAntiguo, ordenActualizado);
         time_end2 = System.nanoTime();
         System.out.println("actualizarOrden con arreglo dinamico tomo "+ ( time_end2 - time_start2 ) +" milliseconds");
         
@@ -637,8 +637,8 @@ public class ControladorArregloDinamico {
         Orden ordenIterado = new Orden();
         long time_start, time_end;
         time_start = System.nanoTime();
-        for(int i = 0;i < ArregloDinamicoOrden.getConteo();i++){
-            ordenIterado = (Orden) ArregloDinamicoOrden.getElement(i);
+        for(int i = 0;i < ListaEnlazadaConColaOrden.cantidad();i++){
+            ordenIterado = (Orden) ListaEnlazadaConColaOrden.getElement(i);
             System.out.println(ordenIterado.getNumOrden() + " " + ordenIterado.getFechaOrden() + " " + ordenIterado.getCliente()+ " ");
         }
         time_end = System.nanoTime();
@@ -650,8 +650,8 @@ public class ControladorArregloDinamico {
         Orden ordenIterada= new Orden();
         long time_start, time_end;
         time_start = System.nanoTime();
-        for(int i = 0;i < ArregloDinamicoOrden.getConteo();i++){
-            ordenIterada = (Orden) ArregloDinamicoOrden.getElement(i);
+        for(int i = 0;i < ListaEnlazadaConColaOrden.cantidad();i++){
+            ordenIterada = (Orden) ListaEnlazadaConColaOrden.getElement(i);
             if(ordenIterada.getNumOrden()==){
                 vendedorEncontrado = vendedorIterado;
             }else{
@@ -688,8 +688,8 @@ public class ControladorArregloDinamico {
         Vendedor vendedorRetorno = new Vendedor();
         long time_start, time_end;
         time_start = System.nanoTime();
-        for(int i = 0;i < ArregloDinamicoVendedor.getConteo();i++){
-            vendedorIngreso = (Vendedor) ArregloDinamicoVendedor.getElement(i);
+        for(int i = 0;i < ListaEnlazadaConColaVendedor.cantidad();i++){
+            vendedorIngreso = (Vendedor) ListaEnlazadaConColaVendedor.getElement(i);
             if(vendedorIngreso.getCorreo().equals(correo) && vendedorIngreso.getContraseña().equals(contrasena)){
                 vendedorRetorno = vendedorIngreso;
             }else{
@@ -706,7 +706,7 @@ public class ControladorArregloDinamico {
         Vendedor nuevoVendedor = new Vendedor(correo, nombre, apellido, contrasena);
         long time_start, time_end;
         time_start = System.nanoTime();
-        ArregloDinamicoVendedor.pushBack(nuevoVendedor);
+        ListaEnlazadaConColaVendedor.pushBack(nuevoVendedor);
         time_end = System.nanoTime();
         System.out.println("agregarNuevoVendedor con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
         System.out.println("Se ha ingresado correctamente: " + nombre + " " + apellido);
@@ -718,7 +718,7 @@ public class ControladorArregloDinamico {
         time_start = System.nanoTime();
         try{
             vendedorAEliminar = buscarVendedorPorCorreo(correo);
-            ArregloDinamicoVendedor.delete(vendedorAEliminar);
+            ListaEnlazadaConColaVendedor.delete(vendedorAEliminar);
             
         }catch(Exception e){
             System.out.println("El cliente no se encontró");
@@ -764,7 +764,7 @@ public class ControladorArregloDinamico {
         
         long time_start2, time_end2;
         time_start2 = System.nanoTime();
-        ArregloDinamicoVendedor.update(vendedorAntiguo, vendedorActualizado);
+        ListaEnlazadaConColaVendedor.ActualizarData(vendedorAntiguo, vendedorActualizado);
         time_end2 = System.nanoTime();
         System.out.println("actualizarVendedor con arreglo dinamico tomo "+ ( time_end2 - time_start2 ) +" milliseconds");
         
@@ -774,8 +774,8 @@ public class ControladorArregloDinamico {
         Vendedor vendedorIterado = new Vendedor();
         long time_start, time_end;
         time_start = System.nanoTime();
-        for(int i = 0;i < ArregloDinamicoVendedor.getConteo();i++){
-            vendedorIterado = (Vendedor) ArregloDinamicoClientes.getElement(i);
+        for(int i = 0;i < ListaEnlazadaConColaVendedor.cantidad();i++){
+            vendedorIterado = (Vendedor) ListaEnlazadaConColaClientes.getElement(i);
             System.out.println(vendedorIterado.getNombre() + " " + vendedorIterado.getApellido() + " " + vendedorIterado.getCorreo()+ " ");
         }
         time_end = System.nanoTime();
@@ -786,8 +786,8 @@ public class ControladorArregloDinamico {
         Vendedor vendedorIterado = new Vendedor();
         long time_start, time_end;
         time_start = System.nanoTime();
-        for(int i = 0;i < ArregloDinamicoVendedor.getConteo();i++){
-            vendedorIterado = (Vendedor) ArregloDinamicoVendedor.getElement(i);
+        for(int i = 0;i < ListaEnlazadaConColaVendedor.cantidad();i++){
+            vendedorIterado = (Vendedor) ListaEnlazadaConColaVendedor.getElement(i);
             if(vendedorIterado.getNombre().equals(nombre) && vendedorIterado.getApellido().equals(apellido)){
                 System.out.println("El vendedor se ha encontrado: ");
                 System.out.println(vendedorIterado.getNombre() + " " + vendedorIterado.getApellido() + " " + vendedorIterado.getCorreo());
@@ -804,8 +804,8 @@ public class ControladorArregloDinamico {
         Vendedor vendedorIterado = new Vendedor();
         long time_start, time_end;
         time_start = System.nanoTime();
-        for(int i = 0;i < ArregloDinamicoVendedor.getConteo();i++){
-            vendedorIterado = (Vendedor) ArregloDinamicoClientes.getElement(i);
+        for(int i = 0;i < ListaEnlazadaConColaVendedor.cantidad();i++){
+            vendedorIterado = (Vendedor) ListaEnlazadaConColaClientes.getElement(i);
             if(vendedorIterado.getCorreo().equals(correo)){
                 vendedorEncontrado = vendedorIterado;
             }else{

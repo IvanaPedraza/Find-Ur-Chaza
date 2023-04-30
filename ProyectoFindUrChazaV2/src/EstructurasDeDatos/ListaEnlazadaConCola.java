@@ -8,7 +8,7 @@ public class ListaEnlazadaConCola <T> {
     public ListaEnlazadaConCola(Node data) {
         this.head =data;
         this.tail =data;
-        cantidad++;
+        cantidad=0;
     }
 
     public ListaEnlazadaConCola() {
@@ -235,9 +235,23 @@ public class ListaEnlazadaConCola <T> {
             current = current.getNext();
         }
     }
-    public Node getElement(){
-        Node<T> ptr = this.head;
-        return ptr;
+    public T getElement(int i) {
+        if (i < 0 || this.head == null) {
+            return null;
+        }
+
+        Node<T> nodoActual = this.head;
+        int posicionActual = 0;
+
+        while (nodoActual != null) {
+            if (posicionActual == i) {
+                return nodoActual.getData();
+            }
+
+            posicionActual++;
+            nodoActual = nodoActual.getNext();
+        }
+        return null;
     }
     
     public int cantidad(){
