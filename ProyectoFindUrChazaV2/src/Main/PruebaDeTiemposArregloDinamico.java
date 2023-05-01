@@ -28,14 +28,31 @@ public class PruebaDeTiemposArregloDinamico <T>{
         
         ControladorArregloDinamico miControlador = new ControladorArregloDinamico();
         ArregloDinamicoConCola arregloActualCliente = miControlador.getArregloDinamicoClientes();
+        int numElementos;
+        
+        /*Archivo de 1 dato de cliente*/
+        /*
+        String archivoClientes = "datos1Cliente.csv";
+        String archivoCorreosClientes = "dato1ClienteCorreo.csv";
+        numElementos = 1;
+        */
+        
+        /*Archivo de 10k datos de cliente*/
+        /*
         String archivoClientes = "datos10KCliente.csv";
         String archivoCorreosClientes = "dato10KClienteCorreo.csv";
+        numElementos = 10000;
+        */
         
+        /*Archivo de 100k dato de cliente*/
+        String archivoClientes = "datos100KCliente.csv";
+        String archivoCorreosClientes = "dato100KClienteCorreo.csv";
+        numElementos = 100000;
         
-        /*---------------------------------------------- INSERCION DE 10,000 DATOS ----------------------------------------------*/
+        /*---------------------------------------------- INSERCIONES ----------------------------------------------*/
         
         /*Agregar Cliente*/
-        /*
+        
         ArchivoArregloDinamico miArchivo = new ArchivoArregloDinamico();
         ArchivoArregloDinamico miArchivoCorreo = new ArchivoArregloDinamico();
         BufferedReader buffer = miArchivo.leerArchivo(archivoClientes);
@@ -54,13 +71,13 @@ public class PruebaDeTiemposArregloDinamico <T>{
             }
             buffer1.close();
             time_end = System.nanoTime();
-            System.out.println("Agregar 10.000 elementos con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
+            System.out.println("Agregar "+ numElementos+ " elementos con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
         }
         catch(Exception e)
         {
             System.out.println("Ha ocurrido un error" + e.toString());
         }
-        */
+        
         
         /*Eliminar todos los clientes*/
         /*
@@ -74,7 +91,7 @@ public class PruebaDeTiemposArregloDinamico <T>{
             }
             
             time_end = System.nanoTime();
-            System.out.println("Eliminar 10.000 elementos con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
+            System.out.println("Eliminar " + numElementos + " elementos con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
             escribirArchivoCliente(arregloActualCliente, archivoClientes);
             buffer2.close();
             
@@ -82,6 +99,7 @@ public class PruebaDeTiemposArregloDinamico <T>{
             System.out.println("Ha ocurrido un error" + e.toString());
         }
         */
+        
         /*Actualizar*/
         /*
         try{
@@ -107,7 +125,7 @@ public class PruebaDeTiemposArregloDinamico <T>{
             buffer5Correos.close();
             
             time_end = System.nanoTime();
-            System.out.println("Actualizar 10.000 elementos con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
+            System.out.println("Actualizar "+ numElementos +" elementos con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
             escribirArchivoCliente(arregloActualCliente, archivoClientes);
             
         }catch(Exception e){
@@ -123,7 +141,7 @@ public class PruebaDeTiemposArregloDinamico <T>{
         //miControlador.actualizarCliente("ike@mozgi.py", "Telefono", "0");
         
         /*Leer*/
-        //miControlador.imprimirClientes();
+        miControlador.imprimirClientes();
         
         /*---------------------------------------------------------------------------------------------------------------------*/
         
