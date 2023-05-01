@@ -35,6 +35,36 @@ public class ControladorListaEnlazadaConCola {
         ListaEnlazadaConColaFactura = new ListaEnlazadaConCola();
         ListaEnlazadaConColaOrden = new ListaEnlazadaConCola();
     }
+
+    public ListaEnlazadaConCola getListaEnlazadaConColaClientes() {
+        return ListaEnlazadaConColaClientes;
+    }
+
+    public ListaEnlazadaConCola getListaEnlazadaConColaVendedor() {
+        return ListaEnlazadaConColaVendedor;
+    }
+
+    public ListaEnlazadaConCola getListaEnlazadaConColaChaza() {
+        return ListaEnlazadaConColaChaza;
+    }
+
+    public ListaEnlazadaConCola getListaEnlazadaConColaProducto() {
+        return ListaEnlazadaConColaProducto;
+    }
+
+    public ListaEnlazadaConCola getListaEnlazadaConColaComentario() {
+        return ListaEnlazadaConColaComentario;
+    }
+
+    public ListaEnlazadaConCola getListaEnlazadaConColaFactura() {
+        return ListaEnlazadaConColaFactura;
+    }
+
+    public ListaEnlazadaConCola getListaEnlazadaConColaOrden() {
+        return ListaEnlazadaConColaOrden;
+    }
+    
+    
     
     /*Cliente*/
     
@@ -694,7 +724,7 @@ public class ControladorListaEnlazadaConCola {
         time_start = System.nanoTime();
         ListaEnlazadaConColaVendedor.pushBack(nuevoVendedor);
         time_end = System.nanoTime();
-        System.out.println("agregarNuevoVendedor con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
+        System.out.println("agregarNuevoVendedor con Lista Enlazada Con Cola tomo "+ ( time_end - time_start ) +" milliseconds");
         System.out.println("Se ha ingresado correctamente: " + nombre + " " + apellido);
     }
     //Devuelve el cliente borrado
@@ -794,7 +824,7 @@ public class ControladorListaEnlazadaConCola {
         long time_start, time_end;
         time_start = System.nanoTime();
         for(int i = 0;i < ListaEnlazadaConColaVendedor.cantidad();i++){
-            vendedorIterado = (Vendedor) ListaEnlazadaConColaClientes.getElement(i);
+            vendedorIterado = (Vendedor) ListaEnlazadaConColaVendedor.getElement(i);
             if(vendedorIterado.getCorreo().equals(correo)){
                 vendedorEncontrado = vendedorIterado;
             }else{
