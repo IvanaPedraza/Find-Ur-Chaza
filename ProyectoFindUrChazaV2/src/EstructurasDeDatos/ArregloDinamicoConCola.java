@@ -46,16 +46,14 @@ public class ArregloDinamicoConCola<T> {
     public void popBack() {
         T[] nuevaLista;
         if (estaVacio()) {
-            incrementarTamano();
+            System.out.println("Esta vacio");
         }
-        
-        nuevaLista = (T[]) new Object[this.conteo];
-        for (int i = 0; i < this.tamano; i++) {
+        nuevaLista = (T[]) new Object[this.tamano];
+        for (int i = 0; i < this.tamano - 1; i++) {
             nuevaLista[i] = arrayInicial[i];
         }
         arrayInicial = nuevaLista;
         conteo--;
-
     }
 
     public boolean find(T elemento) {
@@ -69,7 +67,7 @@ public class ArregloDinamicoConCola<T> {
     }
 
     public void delete(T elemento) {
-        T[] nuevaLista = (T[]) new Object[this.conteo];
+        T[] nuevaLista = (T[]) new Object[this.tamano];
         int i = 0;
         while (i < tamano) {
             if (arrayInicial[i] == elemento) {

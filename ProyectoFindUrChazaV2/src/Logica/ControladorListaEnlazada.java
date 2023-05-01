@@ -132,7 +132,7 @@ public class ControladorListaEnlazada {
         time_start = System.nanoTime();
         for(int i = 0;i < ListaEnlazadaClientes.size();i++){
             clienteIterado = (Cliente) ListaEnlazadaClientes.getElement(i);
-            System.out.println(clienteIterado.getNombre() + " " + clienteIterado.getApellido() + " " + clienteIterado.getCorreo()+ " ");
+            System.out.println(clienteIterado.getNombre() + " " + clienteIterado.getApellido() + " " + clienteIterado.getCorreo()+ " "+clienteIterado.getTelefono());
         }
         time_end = System.nanoTime();
         System.out.println("imprimirClientes con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");

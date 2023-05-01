@@ -113,8 +113,7 @@ public class ControladorArregloDinamico {
         return clienteAEliminar; 
     }
     
-    public Cliente eliminarCliente(){
-        Cliente clienteAEliminar = new Cliente();
+    public void eliminarCliente(){
         try{
             long time_start, time_end;
             time_start = System.nanoTime();
@@ -123,9 +122,8 @@ public class ControladorArregloDinamico {
             System.out.println("eliminarCliente con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
             
         }catch(Exception e){
-            System.out.println("Ha ocurrido un error");
+            System.out.println("Ha ocurrido un error" + e.toString());
         }
-        return clienteAEliminar; 
     }
     
     
@@ -179,7 +177,7 @@ public class ControladorArregloDinamico {
         time_start = System.nanoTime();
         for(int i = 0;i < ArregloDinamicoClientes.getConteo();i++){
             clienteIterado = (Cliente) ArregloDinamicoClientes.getElement(i);
-            System.out.println(clienteIterado.getNombre() + " " + clienteIterado.getApellido() + " " + clienteIterado.getCorreo()+ " ");
+            System.out.println(clienteIterado.getNombre() + " " + clienteIterado.getApellido() + " " + clienteIterado.getCorreo()+ " "+ clienteIterado.getTelefono());
         }
         time_end = System.nanoTime();
         System.out.println("imprimirClientes con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
@@ -193,7 +191,7 @@ public class ControladorArregloDinamico {
             clienteIterado = (Cliente) ArregloDinamicoClientes.getElement(i);
             if(clienteIterado.getNombre().equals(nombre) && clienteIterado.getApellido().equals(apellido)){
                 System.out.println("El cliente se ha encontrado: ");
-                System.out.println(clienteIterado.getNombre() + " " + clienteIterado.getApellido() + " " + clienteIterado.getCorreo());
+                System.out.println(clienteIterado.getNombre() + " " + clienteIterado.getApellido() + " " + clienteIterado.getCorreo()+" "+clienteIterado.getTelefono());
             }else{
                 System.out.println("El cliente no se ha encontrado");
             }
@@ -202,7 +200,7 @@ public class ControladorArregloDinamico {
         System.out.println("buscarCliente con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
     }
     
-    public Cliente buscarClientePorCorreo(String correo) throws Exception{
+    public Cliente buscarClientePorCorreo(String correo){
         Cliente clienteEncontrado = new Cliente();
         Cliente clienteIterado = new Cliente();
         long time_start, time_end;
@@ -211,9 +209,10 @@ public class ControladorArregloDinamico {
             clienteIterado = (Cliente) ArregloDinamicoClientes.getElement(i);
             if(clienteIterado.getCorreo().equals(correo)){
                 clienteEncontrado = clienteIterado;
-            }else{
-                throw new Exception("No existe el cliente");
             }
+        }
+        if(clienteEncontrado.getNombre().length()==0){
+            System.out.println("No se encontro");
         }
         time_end = System.nanoTime();
         System.out.println("buscarClientePorCorreo con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
