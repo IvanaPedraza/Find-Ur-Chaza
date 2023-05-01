@@ -44,9 +44,16 @@ public class PruebaDeTiemposArregloDinamico <T>{
         numElementos = 10000;
         */
         
-        /*Archivo de 100k dato de cliente*/
+        /*Archivo de 100k datos de cliente*/
+        /*
         String archivoClientes = "datos100KCliente.csv";
         String archivoCorreosClientes = "dato100KClienteCorreo.csv";
+        numElementos = 100000;
+        */
+        
+        /*Archivo de 1M datos de cliente*/
+        String archivoClientes = "datos1MCliente.csv";
+        String archivoCorreosClientes = "dato1MClienteCorreo.csv";
         numElementos = 100000;
         
         /*---------------------------------------------- INSERCIONES ----------------------------------------------*/
@@ -80,7 +87,7 @@ public class PruebaDeTiemposArregloDinamico <T>{
         
         
         /*Eliminar todos los clientes*/
-        /*
+        
         try{
             BufferedReader buffer2 = miArchivo.leerArchivo(archivoClientes);
             String linea2; 
@@ -92,13 +99,13 @@ public class PruebaDeTiemposArregloDinamico <T>{
             
             time_end = System.nanoTime();
             System.out.println("Eliminar " + numElementos + " elementos con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
-            escribirArchivoCliente(arregloActualCliente, archivoClientes);
+            //escribirArchivoCliente(arregloActualCliente, archivoClientes);
             buffer2.close();
             
         }catch(Exception e){
             System.out.println("Ha ocurrido un error" + e.toString());
         }
-        */
+        
         
         /*Actualizar*/
         /*
@@ -126,7 +133,7 @@ public class PruebaDeTiemposArregloDinamico <T>{
             
             time_end = System.nanoTime();
             System.out.println("Actualizar "+ numElementos +" elementos con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
-            escribirArchivoCliente(arregloActualCliente, archivoClientes);
+            //escribirArchivoCliente(arregloActualCliente, archivoClientes);
             
         }catch(Exception e){
             System.out.println("Ha ocurrido un error" + e.toString());
@@ -141,7 +148,7 @@ public class PruebaDeTiemposArregloDinamico <T>{
         //miControlador.actualizarCliente("ike@mozgi.py", "Telefono", "0");
         
         /*Leer*/
-        miControlador.imprimirClientes();
+        //miControlador.imprimirClientes();
         
         /*---------------------------------------------------------------------------------------------------------------------*/
         
