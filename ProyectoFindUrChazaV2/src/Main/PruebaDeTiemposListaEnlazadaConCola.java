@@ -31,14 +31,14 @@ public class PruebaDeTiemposListaEnlazadaConCola {
         int numElementos;
 
         /*Archivo de 1 dato de Vendedor*/
-        String archivoVendedor = "datos1Vendedor.csv";
-        String archivoCorreosVendedores = "dato1VendedorCorreo.csv";
-        numElementos = 1;
+        String archivoVendedor = "datos10KVendedor.csv";
+        String archivoCorreosVendedores = "dato10KVendedorCorreo.csv";
+        numElementos = 10000;
 
         /*Archivo de 1 dato de Chaza*/
-        String archivoChaza = "datos1Chaza.csv";
-        String archivoNombresChazas = "dato1ChazaNombres.csv";
-        numElementos = 1;
+        String archivoChaza = "datos10KChaza.csv";
+        String archivoNombresChazas = "dato10KChazaNombres.csv";
+        numElementos = 10000;
 
         /*Archivo de 10k datos de cliente*/
  /*
@@ -85,17 +85,17 @@ public class PruebaDeTiemposListaEnlazadaConCola {
             BufferedReader buffer2 = buffer;
             String linea2;
             String linea;
+            long time_start, time_end;
+            time_start = System.nanoTime();
             while ((linea = buffer1.readLine()) != null && (linea2 = buffer2.readLine()) != null) {
                 String[] objeto = linea.split(";");
                 String[] objeto2 = linea2.split(";");
                 miControlador.agregarNuevoVendedor(objeto2[0], objeto2[1], objeto2[2], objeto2[3], objeto2[4]);
                 Vendedor nuevoVendedor = miControlador.buscarVendedorPorCorreo(objeto2[0]);
-                long time_start, time_end;
-                time_start = System.nanoTime();
                 miControlador.agregarNuevaChaza(objeto[0], objeto[1], objeto[2], nuevoVendedor);
-                time_end = System.nanoTime();
-                System.out.println("Agregar " + numElementos + " elementos con Lista enlazada con cola - Chazas - tomo " + (time_end - time_start) + " milliseconds");
             }
+            time_end = System.nanoTime();
+            System.out.println("Agregar " + numElementos + " elementos con Lista enlazada con cola - Chazas - tomo " + (time_end - time_start) + " milliseconds");
             buffer1.close();
         } catch (Exception e) {
             System.out.println("Ha ocurrido un error" + e.toString());
@@ -104,17 +104,17 @@ public class PruebaDeTiemposListaEnlazadaConCola {
         /*---------------------------------------------- INSERCIONES ----------------------------------------------*/
 
  /*Eliminar todas las Chazas*/
-   /*     try {
+ /*    try {
             BufferedReader buffer3 = miArchivoChaza.leerArchivo(archivoChaza);
             String linea3;
             long time_start, time_end;
             time_start = System.nanoTime();
             while ((linea3 = buffer3.readLine()) != null) {
-                miControlador.eliminarChaza(archivoChaza);
+                miControlador.eliminarChaza();
             }
 
             time_end = System.nanoTime();
-            System.out.println("Eliminar " + numElementos + " elementos con Lista enlazada con cola - Chazas - tomó " + (time_end - time_start) + " milliseconds");
+            System.out.println("Eliminar " + numElementos + " elementos con Lista enlazada con cola - Chazas - tomo " + (time_end - time_start) + " milliseconds");
            // escribirArchivoCliente(arregloActualCliente, archivoClientes);
             buffer3.close();
 
@@ -158,12 +158,12 @@ public class PruebaDeTiemposListaEnlazadaConCola {
         //System.out.println(clientePrueba.getNombre()+ " " + clientePrueba.getTelefono());
         //miControlador.actualizarCliente("ike@mozgi.py", "Telefono", "0");
         /*Leer*/
-        //miControlador.imprimirChazas();
+        //  miControlador.imprimirChazas();
 
         /*---------------------------------------------------------------------------------------------------------------------*/
     }
 
-   /* public static void escribirArchivoCliente(ArregloDinamicoConCola arreglo, String archivo) {
+    /* public static void escribirArchivoCliente(ArregloDinamicoConCola arreglo, String archivo) {
         String ubicacionArchivo = "C:\\Users\\kelly\\OneDrive\\Documentos\\ProyectoEstructuras\\Find-Ur-Chaza\\ProyectoFindUrChazaV2\\data\\" + archivo;
         File archivoAntiguo = new File(ubicacionArchivo);
         archivoAntiguo.delete();
@@ -192,5 +192,4 @@ public class PruebaDeTiemposListaEnlazadaConCola {
         }
 
     }*/
-
-} 
+}
