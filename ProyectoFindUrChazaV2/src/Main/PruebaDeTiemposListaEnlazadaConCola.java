@@ -31,14 +31,14 @@ public class PruebaDeTiemposListaEnlazadaConCola {
         int numElementos;
 
         /*Archivo de 1 dato de Vendedor*/
-        String archivoVendedor = "datos10KVendedor.csv";
-        String archivoCorreosVendedores = "dato10KVendedorCorreo.csv";
-        numElementos = 10000;
+        String archivoVendedor = "datos100KVendedor.csv";
+        String archivoCorreosVendedores = "dato100KVendedorCorreo.csv";
+        numElementos = 100000;
 
         /*Archivo de 1 dato de Chaza*/
-        String archivoChaza = "datos10KChaza.csv";
-        String archivoNombresChazas = "dato10KChazaNombres.csv";
-        numElementos = 10000;
+        String archivoChaza = "datos100KChaza.csv";
+        String archivoNombresChazas = "dato100KChazaNombres.csv";
+        numElementos = 100000;
 
         /*Archivo de 10k datos de cliente*/
  /*
@@ -95,7 +95,7 @@ public class PruebaDeTiemposListaEnlazadaConCola {
                 miControlador.agregarNuevaChaza(objeto[0], objeto[1], objeto[2], nuevoVendedor);
             }
             time_end = System.nanoTime();
-            System.out.println("Agregar " + numElementos + " elementos con Lista enlazada con cola - Chazas - tomo " + (time_end - time_start) + " milliseconds");
+            System.out.println("Agregar " + numElementos + " elementos con Lista enlazada con cola - Chazas - tomo " + (time_end - time_start) + " nanosegundos");
             buffer1.close();
         } catch (Exception e) {
             System.out.println("Ha ocurrido un error" + e.toString());
@@ -104,7 +104,7 @@ public class PruebaDeTiemposListaEnlazadaConCola {
         /*---------------------------------------------- INSERCIONES ----------------------------------------------*/
 
  /*Eliminar todas las Chazas*/
- /*    try {
+   /*  try {
             BufferedReader buffer3 = miArchivoChaza.leerArchivo(archivoChaza);
             String linea3;
             long time_start, time_end;
@@ -114,7 +114,7 @@ public class PruebaDeTiemposListaEnlazadaConCola {
             }
 
             time_end = System.nanoTime();
-            System.out.println("Eliminar " + numElementos + " elementos con Lista enlazada con cola - Chazas - tomo " + (time_end - time_start) + " milliseconds");
+            System.out.println("Eliminar " + numElementos + " elementos con Lista enlazada con cola - Chazas - tomo " + (time_end - time_start) + " nanosegundos");
            // escribirArchivoCliente(arregloActualCliente, archivoClientes);
             buffer3.close();
 
@@ -147,7 +147,7 @@ public class PruebaDeTiemposListaEnlazadaConCola {
             buffer5Nombres.close();
             
             time_end = System.nanoTime();
-            System.out.println("Actualizar "+ numElementos +" elementos con Lista enlazada con cola - Chazas - tomó "+ ( time_end - time_start ) +" milliseconds");
+            System.out.println("Actualizar "+ numElementos +" elementos con Lista enlazada con cola - Chazas - tomó "+ ( time_end - time_start ) +" nanosegundos");
            // escribirArchivoCliente(arregloActualCliente, archivoClientes);
             
         }catch(Exception e){
@@ -158,7 +158,7 @@ public class PruebaDeTiemposListaEnlazadaConCola {
         //System.out.println(clientePrueba.getNombre()+ " " + clientePrueba.getTelefono());
         //miControlador.actualizarCliente("ike@mozgi.py", "Telefono", "0");
         /*Leer*/
-        //  miControlador.imprimirChazas();
+  //        miControlador.imprimirChazas();
 
         /*---------------------------------------------------------------------------------------------------------------------*/
     }
