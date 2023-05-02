@@ -35,6 +35,35 @@ public class ControladorListaEnlazada {
         ListaEnlazadaFactura = new ListaEnlazada();
         ListaEnlazadaOrden = new ListaEnlazada();
     }
+
+    public ListaEnlazada getListaEnlazadaClientes() {
+        return ListaEnlazadaClientes;
+    }
+
+    public ListaEnlazada getListaEnlazadaVendedor() {
+        return ListaEnlazadaVendedor;
+    }
+
+    public ListaEnlazada getListaEnlazadaChaza() {
+        return ListaEnlazadaChaza;
+    }
+
+    public ListaEnlazada getListaEnlazadaProducto() {
+        return ListaEnlazadaProducto;
+    }
+
+    public ListaEnlazada getListaEnlazadaComentario() {
+        return ListaEnlazadaComentario;
+    }
+
+    public ListaEnlazada getListaEnlazadaFactura() {
+        return ListaEnlazadaFactura;
+    }
+
+    public ListaEnlazada getListaEnlazadaOrden() {
+        return ListaEnlazadaOrden;
+    }
+    
     
     /*Cliente*/
     
@@ -53,7 +82,7 @@ public class ControladorListaEnlazada {
             }
         }
         time_end = System.nanoTime();
-        System.out.println("IniciarSesión con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
+        System.out.println("IniciarSesión con Lista Enlazada tomo "+ ( time_end - time_start ) +" nanoseconds");
         return clienteRetorno;
     }
     
@@ -63,7 +92,7 @@ public class ControladorListaEnlazada {
         time_start = System.nanoTime();
         ListaEnlazadaClientes.pushBack(nuevoCliente);
         time_end = System.nanoTime();
-        System.out.println("agregarNuevoCliente con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
+        System.out.println("agregarNuevoCliente con Lista Enlazada tomo "+ ( time_end - time_start ) +" nanoseconds");
         System.out.println("Se ha ingresado correctamente: " + nombre + " " + apellido);
     }
     //Devuelve el cliente borrado
@@ -75,7 +104,7 @@ public class ControladorListaEnlazada {
             time_start = System.nanoTime();
             ListaEnlazadaClientes.delete(clienteAEliminar);
             time_end = System.nanoTime();
-            System.out.println("eliminarCliente con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
+            System.out.println("eliminarCliente con Lista Enlazada tomo "+ ( time_end - time_start ) +" nanoseconds");
             
         }catch(Exception e){
             System.out.println("El cliente no se encontró");
@@ -117,12 +146,12 @@ public class ControladorListaEnlazada {
         time_start = System.nanoTime();
         Cliente clienteActualizado = actualizarCategoriaCliente(clienteAntiguo,categoria, datoModificado);
         time_end = System.nanoTime();
-        System.out.println("actualizarCategoriaCliente con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
+        System.out.println("actualizarCategoriaCliente con Lista Enlazada tomo "+ ( time_end - time_start ) +" nanoseconds");
         long time_start2, time_end2;
         time_start2 = System.nanoTime();
         ListaEnlazadaClientes.ActualizarData(clienteAntiguo, clienteActualizado);
         time_end2 = System.nanoTime();
-        System.out.println("actualizarCliente con arreglo dinamico tomo "+ ( time_end2 - time_start2 ) +" milliseconds");
+        System.out.println("actualizarCliente con Lista Enlazada tomo "+ ( time_end2 - time_start2 ) +" nanoseconds");
         
     }
         
@@ -135,7 +164,7 @@ public class ControladorListaEnlazada {
             System.out.println(clienteIterado.getNombre() + " " + clienteIterado.getApellido() + " " + clienteIterado.getCorreo()+ " "+clienteIterado.getTelefono());
         }
         time_end = System.nanoTime();
-        System.out.println("imprimirClientes con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
+        System.out.println("imprimirClientes con Lista Enlazada tomo "+ ( time_end - time_start ) +" nanoseconds");
     }
     
     public void buscarCliente(String nombre, String apellido){
@@ -152,7 +181,7 @@ public class ControladorListaEnlazada {
             }
         }
         time_end = System.nanoTime();
-        System.out.println("buscarCliente con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
+        System.out.println("buscarCliente con Lista Enlazada tomo "+ ( time_end - time_start ) +" nanoseconds");
     }
     
     public Cliente buscarClientePorCorreo(String correo) throws Exception{
@@ -169,7 +198,7 @@ public class ControladorListaEnlazada {
             }
         }
         time_end = System.nanoTime();
-        System.out.println("buscarClientePorCorreo con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
+        System.out.println("buscarClientePorCorreo con Lista Enlazada tomo "+ ( time_end - time_start ) +" nanoseconds");
         return clienteEncontrado;
     }
     
@@ -181,7 +210,7 @@ public class ControladorListaEnlazada {
         time_start = System.nanoTime();
         ListaEnlazadaProducto.pushBack(nuevoProducto);
         time_end = System.nanoTime();
-        System.out.println("agregarNuevoProducto con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
+        System.out.println("agregarNuevoProducto con Lista Enlazada tomo "+ ( time_end - time_start ) +" nanoseconds");
         System.out.println("Se ha ingresado correctamente "+ nuevoProducto.getNombre());
     }
     
@@ -193,7 +222,7 @@ public class ControladorListaEnlazada {
             productoAEliminar = buscarProductoPorCodigo(codigoProducto);
             ListaEnlazadaProducto.delete(productoAEliminar);
             time_end = System.nanoTime();
-            System.out.println("eliminarProducto con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
+            System.out.println("eliminarProducto con Lista Enlazada tomo "+ ( time_end - time_start ) +" nanoseconds");
         }catch(Exception e){
             System.out.println("El producto no se encontró");
         }
@@ -246,12 +275,12 @@ public class ControladorListaEnlazada {
             System.out.println("Error "+ex);
         }
         time_end = System.nanoTime();
-        System.out.println("actualizarCategoriaProducto con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
+        System.out.println("actualizarCategoriaProducto con Lista Enlazada tomo "+ ( time_end - time_start ) +" nanoseconds");
         long time_start2, time_end2;
         time_start2 = System.nanoTime();
         ListaEnlazadaProducto.ActualizarData(productoAntiguo, productoActualizado);
         time_end2 = System.nanoTime();
-        System.out.println("actualizarProducto con arreglo dinamico tomo "+ ( time_end2 - time_start2 ) +" milliseconds");
+        System.out.println("actualizarProducto con Lista Enlazada tomo "+ ( time_end2 - time_start2 ) +" nanoseconds");
     }
     
     public void imprimirProductos(){
@@ -263,7 +292,7 @@ public class ControladorListaEnlazada {
             System.out.println(productoIterado.getCodigo()+ " " + productoIterado.getNombre()+ " " + productoIterado.getDetalle()+ " ");
         }
         time_end = System.nanoTime();
-        System.out.println("imprimirProductos con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
+        System.out.println("imprimirProductos con Lista Enlazada tomo "+ ( time_end - time_start ) +" nanoseconds");
     }
     
     public Producto buscarProductoPorCodigo(int codigo) throws Exception{
@@ -280,7 +309,7 @@ public class ControladorListaEnlazada {
             }
         }
         time_end = System.nanoTime();
-        System.out.println("buscarProductoPorCodigo con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
+        System.out.println("buscarProductoPorCodigo con Lista Enlazada tomo "+ ( time_end - time_start ) +" nanoseconds");
         return productoEncontrada;
     }
     
@@ -293,7 +322,7 @@ public class ControladorListaEnlazada {
         time_start = System.nanoTime();
         ListaEnlazadaChaza.pushBack(nuevaChaza);
         time_end = System.nanoTime();
-        System.out.println("agregarNuevaChaza con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
+        System.out.println("agregarNuevaChaza con Lista Enlazada tomo "+ ( time_end - time_start ) +" nanoseconds");
         System.out.println("Se ha ingresado correctamente "+ nuevaChaza.getNombreChaza());
     }
     
@@ -305,7 +334,7 @@ public class ControladorListaEnlazada {
             chazaAEliminar = buscarChazaPorNombre(nombreChaza);
             ListaEnlazadaChaza.delete(chazaAEliminar);
             time_end = System.nanoTime();
-            System.out.println("eliminarChaza con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
+            System.out.println("eliminarChaza con Lista Enlazada tomo "+ ( time_end - time_start ) +" nanoseconds");
         }catch(Exception e){
             System.out.println("La chaza no se encontró");
         }
@@ -344,13 +373,13 @@ public class ControladorListaEnlazada {
         time_start = System.nanoTime();
         Chaza chazaActualizada = actualizarCategoriaChaza(chazaAntigua,categoria, datoModificado);
         time_end = System.nanoTime();
-        System.out.println("actualizarCategoriaChaza con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
+        System.out.println("actualizarCategoriaChaza con Lista Enlazada tomo "+ ( time_end - time_start ) +" nanoseconds");
         
         long time_start2, time_end2;
         time_start2 = System.nanoTime();
         ListaEnlazadaChaza.ActualizarData(chazaAntigua, chazaActualizada);
         time_end2 = System.nanoTime();
-        System.out.println("actualizarChaza con arreglo dinamico tomo "+ ( time_end2 - time_start2 ) +" milliseconds");
+        System.out.println("actualizarChaza con Lista Enlazada tomo "+ ( time_end2 - time_start2 ) +" nanoseconds");
     }
     
     public void imprimirChazas(){
@@ -362,7 +391,7 @@ public class ControladorListaEnlazada {
             System.out.println(chazaIterado.getNombreChaza()+ " " + chazaIterado.getUbicacion() + " " + chazaIterado.getDescripcion() + " ");
         }
         time_end = System.nanoTime();
-        System.out.println("imprimirChazas con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
+        System.out.println("imprimirChazas con Lista Enlazada tomo "+ ( time_end - time_start ) +" nanoseconds");
     }
     
     public Chaza buscarChazaPorNombre(String nombreChaza) throws Exception{
@@ -379,7 +408,7 @@ public class ControladorListaEnlazada {
             }
         }
         time_end = System.nanoTime();
-        System.out.println("buscarChazaPorNombre con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
+        System.out.println("buscarChazaPorNombre con Lista Enlazada tomo "+ ( time_end - time_start ) +" nanoseconds");
         return chazaEncontrada;
     }
     
@@ -393,7 +422,7 @@ public class ControladorListaEnlazada {
         time_start = System.nanoTime();
         ListaEnlazadaComentario.pushBack(nuevoComentario);
         time_end = System.nanoTime();
-        System.out.println("agregarNuevoComentario con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
+        System.out.println("agregarNuevoComentario con Lista Enlazada tomo "+ ( time_end - time_start ) +" nanoseconds");
         System.out.println("Se ha ingresado correctamente: " + idComentario + " " + contenido);
         
     }
@@ -420,13 +449,13 @@ public class ControladorListaEnlazada {
         time_start = System.nanoTime();
         Comentario comentarioActualizado = actualizarCategoriaComentario(comentarioAntiguo,categoria, datoModificado);
         time_end = System.nanoTime();
-        System.out.println("actualizarCategoriaComentario con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
+        System.out.println("actualizarCategoriaComentario con Lista Enlazada tomo "+ ( time_end - time_start ) +" nanoseconds");
         
         long time_start2, time_end2;
         time_start2 = System.nanoTime();
         ListaEnlazadaComentario.ActualizarData(comentarioAntiguo, comentarioActualizado);
         time_end2 = System.nanoTime();
-        System.out.println("actualizarComentario con arreglo dinamico tomo "+ ( time_end2 - time_start2 ) +" milliseconds");
+        System.out.println("actualizarComentario con Lista Enlazada tomo "+ ( time_end2 - time_start2 ) +" nanoseconds");
         
     }
     
@@ -439,7 +468,7 @@ public class ControladorListaEnlazada {
             System.out.println(comentarioIterado.getIdComentario() + " " + comentarioIterado.getContenido() + " " + comentarioIterado.getFechaComentario()+ " ");
         }
         time_end = System.nanoTime();
-        System.out.println("imprimirComentarios con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
+        System.out.println("imprimirComentarios con Lista Enlazada tomo "+ ( time_end - time_start ) +" nanoseconds");
     }
     
     public Comentario buscarComentarioPorId(long idComentario) throws Exception{
@@ -456,7 +485,7 @@ public class ControladorListaEnlazada {
             }
         }
         time_end = System.nanoTime();
-        System.out.println("buscarComentarioPorId con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
+        System.out.println("buscarComentarioPorId con Lista Enlazada tomo "+ ( time_end - time_start ) +" nanoseconds");
         return comentarioEncontrado;
     }
     
@@ -467,7 +496,7 @@ public class ControladorListaEnlazada {
         time_start = System.nanoTime();
         ListaEnlazadaFactura.pushBack(nuevaFactura);
         time_end = System.nanoTime();
-        System.out.println("agregarNuevaFactura con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
+        System.out.println("agregarNuevaFactura con Lista Enlazada tomo "+ ( time_end - time_start ) +" nanoseconds");
         System.out.println("Se ha ingresado correctamente: " + numReferencia + " " + orden + " " + producto);
     }
     public Factura eliminarFactura(long numReferencia){
@@ -482,7 +511,7 @@ public class ControladorListaEnlazada {
             System.out.println("La factura no se encontró");
         }
         time_end = System.nanoTime();
-        System.out.println("eliminarFactura con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
+        System.out.println("eliminarFactura con Lista Enlazada tomo "+ ( time_end - time_start ) +" nanoseconds");
         return facturaAEliminar; 
     }
     
@@ -524,13 +553,13 @@ public class ControladorListaEnlazada {
         time_start = System.nanoTime();
         Factura facturaActualizada = actualizarCategoriaFactura(facturaAntigua,categoria, datoModificado);
         time_end = System.nanoTime();
-        System.out.println("actualizarCategoriaFactura con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
+        System.out.println("actualizarCategoriaFactura con Lista Enlazada tomo "+ ( time_end - time_start ) +" nanoseconds");
         
         long time_start2, time_end2;
         time_start2 = System.nanoTime();
         ListaEnlazadaFactura.ActualizarData(facturaAntigua, facturaActualizada);
         time_end2 = System.nanoTime();
-        System.out.println("ListaEnlazadaFactura con arreglo dinamico tomo "+ ( time_end2 - time_start2 ) +" milliseconds");
+        System.out.println("ListaEnlazadaFactura con Lista Enlazada tomo "+ ( time_end2 - time_start2 ) +" nanoseconds");
     }
     
     public void imprimirFactura(){
@@ -542,7 +571,7 @@ public class ControladorListaEnlazada {
             System.out.println(facturaIterada.getNumReferencia() + " " + facturaIterada.getFechaFactura() + " " + facturaIterada.getOrden()+ " " + facturaIterada.getProducto());
         }
         time_end = System.nanoTime();
-        System.out.println("imprimirFacturas con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
+        System.out.println("imprimirFacturas con Lista Enlazada tomo "+ ( time_end - time_start ) +" nanoseconds");
     }
     
     public Factura buscarFacturaPorId(long referencia) throws Exception{
@@ -559,7 +588,7 @@ public class ControladorListaEnlazada {
             }
         }
         time_end = System.nanoTime();
-        System.out.println("buscarFacturaPorId con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
+        System.out.println("buscarFacturaPorId con Lista Enlazada tomo "+ ( time_end - time_start ) +" nanoseconds");
         return facturaEncontrado;
     }
     
@@ -571,7 +600,7 @@ public class ControladorListaEnlazada {
         time_start = System.nanoTime();
         ListaEnlazadaOrden.pushBack(nuevaOrden);
         time_end = System.nanoTime();
-        System.out.println("agregarNuevaOrden con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
+        System.out.println("agregarNuevaOrden con Lista Enlazada tomo "+ ( time_end - time_start ) +" nanoseconds");
         System.out.println("Se ha ingresado correctamente: " + numOrden + " " + fechaOrden + " " + cliente + " " + chaza);
     }
     
@@ -587,7 +616,7 @@ public class ControladorListaEnlazada {
             System.out.println("La orden no se encontró");
         }
         time_end = System.nanoTime();
-        System.out.println("eliminarOrden con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
+        System.out.println("eliminarOrden con Lista Enlazada tomo "+ ( time_end - time_start ) +" nanoseconds");
         return ordenAEliminar; 
     }
     
@@ -626,13 +655,13 @@ public class ControladorListaEnlazada {
         time_start = System.nanoTime();
         Orden ordenActualizado = actualizarCategoriaOrden(ordenAntiguo,categoria, datoModificado);
         time_end = System.nanoTime();
-        System.out.println("actualizarCategoriaOrden con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
+        System.out.println("actualizarCategoriaOrden con Lista Enlazada tomo "+ ( time_end - time_start ) +" nanoseconds");
         
         long time_start2, time_end2;
         time_start2 = System.nanoTime();
         ListaEnlazadaOrden.ActualizarData(ordenAntiguo, ordenActualizado);
         time_end2 = System.nanoTime();
-        System.out.println("actualizarOrden con arreglo dinamico tomo "+ ( time_end2 - time_start2 ) +" milliseconds");
+        System.out.println("actualizarOrden con Lista Enlazada tomo "+ ( time_end2 - time_start2 ) +" nanoseconds");
         
     }
     
@@ -645,7 +674,7 @@ public class ControladorListaEnlazada {
             System.out.println(ordenIterado.getNumOrden() + " " + ordenIterado.getFechaOrden() + " " + ordenIterado.getCliente()+ " ");
         }
         time_end = System.nanoTime();
-        System.out.println("imprimirOrdenes con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
+        System.out.println("imprimirOrdenes con Lista Enlazada tomo "+ ( time_end - time_start ) +" nanoseconds");
     }
     
     public Orden buscarOrdenPorId(long numOrden) throws Exception{
@@ -662,7 +691,7 @@ public class ControladorListaEnlazada {
             }
         }
         time_end = System.nanoTime();
-        System.out.println("buscarOrdenPorId con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
+        System.out.println("buscarOrdenPorId con Lista Enlazada tomo "+ ( time_end - time_start ) +" nanoseconds");
         return ordenEncontrada;
     }
     
@@ -684,7 +713,7 @@ public class ControladorListaEnlazada {
             }
         }
         time_end = System.nanoTime();
-        System.out.println("buscarFacturaPorId con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
+        System.out.println("buscarFacturaPorId con Lista Enlazada tomo "+ ( time_end - time_start ) +" nanoseconds");
         return vendedorRetorno;
     }
     
@@ -694,7 +723,7 @@ public class ControladorListaEnlazada {
         time_start = System.nanoTime();
         ListaEnlazadaVendedor.pushBack(nuevoVendedor);
         time_end = System.nanoTime();
-        System.out.println("agregarNuevoVendedor con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
+        System.out.println("agregarNuevoVendedor con Lista Enlazada tomo "+ ( time_end - time_start ) +" nanoseconds");
         System.out.println("Se ha ingresado correctamente: " + nombre + " " + apellido);
     }
     //Devuelve el cliente borrado
@@ -710,8 +739,21 @@ public class ControladorListaEnlazada {
             System.out.println("El cliente no se encontró");
         }
         time_end = System.nanoTime();
-        System.out.println("eliminarVendedor con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
+        System.out.println("eliminarVendedor con Lista Enlazada tomo "+ ( time_end - time_start ) +" nanoseconds");
         return vendedorAEliminar; 
+    }
+    
+    public void eliminarVendedor(){
+        long time_start, time_end;
+        time_start = System.nanoTime();
+        try{
+            ListaEnlazadaVendedor.popFront();
+            
+        }catch(Exception e){
+            System.out.println("El Vendedor no se encontró");
+        }
+        time_end = System.nanoTime();
+        System.out.println("eliminarVendedor con Lista Enlazada tomo "+ ( time_end - time_start ) +" nanoseconds");
     }
     
     public Vendedor actualizarCategoriaVendedor(Vendedor vendedorActualizar, String categoria, String datoModificado){
@@ -749,13 +791,13 @@ public class ControladorListaEnlazada {
         time_start = System.nanoTime();
         Vendedor vendedorActualizado = actualizarCategoriaVendedor(vendedorAntiguo,categoria, datoModificado);
         time_end = System.nanoTime();
-        System.out.println("actualizarCategoriaVendedor con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
+        System.out.println("actualizarCategoriaVendedor con Lista Enlazada tomo "+ ( time_end - time_start ) +" nanoseconds");
         
         long time_start2, time_end2;
         time_start2 = System.nanoTime();
         ListaEnlazadaVendedor.ActualizarData(vendedorAntiguo, vendedorActualizado);
         time_end2 = System.nanoTime();
-        System.out.println("actualizarVendedor con arreglo dinamico tomo "+ ( time_end2 - time_start2 ) +" milliseconds");
+        System.out.println("actualizarVendedor con Lista Enlazada tomo "+ ( time_end2 - time_start2 ) +" nanoseconds");
         
     }
         
@@ -764,11 +806,11 @@ public class ControladorListaEnlazada {
         long time_start, time_end;
         time_start = System.nanoTime();
         for(int i = 0;i < ListaEnlazadaVendedor.size();i++){
-            vendedorIterado = (Vendedor) ListaEnlazadaClientes.getElement(i);
+            vendedorIterado = (Vendedor) ListaEnlazadaVendedor.getElement(i);
             System.out.println(vendedorIterado.getNombre() + " " + vendedorIterado.getApellido() + " " + vendedorIterado.getCorreo()+ " ");
         }
         time_end = System.nanoTime();
-        System.out.println("imprimirVendedores con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
+        System.out.println("imprimirVendedores con Lista Enlazada tomo "+ ( time_end - time_start ) +" nanoseconds");
     }
     
     public void buscarVendedor(String nombre, String apellido){
@@ -785,7 +827,7 @@ public class ControladorListaEnlazada {
             }
         }
         time_end = System.nanoTime();
-        System.out.println("buscarVendedor con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
+        System.out.println("buscarVendedor con Lista Enlazada tomo "+ ( time_end - time_start ) +" nanoseconds");
     }
     
     public Vendedor buscarVendedorPorCorreo(String correo) throws Exception{
@@ -797,12 +839,13 @@ public class ControladorListaEnlazada {
             vendedorIterado = (Vendedor) ListaEnlazadaClientes.getElement(i);
             if(vendedorIterado.getCorreo().equals(correo)){
                 vendedorEncontrado = vendedorIterado;
-            }else{
-                throw new Exception("No existe el cliente");
             }
         }
+        if(vendedorEncontrado.getNombre().length()==0){
+            System.out.println("No se encontro");
+        }
         time_end = System.nanoTime();
-        System.out.println("buscarVendedorPorCorreo con arreglo dinamico tomo "+ ( time_end - time_start ) +" milliseconds");
+        System.out.println("buscarVendedorPorCorreo con Lista Enlazada tomo "+ ( time_end - time_start ) +" nanoseconds");
         return vendedorEncontrado;
     }
     
