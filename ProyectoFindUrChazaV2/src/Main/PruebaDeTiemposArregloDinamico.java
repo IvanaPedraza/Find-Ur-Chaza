@@ -87,7 +87,7 @@ public class PruebaDeTiemposArregloDinamico <T>{
         
         
         /*Eliminar todos los clientes*/
-        
+        /*
         try{
             BufferedReader buffer2 = miArchivo.leerArchivo(archivoClientes);
             String linea2; 
@@ -105,7 +105,7 @@ public class PruebaDeTiemposArregloDinamico <T>{
         }catch(Exception e){
             System.out.println("Ha ocurrido un error" + e.toString());
         }
-        
+        */
         
         /*Actualizar*/
         /*
@@ -138,7 +138,7 @@ public class PruebaDeTiemposArregloDinamico <T>{
         }catch(Exception e){
             System.out.println("Ha ocurrido un error" + e.toString());
         }
-        */
+        
         
         
         
@@ -148,7 +148,7 @@ public class PruebaDeTiemposArregloDinamico <T>{
         //miControlador.actualizarCliente("ike@mozgi.py", "Telefono", "0");
         
         /*Leer*/
-        //miControlador.imprimirClientes();
+        miControlador.imprimirClientes();
         
         /*---------------------------------------------------------------------------------------------------------------------*/
         
