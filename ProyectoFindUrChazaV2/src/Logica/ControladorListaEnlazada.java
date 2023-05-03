@@ -35,6 +35,35 @@ public class ControladorListaEnlazada {
         ListaEnlazadaFactura = new ListaEnlazada();
         ListaEnlazadaOrden = new ListaEnlazada();
     }
+
+    public ListaEnlazada getListaEnlazadaClientes() {
+        return ListaEnlazadaClientes;
+    }
+
+    public ListaEnlazada getListaEnlazadaVendedor() {
+        return ListaEnlazadaVendedor;
+    }
+
+    public ListaEnlazada getListaEnlazadaChaza() {
+        return ListaEnlazadaChaza;
+    }
+
+    public ListaEnlazada getListaEnlazadaProducto() {
+        return ListaEnlazadaProducto;
+    }
+
+    public ListaEnlazada getListaEnlazadaComentario() {
+        return ListaEnlazadaComentario;
+    }
+
+    public ListaEnlazada getListaEnlazadaFactura() {
+        return ListaEnlazadaFactura;
+    }
+
+    public ListaEnlazada getListaEnlazadaOrden() {
+        return ListaEnlazadaOrden;
+    }
+    
     
     /*Cliente*/
     
