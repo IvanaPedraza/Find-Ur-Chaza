@@ -158,7 +158,7 @@ public class PruebaDeTiemposListaEnlazadaConCola {
         //System.out.println(clientePrueba.getNombre()+ " " + clientePrueba.getTelefono());
         //miControlador.actualizarCliente("ike@mozgi.py", "Telefono", "0");
         /*Leer*/
-  //        miControlador.imprimirChazas();
+        miControlador.imprimirChazas();
 
         /*---------------------------------------------------------------------------------------------------------------------*/
     }

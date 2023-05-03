@@ -16,9 +16,11 @@ import java.io.FileReader;
 public class ArchivoListaEnlazadaConCola {
         public BufferedReader leerArchivo(String nombreArchivo) throws FileNotFoundException{
     
+
         //File documento = new File("C:\\Users\\Cata\\Desktop\\FindUrChaza\\Find-Ur-Chaza\\ProyectoFindUrChazaV2\\data\\" + nombreArchivo);
         File documento = new File("C:\\Users\\kelly\\OneDrive\\Documentos\\ProyectoEstructuras\\Find-Ur-Chaza\\ProyectoFindUrChazaV2\\data\\" + nombreArchivo);
 
+        //File documento = new File("C:\\Users\\IVANA\\OneDrive\\Documentos\\NetBeansProjects\\FindUrChaza\\Find-Ur-Chaza\\ProyectoFindUrChazaV2\\data\\" + nombreArchivo);
         BufferedReader objecto = new BufferedReader(new FileReader(documento));
         return objecto;
     }
