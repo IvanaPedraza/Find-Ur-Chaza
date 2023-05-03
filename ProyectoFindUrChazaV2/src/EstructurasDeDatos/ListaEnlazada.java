@@ -76,7 +76,7 @@ public class ListaEnlazada <T> {
             }
             ptr.setNext(newTail);
         }
-
+        this.size++;
     }
 
     public T topBack() {
