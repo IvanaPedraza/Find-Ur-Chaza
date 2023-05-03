@@ -325,14 +325,14 @@ public class ControladorListaEnlazadaConCola {
     public Chaza eliminarChaza(String nombreChaza) {
         Chaza chazaAEliminar = new Chaza();
         try {
-            long time_start, time_end;
-            time_start = System.nanoTime();
+            //long time_start, time_end;
+            //time_start = System.nanoTime();
             chazaAEliminar = buscarChazaPorNombre(nombreChaza);
             ListaEnlazadaConColaChaza.delete(chazaAEliminar);
-            time_end = System.nanoTime();
-            System.out.println("eliminarChaza con arreglo dinamico tomo " + (time_end - time_start) + " milliseconds");
+            //time_end = System.nanoTime();
+            //System.out.println("eliminarChaza con arreglo dinamico tomo " + (time_end - time_start) + " milliseconds");
         } catch (Exception e) {
-            System.out.println("La chaza no se encontró");
+            System.out.println("La chaza no se encontró " + e);
         }
 
         return chazaAEliminar;
@@ -346,7 +346,7 @@ public class ControladorListaEnlazadaConCola {
             time_end = System.nanoTime();
             System.out.println("eliminarChaza con arreglo dinamico tomo " + (time_end - time_start) + " milliseconds");
         } catch (Exception e) {
-            System.out.println("La chaza no se encontró");
+            System.out.println("La chaza no se encontró" + e);
         }
     }
 
@@ -377,17 +377,17 @@ public class ControladorListaEnlazadaConCola {
         } catch (Exception e) {
             System.out.println("No se pudo actualizar la chaza, porque no existe");
         }
-        long time_start, time_end;
-        time_start = System.nanoTime();
+        //long time_start, time_end;
+        //time_start = System.nanoTime();
         Chaza chazaActualizada = actualizarCategoriaChaza(chazaAntigua, categoria, datoModificado);
-        time_end = System.nanoTime();
-        System.out.println("actualizarCategoriaChaza con arreglo dinamico tomo " + (time_end - time_start) + " milliseconds");
+        //time_end = System.nanoTime();
+        //System.out.println("actualizarCategoriaChaza con arreglo dinamico tomo " + (time_end - time_start) + " milliseconds");
 
-        long time_start2, time_end2;
-        time_start2 = System.nanoTime();
+        //long time_start2, time_end2;
+        //time_start2 = System.nanoTime();
         ListaEnlazadaConColaChaza.ActualizarData(chazaAntigua, chazaActualizada);
-        time_end2 = System.nanoTime();
-        System.out.println("actualizarChaza con arreglo dinamico tomo " + (time_end2 - time_start2) + " milliseconds");
+        //time_end2 = System.nanoTime();
+        //System.out.println("actualizarChaza con arreglo dinamico tomo " + (time_end2 - time_start2) + " milliseconds");
     }
 
     public void imprimirChazas() {
@@ -405,19 +405,50 @@ public class ControladorListaEnlazadaConCola {
     public Chaza buscarChazaPorNombre(String nombreChaza) throws Exception {
         Chaza chazaEncontrada = new Chaza();
         Chaza chazaIterado = new Chaza();
-        long time_start, time_end;
-        time_start = System.nanoTime();
+        //long time_start, time_end;
+        //time_start = System.nanoTime();
         for (int i = 0; i < ListaEnlazadaConColaChaza.cantidad(); i++) {
             chazaIterado = (Chaza) ListaEnlazadaConColaChaza.getElement(i);
             if (chazaIterado.getNombreChaza().equals(nombreChaza)) {
                 chazaEncontrada = chazaIterado;
-            } else {
-                throw new Exception("No existe la chaza");
             }
         }
-        time_end = System.nanoTime();
-        System.out.println("buscarChazaPorNombre con arreglo dinamico tomo " + (time_end - time_start) + " milliseconds");
+        if(chazaEncontrada.getNombreChaza().length()==0){
+            System.out.println("No se encontro");
+        }
+        //time_end = System.nanoTime();
+        //System.out.println("buscarChazaPorNombre con arreglo dinamico tomo " + (time_end - time_start) + " milliseconds");
         return chazaEncontrada;
+    }
+    
+    public Chaza buscarChazaPorVendedor(Vendedor vendedor){
+        Chaza chazaEncontrada = new Chaza();
+        Chaza chazaIterado = new Chaza();
+        //long time_start, time_end;
+        //time_start = System.nanoTime();
+        for (int i = 0; i < ListaEnlazadaConColaChaza.cantidad(); i++) {
+            chazaIterado = (Chaza) ListaEnlazadaConColaChaza.getElement(i);
+            if (chazaIterado.getVendedor().getCorreo().equals(vendedor.getCorreo())) {
+                chazaEncontrada = chazaIterado;
+                System.out.println(chazaEncontrada.getIdChaza()+ " " +chazaEncontrada.getNombreChaza()+" "+chazaEncontrada.getUbicacion()+" "+chazaEncontrada.getDescripcion());
+            }
+        }
+        if(chazaEncontrada.getNombreChaza().length()==0){
+            System.out.println("No se encontro");
+        }
+        return chazaEncontrada;
+    }
+    
+    public int numeroChazasPorVendedor(Vendedor vendedor){
+        int numChazas = 0;
+        Chaza chazaIterado = new Chaza();
+        for (int i = 0; i < ListaEnlazadaConColaChaza.cantidad(); i++) {
+            chazaIterado = (Chaza) ListaEnlazadaConColaChaza.getElement(i);
+            if(chazaIterado.getVendedor().getCorreo().equals(vendedor.getCorreo())){
+                numChazas++;
+            }
+        }
+        return numChazas;
     }
 
     /*Comentario*/
@@ -711,7 +742,7 @@ public class ControladorListaEnlazadaConCola {
             if (vendedorIngreso.getCorreo().equals(correo) && vendedorIngreso.getContraseña().equals(contrasena)) {
                 vendedorRetorno = vendedorIngreso;
             } else {
-                System.out.println("¡El cliente no existe!");
+                System.out.println("¡El vendedor no existe!");
                 vendedorRetorno = null;
             }
         }
@@ -726,8 +757,8 @@ public class ControladorListaEnlazadaConCola {
         time_start = System.nanoTime();
         ListaEnlazadaConColaVendedor.pushBack(nuevoVendedor);
         time_end = System.nanoTime();
-        System.out.println("agregarNuevoVendedor con Lista Enlazada Con Cola tomo " + (time_end - time_start) + " milliseconds");
-        System.out.println("Se ha ingresado correctamente: " + nombre + " " + apellido);
+        //System.out.println("agregarNuevoVendedor con Lista Enlazada Con Cola tomo " + (time_end - time_start) + " milliseconds");
+        //System.out.println("Se ha ingresado correctamente: " + nombre + " " + apellido);
     }
 
     //Devuelve el cliente borrado

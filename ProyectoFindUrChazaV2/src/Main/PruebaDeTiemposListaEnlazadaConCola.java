@@ -104,7 +104,7 @@ public class PruebaDeTiemposListaEnlazadaConCola {
         /*---------------------------------------------- INSERCIONES ----------------------------------------------*/
 
  /*Eliminar todas las Chazas*/
-   /*  try {
+     try {
             BufferedReader buffer3 = miArchivoChaza.leerArchivo(archivoChaza);
             String linea3;
             long time_start, time_end;
