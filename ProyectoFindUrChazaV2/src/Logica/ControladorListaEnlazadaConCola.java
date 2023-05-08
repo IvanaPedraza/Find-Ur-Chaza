@@ -413,15 +413,15 @@ public class ControladorListaEnlazadaConCola {
                 chazaEncontrada = chazaIterado;
             }
         }
-        if(chazaEncontrada.getNombreChaza().length()==0){
+        if (chazaEncontrada.getNombreChaza().length() == 0) {
             System.out.println("No se encontro");
         }
         //time_end = System.nanoTime();
         //System.out.println("buscarChazaPorNombre con arreglo dinamico tomo " + (time_end - time_start) + " milliseconds");
         return chazaEncontrada;
     }
-    
-    public Chaza buscarChazaPorVendedor(Vendedor vendedor){
+
+    public Chaza buscarChazaPorVendedor(Vendedor vendedor) {
         Chaza chazaEncontrada = new Chaza();
         Chaza chazaIterado = new Chaza();
         //long time_start, time_end;
@@ -430,23 +430,29 @@ public class ControladorListaEnlazadaConCola {
             chazaIterado = (Chaza) ListaEnlazadaConColaChaza.getElement(i);
             if (chazaIterado.getVendedor().getCorreo().equals(vendedor.getCorreo())) {
                 chazaEncontrada = chazaIterado;
-                System.out.println(chazaEncontrada.getIdChaza()+ " " +chazaEncontrada.getNombreChaza()+" "+chazaEncontrada.getUbicacion()+" "+chazaEncontrada.getDescripcion());
+                System.out.println(chazaEncontrada.getIdChaza() + " " + chazaEncontrada.getNombreChaza() + " " + chazaEncontrada.getUbicacion() + " " + chazaEncontrada.getDescripcion());
             }
         }
-        if(chazaEncontrada.getNombreChaza().length()==0){
+        if (chazaEncontrada.getNombreChaza().length() == 0) {
             System.out.println("No se encontro");
         }
         return chazaEncontrada;
     }
-    
-    public int numeroChazasPorVendedor(Vendedor vendedor){
+
+    public int numeroChazasPorVendedor(Vendedor vendedor) {
         int numChazas = 0;
         Chaza chazaIterado = new Chaza();
         for (int i = 0; i < ListaEnlazadaConColaChaza.cantidad(); i++) {
             chazaIterado = (Chaza) ListaEnlazadaConColaChaza.getElement(i);
-            if(chazaIterado.getVendedor().getCorreo().equals(vendedor.getCorreo())){
-                numChazas++;
+            if (chazaIterado == null) {
+                System.out.println("No hay chazas por el momento");
+                break;
+            } else {
+                if (chazaIterado.getVendedor().getCorreo().equals(vendedor.getCorreo())) {
+                    numChazas++;
+                }
             }
+
         }
         return numChazas;
     }
@@ -861,9 +867,9 @@ public class ControladorListaEnlazadaConCola {
             vendedorIterado = (Vendedor) ListaEnlazadaConColaVendedor.getElement(i);
             if (vendedorIterado.getCorreo().equals(correo)) {
                 vendedorEncontrado = vendedorIterado;
-            } 
+            }
         }
-        if(vendedorEncontrado.getNombre().length()==0){
+        if (vendedorEncontrado.getNombre().length() == 0) {
             System.out.println("No se encontro");
         }
         time_end = System.nanoTime();

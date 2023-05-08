@@ -10,7 +10,8 @@ package Modelo;
  */
 public class Chaza {
     
-    private static int idChaza;
+    private static int numChazas = 0;
+    private int idChaza;
     private String nombreChaza;
     private String ubicacion;
     private String descripcion;
@@ -22,7 +23,8 @@ public class Chaza {
     }
 
     public Chaza(String nombreChaza, String ubicacion, String descripcion, Vendedor vendedor) {
-        idChaza += 1;
+        numChazas+=1;
+        this.idChaza = numChazas;
         this.nombreChaza = nombreChaza;
         this.ubicacion = ubicacion;
         this.descripcion = descripcion;

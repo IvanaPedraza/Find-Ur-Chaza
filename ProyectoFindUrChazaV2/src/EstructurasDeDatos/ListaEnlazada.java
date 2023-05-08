@@ -142,10 +142,20 @@ public class ListaEnlazada <T> {
      
      public void delete(T item){
         Node nuevaRef = this.head;
-        while(nuevaRef != null && nuevaRef.getData().toString().compareTo((String) item) < 0){
+        Node prev = null;
+        if(nuevaRef != null && nuevaRef.getData()==item){
+            this.head = nuevaRef.getNext();
+            return;
+        }
+        while(nuevaRef!=null && nuevaRef.getData() != item){
+            prev = nuevaRef;
             nuevaRef = nuevaRef.getNext();
         }
-        size--;
+        
+        if(nuevaRef==null){
+            return;
+        }
+        prev.setNext(nuevaRef.getNext());
     }
      
     public T getElement(int i) {

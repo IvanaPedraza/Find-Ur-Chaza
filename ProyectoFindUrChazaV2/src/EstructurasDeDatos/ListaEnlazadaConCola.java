@@ -164,6 +164,7 @@ public class ListaEnlazadaConCola<T> {
 
     //metodo de eliminar
     public void delete(T item) {
+        /*
         Node nuevaRef = this.head;
         Node prev = null;
         while (nuevaRef != null && nuevaRef.getData().toString().compareTo((String) item) < 0) {
@@ -176,6 +177,24 @@ public class ListaEnlazadaConCola<T> {
         } else if (prev.getNext().getData() == item) {
             prev.setNext(nuevaRef.getNext());
         }
+        cantidad--;
+*/
+        Node nuevaRef = this.head;
+        Node prev = null;
+        if(nuevaRef != null && nuevaRef.getData()==item){
+            this.head = nuevaRef.getNext();
+            return;
+        }
+        while(nuevaRef!=null && nuevaRef.getData() != item){
+            prev = nuevaRef;
+            nuevaRef = nuevaRef.getNext();
+        }
+        
+        if(nuevaRef==null){
+            return;
+        }
+        prev.setNext(nuevaRef.getNext());
+        this.tail = prev;
         cantidad--;
     }
 
