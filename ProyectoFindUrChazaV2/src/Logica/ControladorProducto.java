@@ -5,6 +5,7 @@
 package Logica;
 
 import EstructurasDeDatos.AVLProducto;
+import Modelo.Chaza;
 import Modelo.Producto;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -25,8 +26,8 @@ public class ControladorProducto {
         return AVLProducto;
     }
     
-    public void agregarNuevoProducto(int codigo, String nombre, double precio, String detalle, Date fechaIngreso, Date fechaExpiracion, Date fechaEgreso) {
-        Producto nuevoProducto = new Producto(codigo, nombre, precio, detalle, fechaIngreso, fechaExpiracion, fechaEgreso);
+    public void agregarNuevoProducto(int codigo, String nombre, double precio, String detalle, Date fechaIngreso, Date fechaExpiracion, Chaza chaza) {
+        Producto nuevoProducto = new Producto(codigo, nombre, precio, detalle, fechaIngreso, fechaExpiracion, chaza);
         long time_start, time_end;
         time_start = System.nanoTime();
         AVLProducto.insert(nuevoProducto);
