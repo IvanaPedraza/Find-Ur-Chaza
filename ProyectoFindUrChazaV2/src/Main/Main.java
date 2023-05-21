@@ -19,8 +19,10 @@ public class Main {
         
         
         
+        /*
         Aplicacion miAplicacion = new Aplicacion();
         miAplicacion.iniciarSistema();
+        */
         //ControladorArregloDinamico miControlador = new ControladorArregloDinamico();
         
         /*

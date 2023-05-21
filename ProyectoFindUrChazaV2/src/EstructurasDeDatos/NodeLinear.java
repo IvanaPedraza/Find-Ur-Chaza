@@ -7,21 +7,21 @@ package EstructurasDeDatos;
 
  // @author Camilo
 
-public class Node<T> {
+public class NodeLinear<T> {
 
         private T data;
-        private Node<T> next;
+        private NodeLinear<T> next;
 
-        public Node() {
+        public NodeLinear() {
 
         }
 
-        public Node(T data) {
+        public NodeLinear(T data) {
             this.data = data;
             this.next = null;
         }
 
-        public Node(T data, Node next) {
+        public NodeLinear(T data, NodeLinear next) {
             this.data = data;
             this.next = next;
         }
@@ -34,11 +34,11 @@ public class Node<T> {
             this.data = data;
         }
 
-        public Node getNext() {
+        public NodeLinear getNext() {
             return next;
         }
 
-        public void setNext(Node next) {
+        public void setNext(NodeLinear next) {
             this.next = next;
         }
 }

@@ -3,9 +3,9 @@ package EstructurasDeDatos;
 public class ListaEnlazadaConCola<T> {
 
     private int cantidad;
-    private Node head, tail;
+    private NodeLinear head, tail;
 
-    public ListaEnlazadaConCola(Node data) {
+    public ListaEnlazadaConCola(NodeLinear data) {
         this.head = data;
         this.tail = data;
         cantidad = 0;
@@ -16,15 +16,15 @@ public class ListaEnlazadaConCola<T> {
     }
 
     public void pushFront(T newHead) {
-        Node nuevoNodo = new Node(newHead);
+        NodeLinear nuevoNodo = new NodeLinear(newHead);
         nuevoNodo.setNext(this.head);
         this.head = nuevoNodo;
         actualizarColaFronts();
         cantidad++;
     }
 
-    public Node popFront() {
-        Node elemBorrado = this.head;
+    public NodeLinear popFront() {
+        NodeLinear elemBorrado = this.head;
         this.head = this.head.getNext();
         actualizarColaFronts();
         cantidad--;
@@ -32,7 +32,7 @@ public class ListaEnlazadaConCola<T> {
     }
 
     public void pushBack(T value) {
-        Node<T> newNode = new Node<>(value);
+        NodeLinear<T> newNode = new NodeLinear<>(value);
 
         if (tail == null) {
             head = newNode;
@@ -44,10 +44,10 @@ public class ListaEnlazadaConCola<T> {
         cantidad++;
     }
 
-    public Node popBack() {
+    public NodeLinear popBack() {
         /*
-            Node nuevaRef=this.head;
-            Node elemBorrado = null;
+            NodeLinear nuevaRef=this.head;
+            NodeLinear elemBorrado = null;
             if(nuevaRef != null) {
                 while (nuevaRef.getNext().getNext() != null) {
                     nuevaRef = nuevaRef.getNext();
@@ -63,8 +63,8 @@ public class ListaEnlazadaConCola<T> {
             return elemBorrado;
 
          */
-        Node nuevaRef = this.head;
-        Node elemBorrado = null;
+        NodeLinear nuevaRef = this.head;
+        NodeLinear elemBorrado = null;
         while (nuevaRef != null && nuevaRef.getNext() != null) {
 
             while (nuevaRef.getNext().getNext() != null) {
@@ -89,7 +89,7 @@ public class ListaEnlazadaConCola<T> {
         return elemBorrado;
     }
 
-    public void printRecursive(Node node) {
+    public void printRecursive(NodeLinear node) {
         if (node == null) {
             return;
         }
@@ -104,8 +104,8 @@ public class ListaEnlazadaConCola<T> {
 
     public String print() {
         String palabra = "";
-        Node puntero = this.head;
-        Node ultimoNodo = null;
+        NodeLinear puntero = this.head;
+        NodeLinear ultimoNodo = null;
         if (puntero != null) {
             while (puntero.getNext() != null) {
                 if (puntero.getNext().getNext() == null) {
@@ -128,14 +128,14 @@ public class ListaEnlazadaConCola<T> {
 
     //insertar al medio de la lista enlazada
     public void insertMiddle(T item) {
-        Node nuevaRef = this.head;
-        Node prev = null;
+        NodeLinear nuevaRef = this.head;
+        NodeLinear prev = null;
         while (nuevaRef != null && nuevaRef.getData().toString().compareTo((String) item) < 0) {
             prev = nuevaRef;
             nuevaRef = nuevaRef.getNext();
         }
         if (nuevaRef.getData() != item) {
-            Node nuevaPrev = new Node();
+            NodeLinear nuevaPrev = new NodeLinear();
             nuevaPrev.setData(item);
             nuevaPrev.setNext(nuevaRef);
             prev.setNext(nuevaPrev);
@@ -146,14 +146,14 @@ public class ListaEnlazadaConCola<T> {
     //insertar al final o al inicio de la lista enlazada
     public void insertEnd(T item) {
 
-        Node nuevaRef = this.head;
-        Node prev = null;
+        NodeLinear nuevaRef = this.head;
+        NodeLinear prev = null;
         while (nuevaRef != null && nuevaRef.getData().toString().compareTo((String) item) < 0) {
             prev = nuevaRef;
             nuevaRef = nuevaRef.getNext();
         }
         if (nuevaRef == null || nuevaRef.getData().toString().compareTo((String) item) != 0) {
-            Node nuevaPrev = new Node();
+            NodeLinear nuevaPrev = new NodeLinear();
             nuevaPrev.setData(item);
             nuevaPrev.setNext(nuevaRef);
             prev.setNext(nuevaPrev);
@@ -165,8 +165,8 @@ public class ListaEnlazadaConCola<T> {
     //metodo de eliminar
     public void delete(T item) {
         /*
-        Node nuevaRef = this.head;
-        Node prev = null;
+        NodeLinear nuevaRef = this.head;
+        NodeLinear prev = null;
         while (nuevaRef != null && nuevaRef.getData().toString().compareTo((String) item) < 0) {
             prev = nuevaRef;
             nuevaRef = nuevaRef.getNext();
@@ -179,8 +179,8 @@ public class ListaEnlazadaConCola<T> {
         }
         cantidad--;
 */
-        Node nuevaRef = this.head;
-        Node prev = null;
+        NodeLinear nuevaRef = this.head;
+        NodeLinear prev = null;
         if(nuevaRef != null && nuevaRef.getData()==item){
             this.head = nuevaRef.getNext();
             return;
@@ -198,11 +198,11 @@ public class ListaEnlazadaConCola<T> {
         cantidad--;
     }
 
-    public Node getHead() {
+    public NodeLinear getHead() {
         return head;
     }
 
-    public Node getTail() {
+    public NodeLinear getTail() {
         return tail;
     }
 
@@ -213,8 +213,8 @@ public class ListaEnlazadaConCola<T> {
     public boolean isEmpty() {
         boolean isEmpty = false;
         try {
-            Node puntero = this.head;
-            Node ultimoNodo = null;
+            NodeLinear puntero = this.head;
+            NodeLinear ultimoNodo = null;
             while (puntero.getNext() != null) {
                 if (puntero.getNext().getNext() == null) {
                     ultimoNodo = puntero.getNext();
@@ -230,7 +230,7 @@ public class ListaEnlazadaConCola<T> {
     }
 
     public void actualizarColaFronts() {
-        Node iterator = this.head;
+        NodeLinear iterator = this.head;
         while (iterator != null && iterator.getNext() != null) {
             iterator = iterator.getNext();
         }
@@ -242,7 +242,7 @@ public class ListaEnlazadaConCola<T> {
     }
 
     public void ActualizarData(T anteriorValuer, T nuevoValor) {
-        Node<T> current = head;
+        NodeLinear<T> current = head;
 
         while (current != null) {
             if (current.getData() == anteriorValuer) {
@@ -258,7 +258,7 @@ public class ListaEnlazadaConCola<T> {
             return null;
         }
 
-        Node<T> nodoActual = this.head;
+        NodeLinear<T> nodoActual = this.head;
         int posicionActual = 0;
 
         while (nodoActual != null) {

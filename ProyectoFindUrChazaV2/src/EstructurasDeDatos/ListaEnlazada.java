@@ -9,12 +9,12 @@ package EstructurasDeDatos;
 //LinkedList simplemente enlazada
 public class ListaEnlazada <T> {
     
-    Node<T> head;
+    NodeLinear<T> head;
     int size = 0;
 
    
     public void printList() {
-        Node ref = this.head;
+        NodeLinear ref = this.head;
         while (ref != null) {
             System.out.print(ref.getData() + ", ");
             ref = ref.getNext();
@@ -28,7 +28,7 @@ public class ListaEnlazada <T> {
         System.out.println();
     }
 
-    private void printR(Node p) {
+    private void printR(NodeLinear p) {
         if (p != null) {
             System.out.print(p.getData() + ", ");
             printR(p.getNext());
@@ -36,7 +36,7 @@ public class ListaEnlazada <T> {
     }
 
     public void pushFront(T newElement) {
-        Node<T> newHead = new Node(newElement);
+        NodeLinear<T> newHead = new NodeLinear(newElement);
         if (this.head != null) {
             newHead.setNext(this.head);
         }
@@ -66,8 +66,8 @@ public class ListaEnlazada <T> {
     }
 
     public void pushBack(T newElement) {
-        Node<T> ptr = this.head;
-        Node<T> newTail = new Node(newElement);
+        NodeLinear<T> ptr = this.head;
+        NodeLinear<T> newTail = new NodeLinear(newElement);
         if (ptr == null) {
             this.head = newTail;
         } else {
@@ -80,7 +80,7 @@ public class ListaEnlazada <T> {
     }
 
     public T topBack() {
-        Node<T> ptr = this.head;
+        NodeLinear<T> ptr = this.head;
         if (ptr == null) {
             System.out.println("la lista está vacía");
             return null;
@@ -94,8 +94,8 @@ public class ListaEnlazada <T> {
 
     public T popBack() {
 
-        Node<T> ptr = this.head;
-        Node<T> prev = null;
+        NodeLinear<T> ptr = this.head;
+        NodeLinear<T> prev = null;
 
         if (ptr == null) {
             System.out.println("no hay nada que remover");
@@ -119,7 +119,7 @@ public class ListaEnlazada <T> {
     }
 
     public boolean find(T key) {
-        Node<T> ptr = this.head;
+        NodeLinear<T> ptr = this.head;
         while (ptr != null) {
             if (ptr.getData().equals(key)) {
                 return true;
@@ -129,7 +129,7 @@ public class ListaEnlazada <T> {
         return false;
     }
      public void ActualizarData(T anteriorValuer, T nuevoValor) {
-         Node<T> current = head;
+         NodeLinear<T> current = head;
 
          while (current != null) {
              if (current.getData() == anteriorValuer) {
@@ -141,8 +141,8 @@ public class ListaEnlazada <T> {
      }
      
      public void delete(T item){
-        Node nuevaRef = this.head;
-        Node prev = null;
+        NodeLinear nuevaRef = this.head;
+        NodeLinear prev = null;
         if(nuevaRef != null && nuevaRef.getData()==item){
             this.head = nuevaRef.getNext();
             return;
@@ -163,7 +163,7 @@ public class ListaEnlazada <T> {
             return null;
         }
 
-        Node<T> nodoActual = this.head;
+        NodeLinear<T> nodoActual = this.head;
         int posicionActual = 0;
 
         while (nodoActual != null) {
