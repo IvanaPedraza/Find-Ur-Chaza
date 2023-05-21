@@ -17,21 +17,23 @@ public class Producto {
     private double precio;
     private String detalle;
     private Date fechaIngreso;
-    private Date fechaExpiracion;
     private Date fechaEgreso;
+    private Date fechaExpiracion;
+    private Chaza chaza;
     
     public Producto(){
         
     }
 
-    public Producto(long codigo, String nombre, double precio, String detalle, Date fechaIngreso, Date fechaExpiracion, Date fechaEgreso) {
+    public Producto(long codigo, String nombre, double precio, String detalle, Date fechaIngreso, Date fechaExpiracion, Chaza chaza) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.precio = precio;
         this.detalle = detalle;
         this.fechaIngreso = fechaIngreso;
         this.fechaExpiracion = fechaExpiracion;
-        this.fechaEgreso = fechaEgreso;
+        this.chaza = chaza;
+        
     }
     
     
@@ -90,6 +92,14 @@ public class Producto {
 
     public void setFechaEgreso(Date fechaEgreso) {
         this.fechaEgreso = fechaEgreso;
+    }
+
+    public Chaza getChaza() {
+        return chaza;
+    }
+
+    public void setChaza(Chaza chaza) {
+        this.chaza = chaza;
     }
     
     

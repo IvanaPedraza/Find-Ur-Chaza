@@ -216,8 +216,8 @@ public class ControladorArregloDinamico {
     }
 
     /*Productos*/
-    public void agregarNuevoProducto(int codigo, String nombre, double precio, String detalle, Date fechaIngreso, Date fechaExpiracion, Date fechaEgreso) {
-        Producto nuevoProducto = new Producto(codigo, nombre, precio, detalle, fechaIngreso, fechaExpiracion, fechaEgreso);
+    public void agregarNuevoProducto(int codigo, String nombre, double precio, String detalle, Date fechaIngreso, Date fechaExpiracion, Chaza chaza) {
+        Producto nuevoProducto = new Producto(codigo, nombre, precio, detalle, fechaIngreso, fechaExpiracion, chaza);
         long time_start, time_end;
         time_start = System.nanoTime();
         ArregloDinamicoProducto.pushBack(nuevoProducto);
