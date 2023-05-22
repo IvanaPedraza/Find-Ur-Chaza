@@ -16,6 +16,9 @@ import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.util.Date;
 
+import Ventanas.App;
+
+
 /**
  *
  * @author kelly
@@ -27,6 +30,9 @@ public class Main {
      */
     public static void main(String[] args) {
 
+        
+        App.main(args);
+        
         /*
         Aplicacion miAplicacion = new Aplicacion();
         miAplicacion.iniciarSistema();
