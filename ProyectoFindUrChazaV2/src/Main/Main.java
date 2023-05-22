@@ -5,6 +5,7 @@
 package Main;
 
 import Logica.ControladorArregloDinamico;
+import Ventanas.App;
 
 /**
  *
@@ -17,7 +18,7 @@ public class Main {
      */
     public static void main(String[] args) {
         
-        
+        App.main(args);
         
         /*
         Aplicacion miAplicacion = new Aplicacion();
