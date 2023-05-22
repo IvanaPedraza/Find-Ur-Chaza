@@ -132,22 +132,36 @@ public class AVLChaza{
 
     public NodeChaza find(Chaza chaza){
         NodeChaza current = root;
+        System.out.println("current: " + current.getKey().getNombreChaza());
         while(current != null){
-            if(current.getKey().equals(chaza)){
+            if(cusComparator.compare(current.getKey().getIdChaza(), chaza.getIdChaza()) == 0){
                 break;
             }
             current = (cusComparator.compare(current.getKey().getNombreChaza(),chaza.getNombreChaza()) < 0) ? current.getRight() : current.getLeft();
         }
+        
         return current;
     }
     
     public Chaza findByName(String nombreChaza){
         NodeChaza current = root;
+        System.out.println("current: " + current.getKey().getNombreChaza());
         while(current != null){
             if(cusComparator.compare(current.getKey().getNombreChaza(), nombreChaza) == 0){
                 break;
             }
             current = (cusComparator.compare(current.getKey().getNombreChaza(),nombreChaza) < 0) ? current.getRight() : current.getLeft();
+        }
+        return current.getKey();
+    }
+    
+    public Chaza findById(int idChaza){
+        NodeChaza current = root;
+        while(current != null){
+            if(cusComparator.compare(current.getKey().getIdChaza(), idChaza) == 0){
+                break;
+            }
+            current = (cusComparator.compare(current.getKey().getIdChaza(),idChaza) < 0) ? current.getLeft() : current.getRight();
         }
         return current.getKey();
     }
@@ -273,7 +287,15 @@ public class AVLChaza{
             ListaEnlazada newQueue = new ListaEnlazada();
             newQueue.pushBack(root);
             while (!newQueue.isEmpty()) {
-
+                NodeChaza tempNode = (NodeChaza) newQueue.popFront();
+                System.out.println(tempNode.getKey().getIdChaza()+ " "+tempNode.getKey().getNombreChaza()+" "+tempNode.getKey().getDescripcion());
+                if(tempNode.getLeft()!=null){
+                    newQueue.pushBack(tempNode.getLeft());
+                }
+                
+                if(tempNode.getRight()!=null){
+                    newQueue.pushBack(tempNode.getRight());
+                }
             }
         }
     }
