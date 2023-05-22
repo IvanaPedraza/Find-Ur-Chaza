@@ -9,6 +9,7 @@ package EstructurasDeDatos;
  * @author kelly
  */
 import java.util.Comparator;
+import java.util.Date;
 
 public class CustomComparator implements Comparator<Object> {
     @Override
@@ -23,6 +24,9 @@ public class CustomComparator implements Comparator<Object> {
         }
         else if (o1 instanceof Long && o2 instanceof Long) {
             return ((Long) o1).compareTo((Long) o2);
+        }
+        else if (o1 instanceof Date && o2 instanceof Date) {
+            return ((Date) o1).compareTo((Date) o2);  
         }
         return 0;
     }

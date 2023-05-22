@@ -117,6 +117,26 @@ public class ControladorChaza {
         return chazaEncontrada;
     }
     
+    public Chaza buscarChazaPorId(int idChaza) throws Exception {
+        Chaza chazaEncontrada = new Chaza();
+        //long time_start, time_end;
+        //time_start = System.nanoTime();
+        try{
+            chazaEncontrada = AVLChaza.findById(idChaza);
+            System.out.println("La chaza es: " + chazaEncontrada.getNombreChaza());
+        }catch(Exception e){
+            System.out.println("Ha ocurrido " + e);
+        }
+        if (chazaEncontrada.getNombreChaza().length() == 0) {
+            System.out.println("No se encontro");
+        }
+        //time_end = System.nanoTime();
+        //System.out.println("buscarChazaPorNombre con arreglo dinamico tomo " + (time_end - time_start) + " milliseconds");
+        return chazaEncontrada;
+    }
+    
+    
+    
     public Chaza buscarChazaPorVendedor(Vendedor vendedor) {
         Chaza chazaEncontrada = new Chaza();
         long time_start, time_end;

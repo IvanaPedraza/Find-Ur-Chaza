@@ -106,7 +106,6 @@ public class ControladorProducto {
     }
     
     public void imprimirProductos() {
-        Producto productoIterado = new Producto();
         long time_start, time_end;
         time_start = System.nanoTime();
         AVLProducto.levelTraversal();
