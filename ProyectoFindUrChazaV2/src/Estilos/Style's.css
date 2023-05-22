@@ -1,4 +1,4 @@
-#IniciarSesion {
+.button {
     -fx-height: 30px;
     -fx-widht: 120px;
     -fx-font-family:"Berlin Sans FB Demi";
@@ -8,7 +8,7 @@
     -fx-text-fill: #312a20;
 }
 
-#IniciarSesion:hover {
+.button:hover {
     -fx-border-style:solid;
     -fx-border-color:white;
     -fx-border-radius: 10px;

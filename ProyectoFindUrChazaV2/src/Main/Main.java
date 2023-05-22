@@ -5,7 +5,9 @@
 package Main;
 
 import Logica.ControladorArregloDinamico;
-import Ventanas.App;
+import Ventanas.*;
+import javafx.fxml.FXMLLoader;
+
 
 /**
  *
@@ -17,15 +19,13 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
         App.main(args);
-        
+
         /*
         Aplicacion miAplicacion = new Aplicacion();
         miAplicacion.iniciarSistema();
-        */
+         */
         //ControladorArregloDinamico miControlador = new ControladorArregloDinamico();
-        
         /*
         miControlador.agregarNuevoCliente("Hola1", "Hola2", "Hola3", "Hola3", "Hola4");
         miControlador.actualizarCliente("Hola1", "Correo", "CORREOO");
@@ -33,8 +33,7 @@ public class Main {
         miControlador.eliminarCliente("CORREOO");
         miControlador.imprimirClientes();
         
-        */
-       
+         */
     }
-    
+
 }

@@ -1,17 +1,12 @@
 package Ventanas;
 
-import java.awt.event.ActionEvent;
 import java.io.IOException;
-import javafx.animation.ScaleTransition;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.transform.Scale;
-import javafx.scene.transform.Transform;
-import javafx.util.Duration;
 
 public class InicioSesionController {
 
@@ -42,23 +37,12 @@ public class InicioSesionController {
     private ImageView Wallpaper;
 
     @FXML
-    private ImageView wevo;
-
-    @FXML
-
-    private void Agrandar() {
-        wevo.getTransforms().add(new Scale(1.05, 1.05));
-
+    private void switchToRegistroDatosUsuario() throws IOException {
+        App.setRoot("registroDatosUsuario");
     }
 
     @FXML
-    private void Achiquitar() {
-        wevo.getTransforms().clear();
-    }
-
-    @FXML
-    private void switchToSecondary() throws IOException {
-        App.setRoot("secondary");
-    }
+    private AnchorPane Panel1;
+    
 
 }
