@@ -26,7 +26,7 @@ public class ControladorProducto {
         return AVLProducto;
     }
     
-    public void agregarNuevoProducto(int codigo, String nombre, double precio, String detalle, Date fechaIngreso, Date fechaExpiracion, Chaza chaza) {
+    public void agregarNuevoProducto(long codigo, String nombre, double precio, String detalle, Date fechaIngreso, Date fechaExpiracion, Chaza chaza) {
         Producto nuevoProducto = new Producto(codigo, nombre, precio, detalle, fechaIngreso, fechaExpiracion, chaza);
         long time_start, time_end;
         time_start = System.nanoTime();
@@ -36,7 +36,7 @@ public class ControladorProducto {
         System.out.println("Se ha ingresado correctamente " + nuevoProducto.getNombre());
     }
     
-    public Producto eliminarProducto(int codigoProducto) {
+    public Producto eliminarProducto(long codigoProducto) {
         Producto productoAEliminar = new Producto();
         try {
             long time_start, time_end;
@@ -81,7 +81,7 @@ public class ControladorProducto {
         return productoActualizar;
     }
     
-    public void actualizarProducto(int codigoProducto, String categoria, String datoModificado) {
+    public void actualizarProducto(long codigoProducto, String categoria, String datoModificado) {
         Producto productoAntiguo = new Producto();
         try {
             productoAntiguo = buscarProductoPorCodigo(codigoProducto);
