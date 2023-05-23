@@ -35,7 +35,7 @@ public class PruebaDeTiemposProducto {
         /*Archivo de 1 dato de Producto*/
         
         String archivoProducto = "datos1Chaza.csv";
-        String archivoIdProductos = "dato1ChazaNombres.csv";
+        String archivoIdProductos = "dato1ChazaId.csv";
         numElementos = 1;
         
         /*-----------------INSERCIONES------------------------*/
@@ -43,7 +43,7 @@ public class PruebaDeTiemposProducto {
         ArchivoProducto miArchivoProducto = new ArchivoProducto();
         ArchivoProducto miArchivoIdProducto = new ArchivoProducto();
         BufferedReader bufferProducto = miArchivoProducto.leerArchivo(archivoProducto);
-        BufferedReader bufferIdProducto = miArchivoIdProducto.leerArchivo(archivoNombresProductos);
+        BufferedReader bufferIdProducto = miArchivoIdProducto.leerArchivo(archivoIdProductos);
         
         try {
             BufferedReader buffer1 = bufferProducto;
