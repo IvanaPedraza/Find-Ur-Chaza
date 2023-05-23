@@ -45,9 +45,10 @@ public class ControladorOrden {
         try {
             ordenAEliminar = buscarOrdenPorId(numOrden);
             minHeapOrden.remove(ordenAEliminar);
+            //System.out.println("la orden es: " + ordenAEliminar.getNumOrden());
 
         } catch (Exception e) {
-            System.out.println("La orden no se encontró");
+            System.out.println("La orden " + numOrden +"no se encontró");
         }
         time_end = System.nanoTime();
         System.out.println("eliminarOrden con min heap tomo " + (time_end - time_start) + " milliseconds");
@@ -128,9 +129,9 @@ public class ControladorOrden {
         time_start = System.nanoTime();
         try{
             ordenEncontrada = minHeapOrden.findByNumOrden(numOrden);
-            System.out.println("La orden es: "+ordenEncontrada.getNumOrden()+" "+ordenEncontrada.getFechaOrden()+" "+ordenEncontrada.getCliente().getCorreo());
+            System.out.println("La orden es: "+numOrden +" "+ordenEncontrada.getNumOrden()+" "+ordenEncontrada.getFechaOrden()+" "+ordenEncontrada.getFechaOrden());
         }catch(Exception e){
-            System.out.println("Ha ocurrido aqui "+ e);
+            System.out.println("Ha ocurrido aqui "+numOrden + e);
         }
         if(String.valueOf(ordenEncontrada.getNumOrden()).length() == 0){
             System.out.println("No se encontro");

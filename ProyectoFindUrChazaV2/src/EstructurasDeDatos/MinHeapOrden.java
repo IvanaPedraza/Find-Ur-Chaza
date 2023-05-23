@@ -70,7 +70,7 @@ public class MinHeapOrden {
         // since its a min heap, so root = minimum
         Orden popped = Heap[i];
         Heap[i] = Heap[--index];
-        minHeapify(i);
+        minHeapify(0);
         return popped;
     }
     
@@ -133,11 +133,14 @@ public class MinHeapOrden {
 
     public Orden findByNumOrden(long numOrden) {
         Orden orden = new Orden();
+        int ordenEncontrada = 0;
         for (int i = 0; i < index; i++) {
-            if (Heap[i].getNumOrden() == numOrden) {
-                orden = Heap[i];
+            long ordenActual = Heap[i].getNumOrden();
+            if (cusComparator.compare(ordenActual, numOrden) == 0) {
+                ordenEncontrada = i;
             }
         }
+        orden = Heap[ordenEncontrada];
         return orden;
     }
     
@@ -155,7 +158,8 @@ public class MinHeapOrden {
     public int find(Orden orden){
         int indexOrden = 0;
         for (int i = 0; i < index; i++) {
-            if (Heap[i].equals(orden)) {
+            long ordenActual = Heap[i].getNumOrden();
+            if (cusComparator.compare(orden.getNumOrden(),ordenActual) == 0) {
                 indexOrden = i;
                 break;
             }

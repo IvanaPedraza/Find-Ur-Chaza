@@ -67,6 +67,9 @@ public class PruebaDeTiemposOrden {
             System.out.println("Ha ocurrido un error" + e.toString());
         }
         
+        
+        //miControlador.eliminarOrden(Long.parseLong("2154386308"));
+        
         /*-------------ELIMINAR TODAS LAS ORDENES-------------------*/
         
         try {
