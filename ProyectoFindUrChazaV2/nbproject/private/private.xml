@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/Cata/Desktop/ProyectoE/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Main/PruebaDeTiemposProducto.java</file>
             <file>file:/C:/Users/Cata/Desktop/ProyectoE/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/registroDatosUsuario.fxml</file>
             <file>file:/C:/Users/Cata/Desktop/ProyectoE/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Estilos/Style's.css</file>
@@ -11,6 +12,19 @@
             <file>file:/C:/Users/Cata/Desktop/ProyectoE/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/App.java</file>
             <file>file:/C:/Users/Cata/Desktop/ProyectoE/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/vistaDatosController.java</file>
             <file>file:/C:/Users/Cata/Desktop/ProyectoE/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Main/Main.java</file>
+=======
+            <file>file:/C:/Users/kelly/OneDrive/Documentos/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/InicioSesion.fxml</file>
+            <file>file:/C:/Users/kelly/OneDrive/Documentos/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/App.java</file>
+            <file>file:/C:/Users/kelly/OneDrive/Documentos/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Main/PruebaDeTiemposOrden.java</file>
+            <file>file:/C:/Users/kelly/OneDrive/Documentos/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/RegistroChazaController.java</file>
+            <file>file:/C:/Users/kelly/OneDrive/Documentos/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Logica/ControladorChaza.java</file>
+            <file>file:/C:/Users/kelly/OneDrive/Documentos/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/InicioSesionController.java</file>
+            <file>file:/C:/Users/kelly/OneDrive/Documentos/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Logica/ControladorOrden.java</file>
+            <file>file:/C:/Users/kelly/OneDrive/Documentos/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/registroDatosUsuarioController.java</file>
+            <file>file:/C:/Users/kelly/OneDrive/Documentos/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/RegistroChaza.fxml</file>
+            <file>file:/C:/Users/kelly/OneDrive/Documentos/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Modelo/Orden.java</file>
+            <file>file:/C:/Users/kelly/OneDrive/Documentos/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Main/PruebaDeTiemposChaza.java</file>
+>>>>>>> 94afa7104ba18ddac9045080dd3af8348e154be7
         </group>
     </open-files>
 </project-private>
