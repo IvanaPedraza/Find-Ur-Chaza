@@ -33,9 +33,15 @@ public class PruebaDeTiemposOrden {
         Chaza chazaActual = new Chaza("ChacitaDelBarrio", "Ingenieria", "Comida rapida", vendedorActual);
 
         /*Archivo de 1 dato de Orden*/
-        
+        /*
         String archivoOrden = "datos1Orden.csv";
         String archivoIdOrden = "dato1OrdenId.csv";
+        numElementos = 1;
+        */
+        /*Archivo de 1K datos de Orden*/
+        
+        String archivoOrden = "datos1KOrden.csv";
+        String archivoIdOrden = "dato1KOrdenId.csv";
         numElementos = 1;
 
         /*-----------------INSERCIONES------------------------*/
@@ -85,7 +91,7 @@ public class PruebaDeTiemposOrden {
         }
         
         /*----------------ACTUALIZAR ORDENES----------------------*/
-        
+        /*
         try{
             BufferedReader buffer4 = miArchivoOrden.leerArchivo(archivoOrden);
             BufferedReader buffer5Ids = miArchivoOrden.leerArchivo(archivoIdOrden);
@@ -114,10 +120,10 @@ public class PruebaDeTiemposOrden {
         }catch(Exception e){
             System.out.println("Ha ocurrido un error" + e.toString());
         }
-        
+        */
         
         /*------------------BUSCAR--------------------------*/
-        
+        /*
         try {
             BufferedReader buffer6Ids = miArchivoOrden.leerArchivo(archivoIdOrden);
             String linea6;
@@ -132,7 +138,7 @@ public class PruebaDeTiemposOrden {
         } catch (Exception e) {
             System.out.println("Ha ocurrido un error" + e.toString());
         }
-        
+        */
         
         
     }
