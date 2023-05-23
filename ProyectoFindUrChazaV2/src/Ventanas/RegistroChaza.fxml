@@ -10,8 +10,8 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="Panel1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Ventanas.InicioSesionController">
-   <children>
+<AnchorPane fx:id="Panel1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Ventanas.RegistroChazaController">
+     <children>
       <ImageView fx:id="Wallpaper" fitHeight="720.0" fitWidth="1408.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0">
          <viewport>
             <Rectangle2D height="720.0" width="1280.0" />
@@ -20,21 +20,13 @@
             <Image url="@../Imagenes/F2V.jpg" />
          </image>
       </ImageView>
-      <TextField fx:id="TextFieldCorreoE" layoutX="148.0" layoutY="290.0" prefHeight="82.0" prefWidth="242.0" style="-fx-background-color: white; -fx-background-border: black; -fx-border-color: brown; -fx-border-radius: 10; -fx-background-radius: 10;" />
-      <Button fx:id="IniciarSesion" layoutX="407.0" layoutY="589.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="168.0" stylesheets="@../Estilos/Style's.css" text="Registrar!" textOverrun="CLIP" AnchorPane.bottomAnchor="82.0">
-         <font>
-            <Font name="Bookman Old Style" size="12.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <ImageView fitHeight="489.0" fitWidth="883.0" layoutX="65.0" layoutY="-102.0" pickOnBounds="true" preserveRatio="true">
+      <TextField fx:id="nombreChaza" layoutX="148.0" layoutY="290.0" prefHeight="82.0" prefWidth="242.0" style="-fx-background-color: white; -fx-background-border: black; -fx-border-color: brown; -fx-border-radius: 10; -fx-background-radius: 10;" />
+      <ImageView fitHeight="489.0" fitWidth="869.0" layoutX="26.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Imagenes/TituloVendedor1.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="354.0" fitWidth="639.0" layoutX="25.0" layoutY="-94.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="354.0" fitWidth="639.0" layoutX="27.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Imagenes/TituloVendedor2.png" />
          </image>
@@ -59,7 +51,7 @@
             <Font name="System Bold" size="19.0" />
          </font>
       </Text>
-      <TextField fx:id="TextFieldCorreoE1" layoutX="148.0" layoutY="456.0" prefHeight="82.0" prefWidth="242.0" style="-fx-background-color: white; -fx-background-border: black; -fx-border-color: brown; -fx-border-radius: 10; -fx-background-radius: 10;" />
+      <TextField fx:id="ubicacionChaza" layoutX="148.0" layoutY="456.0" prefHeight="82.0" prefWidth="242.0" style="-fx-background-color: white; -fx-background-border: black; -fx-border-color: brown; -fx-border-radius: 10; -fx-background-radius: 10;" />
       <ImageView fitHeight="380.0" fitWidth="670.0" layoutX="886.0" layoutY="151.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Imagenes/Palillos2.png" />
@@ -80,6 +72,22 @@
             <Image url="@../Imagenes/sushi.png" />
          </image>
       </ImageView>
-      <TextField fx:id="TextFieldCorreoE11" layoutX="539.0" layoutY="292.0" prefHeight="164.0" prefWidth="363.0" style="-fx-background-color: white; -fx-background-border: black; -fx-border-color: brown; -fx-border-radius: 10; -fx-background-radius: 10;" />
+      <TextField fx:id="añadirDescripcion" layoutX="539.0" layoutY="292.0" prefHeight="164.0" prefWidth="363.0" style="-fx-background-color: white; -fx-background-border: black; -fx-border-color: brown; -fx-border-radius: 10; -fx-background-radius: 10;" />
+      <Button fx:id="volver" layoutX="292.0" layoutY="616.0" mnemonicParsing="false" onMouseClicked="#switchToIniciarSesion" prefHeight="42.0" prefWidth="168.0" stylesheets="@../Estilos/Style's.css" text="Volver" textOverrun="CLIP">
+         <font>
+            <Font name="Bookman Old Style" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="volver1" layoutX="521.0" layoutY="616.0" mnemonicParsing="false" onMouseClicked="#switchToIniciarSesion" prefHeight="42.0" prefWidth="168.0" stylesheets="@../Estilos/Style's.css" text="Registrar!" textOverrun="CLIP">
+         <font>
+            <Font name="Bookman Old Style" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
    </children>
 </AnchorPane>

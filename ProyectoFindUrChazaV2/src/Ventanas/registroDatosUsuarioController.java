@@ -43,6 +43,14 @@ public class registroDatosUsuarioController {
     private void switchToRegistroChaza() throws IOException{
         App.setRoot("RegistroChaza");
     }
+    
+    @FXML
+    private Button Volver;
+    
+    @FXML
+    private void switchToIniciarSesion() throws IOException{
+        App.setRoot("InicioSesion");
+    }
    
     
     @FXML

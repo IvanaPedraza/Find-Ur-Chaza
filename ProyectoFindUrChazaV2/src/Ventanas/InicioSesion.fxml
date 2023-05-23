@@ -26,11 +26,6 @@
             <Image url="@../Imagenes/TazonA.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="197.0" fitWidth="599.0" layoutX="112.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Imagenes/HeaderFUC.png" />
-         </image>
-      </ImageView>
       <ImageView fitHeight="78.0" fitWidth="103.0" layoutX="358.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Imagenes/arroz.png" />
@@ -76,5 +71,15 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
+      <ImageView fitHeight="78.0" fitWidth="591.0" layoutX="105.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Imagenes/Proyecto%20nuevo.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="240.0" layoutX="260.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Imagenes/Iniciar%20sesion.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

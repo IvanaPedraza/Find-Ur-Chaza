@@ -13,7 +13,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class RegistroChazaController {
-    
+
     @FXML
     private Button Registrar;
 
@@ -22,36 +22,48 @@ public class RegistroChazaController {
 
     @FXML
     private ImageView sushi;
-    
+
     @FXML
     private ImageView Palillos2;
-    
+
     @FXML
     private ImageView PlatilloRegistro;
-    
+
     @FXML
     private ImageView TituloVendedor1;
-    
+
     @FXML
     private ImageView TituloVendedor2;
 
     @FXML
     private ImageView F2;
-    
+
     @FXML
     private TextField TextFieldNombre;
-    
+
     @FXML
     private TextField TextFieldUbicacion;
-    
+
     @FXML
     private TextField TextFieldDescripcion;
-    
+
     @FXML
     private void primerEstilo() {
         Registrar.getStylesheets().clear();
         Registrar.getStylesheets().addAll(this.getClass().getResource("../Estilos/Style's.css").toExternalForm());
     }
 
-    
+    @FXML
+    private void switchToRegistroChaza() throws IOException {
+        App.setRoot("registroChaza");
+    }
+
+    @FXML
+    private Button Volver;
+
+    @FXML
+    private void switchToIniciarSesion() throws IOException {
+        App.setRoot("registroDatosUsuario");
+    }
+
 }

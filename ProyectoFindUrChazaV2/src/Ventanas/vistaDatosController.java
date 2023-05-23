@@ -41,17 +41,6 @@ public class vistaDatosController {
     private TextField textFieldTelefono;
     
 
-    public void initialize(URL arg0, ResourceBundle arg1){
-
-        Font myFont = null;
-        try {
-            myFont = Font.loadFont(new FileInputStream(new File("../fuentes/TitanOne-Regular.ttf")), 10);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-
-        nuevoVendedor.setFont(myFont);
-
+ 
 }
 
-}
