@@ -130,7 +130,7 @@ public class ControladorOrden {
             ordenEncontrada = minHeapOrden.findByNumOrden(numOrden);
             System.out.println("La orden es: "+ordenEncontrada.getNumOrden()+" "+ordenEncontrada.getFechaOrden()+" "+ordenEncontrada.getCliente().getCorreo());
         }catch(Exception e){
-            System.out.println("Ha ocurrido "+ e);
+            System.out.println("Ha ocurrido aqui "+ e);
         }
         if(String.valueOf(ordenEncontrada.getNumOrden()).length() == 0){
             System.out.println("No se encontro");
