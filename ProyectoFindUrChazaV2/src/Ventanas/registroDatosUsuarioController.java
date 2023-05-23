@@ -38,12 +38,12 @@ public class registroDatosUsuarioController {
 
     @FXML
     private TextField textFieldTelefono;
-    /*
+    
     @FXML
     private void switchToRegistroChaza() throws IOException{
         App.setRoot("RegistroChaza");
     }
-    */
+   
     
     @FXML
     private void primerEstilo() {
