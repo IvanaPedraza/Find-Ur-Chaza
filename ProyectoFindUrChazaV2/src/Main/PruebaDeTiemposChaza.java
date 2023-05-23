@@ -33,10 +33,28 @@ public class PruebaDeTiemposChaza {
         numElementos = 1;
         
         /*Archivo de 1K datos de Chaza*/
+        /*
+        String archivoChaza = "datos1KChaza.csv";
+        String archivoNombresChazas = "dato1KChazaNombres.csv";
+        numElementos = 10000;
         
+        /*Archivo de 10K datos de Chaza*/
+        /*
         String archivoChaza = "datos10KChaza.csv";
         String archivoNombresChazas = "dato10KChazaNombres.csv";
         numElementos = 10000;
+        
+        /*Archivo de 100K datos de Chaza*/
+        /*
+        String archivoChaza = "datos100KChaza.csv";
+        String archivoNombresChazas = "dato100KChazaNombres.csv";
+        numElementos = 100000;
+        
+        /*Archivo de 1M datos de Chaza*/
+        
+        String archivoChaza = "datos1MChaza.csv";
+        String archivoNombresChazas = "dato1MChazaNombres.csv";
+        numElementos = 1000000;
         
         /*-----------------INSERCIONES------------------------*/
         
@@ -63,7 +81,7 @@ public class PruebaDeTiemposChaza {
         
         
         /*-------------ELIMINAR TODAS LAS CHAZAS-------------------*/
-        /*
+        
         try {
             BufferedReader buffer2 = miArchivoChaza.leerArchivo(archivoChaza);
             BufferedReader buffer3 = bufferNombresChaza;
@@ -84,7 +102,8 @@ public class PruebaDeTiemposChaza {
         } catch (Exception e) {
             System.out.println("Ha ocurrido un error" + e.toString());
         }
-        */
+        
+        
         /*----------------ACTUALIZAR CHAZAS----------------------*/
         /*
         try{
@@ -137,6 +156,7 @@ public class PruebaDeTiemposChaza {
             System.out.println("Ha ocurrido un error" + e.toString());
         }
         */
+        
     }
     
 }

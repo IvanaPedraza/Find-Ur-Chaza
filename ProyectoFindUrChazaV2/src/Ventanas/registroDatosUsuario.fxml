@@ -67,7 +67,7 @@
             <Font name="Berlin Sans FB Demi Bold" size="22.0" />
          </font>
       </Text>
-      <Button fx:id="nuevoVendedor" layoutX="996.0" layoutY="393.0" mnemonicParsing="false" onMouseClicked="#switchToRegistroChaza" prefHeight="58.0" prefWidth="234.0" stylesheets="@../Estilos/Style's.css" text="Nuevo vendedor" textOverrun="CLIP">
+      <Button fx:id="nuevoVendedor" layoutX="996.0" layoutY="393.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="234.0" stylesheets="@../Estilos/Style's.css" text="Nuevo vendedor" textOverrun="CLIP">
          <font>
             <Font name="Bookman Old Style" size="12.0" />
          </font>
