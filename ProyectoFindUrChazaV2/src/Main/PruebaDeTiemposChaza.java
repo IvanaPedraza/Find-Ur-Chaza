@@ -81,7 +81,7 @@ public class PruebaDeTiemposChaza {
         
         
         /*-------------ELIMINAR TODAS LAS CHAZAS-------------------*/
-        
+        /*
         try {
             BufferedReader buffer2 = miArchivoChaza.leerArchivo(archivoChaza);
             BufferedReader buffer3 = bufferNombresChaza;
@@ -103,9 +103,9 @@ public class PruebaDeTiemposChaza {
             System.out.println("Ha ocurrido un error" + e.toString());
         }
         
-        
+        */
         /*----------------ACTUALIZAR CHAZAS----------------------*/
-        /*
+        
         try{
             BufferedReader buffer4 = miArchivoChaza.leerArchivo(archivoChaza);
             BufferedReader buffer5Nombres = miArchivoChaza.leerArchivo(archivoNombresChazas);
@@ -134,7 +134,7 @@ public class PruebaDeTiemposChaza {
         }catch(Exception e){
             System.out.println("Ha ocurrido un error" + e.toString());
         }
-        */
+        
         
         /*---------------------LEER------------------------*/
         //miControlador.imprimirChazas();

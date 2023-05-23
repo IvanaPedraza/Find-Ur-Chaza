@@ -11,20 +11,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 public class registroDatosUsuarioController {
 
-    @FXML
-    private ImageView HeaderRegistro;
-
-    @FXML
-    private ImageView Pasta;
-
-    @FXML
-    private ImageView Wallpaper;
-
+   
     @FXML
     private Button nuevoVendedor;
 

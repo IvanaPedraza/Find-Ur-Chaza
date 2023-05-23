@@ -70,7 +70,7 @@ public class ControladorOrden {
     }
     
     public Orden actualizarCategoriaOrden(Orden ordenActualizar, String categoria, Object datoModificado) {
-        SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         switch (categoria) {
             case "Fecha orden":
                 try {

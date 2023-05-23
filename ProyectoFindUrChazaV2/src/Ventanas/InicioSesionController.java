@@ -1,12 +1,13 @@
 package Ventanas;
 
 import java.io.IOException;
+import javafx.scene.layout.AnchorPane;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 
 public class InicioSesionController {
 
