@@ -3,6 +3,7 @@ package Ventanas;
 import BaseDeDatos.Conexion;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
+import java.net.URL;
 import java.sql.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.fxml.FXML;
@@ -12,6 +13,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
 import javax.swing.JOptionPane;
 
 public class InicioSesionController {
@@ -21,6 +23,9 @@ public class InicioSesionController {
 
     @FXML
     private Button botonUnir;
+    
+    @FXML
+    private Button botonVendedor;
 
     @FXML
     private void primerEstilo() {
@@ -28,6 +33,9 @@ public class InicioSesionController {
         IniciarSesion.getStylesheets().addAll(this.getClass().getResource("../Estilos/Style's.css").toExternalForm());
         botonUnir.getStylesheets().clear();
         botonUnir.getStylesheets().addAll(this.getClass().getResource("../Estilos/Style's.css").toExternalForm());
+        botonVendedor.getStylesheets().clear();
+        botonVendedor.getStylesheets().addAll(this.getClass().getResource("../Estilos/Style's.css").toExternalForm());
+    
     }
 
     @FXML
@@ -35,9 +43,55 @@ public class InicioSesionController {
 
     @FXML
     private ImageView Tazon;
-
+    
+    @FXML
+    private ImageView arroz;
+    
+    @FXML
+    private ImageView degradeFondoChazasRecorte;
+    
+    @FXML
+    private ImageView MensajeInicioSesion;
+    
+    @FXML
+    private ImageView Bienvenido;
+    
+    @FXML
+    private ImageView BienvenidoCliente;
+    
+    @FXML
+    private ImageView BienvenidoVendedor;
+    
+    @FXML
+    private ImageView FindUrChaza;
+    
+    @FXML
+    private ImageView MensajeVendedor;
+    
+    @FXML
+    private ImageView MensajeCliente;
+    
+    @FXML
+    private ImageView MensajeCliente2;
+    
+    @FXML
+    private ImageView palillos;
+    
+    @FXML
+    private ImageView palillos2;
+    
     @FXML
     private TextField TextFieldCorreoE;
+    
+    @FXML
+    private Text correoElectronico;
+    
+    @FXML
+    private Text Contraseña;
+    
+    @FXML
+    private Text Cuenta;
+   
 
     @FXML
     private ImageView Wallpaper;
@@ -49,6 +103,18 @@ public class InicioSesionController {
     @FXML
     private AnchorPane Panel1;
     
+    @FXML
+    private AnchorPane Panel11;
+    
+    @FXML
+    private AnchorPane Panel12;
+    
+    /*
+    @Override
+    private void initialize(URL url, ResourceNundle rb ){
+        
+    }*/
+    /*
     // Conexion base de datos
     public static String user ="";
     String pass ="";
@@ -73,7 +139,7 @@ public class InicioSesionController {
            
        }
        
-    }
+    }*/
     
 
 }
