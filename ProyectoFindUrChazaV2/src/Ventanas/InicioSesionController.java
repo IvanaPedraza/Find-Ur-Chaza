@@ -28,6 +28,9 @@ public class InicioSesionController {
     private Button botonVendedor;
 
     @FXML
+    private Button botonCliente;
+    
+    @FXML
     private void primerEstilo() {
         IniciarSesion.getStylesheets().clear();
         IniciarSesion.getStylesheets().addAll(this.getClass().getResource("../Estilos/Style's.css").toExternalForm());
@@ -35,7 +38,10 @@ public class InicioSesionController {
         botonUnir.getStylesheets().addAll(this.getClass().getResource("../Estilos/Style's.css").toExternalForm());
         botonVendedor.getStylesheets().clear();
         botonVendedor.getStylesheets().addAll(this.getClass().getResource("../Estilos/Style's.css").toExternalForm());
+        botonCliente.getStylesheets().clear();
+        botonCliente.getStylesheets().addAll(this.getClass().getResource("../Estilos/Style's.css").toExternalForm());
     }
+    
 
     @FXML
     private PasswordField PasswordFieldContraseña;
@@ -94,11 +100,12 @@ public class InicioSesionController {
 
     @FXML
     private ImageView Wallpaper;
-
+    
     @FXML
     private void switchToRegistroDatosUsuario() throws IOException {
         App.setRoot("registroDatosUsuario");
     }
+    
     @FXML
     private AnchorPane Panel1;
     

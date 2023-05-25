@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="Panel1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="0.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Ventanas.InicioSesionController">
+<AnchorPane fx:id="Panel1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="0.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Ventanas.InicioSesionController">
    <children>
       <AnchorPane fx:id="Panel11" prefHeight="720.0" prefWidth="683.0">
          <children>
@@ -63,7 +63,7 @@
                   <Image url="@../Imagenes/palillos.png" />
                </image>
             </ImageView>
-            <Text fx:id="Cuenta" fill="#302a20" layoutX="215.0" layoutY="647.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿No tienes una cuenta?">
+            <Text fx:id="Cuenta" fill="#302a20" layoutX="284.0" layoutY="637.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿No tienes una cuenta?">
                <font>
                   <Font name="Nirmala UI" size="16.0" />
                </font>
@@ -73,7 +73,7 @@
                   <Image url="@../Imagenes/Proyecto%20nuevo.png" />
                </image>
             </ImageView>
-            <Button fx:id="botonUnir" layoutX="380.0" layoutY="622.0" mnemonicParsing="false" onMouseClicked="#switchToRegistroDatosUsuario" stylesheets="@../Estilos/Style's.css" text="Únete :D!" textFill="#302a20">
+            <Button fx:id="botonUnir" layoutX="311.0" layoutY="651.0" mnemonicParsing="false" onMouseClicked="#switchToRegistroDatosUsuario" stylesheets="@../Estilos/Style's.css" text="Únete :D!" textFill="#302a20">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -83,7 +83,7 @@
                   <Image url="@../Imagenes/BienvenidoCliente.png" />
                </image>
             </ImageView>
-            <Button fx:id="IniciarSesion" layoutX="266.0" layoutY="579.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="168.0" stylesheets="@../Estilos/Style's.css" text="Iniciar Sesión" textOverrun="CLIP">
+            <Button fx:id="IniciarSesion" layoutX="283.0" layoutY="569.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="168.0" stylesheets="@../Estilos/Style's.css" text="Iniciar Sesión" textOverrun="CLIP">
                <font>
                   <Font name="Bookman Old Style" size="12.0" />
                </font>
@@ -128,7 +128,7 @@
                   <Image url="@../Imagenes/MensajeVendedor.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="MensajeCliente" fitHeight="150.0" fitWidth="200.0" layoutX="22.0" layoutY="350.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="MensajeCliente" fitHeight="150.0" fitWidth="200.0" layoutX="38.0" layoutY="403.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Imagenes/MensajeCliente.png" />
                </image>
