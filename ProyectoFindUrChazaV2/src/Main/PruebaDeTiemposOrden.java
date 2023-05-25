@@ -39,10 +39,22 @@ public class PruebaDeTiemposOrden {
         numElementos = 1;
         */
         /*Archivo de 1K datos de Orden*/
-        
+        /*
         String archivoOrden = "datos1KOrden.csv";
         String archivoIdOrden = "dato1KOrdenId.csv";
-        numElementos = 1;
+        numElementos = 1000;
+        */
+        /*Archivo de 10K datos de Orden*/
+        /*
+        String archivoOrden = "datos10KOrden.csv";
+        String archivoIdOrden = "dato10KOrdenId.csv";
+        numElementos = 10000;
+        */
+        /*Archivo de 100K datos de Orden*/
+        
+        String archivoOrden = "datos100KOrden.csv";
+        String archivoIdOrden = "dato100KOrdenId.csv";
+        numElementos = 100000;
 
         /*-----------------INSERCIONES------------------------*/
         
@@ -71,7 +83,7 @@ public class PruebaDeTiemposOrden {
         //miControlador.eliminarOrden(Long.parseLong("2154386308"));
         
         /*-------------ELIMINAR TODAS LAS ORDENES-------------------*/
-        
+        /*
         try {
             BufferedReader buffer2 = miArchivoOrden.leerArchivo(archivoOrden);
             BufferedReader buffer3 = bufferIdOrden;
@@ -92,7 +104,7 @@ public class PruebaDeTiemposOrden {
         } catch (Exception e) {
             System.out.println("Ha ocurrido un error" + e.toString());
         }
-        
+        */
         /*----------------ACTUALIZAR ORDENES----------------------*/
         /*
         try{
@@ -126,7 +138,7 @@ public class PruebaDeTiemposOrden {
         */
         
         /*------------------BUSCAR--------------------------*/
-        /*
+        
         try {
             BufferedReader buffer6Ids = miArchivoOrden.leerArchivo(archivoIdOrden);
             String linea6;
@@ -141,7 +153,7 @@ public class PruebaDeTiemposOrden {
         } catch (Exception e) {
             System.out.println("Ha ocurrido un error" + e.toString());
         }
-        */
+        
         
         
     }
