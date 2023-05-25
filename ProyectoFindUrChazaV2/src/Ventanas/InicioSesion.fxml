@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="Panel1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="0.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Ventanas.InicioSesionController">
+<AnchorPane fx:id="Panel1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="0.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Ventanas.InicioSesionController">
    <children>
       <AnchorPane fx:id="Panel11" prefHeight="720.0" prefWidth="683.0">
          <children>
@@ -63,14 +63,6 @@
                   <Image url="@../Imagenes/palillos.png" />
                </image>
             </ImageView>
-            <Button fx:id="IniciarSesion" layoutX="266.0" layoutY="568.0" mnemonicParsing="false" onMouseClicked="#enviarDatos" prefHeight="42.0" prefWidth="168.0" stylesheets="@../Estilos/Style's.css" text="Iniciar Sesión" textOverrun="CLIP" AnchorPane.bottomAnchor="110.0">
-               <font>
-                  <Font name="Bookman Old Style" size="12.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
             <Text fx:id="Cuenta" fill="#302a20" layoutX="215.0" layoutY="647.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿No tienes una cuenta?">
                <font>
                   <Font name="Nirmala UI" size="16.0" />
@@ -91,6 +83,14 @@
                   <Image url="@../Imagenes/BienvenidoCliente.png" />
                </image>
             </ImageView>
+            <Button fx:id="IniciarSesion" layoutX="266.0" layoutY="579.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="168.0" stylesheets="@../Estilos/Style's.css" text="Iniciar Sesión" textOverrun="CLIP">
+               <font>
+                  <Font name="Bookman Old Style" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
          </children>
       </AnchorPane>
       <AnchorPane fx:id="Panel12" layoutX="663.0" layoutY="-28.0" prefHeight="743.0" prefWidth="633.0">
@@ -115,7 +115,7 @@
                   <Image url="@../Imagenes/Bienvenido.png" />
                </image>
             </ImageView>
-            <Button fx:id="botonVendedor" layoutX="54.0" layoutY="565.0" mnemonicParsing="false" onMouseClicked="#enviarDatos" prefHeight="42.0" prefWidth="168.0" stylesheets="@../Estilos/Style's.css" text="Vendedor" textOverrun="CLIP">
+            <Button fx:id="botonVendedor" layoutX="54.0" layoutY="565.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="168.0" stylesheets="@../Estilos/Style's.css" text="Vendedor" textOverrun="CLIP">
                <font>
                   <Font name="Bookman Old Style" size="12.0" />
                </font>
@@ -138,7 +138,7 @@
                   <Image url="@../Imagenes/MensajeCliente2.png" />
                </image>
             </ImageView>
-            <Button fx:id="botonVendedor1" layoutX="54.0" layoutY="565.0" mnemonicParsing="false" onMouseClicked="#enviarDatos" prefHeight="42.0" prefWidth="168.0" stylesheets="@../Estilos/Style's.css" text="Cliente" textOverrun="CLIP">
+            <Button fx:id="botonVendedor1" layoutX="54.0" layoutY="565.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="168.0" stylesheets="@../Estilos/Style's.css" text="Cliente" textOverrun="CLIP">
                <font>
                   <Font name="Bookman Old Style" size="12.0" />
                </font>

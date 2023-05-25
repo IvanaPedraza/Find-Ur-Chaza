@@ -81,7 +81,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="volver1" layoutX="521.0" layoutY="616.0" mnemonicParsing="false" onMouseClicked="#switchToIniciarSesion" prefHeight="42.0" prefWidth="168.0" stylesheets="@../Estilos/Style's.css" text="Registrar!" textOverrun="CLIP">
+      <Button fx:id="volver1" layoutX="521.0" layoutY="616.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="168.0" stylesheets="@../Estilos/Style's.css" text="Registrar!" textOverrun="CLIP">
          <font>
             <Font name="Bookman Old Style" size="12.0" />
          </font>

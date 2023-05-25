@@ -108,12 +108,7 @@ public class InicioSesionController {
     @FXML
     private AnchorPane Panel12;
     
-    /*
-    @Override
-    private void initialize(URL url, ResourceNundle rb ){
-        
-    }*/
-    /*
+   /* 
     // Conexion base de datos
     public static String user ="";
     String pass ="";
