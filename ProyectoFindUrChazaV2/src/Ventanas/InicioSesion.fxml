@@ -128,7 +128,7 @@
                   <Image url="@../Imagenes/MensajeVendedor.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="38.0" layoutY="403.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="MensajeCliente" fitHeight="150.0" fitWidth="200.0" layoutX="22.0" layoutY="350.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Imagenes/MensajeCliente.png" />
                </image>

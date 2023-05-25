@@ -35,7 +35,6 @@ public class InicioSesionController {
         botonUnir.getStylesheets().addAll(this.getClass().getResource("../Estilos/Style's.css").toExternalForm());
         botonVendedor.getStylesheets().clear();
         botonVendedor.getStylesheets().addAll(this.getClass().getResource("../Estilos/Style's.css").toExternalForm());
-    
     }
 
     @FXML
