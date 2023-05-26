@@ -103,9 +103,6 @@ public class InicioSesionController implements Initializable {
     
     @FXML
     private Text Cuenta;
-   
-    @FXML
-    private ImageView Wallpaper;
     /*
     @FXML
     private void switchToRegistroDatosUsuario() throws IOException {
@@ -152,7 +149,6 @@ public class InicioSesionController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) { 
-        Wallpaper.setVisible(true);
         degradeFondoChazasRecorte.setVisible(true);
         arroz.setVisible(true);
         palillos.setVisible(true);
@@ -185,10 +181,10 @@ public class InicioSesionController implements Initializable {
        slide.setDuration(Duration.seconds(0.7));
        slide.setNode(Panel12);
        
-       slide.setToX(-647);
+       slide.setToX(-680);
        slide.play();
        
-       Panel11.setTranslateX(633);
+       Panel11.setTranslateX(600);
        BienvenidoVendedor.setVisible(true);
        botonCliente.setVisible(true);
        MensajeCliente.setVisible(true);
@@ -198,7 +194,6 @@ public class InicioSesionController implements Initializable {
        FindUrChaza.setVisible(true);
        MensajeInicioSesion.setVisible(true);
        arroz.setVisible(true);
-       Wallpaper.setVisible(true);
        degradeFondoChazasRecorte.setVisible(true);
        IniciarSesion.setVisible(true);
        palillos.setVisible(true);
@@ -224,7 +219,7 @@ public class InicioSesionController implements Initializable {
        slide.setDuration(Duration.seconds(0.7));
        slide.setNode(Panel12);
        
-       slide.setToX(647);
+       slide.setToX(0);
        slide.play();
        
        Panel11.setTranslateX(0);
@@ -237,7 +232,6 @@ public class InicioSesionController implements Initializable {
        FindUrChaza.setVisible(true);
        MensajeInicioSesion.setVisible(true);
        arroz.setVisible(true);
-       Wallpaper.setVisible(true);
        degradeFondoChazasRecorte.setVisible(true);
        IniciarSesion.setVisible(true);
        palillos.setVisible(true);
