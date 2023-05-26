@@ -103,11 +103,11 @@ public class InicioSesionController implements Initializable {
     
     @FXML
     private Text Cuenta;
-    /*
+    
     @FXML
     private void switchToRegistroDatosUsuario() throws IOException {
         App.setRoot("registroDatosUsuario");
-    }*/
+    }
     
     @FXML
     private AnchorPane Panel1;

@@ -69,7 +69,7 @@
                   <Image url="@../Imagenes/Proyecto%20nuevo.png" />
                </image>
             </ImageView>
-            <Button fx:id="botonUnir" layoutX="311.0" layoutY="651.0" mnemonicParsing="false" stylesheets="@../Estilos/Style's.css" text="Únete :D!" textFill="#302a20">
+            <Button fx:id="botonUnir" layoutX="311.0" layoutY="651.0" mnemonicParsing="false" onMouseClicked="#switchToRegistroDatosUsuario" stylesheets="@../Estilos/Style's.css" text="Únete :D!" textFill="#302a20">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
