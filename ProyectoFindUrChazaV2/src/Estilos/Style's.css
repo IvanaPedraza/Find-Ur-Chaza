@@ -29,3 +29,18 @@
     -fx-border-radius: 10px;   
     -fx-text-fill:#ffffff;
 }
+
+#botonUnirC {
+    -fx-underline: true;
+    -fx-background-color: transparent;   
+    -fx-font-size: 20px;
+    -fx-background-radius: 10px;
+}
+
+#botonUnirC:hover {
+    -fx-background-color: #f49a00;
+    -fx-border-style:solid;
+    -fx-border-color:white;
+    -fx-border-radius: 10px;   
+    -fx-text-fill:#ffffff;
+}

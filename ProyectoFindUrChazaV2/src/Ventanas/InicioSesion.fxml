@@ -69,7 +69,7 @@
                   <Image url="@../Imagenes/Proyecto%20nuevo.png" />
                </image>
             </ImageView>
-            <Button fx:id="botonUnir" layoutX="311.0" layoutY="651.0" mnemonicParsing="false" onMouseClicked="#switchToRegistroDatosUsuario" stylesheets="@../Estilos/Style's.css" text="Únete :D!" textFill="#302a20">
+            <Button fx:id="botonUnir" layoutX="311.0" layoutY="651.0" mnemonicParsing="false" onMouseClicked="#switchToRegistroDatosVendedor" stylesheets="@../Estilos/Style's.css" text="Únete :D!" textFill="#302a20">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -80,6 +80,19 @@
                </image>
             </ImageView>
             <Button fx:id="IniciarSesion" layoutX="283.0" layoutY="569.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="168.0" stylesheets="@../Estilos/Style's.css" text="Iniciar Sesión" textOverrun="CLIP">
+               <font>
+                  <Font name="Bookman Old Style" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="botonUnirC" layoutX="312.0" layoutY="651.0" mnemonicParsing="false" onMouseClicked="#switchToRegistroDatosCliente" stylesheets="@../Estilos/Style's.css" text="Únete :D!" textFill="#302a20">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="IniciarSesionC" layoutX="282.0" layoutY="569.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="168.0" stylesheets="@../Estilos/Style's.css" text="Iniciar Sesión" textOverrun="CLIP">
                <font>
                   <Font name="Bookman Old Style" size="12.0" />
                </font>

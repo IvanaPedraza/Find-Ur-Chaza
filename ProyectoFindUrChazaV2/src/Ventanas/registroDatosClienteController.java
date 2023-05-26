@@ -40,11 +40,6 @@ public class registroDatosClienteController {
     private TextField textFieldTelefono;
     
     @FXML
-    private void switchToRegistroChaza() throws IOException{
-        App.setRoot("RegistroChaza");
-    }
-    
-    @FXML
     private Button Volver;
     
     @FXML

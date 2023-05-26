@@ -27,9 +27,15 @@ public class InicioSesionController implements Initializable {
 
     @FXML
     private Button IniciarSesion;
+    
+    @FXML
+    private Button IniciarSesionC;
 
     @FXML
     private Button botonUnir;
+    
+    @FXML
+    private Button botonUnirC;
     
     @FXML
     private Button botonVendedor;
@@ -41,8 +47,12 @@ public class InicioSesionController implements Initializable {
     private void primerEstilo() {
         IniciarSesion.getStylesheets().clear();
         IniciarSesion.getStylesheets().addAll(this.getClass().getResource("../Estilos/Style's.css").toExternalForm());
+        IniciarSesionC.getStylesheets().clear();
+        IniciarSesionC.getStylesheets().addAll(this.getClass().getResource("../Estilos/Style's.css").toExternalForm());
         botonUnir.getStylesheets().clear();
         botonUnir.getStylesheets().addAll(this.getClass().getResource("../Estilos/Style's.css").toExternalForm());
+        botonUnirC.getStylesheets().clear();
+        botonUnirC.getStylesheets().addAll(this.getClass().getResource("../Estilos/Style's.css").toExternalForm());
         botonVendedor.getStylesheets().clear();
         botonVendedor.getStylesheets().addAll(this.getClass().getResource("../Estilos/Style's.css").toExternalForm());
         botonCliente.getStylesheets().clear();
@@ -105,8 +115,13 @@ public class InicioSesionController implements Initializable {
     private Text Cuenta;
     
     @FXML
-    private void switchToRegistroDatosUsuario() throws IOException {
-        App.setRoot("registroDatosUsuario");
+    private void switchToRegistroDatosCliente() throws IOException {
+        App.setRoot("registroDatosCliente");
+    }
+    
+    @FXML
+    private void switchToRegistroDatosVendedor() throws IOException {
+        App.setRoot("registroDatosVendedor");
     }
     
     @FXML
@@ -157,9 +172,9 @@ public class InicioSesionController implements Initializable {
         Contraseña.setVisible(true);
         TextFieldCorreoE.setVisible(true);
         PasswordFieldContraseña.setVisible(true);
-        IniciarSesion.setVisible(true);
+        IniciarSesion.setVisible(false);
         Cuenta.setVisible(true);
-        botonUnir.setVisible(true);
+        botonUnir.setVisible(false);
         botonVendedor.setVisible(true);
         MensajeCliente2.setVisible(true);
         Tazon.setVisible(true);
@@ -171,6 +186,9 @@ public class InicioSesionController implements Initializable {
         BienvenidoVendedor.setVisible(false);
         botonCliente.setVisible(false);
         MensajeCliente.setVisible(false);
+        botonUnirC.setVisible(true);
+        IniciarSesionC.setVisible(true);
+        
     
     }
     
@@ -207,6 +225,8 @@ public class InicioSesionController implements Initializable {
        Contraseña.setVisible(true);
        TextFieldCorreoE.setVisible(true);
        PasswordFieldContraseña.setVisible(true);
+       botonUnirC.setVisible(false);
+       IniciarSesionC.setVisible(false);
    
        slide.setOnFinished((e->{
            
@@ -233,10 +253,10 @@ public class InicioSesionController implements Initializable {
        MensajeInicioSesion.setVisible(true);
        arroz.setVisible(true);
        degradeFondoChazasRecorte.setVisible(true);
-       IniciarSesion.setVisible(true);
+       IniciarSesion.setVisible(false);
        palillos.setVisible(true);
        palillos2.setVisible(true);
-       botonUnir.setVisible(true);
+       botonUnir.setVisible(false);
        Cuenta.setVisible(true);
        botonVendedor.setVisible(true);
        MensajeCliente2.setVisible(true);
@@ -245,6 +265,8 @@ public class InicioSesionController implements Initializable {
        Contraseña.setVisible(true);
        TextFieldCorreoE.setVisible(true);
        PasswordFieldContraseña.setVisible(true);
+       botonUnirC.setVisible(true);
+       IniciarSesionC.setVisible(true);
    
        slide.setOnFinished((e->{
            
