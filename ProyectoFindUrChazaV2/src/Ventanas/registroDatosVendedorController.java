@@ -15,7 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
-public class registroDatosUsuarioController {
+public class registroDatosVendedorController {
 
    
     @FXML
