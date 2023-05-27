@@ -138,41 +138,48 @@ public class InicioSesionController implements Initializable {
 
     @FXML
     private void switchToInicioVendedor() throws IOException {
-        App.setRoot("InicioVendedor");
+        user = TextFieldCorreoE.getText().trim(); //Realmente deberia ser el nombre de la persona, no el correo :3
+        pass = PasswordFieldContraseña.getText().trim();
+
+        if (!user.equals("") || !pass.equals("")) {
+            try {
+                App.setRoot("InicioVendedor");
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "¡Error al iniciar sesión! :(");
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Debes llenar todos los campos para continuar! :)");
+
+        }
     }
 
     @FXML
     private void switchToInicioCliente() throws IOException {
-        App.setRoot("InicioCliente");
+        userC = TextFieldCorreoE.getText().trim(); //Realmente deberia ser el nombre de la persona, no el correo :3
+        passC = PasswordFieldContraseña.getText().trim();
+
+        if (!userC.equals("") || !passC.equals("")) {
+            try {
+                App.setRoot("InicioCliente");
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "¡Error al iniciar sesión! :(");
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Debes llenar todos los campos para continuar! :)");
+
+        }
+
     }
 
     //
-    /* 
-    // Conexion base de datos
-    public static String user ="";
-    String pass ="";
-    
+    public static String user = "";
+    String pass = "";
+    public static String userC = "";
+    String passC = "";
+
     // Acciones
-     @FXML
-    void enviarDatos() {
-       user = TextFieldCorreoE.getText().trim(); //Realmente deberia ser el nombre de la persona, no el correo :3
-       pass = PasswordFieldContraseña.getText().trim();
-       
-       if(!user.equals("") || !pass.equals("")){
-           try {
-               Connection cn = Conexion.conectar();
-           } catch (Exception e) {
-               System.err.print("Error en el botón Iniciar Sesion" + e);
-               JOptionPane.showMessageDialog(null, "¡Error al iniciar sesión! :(");
-           }
-       
-       
-       } else {
-           JOptionPane.showMessageDialog(null, "Debes llenar todos los campos para continuar! :)");
-           
-       }
-       
-    }*/
 // ------------------------- Animación ----------------------
     @Override
     public void initialize(URL url, ResourceBundle rb) {
