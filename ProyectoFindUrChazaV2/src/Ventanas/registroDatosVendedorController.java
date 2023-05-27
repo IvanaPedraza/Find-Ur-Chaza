@@ -1,21 +1,21 @@
 package Ventanas;
-
+import Logica.*;
 import com.sun.javafx.logging.PlatformLogger.Level;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.lang.System.Logger;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.fxml.*;
+import javafx.scene.*;
+import javafx.scene.control.*;
+
 
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 public class registroDatosVendedorController {
+    
+    private ControladorVendedor controladorVendedor = new ControladorVendedor();
+   // private
 
    
     @FXML
@@ -61,6 +61,7 @@ public class registroDatosVendedorController {
         nuevoCliente.getStylesheets().addAll(this.getClass().getResource("../Estilos/Style's.css").toExternalForm());
     }
         
+    
 
  }   
 

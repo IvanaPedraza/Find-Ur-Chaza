@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import javafx.scene.image.Image;
 
 /**
  * JavaFX App
@@ -17,8 +18,10 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("registroDatosCliente"), 1280, 720);
+        scene = new Scene(loadFXML("InicioSesion"), 1280, 720);
         stage.setScene(scene);
+        stage.setTitle("Find Ur Chaza");
+        stage.getIcons().add(new Image("/Imagenes/michianvorguesa.png"));
         stage.show();
     }
 

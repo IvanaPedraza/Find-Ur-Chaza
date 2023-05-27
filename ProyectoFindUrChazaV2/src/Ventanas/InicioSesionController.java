@@ -18,31 +18,34 @@ import javafx.scene.text.Text;
 import javafx.util.Duration;
 import javax.swing.JOptionPane;
 import java.net.Proxy;
+import javafx.application.Application;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
-
-
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 
 public class InicioSesionController implements Initializable {
 
     @FXML
     private Button IniciarSesion;
-    
+
     @FXML
     private Button IniciarSesionC;
 
     @FXML
     private Button botonUnir;
-    
+
     @FXML
     private Button botonUnirC;
-    
+
     @FXML
     private Button botonVendedor;
 
     @FXML
     private Button botonCliente;
-    
+
     @FXML
     private void primerEstilo() {
         IniciarSesion.getStylesheets().clear();
@@ -58,84 +61,93 @@ public class InicioSesionController implements Initializable {
         botonCliente.getStylesheets().clear();
         botonCliente.getStylesheets().addAll(this.getClass().getResource("../Estilos/Style's.css").toExternalForm());
     }
-    
 
     @FXML
     private PasswordField PasswordFieldContraseña;
 
     @FXML
     private ImageView Tazon;
-    
+
     @FXML
     private ImageView arroz;
-    
+
     @FXML
     private ImageView degradeFondoChazasRecorte;
-    
+
     @FXML
     private ImageView MensajeInicioSesion;
-    
+
     @FXML
     private ImageView Bienvenido;
-    
+
     @FXML
     private ImageView BienvenidoCliente;
-    
+
     @FXML
     private ImageView BienvenidoVendedor;
-    
+
     @FXML
     private ImageView FindUrChaza;
-    
+
     @FXML
     private ImageView MensajeVendedor;
-    
+
     @FXML
     private ImageView MensajeCliente;
-    
+
     @FXML
     private ImageView MensajeCliente2;
-    
+
     @FXML
     private ImageView palillos;
-    
+
     @FXML
     private ImageView palillos2;
-    
+
     @FXML
     private TextField TextFieldCorreoE;
-    
+
     @FXML
     private Text correoElectronico;
-    
+
     @FXML
     private Text Contraseña;
-    
+
     @FXML
     private Text Cuenta;
-    
+
+    @FXML
+    private AnchorPane Panel1;
+
+    @FXML
+    private AnchorPane Panel11;
+
+    @FXML
+    private AnchorPane Panel12;
+
+    // Switch de ventanas
     @FXML
     private void switchToRegistroDatosCliente() throws IOException {
         App.setRoot("registroDatosCliente");
     }
-    
+
     @FXML
     private void switchToRegistroDatosVendedor() throws IOException {
         App.setRoot("registroDatosVendedor");
     }
-    
+
     @FXML
-    private AnchorPane Panel1;
-    
+    private void switchToInicioVendedor() throws IOException {
+        App.setRoot("InicioVendedor");
+    }
+
     @FXML
-    private AnchorPane Panel11;
-    
-    @FXML
-    private AnchorPane Panel12;
-    
-            
-   
-   /* 
+    private void switchToInicioCliente() throws IOException {
+        App.setRoot("InicioCliente");
+    }
+
+    //
+    /* 
     // Conexion base de datos
     public static String user ="";
     String pass ="";
@@ -161,9 +173,9 @@ public class InicioSesionController implements Initializable {
        }
        
     }*/
-
+// ------------------------- Animación ----------------------
     @Override
-    public void initialize(URL url, ResourceBundle rb) { 
+    public void initialize(URL url, ResourceBundle rb) {
         degradeFondoChazasRecorte.setVisible(true);
         arroz.setVisible(true);
         palillos.setVisible(true);
@@ -188,90 +200,87 @@ public class InicioSesionController implements Initializable {
         MensajeCliente.setVisible(false);
         botonUnirC.setVisible(true);
         IniciarSesionC.setVisible(true);
-        
-    
+
     }
-    
-    
+
     @FXML
-   private void btnV(MouseEvent event){
-       TranslateTransition slide = new TranslateTransition();
-       slide.setDuration(Duration.seconds(0.7));
-       slide.setNode(Panel12);
-       
-       slide.setToX(-680);
-       slide.play();
-       
-       Panel11.setTranslateX(600);
-       BienvenidoVendedor.setVisible(true);
-       botonCliente.setVisible(true);
-       MensajeCliente.setVisible(true);
-       Bienvenido.setVisible(true);
-       BienvenidoCliente.setVisible(false);
-       Tazon.setVisible(true);
-       FindUrChaza.setVisible(true);
-       MensajeInicioSesion.setVisible(true);
-       arroz.setVisible(true);
-       degradeFondoChazasRecorte.setVisible(true);
-       IniciarSesion.setVisible(true);
-       palillos.setVisible(true);
-       palillos2.setVisible(true);
-       botonUnir.setVisible(true);
-       Cuenta.setVisible(true);
-       botonVendedor.setVisible(false);
-       MensajeCliente2.setVisible(true);
-       MensajeVendedor.setVisible(false);
-       correoElectronico.setVisible(true);
-       Contraseña.setVisible(true);
-       TextFieldCorreoE.setVisible(true);
-       PasswordFieldContraseña.setVisible(true);
-       botonUnirC.setVisible(false);
-       IniciarSesionC.setVisible(false);
-   
-       slide.setOnFinished((e->{
-           
-       }));
-   }
-   
-   @FXML
-   private void btnC(MouseEvent event){
-       TranslateTransition slide = new TranslateTransition();
-       slide.setDuration(Duration.seconds(0.7));
-       slide.setNode(Panel12);
-       
-       slide.setToX(0);
-       slide.play();
-       
-       Panel11.setTranslateX(0);
-       BienvenidoVendedor.setVisible(false);
-       botonCliente.setVisible(false);
-       MensajeCliente.setVisible(false);
-       Bienvenido.setVisible(true);
-       BienvenidoCliente.setVisible(true);
-       Tazon.setVisible(true);
-       FindUrChaza.setVisible(true);
-       MensajeInicioSesion.setVisible(true);
-       arroz.setVisible(true);
-       degradeFondoChazasRecorte.setVisible(true);
-       IniciarSesion.setVisible(false);
-       palillos.setVisible(true);
-       palillos2.setVisible(true);
-       botonUnir.setVisible(false);
-       Cuenta.setVisible(true);
-       botonVendedor.setVisible(true);
-       MensajeCliente2.setVisible(true);
-       MensajeVendedor.setVisible(true);
-       correoElectronico.setVisible(true);
-       Contraseña.setVisible(true);
-       TextFieldCorreoE.setVisible(true);
-       PasswordFieldContraseña.setVisible(true);
-       botonUnirC.setVisible(true);
-       IniciarSesionC.setVisible(true);
-   
-       slide.setOnFinished((e->{
-           
-       }));
-   }
-    
+    private void btnV(MouseEvent event) {
+        TranslateTransition slide = new TranslateTransition();
+        slide.setDuration(Duration.seconds(0.7));
+        slide.setNode(Panel12);
+
+        slide.setToX(-680);
+        slide.play();
+
+        Panel11.setTranslateX(600);
+        BienvenidoVendedor.setVisible(true);
+        botonCliente.setVisible(true);
+        MensajeCliente.setVisible(true);
+        Bienvenido.setVisible(true);
+        BienvenidoCliente.setVisible(false);
+        Tazon.setVisible(true);
+        FindUrChaza.setVisible(true);
+        MensajeInicioSesion.setVisible(true);
+        arroz.setVisible(true);
+        degradeFondoChazasRecorte.setVisible(true);
+        IniciarSesion.setVisible(true);
+        palillos.setVisible(true);
+        palillos2.setVisible(true);
+        botonUnir.setVisible(true);
+        Cuenta.setVisible(true);
+        botonVendedor.setVisible(false);
+        MensajeCliente2.setVisible(true);
+        MensajeVendedor.setVisible(false);
+        correoElectronico.setVisible(true);
+        Contraseña.setVisible(true);
+        TextFieldCorreoE.setVisible(true);
+        PasswordFieldContraseña.setVisible(true);
+        botonUnirC.setVisible(false);
+        IniciarSesionC.setVisible(false);
+
+        slide.setOnFinished((e -> {
+
+        }));
+    }
+
+    @FXML
+    private void btnC(MouseEvent event) {
+        TranslateTransition slide = new TranslateTransition();
+        slide.setDuration(Duration.seconds(0.7));
+        slide.setNode(Panel12);
+
+        slide.setToX(0);
+        slide.play();
+
+        Panel11.setTranslateX(0);
+        BienvenidoVendedor.setVisible(false);
+        botonCliente.setVisible(false);
+        MensajeCliente.setVisible(false);
+        Bienvenido.setVisible(true);
+        BienvenidoCliente.setVisible(true);
+        Tazon.setVisible(true);
+        FindUrChaza.setVisible(true);
+        MensajeInicioSesion.setVisible(true);
+        arroz.setVisible(true);
+        degradeFondoChazasRecorte.setVisible(true);
+        IniciarSesion.setVisible(false);
+        palillos.setVisible(true);
+        palillos2.setVisible(true);
+        botonUnir.setVisible(false);
+        Cuenta.setVisible(true);
+        botonVendedor.setVisible(true);
+        MensajeCliente2.setVisible(true);
+        MensajeVendedor.setVisible(true);
+        correoElectronico.setVisible(true);
+        Contraseña.setVisible(true);
+        TextFieldCorreoE.setVisible(true);
+        PasswordFieldContraseña.setVisible(true);
+        botonUnirC.setVisible(true);
+        IniciarSesionC.setVisible(true);
+
+        slide.setOnFinished((e -> {
+
+        }));
+    }
 
 }
