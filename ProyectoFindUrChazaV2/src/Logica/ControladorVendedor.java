@@ -4,7 +4,7 @@
  */
 package Logica;
 
-import EstructurasDeDatos.ArregloDinamicoConCola;
+import EstructurasDeDatos.ArregloDinamicoConColaVendedor;
 import Modelo.Vendedor;
 
 /**
@@ -13,13 +13,13 @@ import Modelo.Vendedor;
  */
 public class ControladorVendedor {
     
-    private ArregloDinamicoConCola ArregloDinamicoVendedor;
+    private ArregloDinamicoConColaVendedor ArregloDinamicoVendedor;
     
     public ControladorVendedor(){
-        ArregloDinamicoVendedor = new ArregloDinamicoConCola();
+        ArregloDinamicoVendedor = new ArregloDinamicoConColaVendedor();
     }
 
-    public ArregloDinamicoConCola getArregloDinamicoVendedor() {
+    public ArregloDinamicoConColaVendedor getArregloDinamicoVendedor() {
         return ArregloDinamicoVendedor;
     }
     
