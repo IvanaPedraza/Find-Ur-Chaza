@@ -1,0 +1,46 @@
+.button {
+    -fx-height: 30px;
+    -fx-widht: 120px;
+    -fx-font-family:"Berlin Sans FB Demi";
+    -fx-font-size: 20px;
+    -fx-background-radius: 10px;
+    -fx-background-color: #f49a00;
+    -fx-text-fill: #312a20;
+}
+
+.button:hover {
+    -fx-border-style:solid;
+    -fx-border-color:white;
+    -fx-border-radius: 10px;
+    -fx-text-fill:#ffffff;
+}
+
+#botonUnir {
+    -fx-underline: true;
+    -fx-background-color: transparent;   
+    -fx-font-size: 20px;
+    -fx-background-radius: 10px;
+}
+
+#botonUnir:hover {
+    -fx-background-color: #f49a00;
+    -fx-border-style:solid;
+    -fx-border-color:white;
+    -fx-border-radius: 10px;   
+    -fx-text-fill:#ffffff;
+}
+
+#botonUnirC {
+    -fx-underline: true;
+    -fx-background-color: transparent;   
+    -fx-font-size: 20px;
+    -fx-background-radius: 10px;
+}
+
+#botonUnirC:hover {
+    -fx-background-color: #f49a00;
+    -fx-border-style:solid;
+    -fx-border-color:white;
+    -fx-border-radius: 10px;   
+    -fx-text-fill:#ffffff;
+}

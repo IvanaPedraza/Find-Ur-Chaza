@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="Panel1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="0.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Ventanas.InicioSesionController">
+   <children>
+      <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Imagenes/F1.jpg" />
+         </image>
+      </ImageView>
+      <AnchorPane fx:id="Panel11" prefHeight="720.0" prefWidth="647.0">
+         <children>
+            <ImageView fx:id="BienvenidoVendedor" fitHeight="71.0" fitWidth="555.0" layoutX="78.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/BienvenidoVendedor.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="arroz" fitHeight="78.0" fitWidth="103.0" layoutX="311.0" layoutY="220.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/arroz.png" />
+               </image>
+            </ImageView>
+            <Text fx:id="correoElectronico" fill="#312a20" layoutX="84.0" layoutY="332.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Correo Electrónico">
+               <font>
+                  <Font name="Berlin Sans FB Demi Bold" size="22.0" />
+               </font>
+            </Text>
+            <TextField fx:id="TextFieldCorreoE" alignment="CENTER" layoutX="100.0" layoutY="342.0" prefHeight="50.0" prefWidth="250.0" promptText="Ingresa tu correo electrónico" style="-fx-background-color: white; -fx-background-border: black; -fx-border-color: brown; -fx-border-radius: 10; -fx-background-radius: 10;">
+               <font>
+                  <Font name="Nirmala UI" size="12.0" />
+               </font>
+            </TextField>
+            <Text fx:id="Contraseña" fill="#302a20" layoutX="84.0" layoutY="463.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña">
+               <font>
+                  <Font name="Berlin Sans FB Demi Bold" size="22.0" />
+               </font>
+            </Text>
+            <PasswordField fx:id="PasswordFieldContraseña" alignment="CENTER" layoutX="100.0" layoutY="476.0" prefHeight="50.0" prefWidth="250.0" promptText="Ingresa tu contraseña" style="-fx-background-color: white; -fx-border-color: brown; -fx-background-radius: 10; -fx-border-radius: 10;">
+               <font>
+                  <Font name="Nirmala UI" size="12.0" />
+               </font>
+            </PasswordField>
+            <ImageView fx:id="palillos2" fitHeight="50.0" fitWidth="53.0" layoutX="25.0" layoutY="421.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/palillos.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="palillos" fitHeight="50.0" fitWidth="53.0" layoutX="25.0" layoutY="289.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/palillos.png" />
+               </image>
+            </ImageView>
+            <Text fx:id="Cuenta" fill="#302a20" layoutX="284.0" layoutY="637.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿No tienes una cuenta?">
+               <font>
+                  <Font name="Nirmala UI" size="16.0" />
+               </font>
+            </Text>
+            <ImageView fx:id="FindUrChaza" fitHeight="78.0" fitWidth="591.0" layoutX="38.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/Proyecto%20nuevo.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="botonUnir" layoutX="311.0" layoutY="651.0" mnemonicParsing="false" onMouseClicked="#switchToRegistroDatosVendedor" stylesheets="@../Estilos/Style's.css" text="Únete :D!" textFill="#302a20">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <ImageView fx:id="BienvenidoCliente" fitHeight="71.0" fitWidth="555.0" layoutX="78.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/BienvenidoCliente.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="IniciarSesion" layoutX="283.0" layoutY="569.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="168.0" stylesheets="@../Estilos/Style's.css" text="Iniciar Sesión" textOverrun="CLIP">
+               <font>
+                  <Font name="Bookman Old Style" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="botonUnirC" layoutX="312.0" layoutY="651.0" mnemonicParsing="false" onMouseClicked="#switchToRegistroDatosCliente" stylesheets="@../Estilos/Style's.css" text="Únete :D!" textFill="#302a20">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="IniciarSesionC" layoutX="282.0" layoutY="569.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="168.0" stylesheets="@../Estilos/Style's.css" text="Iniciar Sesión" textOverrun="CLIP">
+               <font>
+                  <Font name="Bookman Old Style" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="Panel12" layoutX="663.0" layoutY="-28.0" prefHeight="743.0" prefWidth="633.0">
+         <children>
+            <ImageView fx:id="degradeFondoChazasRecorte" fitHeight="750.0" fitWidth="626.0" layoutX="-6.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/degradeFondoChazasRecorte.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="Tazon" fitHeight="517.0" fitWidth="377.0" layoutX="258.0" layoutY="226.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/TazonA.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="MensajeInicioSesion" fitHeight="50.0" fitWidth="324.0" layoutX="38.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/MensajeInicioSesion.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="Bienvenido" fitHeight="125.0" fitWidth="476.0" layoutX="50.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/Bienvenido.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="botonVendedor" layoutX="54.0" layoutY="565.0" mnemonicParsing="false" onMouseClicked="#btnV" prefHeight="42.0" prefWidth="168.0" stylesheets="@../Estilos/Style's.css" text="Vendedor" textOverrun="CLIP">
+               <font>
+                  <Font name="Bookman Old Style" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <ImageView fx:id="MensajeVendedor" fitHeight="150.0" fitWidth="200.0" layoutX="38.0" layoutY="399.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/MensajeVendedor.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="MensajeCliente" fitHeight="150.0" fitWidth="200.0" layoutX="38.0" layoutY="399.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/MensajeCliente.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="MensajeCliente2" fitHeight="150.0" fitWidth="200.0" layoutX="38.0" layoutY="468.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/MensajeCliente2.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="botonCliente" layoutX="54.0" layoutY="565.0" mnemonicParsing="false" onMouseClicked="#btnC" prefHeight="42.0" prefWidth="168.0" stylesheets="@../Estilos/Style's.css" text="Cliente" textOverrun="CLIP">
+               <font>
+                  <Font name="Bookman Old Style" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

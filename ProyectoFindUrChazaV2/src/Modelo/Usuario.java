@@ -16,18 +16,18 @@ public class Usuario {
     private String nombre;
     private String apellido;
     private String telefono;
-    private String contraseña;
+    private String contrasena;
     
     public Usuario(){
         
     }
 
-    public Usuario(String correo, String nombre, String apellido, String telefono, String contraseña) {
+    public Usuario(String correo, String nombre, String apellido, String telefono, String contrasena) {
         this.correo = correo;
         this.nombre = nombre;
         this.apellido = apellido;
         this.telefono = telefono;
-        this.contraseña = contraseña;
+        this.contrasena = contrasena;
     }
 
     public String getCorreo() {
@@ -54,12 +54,12 @@ public class Usuario {
         this.apellido = apellido;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getContrasena() {
+        return contrasena;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setContrasena(String contraseña) {
+        this.contrasena = contraseña;
     }
 
     public String getTelefono() {

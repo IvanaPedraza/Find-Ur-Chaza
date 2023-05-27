@@ -74,7 +74,7 @@ public class ControladorListaEnlazada {
         time_start = System.nanoTime();
         for(int i = 0;i < ListaEnlazadaClientes.size();i++){
             clienteIngreso = (Cliente) ListaEnlazadaClientes.getElement(i);
-            if(clienteIngreso.getCorreo().equals(correo) && clienteIngreso.getContraseña().equals(contrasena)){
+            if(clienteIngreso.getCorreo().equals(correo) && clienteIngreso.getContrasena().equals(contrasena)){
                 clienteRetorno = clienteIngreso;
             }else{
                 System.out.println("¡El cliente no existe!");
@@ -127,7 +127,7 @@ public class ControladorListaEnlazada {
                 clienteActualizar.setCorreo(datoModificado);
                 break;
             case "Contraseña":
-                clienteActualizar.setContraseña(datoModificado);
+                clienteActualizar.setContrasena(datoModificado);
                 break;
             default:
                 System.out.println("La categoria no es válida");
@@ -204,8 +204,8 @@ public class ControladorListaEnlazada {
     
     /*Productos*/
     
-    public void agregarNuevoProducto(int codigo, String nombre, double precio, String detalle, Date fechaIngreso, Date fechaExpiracion, Date fechaEgreso){
-        Producto nuevoProducto = new Producto(codigo,nombre,precio,detalle,fechaIngreso,fechaExpiracion, fechaEgreso);
+    public void agregarNuevoProducto(int codigo, String nombre, double precio, String detalle, Date fechaIngreso, Date fechaExpiracion, Chaza chaza){
+        Producto nuevoProducto = new Producto(codigo,nombre,precio,detalle,fechaIngreso,fechaExpiracion, chaza);
         long time_start, time_end;
         time_start = System.nanoTime();
         ListaEnlazadaProducto.pushBack(nuevoProducto);
@@ -705,7 +705,7 @@ public class ControladorListaEnlazada {
         time_start = System.nanoTime();
         for(int i = 0;i < ListaEnlazadaVendedor.size();i++){
             vendedorIngreso = (Vendedor) ListaEnlazadaVendedor.getElement(i);
-            if(vendedorIngreso.getCorreo().equals(correo) && vendedorIngreso.getContraseña().equals(contrasena)){
+            if(vendedorIngreso.getCorreo().equals(correo) && vendedorIngreso.getContrasena().equals(contrasena)){
                 vendedorRetorno = vendedorIngreso;
             }else{
                 System.out.println("¡El cliente no existe!");
@@ -771,7 +771,7 @@ public class ControladorListaEnlazada {
                 vendedorActualizar.setCorreo(datoModificado);
                 break;
             case "Contraseña":
-                vendedorActualizar.setContraseña(datoModificado);
+                vendedorActualizar.setContrasena(datoModificado);
                 break;
             default:
                 System.out.println("La categoria no es válida");

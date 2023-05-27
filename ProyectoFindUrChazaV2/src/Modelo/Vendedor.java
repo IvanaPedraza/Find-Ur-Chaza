@@ -13,8 +13,8 @@ public class Vendedor extends Usuario{
     public Vendedor() {
     }
 
-    public Vendedor(String correo, String nombre, String apellido, String telefono, String contraseña) {
-        super(correo, nombre, apellido, telefono, contraseña);
+    public Vendedor(String correo, String nombre, String apellido, String telefono, String contrasena) {
+        super(correo, nombre, apellido, telefono, contrasena);
     }
 
     

@@ -168,7 +168,7 @@ public class PruebaDeTiemposArregloDinamico <T>{
             Cliente elementoActual = new Cliente();
             for(int i = 0; i < arreglo.getConteo();i++){
                 elementoActual = (Cliente) arreglo.getElement(i);
-                printW.println(elementoActual.getCorreo()+ ";"+elementoActual.getNombre()+";"+elementoActual.getApellido()+";"+elementoActual.getTelefono()+";"+elementoActual.getContraseña());
+                printW.println(elementoActual.getCorreo()+ ";"+elementoActual.getNombre()+";"+elementoActual.getApellido()+";"+elementoActual.getTelefono()+";"+elementoActual.getContrasena());
             }
         }catch(Exception e){
             System.out.println("Ha ocurrido un error " + e.toString());
