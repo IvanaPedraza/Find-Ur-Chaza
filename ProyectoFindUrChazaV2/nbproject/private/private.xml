@@ -3,24 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-
-            <file>file:/C:/Users/Cata/Documents/GitHub/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Logica/ArchivoOrden.java</file>
-            <file>file:/C:/Users/Cata/Documents/GitHub/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Logica/ControladorArregloDinamico.java</file>
-            <file>file:/C:/Users/Cata/Documents/GitHub/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/registroDatosCliente.fxml</file>
-            <file>file:/C:/Users/Cata/Documents/GitHub/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/App.java</file>
-            <file>file:/C:/Users/Cata/Documents/GitHub/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/registroDatosClienteController.java</file>
-            <file>file:/C:/Users/Cata/Documents/GitHub/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/registroDatosVendedorController.java</file>
-            <file>file:/C:/Users/Cata/Documents/GitHub/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/InicioSesion.fxml</file>
-            <file>file:/C:/Users/Cata/Documents/GitHub/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/registroDatosVendedor.fxml</file>
-            <file>file:/C:/Users/Cata/Documents/GitHub/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/InicioSesionController.java</file>
-
-            <file>file:/D:/NetBeansProjects/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/InicioSesion.fxml</file>
-            <file>file:/D:/NetBeansProjects/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/InicioSesionController.java</file>
-            <file>file:/D:/NetBeansProjects/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/registroDatosClienteController.java</file>
-            <file>file:/D:/NetBeansProjects/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/App.java</file>
-            <file>file:/D:/NetBeansProjects/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/registroDatosVendedorController.java</file>
-            <file>file:/D:/NetBeansProjects/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Estilos/Style's.css</file>
-
+            <file>file:/C:/Users/kelly/OneDrive/Documentos/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Modelo/Comentario.java</file>
+            <file>file:/C:/Users/kelly/OneDrive/Documentos/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Logica/ControladorOrden.java</file>
+            <file>file:/C:/Users/kelly/OneDrive/Documentos/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Logica/ControladorComentario.java</file>
+            <file>file:/C:/Users/kelly/OneDrive/Documentos/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Logica/ControladorVendedor.java</file>
         </group>
     </open-files>
 </project-private>
