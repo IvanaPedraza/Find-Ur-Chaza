@@ -79,5 +79,6 @@ public class registroDatosVendedorController {
         nuevoCliente.getStylesheets().clear();
         nuevoCliente.getStylesheets().addAll(this.getClass().getResource("../Estilos/Style's.css").toExternalForm());
     }
+        
+ }   
 
-}
