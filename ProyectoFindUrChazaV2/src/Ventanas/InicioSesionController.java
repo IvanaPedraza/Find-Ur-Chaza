@@ -136,6 +136,12 @@ public class InicioSesionController implements Initializable {
         App.setRoot("registroDatosVendedor");
     }
 
+    //
+    public static String user = "";
+    String pass = "";
+    public static String userC = "";
+    String passC = "";
+
     @FXML
     private void switchToInicioVendedor() throws IOException {
         user = TextFieldCorreoE.getText().trim(); //Realmente deberia ser el nombre de la persona, no el correo :3
@@ -143,18 +149,18 @@ public class InicioSesionController implements Initializable {
 
         if (!user.equals("") || !pass.equals("")) {
             try {
+
                 App.setRoot("InicioVendedor");
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "¡Error al iniciar sesión! :(");
+                JOptionPane.showMessageDialog(null, "Debes llenar todos los campos para continuar! :)");
             }
-
-        } else {
-            JOptionPane.showMessageDialog(null, "Debes llenar todos los campos para continuar! :)");
-
+            JOptionPane.showMessageDialog(null, "¡Error al iniciar sesión! :(");
         }
+
     }
 
-    @FXML
+
+@FXML
     private void switchToInicioCliente() throws IOException {
         userC = TextFieldCorreoE.getText().trim(); //Realmente deberia ser el nombre de la persona, no el correo :3
         passC = PasswordFieldContraseña.getText().trim();
@@ -166,128 +172,126 @@ public class InicioSesionController implements Initializable {
                 JOptionPane.showMessageDialog(null, "¡Error al iniciar sesión! :(");
             }
 
-        } else {
-            JOptionPane.showMessageDialog(null, "Debes llenar todos los campos para continuar! :)");
+        }
+    }
+
+// ------------------------- Animación ----------------------
+        @Override
+public void initialize
+        (URL url, ResourceBundle rb
+        
+            ) {
+        degradeFondoChazasRecorte.setVisible(true);
+            arroz.setVisible(true);
+            palillos.setVisible(true);
+            palillos2.setVisible(true);
+            correoElectronico.setVisible(true);
+            Contraseña.setVisible(true);
+            TextFieldCorreoE.setVisible(true);
+            PasswordFieldContraseña.setVisible(true);
+            IniciarSesion.setVisible(false);
+            Cuenta.setVisible(true);
+            botonUnir.setVisible(false);
+            botonVendedor.setVisible(true);
+            MensajeCliente2.setVisible(true);
+            Tazon.setVisible(true);
+            FindUrChaza.setVisible(true);
+            BienvenidoCliente.setVisible(true);
+            Bienvenido.setVisible(true);
+            MensajeInicioSesion.setVisible(true);
+            MensajeVendedor.setVisible(true);
+            BienvenidoVendedor.setVisible(false);
+            botonCliente.setVisible(false);
+            MensajeCliente.setVisible(false);
+            botonUnirC.setVisible(true);
+            IniciarSesionC.setVisible(true);
 
         }
 
-    }
-
-    //
-    public static String user = "";
-    String pass = "";
-    public static String userC = "";
-    String passC = "";
-
-    // Acciones
-// ------------------------- Animación ----------------------
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        degradeFondoChazasRecorte.setVisible(true);
-        arroz.setVisible(true);
-        palillos.setVisible(true);
-        palillos2.setVisible(true);
-        correoElectronico.setVisible(true);
-        Contraseña.setVisible(true);
-        TextFieldCorreoE.setVisible(true);
-        PasswordFieldContraseña.setVisible(true);
-        IniciarSesion.setVisible(false);
-        Cuenta.setVisible(true);
-        botonUnir.setVisible(false);
-        botonVendedor.setVisible(true);
-        MensajeCliente2.setVisible(true);
-        Tazon.setVisible(true);
-        FindUrChaza.setVisible(true);
-        BienvenidoCliente.setVisible(true);
-        Bienvenido.setVisible(true);
-        MensajeInicioSesion.setVisible(true);
-        MensajeVendedor.setVisible(true);
-        BienvenidoVendedor.setVisible(false);
-        botonCliente.setVisible(false);
-        MensajeCliente.setVisible(false);
-        botonUnirC.setVisible(true);
-        IniciarSesionC.setVisible(true);
-
-    }
-
-    @FXML
-    private void btnV(MouseEvent event) {
+        @FXML
+private void btnV
+        (MouseEvent event
+        
+            ) {
         TranslateTransition slide = new TranslateTransition();
-        slide.setDuration(Duration.seconds(0.7));
-        slide.setNode(Panel12);
+            slide.setDuration(Duration.seconds(0.7));
+            slide.setNode(Panel12);
 
-        slide.setToX(-680);
-        slide.play();
+            slide.setToX(-680);
+            slide.play();
 
-        Panel11.setTranslateX(600);
-        BienvenidoVendedor.setVisible(true);
-        botonCliente.setVisible(true);
-        MensajeCliente.setVisible(true);
-        Bienvenido.setVisible(true);
-        BienvenidoCliente.setVisible(false);
-        Tazon.setVisible(true);
-        FindUrChaza.setVisible(true);
-        MensajeInicioSesion.setVisible(true);
-        arroz.setVisible(true);
-        degradeFondoChazasRecorte.setVisible(true);
-        IniciarSesion.setVisible(true);
-        palillos.setVisible(true);
-        palillos2.setVisible(true);
-        botonUnir.setVisible(true);
-        Cuenta.setVisible(true);
-        botonVendedor.setVisible(false);
-        MensajeCliente2.setVisible(true);
-        MensajeVendedor.setVisible(false);
-        correoElectronico.setVisible(true);
-        Contraseña.setVisible(true);
-        TextFieldCorreoE.setVisible(true);
-        PasswordFieldContraseña.setVisible(true);
-        botonUnirC.setVisible(false);
-        IniciarSesionC.setVisible(false);
+            Panel11.setTranslateX(600);
+            BienvenidoVendedor.setVisible(true);
+            botonCliente.setVisible(true);
+            MensajeCliente.setVisible(true);
+            Bienvenido.setVisible(true);
+            BienvenidoCliente.setVisible(false);
+            Tazon.setVisible(true);
+            FindUrChaza.setVisible(true);
+            MensajeInicioSesion.setVisible(true);
+            arroz.setVisible(true);
+            degradeFondoChazasRecorte.setVisible(true);
+            IniciarSesion.setVisible(true);
+            palillos.setVisible(true);
+            palillos2.setVisible(true);
+            botonUnir.setVisible(true);
+            Cuenta.setVisible(true);
+            botonVendedor.setVisible(false);
+            MensajeCliente2.setVisible(true);
+            MensajeVendedor.setVisible(false);
+            correoElectronico.setVisible(true);
+            Contraseña.setVisible(true);
+            TextFieldCorreoE.setVisible(true);
+            PasswordFieldContraseña.setVisible(true);
+            botonUnirC.setVisible(false);
+            IniciarSesionC.setVisible(false);
 
-        slide.setOnFinished((e -> {
+            slide.setOnFinished((e -> {
 
-        }));
-    }
+            }));
+        }
 
-    @FXML
-    private void btnC(MouseEvent event) {
+        @FXML
+private void btnC
+        (MouseEvent event
+        
+            ) {
         TranslateTransition slide = new TranslateTransition();
-        slide.setDuration(Duration.seconds(0.7));
-        slide.setNode(Panel12);
+            slide.setDuration(Duration.seconds(0.7));
+            slide.setNode(Panel12);
 
-        slide.setToX(0);
-        slide.play();
+            slide.setToX(0);
+            slide.play();
 
-        Panel11.setTranslateX(0);
-        BienvenidoVendedor.setVisible(false);
-        botonCliente.setVisible(false);
-        MensajeCliente.setVisible(false);
-        Bienvenido.setVisible(true);
-        BienvenidoCliente.setVisible(true);
-        Tazon.setVisible(true);
-        FindUrChaza.setVisible(true);
-        MensajeInicioSesion.setVisible(true);
-        arroz.setVisible(true);
-        degradeFondoChazasRecorte.setVisible(true);
-        IniciarSesion.setVisible(false);
-        palillos.setVisible(true);
-        palillos2.setVisible(true);
-        botonUnir.setVisible(false);
-        Cuenta.setVisible(true);
-        botonVendedor.setVisible(true);
-        MensajeCliente2.setVisible(true);
-        MensajeVendedor.setVisible(true);
-        correoElectronico.setVisible(true);
-        Contraseña.setVisible(true);
-        TextFieldCorreoE.setVisible(true);
-        PasswordFieldContraseña.setVisible(true);
-        botonUnirC.setVisible(true);
-        IniciarSesionC.setVisible(true);
+            Panel11.setTranslateX(0);
+            BienvenidoVendedor.setVisible(false);
+            botonCliente.setVisible(false);
+            MensajeCliente.setVisible(false);
+            Bienvenido.setVisible(true);
+            BienvenidoCliente.setVisible(true);
+            Tazon.setVisible(true);
+            FindUrChaza.setVisible(true);
+            MensajeInicioSesion.setVisible(true);
+            arroz.setVisible(true);
+            degradeFondoChazasRecorte.setVisible(true);
+            IniciarSesion.setVisible(false);
+            palillos.setVisible(true);
+            palillos2.setVisible(true);
+            botonUnir.setVisible(false);
+            Cuenta.setVisible(true);
+            botonVendedor.setVisible(true);
+            MensajeCliente2.setVisible(true);
+            MensajeVendedor.setVisible(true);
+            correoElectronico.setVisible(true);
+            Contraseña.setVisible(true);
+            TextFieldCorreoE.setVisible(true);
+            PasswordFieldContraseña.setVisible(true);
+            botonUnirC.setVisible(true);
+            IniciarSesionC.setVisible(true);
 
-        slide.setOnFinished((e -> {
+            slide.setOnFinished((e -> {
 
-        }));
+            }));
+        }
+
     }
-
-}

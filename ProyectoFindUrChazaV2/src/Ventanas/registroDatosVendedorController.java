@@ -1,5 +1,9 @@
 package Ventanas;
+
+import EstructurasDeDatos.ArregloDinamicoConColaVendedor;
 import Logica.*;
+import Modelo.Vendedor;
+import static Ventanas.InicioSesionController.userC;
 import com.sun.javafx.logging.PlatformLogger.Level;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
@@ -8,16 +12,17 @@ import javafx.fxml.*;
 import javafx.scene.*;
 import javafx.scene.control.*;
 
-
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import javax.swing.JOptionPane;
 
 public class registroDatosVendedorController {
-    
-    private ControladorVendedor controladorVendedor = new ControladorVendedor();
-   // private
 
-   
+    private ControladorVendedor controladorVendedor = new ControladorVendedor();
+    private ArregloDinamicoConColaVendedor arregloVendedor = controladorVendedor.getArregloDinamicoVendedor();
+    public static Vendedor vendedorActual = new Vendedor();
+  
+
     @FXML
     private Button nuevoVendedor;
 
@@ -38,21 +43,36 @@ public class registroDatosVendedorController {
 
     @FXML
     private TextField textFieldTelefono;
-    
+
     @FXML
-    private void switchToRegistroChaza() throws IOException{
-        App.setRoot("RegistroChaza");
+    private void registrarVendedor() throws IOException {
+
+        String correo = textFieldCorreo.getText().trim();
+        String nombre = textFieldNombre.getText().trim();
+        String apellido = textFieldApellido.getText().trim();
+        String telefono = textFieldTelefono.getText().trim();
+        String contrasena = passwordFieldContraseña.getText().trim();
+        if (!correo.equals("") || !nombre.equals("") || !apellido.equals("") || !telefono.equals("") || !contrasena.equals("")) {
+            vendedorActual = new Vendedor(correo, nombre, apellido, telefono, contrasena);
+            arregloVendedor.pushBack(vendedorActual);
+            arregloVendedor.imprimir();
+            App.setRoot("RegistroChaza");
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Debes llenar todos los campos para continuar! :)");
+
+        }
+
     }
-    
+
     @FXML
     private Button Volver;
-    
+
     @FXML
-    private void switchToIniciarSesion() throws IOException{
+    private void switchToIniciarSesion() throws IOException {
         App.setRoot("InicioSesion");
     }
-   
-    
+
     @FXML
     private void primerEstilo() {
         nuevoVendedor.getStylesheets().clear();
@@ -61,7 +81,5 @@ public class registroDatosVendedorController {
         nuevoCliente.getStylesheets().addAll(this.getClass().getResource("../Estilos/Style's.css").toExternalForm());
     }
         
-
  }   
-
 
