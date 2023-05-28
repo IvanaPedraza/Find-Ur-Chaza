@@ -105,7 +105,8 @@ public class ControladorChaza {
         //time_start = System.nanoTime();
         try{
             chazaEncontrada = AVLChaza.findByName(nombreChaza);
-            System.out.println("La chaza es: " + chazaEncontrada.getNombreChaza());
+            System.out.println("La chaza es: " + chazaEncontrada.getNombreChaza()+ " "+chazaEncontrada.getUbicacion()+" "+chazaEncontrada.getDescripcion());
+            
         }catch(Exception e){
             System.out.println("Ha ocurrido " + e);
         }
@@ -136,26 +137,29 @@ public class ControladorChaza {
     }
     
     
-    /*
-    public Chaza buscarChazaPorVendedor(Vendedor vendedor) {
-        Chaza chazaEncontrada = new Chaza();
+    
+    public void buscarChazasPorVendedor(Vendedor vendedor) {
+        //Chaza chazaEncontrada = new Chaza();
         long time_start, time_end;
         time_start = System.nanoTime();
         try{
-            chazaEncontrada = AVLChaza.findByVendedor(vendedor);
-            System.out.println("La chaza es: " + chazaEncontrada.getNombreChaza());
+            Chaza[] chazas = AVLChaza.findByVendedor(vendedor);
+            if(chazas.length != 0){
+                for(int i = 0;i<chazas.length;i++){
+                    System.out.println("La chaza es: " + chazas[i].getNombreChaza() + " "+ chazas[i].getUbicacion()+" "+chazas[i].getDescripcion());
+                }
+            }else{
+                System.out.println("No hay chazas");
+            }
         }catch(Exception e){
             System.out.println("Ha ocurrido " + e);
         }
         
-        if (chazaEncontrada.getNombreChaza().length() == 0) {
-            System.out.println("No se encontro");
-        }
         time_end = System.nanoTime();
         System.out.println("buscarChazaPorVendedor con arbol AVL tomo " + (time_end - time_start) + " milliseconds");
-        return chazaEncontrada;
+        
     }
-    */
+    
     public int numeroChazasPorVendedor(Vendedor vendedor) {
         int numeroChazas = AVLChaza.numChazaVendedor(AVLChaza.getRoot(),vendedor);
         if(numeroChazas == 0){
