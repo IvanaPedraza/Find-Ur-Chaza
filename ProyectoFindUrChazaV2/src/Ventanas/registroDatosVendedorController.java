@@ -3,7 +3,6 @@ package Ventanas;
 import EstructurasDeDatos.ArregloDinamicoConColaVendedor;
 import Logica.*;
 import Modelo.Vendedor;
-import static Ventanas.InicioSesionController.userC;
 import com.sun.javafx.logging.PlatformLogger.Level;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
@@ -18,7 +17,7 @@ import javax.swing.JOptionPane;
 
 public class registroDatosVendedorController {
 
-    private ControladorVendedor controladorVendedor = new ControladorVendedor();
+    private ControladorVendedor controladorVendedor = InicioSesionController.getControladorVendedor();
     private ArregloDinamicoConColaVendedor arregloVendedor = controladorVendedor.getArregloDinamicoVendedor();
     public static Vendedor vendedorActual = new Vendedor();
   

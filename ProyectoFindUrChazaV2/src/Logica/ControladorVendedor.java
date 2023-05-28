@@ -26,8 +26,8 @@ public class ControladorVendedor {
     public Vendedor iniciarSesionVendedor(String correo, String contrasena) {
         Vendedor vendedorIngreso = new Vendedor();
         Vendedor vendedorRetorno = new Vendedor();
-        long time_start, time_end;
-        time_start = System.nanoTime();
+        //long time_start, time_end;
+        //time_start = System.nanoTime();
         for (int i = 0; i < ArregloDinamicoVendedor.getConteo(); i++) {
             vendedorIngreso = (Vendedor) ArregloDinamicoVendedor.getElement(i);
             if (vendedorIngreso.getCorreo().equals(correo) && vendedorIngreso.getContrasena().equals(contrasena)) {
@@ -37,8 +37,8 @@ public class ControladorVendedor {
                 vendedorRetorno = null;
             }
         }
-        time_end = System.nanoTime();
-        System.out.println("buscarFacturaPorId con arreglo dinamico tomo " + (time_end - time_start) + " milliseconds");
+        //time_end = System.nanoTime();
+        //System.out.println("buscarFacturaPorId con arreglo dinamico tomo " + (time_end - time_start) + " milliseconds");
         return vendedorRetorno;
     }
     

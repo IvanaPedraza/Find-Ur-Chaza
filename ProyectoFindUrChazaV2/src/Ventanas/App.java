@@ -1,5 +1,7 @@
 package Ventanas;
 
+import BaseDeDatos.bdCliente;
+import BaseDeDatos.bdVendedor;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,6 +17,10 @@ import javafx.scene.image.Image;
 public class App extends Application {
 
     private static Scene scene;
+    
+    public static bdVendedor bdVen = new bdVendedor();
+    public static bdCliente bdCli = new bdCliente();
+    
 
     @Override
     public void start(Stage stage) throws IOException {
