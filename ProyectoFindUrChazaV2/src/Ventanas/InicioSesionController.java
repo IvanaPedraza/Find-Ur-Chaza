@@ -193,12 +193,12 @@ public class InicioSesionController implements Initializable {
     @FXML
     private void switchToInicioCliente() throws IOException {
         Cliente clienteLogueado = new Cliente();
-        emailC = TextFieldCorreoE.getText().trim(); //Realmente deberia ser el nombre de la persona, no el correo :3
-        passC = PasswordFieldContraseña.getText().trim();
+        emailC = TextFieldCorreoEC.getText().trim(); //Realmente deberia ser el nombre de la persona, no el correo :3
+        passC = PasswordFieldContraseñaC.getText().trim();
 
         if (!emailC.equals("") || !passC.equals("")) {
             try {
-                clienteLogueado = controladorCliente.iniciarSesionCliente(email, pass);
+                clienteLogueado = controladorCliente.iniciarSesionCliente(emailC, passC);
                 if(clienteLogueado != null){
                     App.setRoot("InicioCliente");
                 }else{

@@ -5,6 +5,7 @@
 package Logica;
 
 import EstructurasDeDatos.ArregloDinamicoConCola;
+import EstructurasDeDatos.ArregloDinamicoConColaCliente;
 import Modelo.Cliente;
 
 /**
@@ -12,13 +13,13 @@ import Modelo.Cliente;
  * @author kelly
  */
 public class ControladorCliente {
-    private ArregloDinamicoConCola ArregloDinamicoClientes;
+    private ArregloDinamicoConColaCliente ArregloDinamicoClientes;
     
     public ControladorCliente(){
-        ArregloDinamicoClientes = new ArregloDinamicoConCola();
+        ArregloDinamicoClientes = new ArregloDinamicoConColaCliente();
     }
 
-    public ArregloDinamicoConCola getArregloDinamicoClientes() {
+    public ArregloDinamicoConColaCliente getArregloDinamicoClientes() {
         return ArregloDinamicoClientes;
     }
 
@@ -28,7 +29,7 @@ public class ControladorCliente {
         long time_start, time_end;
         time_start = System.nanoTime();
         for (int i = 0; i < ArregloDinamicoClientes.getConteo(); i++) {
-            clienteIngreso = (Cliente) ArregloDinamicoClientes.getElement(i);
+            clienteIngreso = ArregloDinamicoClientes.getElement(i);
             if (clienteIngreso.getCorreo().equals(correo) && clienteIngreso.getContrasena().equals(contrasena)) {
                 clienteRetorno = clienteIngreso;
             } else {
