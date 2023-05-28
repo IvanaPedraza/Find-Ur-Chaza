@@ -81,6 +81,10 @@ public class InicioSesionController implements Initializable {
 
     @FXML
     private PasswordField PasswordFieldContraseña;
+    
+    @FXML
+    private PasswordField PasswordFieldContraseñaC;
+
 
     @FXML
     private ImageView Tazon;
@@ -123,6 +127,9 @@ public class InicioSesionController implements Initializable {
 
     @FXML
     private TextField TextFieldCorreoE;
+    
+    @FXML
+    private TextField TextFieldCorreoEC;
 
     @FXML
     private Text correoElectronico;
@@ -218,8 +225,10 @@ public class InicioSesionController implements Initializable {
         palillos2.setVisible(true);
         correoElectronico.setVisible(true);
         Contraseña.setVisible(true);
-        TextFieldCorreoE.setVisible(true);
-        PasswordFieldContraseña.setVisible(true);
+        TextFieldCorreoE.setVisible(false);
+        TextFieldCorreoEC.setVisible(true);
+        PasswordFieldContraseña.setVisible(false);
+        PasswordFieldContraseñaC.setVisible(true);
         IniciarSesion.setVisible(false);
         Cuenta.setVisible(true);
         botonUnir.setVisible(false);
@@ -271,7 +280,9 @@ public class InicioSesionController implements Initializable {
         correoElectronico.setVisible(true);
         Contraseña.setVisible(true);
         TextFieldCorreoE.setVisible(true);
+        TextFieldCorreoEC.setVisible(false);
         PasswordFieldContraseña.setVisible(true);
+        PasswordFieldContraseñaC.setVisible(false);
         botonUnirC.setVisible(false);
         IniciarSesionC.setVisible(false);
 
@@ -311,8 +322,10 @@ public class InicioSesionController implements Initializable {
         MensajeVendedor.setVisible(true);
         correoElectronico.setVisible(true);
         Contraseña.setVisible(true);
-        TextFieldCorreoE.setVisible(true);
-        PasswordFieldContraseña.setVisible(true);
+        TextFieldCorreoE.setVisible(false);
+        PasswordFieldContraseña.setVisible(false);
+        TextFieldCorreoEC.setVisible(true);
+        PasswordFieldContraseñaC.setVisible(true);
         botonUnirC.setVisible(true);
         IniciarSesionC.setVisible(true);
 

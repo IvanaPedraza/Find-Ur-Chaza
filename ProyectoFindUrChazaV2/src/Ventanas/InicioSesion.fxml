@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="Panel1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="0.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Ventanas.InicioSesionController">
+<AnchorPane fx:id="Panel1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="0.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Ventanas.InicioSesionController">
    <children>
       <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -100,6 +100,16 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
+            <TextField fx:id="TextFieldCorreoEC" alignment="CENTER" layoutX="100.0" layoutY="342.0" prefHeight="50.0" prefWidth="250.0" promptText="Ingresa tu correo electrónico" style="-fx-background-color: white; -fx-background-border: black; -fx-border-color: brown; -fx-border-radius: 10; -fx-background-radius: 10;">
+               <font>
+                  <Font name="Nirmala UI" size="12.0" />
+               </font>
+            </TextField>
+            <PasswordField fx:id="PasswordFieldContraseñaC" alignment="CENTER" layoutX="100.0" layoutY="476.0" prefHeight="50.0" prefWidth="250.0" promptText="Ingresa tu contraseña" style="-fx-background-color: white; -fx-border-color: brown; -fx-background-radius: 10; -fx-border-radius: 10;">
+               <font>
+                  <Font name="Nirmala UI" size="12.0" />
+               </font>
+            </PasswordField>
          </children>
       </AnchorPane>
       <AnchorPane fx:id="Panel12" layoutX="663.0" layoutY="-28.0" prefHeight="743.0" prefWidth="633.0">
