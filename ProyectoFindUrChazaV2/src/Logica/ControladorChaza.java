@@ -136,7 +136,7 @@ public class ControladorChaza {
     }
     
     
-    
+    /*
     public Chaza buscarChazaPorVendedor(Vendedor vendedor) {
         Chaza chazaEncontrada = new Chaza();
         long time_start, time_end;
@@ -155,9 +155,9 @@ public class ControladorChaza {
         System.out.println("buscarChazaPorVendedor con arbol AVL tomo " + (time_end - time_start) + " milliseconds");
         return chazaEncontrada;
     }
-    
+    */
     public int numeroChazasPorVendedor(Vendedor vendedor) {
-        int numeroChazas = AVLChaza.numChazaVendedor(vendedor);
+        int numeroChazas = AVLChaza.numChazaVendedor(AVLChaza.getRoot(),vendedor);
         if(numeroChazas == 0){
             System.out.println("Ninguna chaza");
         }

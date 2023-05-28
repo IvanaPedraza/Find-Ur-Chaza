@@ -33,6 +33,12 @@ public class AVLChaza{
         root = newNode(chaza);
     }
 
+    public NodeChaza getRoot() {
+        return root;
+    }
+    
+    
+
     private void updateHeight(NodeChaza node){
         node.setHeight(1 + Math.max(height(node.getLeft()), height(node.getRight())));
     }
@@ -166,7 +172,9 @@ public class AVLChaza{
         return current.getKey();
     }
     
-    public Chaza findByVendedor(Vendedor vendedor){
+    public Chaza[] findByVendedor(Vendedor vendedor){
+        NodeChaza nodo = root;
+        /*
         NodeChaza current = root;
         while(current != null){
             if(cusComparator.compare(current.getKey().getVendedor().getCorreo(), vendedor.getCorreo()) == 0){
@@ -175,9 +183,15 @@ public class AVLChaza{
             current = (cusComparator.compare(current.getKey().getVendedor().getCorreo(),vendedor.getCorreo()) < 0) ? current.getRight() : current.getLeft();
         }
         return current.getKey();
+        */
+        int count = numChazaVendedor(nodo, vendedor);
+        Chaza[] chazas = new Chaza[count];
+        inOrderTraversal(nodo, vendedor, chazas, 0);
+        return chazas;
     }
     
-    public int numChazaVendedor(Vendedor vendedor){
+    public int numChazaVendedor(NodeChaza nodo, Vendedor vendedor){
+        /*
         NodeChaza current = root;
         int contador = 0;
         while(current != null){
@@ -187,7 +201,32 @@ public class AVLChaza{
             current = (cusComparator.compare(current.getKey().getVendedor().getCorreo(),vendedor.getCorreo()) < 0) ? current.getRight() : current.getLeft();
         }
         return contador;
+        */
+        if(nodo == null){
+            return 0;
+        }
+        int count = 0;
+        count += numChazaVendedor(nodo.getLeft(), vendedor);
+        if(nodo.getKey().getVendedor().getCorreo().equals(vendedor.getCorreo())){
+            count++;
+        }
+        count+= numChazaVendedor(nodo.getRight(), vendedor);
+        return count;
+        
     }
+    
+    private int inOrderTraversal(NodeChaza nodo, Vendedor vendedor, Chaza[] chazas, int index){
+        if(nodo == null){
+            return index;
+        }
+        index = inOrderTraversal(nodo.getLeft(), vendedor, chazas, index);
+        if(nodo.getKey().getVendedor().getCorreo().equals(vendedor.getCorreo())){
+            chazas[index++] = nodo.getKey();
+        }
+        index = inOrderTraversal(nodo.getRight(), vendedor, chazas, index);
+        return index;
+    }
+    
 
     public NodeChaza findMin() {
         NodeChaza nodeMin = findMin(this.root);
