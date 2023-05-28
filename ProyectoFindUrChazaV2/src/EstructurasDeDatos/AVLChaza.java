@@ -11,9 +11,8 @@ import Modelo.Vendedor;
  *
  * @author kelly
  */
-public class AVLChaza{
+public class AVLChaza {
 
-    
     private NodeChaza root;
     CustomComparator cusComparator = new CustomComparator();
 
@@ -33,19 +32,23 @@ public class AVLChaza{
         root = newNode(chaza);
     }
 
-    private void updateHeight(NodeChaza node){
+    public NodeChaza getRoot() {
+        return root;
+    }
+
+    private void updateHeight(NodeChaza node) {
         node.setHeight(1 + Math.max(height(node.getLeft()), height(node.getRight())));
     }
 
-    public int height(NodeChaza node){
+    public int height(NodeChaza node) {
         return (node == null) ? -1 : node.getHeight();
     }
 
-    private int getBalance(NodeChaza node){
+    private int getBalance(NodeChaza node) {
         return (node == null) ? 0 : height(node.getRight()) - height(node.getLeft());
     }
 
-    private NodeChaza rotateRight(NodeChaza nodeY){
+    private NodeChaza rotateRight(NodeChaza nodeY) {
         NodeChaza nodeX = nodeY.getLeft();
         NodeChaza nodeZ = nodeX.getRight();
         nodeX.setRight(nodeY);
@@ -55,7 +58,7 @@ public class AVLChaza{
         return nodeX;
     }
 
-    private NodeChaza rotateLeft(NodeChaza nodeY){
+    private NodeChaza rotateLeft(NodeChaza nodeY) {
         NodeChaza nodeX = nodeY.getRight();
         NodeChaza nodeZ = nodeX.getLeft();
         nodeX.setLeft(nodeY);
@@ -65,20 +68,20 @@ public class AVLChaza{
         return nodeX;
     }
 
-    private NodeChaza rebalance(NodeChaza nodeZ){
+    private NodeChaza rebalance(NodeChaza nodeZ) {
         updateHeight(nodeZ);
         int balance = getBalance(nodeZ);
-        if(balance > 1){
-            if(height(nodeZ.getRight().getRight()) > height(nodeZ.getRight().getLeft())){
+        if (balance > 1) {
+            if (height(nodeZ.getRight().getRight()) > height(nodeZ.getRight().getLeft())) {
                 nodeZ = rotateLeft(nodeZ);
-            }else{
+            } else {
                 nodeZ.setRight(rotateRight(nodeZ.getRight()));
                 nodeZ = rotateLeft(nodeZ);
             }
-        }else if(balance < -1){
-            if(height(nodeZ.getLeft().getLeft()) > height(nodeZ.getLeft().getRight())){
+        } else if (balance < -1) {
+            if (height(nodeZ.getLeft().getLeft()) > height(nodeZ.getLeft().getRight())) {
                 nodeZ = rotateRight(nodeZ);
-            }else{
+            } else {
                 nodeZ.setLeft(rotateLeft(nodeZ.getLeft()));
                 nodeZ = rotateRight(nodeZ);
             }
@@ -86,65 +89,67 @@ public class AVLChaza{
         return nodeZ;
     }
 
-    public void insert(Chaza chaza){
-        this.root = insert(this.root,chaza);
+    public void insert(Chaza chaza) {
+        this.root = insert(this.root, chaza);
     }
-    private NodeChaza insert(NodeChaza node, Chaza chaza){
-        if(node == null){
+
+    private NodeChaza insert(NodeChaza node, Chaza chaza) {
+        if (node == null) {
             node = newNode(chaza);
             return node;
-        }else if(cusComparator.compare(chaza.getNombreChaza(), node.getKey().getNombreChaza()) < 0){
-            node.setLeft(insert(node.getLeft(),chaza));
-        }else if(cusComparator.compare(chaza.getNombreChaza(), node.getKey().getNombreChaza()) > 0){
-            node.setRight(insert(node.getRight(),chaza));
-        }else{
+        } else if (cusComparator.compare(chaza.getNombreChaza(), node.getKey().getNombreChaza()) < 0) {
+            node.setLeft(insert(node.getLeft(), chaza));
+        } else if (cusComparator.compare(chaza.getNombreChaza(), node.getKey().getNombreChaza()) > 0) {
+            node.setRight(insert(node.getRight(), chaza));
+        } else {
             System.out.println("La chaza está duplicada!");
         }
         return rebalance(node);
     }
 
-    public void remove(Chaza chaza){
-        this.root =  remove(this.root,chaza);
+    public void remove(Chaza chaza) {
+        this.root = remove(this.root, chaza);
     }
 
-    private NodeChaza remove(NodeChaza node, Chaza chaza){
-        if(node == null){
+    private NodeChaza remove(NodeChaza node, Chaza chaza) {
+        if (node == null) {
             return node;
-        }else if(cusComparator.compare(chaza.getNombreChaza(), node.getKey().getNombreChaza()) < 0){
-            node.setLeft(remove(node.getLeft(),chaza));
-        }else if(cusComparator.compare(chaza.getNombreChaza(), node.getKey().getNombreChaza()) > 0){
-            node.setRight(remove(node.getRight(),chaza));
-        }else{
-            if(node.getLeft() == null || node.getRight() == null){
+        } else if (cusComparator.compare(chaza.getNombreChaza(), node.getKey().getNombreChaza()) < 0) {
+            node.setLeft(remove(node.getLeft(), chaza));
+        } else if (cusComparator.compare(chaza.getNombreChaza(), node.getKey().getNombreChaza()) > 0) {
+            node.setRight(remove(node.getRight(), chaza));
+        } else {
+            if (node.getLeft() == null || node.getRight() == null) {
                 node = (node.getLeft() == null) ? node.getRight() : node.getLeft();
-            }else{
+            } else {
                 NodeChaza mostLeftChild = findMin(node.getRight());
                 node.setKey(mostLeftChild.getKey());
                 node.setRight(remove(node.getRight(), (Chaza) node.getKey()));
             }
         }
 
-        if(node != null){
+        if (node != null) {
             node = rebalance(node);
         }
         return node;
     }
 
-    public NodeChaza find(Chaza chaza){
+    public NodeChaza find(Chaza chaza) {
         NodeChaza current = root;
         System.out.println("current: " + current.getKey().getNombreChaza());
-        while(current != null){
-            if(cusComparator.compare(current.getKey().getIdChaza(), chaza.getIdChaza()) == 0){
+        while (current != null) {
+            if (cusComparator.compare(current.getKey().getIdChaza(), chaza.getIdChaza()) == 0) {
                 break;
             }
-            current = (cusComparator.compare(current.getKey().getNombreChaza(),chaza.getNombreChaza()) < 0) ? current.getRight() : current.getLeft();
+            current = (cusComparator.compare(current.getKey().getNombreChaza(), chaza.getNombreChaza()) < 0) ? current.getRight() : current.getLeft();
         }
-        
+
         return current;
     }
-    
-    public Chaza findByName(String nombreChaza){
+
+    public Chaza findByName(String nombreChaza) {
         NodeChaza current = root;
+        /*
         System.out.println("current: " + current.getKey().getNombreChaza());
         while(current != null){
             if(cusComparator.compare(current.getKey().getNombreChaza(), nombreChaza) == 0){
@@ -153,10 +158,20 @@ public class AVLChaza{
             current = (cusComparator.compare(current.getKey().getNombreChaza(),nombreChaza) < 0) ? current.getRight() : current.getLeft();
         }
         return current.getKey();
+         */
+        while(current != null){
+            if(cusComparator.compare(current.getKey().getNombreChaza(), nombreChaza) == 0){
+                break;
+            }
+            current = (cusComparator.compare(nombreChaza,current.getKey().getNombreChaza()) < 0) ? current.getLeft() : current.getRight();
+        }
+        return current.getKey();
+
     }
-    
-    public Chaza findById(int idChaza){
+
+    public Chaza findById(int idChaza) {
         NodeChaza current = root;
+        
         while(current != null){
             if(cusComparator.compare(current.getKey().getIdChaza(), idChaza) == 0){
                 break;
@@ -164,9 +179,13 @@ public class AVLChaza{
             current = (cusComparator.compare(current.getKey().getIdChaza(),idChaza) < 0) ? current.getLeft() : current.getRight();
         }
         return current.getKey();
+         
+
     }
-    
-    public Chaza findByVendedor(Vendedor vendedor){
+
+    public Chaza[] findByVendedor(Vendedor vendedor) {
+        NodeChaza nodo = root;
+        /*
         NodeChaza current = root;
         while(current != null){
             if(cusComparator.compare(current.getKey().getVendedor().getCorreo(), vendedor.getCorreo()) == 0){
@@ -175,9 +194,15 @@ public class AVLChaza{
             current = (cusComparator.compare(current.getKey().getVendedor().getCorreo(),vendedor.getCorreo()) < 0) ? current.getRight() : current.getLeft();
         }
         return current.getKey();
+         */
+        int count = numChazaVendedor(nodo, vendedor);
+        Chaza[] chazas = new Chaza[count];
+        inOrderTraversalVendedor(nodo, vendedor, chazas, 0);
+        return chazas;
     }
-    
-    public int numChazaVendedor(Vendedor vendedor){
+
+    public int numChazaVendedor(NodeChaza nodo, Vendedor vendedor) {
+        /*
         NodeChaza current = root;
         int contador = 0;
         while(current != null){
@@ -187,7 +212,33 @@ public class AVLChaza{
             current = (cusComparator.compare(current.getKey().getVendedor().getCorreo(),vendedor.getCorreo()) < 0) ? current.getRight() : current.getLeft();
         }
         return contador;
+         */
+        if (nodo == null) {
+            return 0;
+        }
+        int count = 0;
+        count += numChazaVendedor(nodo.getLeft(), vendedor);
+        if (nodo.getKey().getVendedor().getCorreo().equals(vendedor.getCorreo())) {
+            count++;
+        }
+        count += numChazaVendedor(nodo.getRight(), vendedor);
+        return count;
+
     }
+
+    private int inOrderTraversalVendedor(NodeChaza nodo, Vendedor vendedor, Chaza[] chazas, int index) {
+        if (nodo == null) {
+            return index;
+        }
+        index = inOrderTraversalVendedor(nodo.getLeft(), vendedor, chazas, index);
+        if (nodo.getKey().getVendedor().getCorreo().equals(vendedor.getCorreo())) {
+            chazas[index++] = nodo.getKey();
+        }
+        index = inOrderTraversalVendedor(nodo.getRight(), vendedor, chazas, index);
+        return index;
+    }
+
+    
 
     public NodeChaza findMin() {
         NodeChaza nodeMin = findMin(this.root);
@@ -219,8 +270,8 @@ public class AVLChaza{
         return copyOfNode;
     }
 
-    public void update(Chaza keyOld, Chaza keyNew){
-        if(this.root != null){
+    public void update(Chaza keyOld, Chaza keyNew) {
+        if (this.root != null) {
             NodeChaza nodeUpd = find(keyOld);
             nodeUpd.setKey(keyNew);
         }
@@ -288,35 +339,35 @@ public class AVLChaza{
             newQueue.pushBack(root);
             while (!newQueue.isEmpty()) {
                 NodeChaza tempNode = (NodeChaza) newQueue.popFront();
-                System.out.println(tempNode.getKey().getIdChaza()+ " "+tempNode.getKey().getNombreChaza()+" "+tempNode.getKey().getDescripcion());
-                if(tempNode.getLeft()!=null){
+                System.out.println(tempNode.getKey().getIdChaza() + " " + tempNode.getKey().getNombreChaza() + " " + tempNode.getKey().getDescripcion());
+                if (tempNode.getLeft() != null) {
                     newQueue.pushBack(tempNode.getLeft());
                 }
-                
-                if(tempNode.getRight()!=null){
+
+                if (tempNode.getRight() != null) {
                     newQueue.pushBack(tempNode.getRight());
                 }
             }
         }
     }
 
-    public NodeChaza findLCA(Chaza key1,Chaza key2){
-        return findLCA(this.root,key1,key2);
+    public NodeChaza findLCA(Chaza key1, Chaza key2) {
+        return findLCA(this.root, key1, key2);
     }
 
-    private NodeChaza findLCA(NodeChaza node, Chaza key1, Chaza key2){
-        if(node == null){
+    private NodeChaza findLCA(NodeChaza node, Chaza key1, Chaza key2) {
+        if (node == null) {
             return null;
         }
 
-        if(cusComparator.compare(node.getKey(),key1) == 0 || cusComparator.compare(node.getKey().getNombreChaza(),key2.getNombreChaza()) == 0){
+        if (cusComparator.compare(node.getKey(), key1) == 0 || cusComparator.compare(node.getKey().getNombreChaza(), key2.getNombreChaza()) == 0) {
             return node;
         }
 
-        NodeChaza leftLCA = findLCA(node.getLeft(),key1,key2);
-        NodeChaza rightLCA = findLCA(node.getRight(),key1,key2);
+        NodeChaza leftLCA = findLCA(node.getLeft(), key1, key2);
+        NodeChaza rightLCA = findLCA(node.getRight(), key1, key2);
 
-        if(leftLCA != null && rightLCA != null){
+        if (leftLCA != null && rightLCA != null) {
             return node;
         }
 
@@ -324,4 +375,3 @@ public class AVLChaza{
     }
 
 }
-

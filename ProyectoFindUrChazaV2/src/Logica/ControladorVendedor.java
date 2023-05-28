@@ -33,7 +33,7 @@ public class ControladorVendedor {
             if (vendedorIngreso.getCorreo().equals(correo) && vendedorIngreso.getContrasena().equals(contrasena)) {
                 vendedorRetorno = vendedorIngreso;
             } else {
-                System.out.println("¡El cliente no existe!");
+                System.out.println("¡El vendedor no existe!");
                 vendedorRetorno = null;
             }
         }

@@ -15,7 +15,16 @@ import java.util.Scanner;
  */
 public class Aplicacion {
 
-    ControladorListaEnlazadaConCola miControlador = new ControladorListaEnlazadaConCola();
+    //ControladorListaEnlazadaConCola miControlador = new ControladorListaEnlazadaConCola();
+    ControladorChaza controladorChaza = new ControladorChaza();
+    ControladorCliente controladorCliente = new ControladorCliente();
+    ControladorComentario controladorComentario = new ControladorComentario();
+    ControladorFactura controladorFactura = new ControladorFactura();
+    ControladorOrden controladorOrden = new ControladorOrden();
+    ControladorProducto controladorProducto = new ControladorProducto();
+    ControladorVendedor controladorVendedor = new ControladorVendedor();
+    
+    
     Scanner escaner = new Scanner(System.in);
 
     public void iniciarSistema() {
@@ -91,7 +100,7 @@ public class Aplicacion {
         System.out.println("Ingrese los campos solicitados, separados por comas y sin espacios: ");
         System.out.println("Correo,Nombre,Apellido,Telefono,Contraseña");
         String[] nuevoCliente = escaner.next().split(",");
-        miControlador.agregarNuevoCliente(nuevoCliente[0], nuevoCliente[1], nuevoCliente[2], nuevoCliente[3], nuevoCliente[4]);
+        controladorCliente.agregarNuevoCliente(nuevoCliente[0], nuevoCliente[1], nuevoCliente[2], nuevoCliente[3], nuevoCliente[4]);
         System.out.println("Se ha agregado correctamente "+nuevoCliente[0]);
         iniciarSistema();
     }
@@ -101,7 +110,7 @@ public class Aplicacion {
         System.out.println("Ingrese los campos solicitados, separados por comas y sin espacios: ");
         System.out.println("Correo,Nombre,Apellido,Telefono,Contraseña");
         String[] nuevoCliente = escaner.next().split(",");
-        miControlador.agregarNuevoVendedor(nuevoCliente[0], nuevoCliente[1], nuevoCliente[2], nuevoCliente[3], nuevoCliente[4]);
+        controladorVendedor.agregarNuevoVendedor(nuevoCliente[0], nuevoCliente[1], nuevoCliente[2], nuevoCliente[3], nuevoCliente[4]);
         System.out.println("Se ha agregado correctamente "+nuevoCliente[0]);
         iniciarSistema();
     }
@@ -118,7 +127,7 @@ public class Aplicacion {
                 System.out.println("Ingrese su contraseña: ");
                 String contrasenaIngresado = escaner.next();
                 try {
-                    vendedorIngresado = miControlador.iniciarSesionVendedor(correoIngresado, contrasenaIngresado);
+                    vendedorIngresado = controladorVendedor.iniciarSesionVendedor(correoIngresado, contrasenaIngresado);
                     enviarUsuarioVendedor(vendedorIngresado);
                 } catch (Exception e) {
                     System.out.println("Ha ocurrido el siguiente error: " + e);
@@ -148,7 +157,7 @@ public class Aplicacion {
                 System.out.println("Ingrese su contraseña: ");
                 String contrasenaIngresado = escaner.next();
                 try {
-                    clienteIngresado = miControlador.iniciarSesionCliente(correoIngresado, contrasenaIngresado);
+                    clienteIngresado = controladorCliente.iniciarSesionCliente(correoIngresado, contrasenaIngresado);
                 } catch (Exception e) {
                     System.out.println("Ha ocurrido el siguiente error: " + e);
                 }
@@ -196,7 +205,7 @@ public class Aplicacion {
         System.out.println("Ingrese los campos solicitados, separados por comas y sin espacios: ");
         System.out.println("Nombre de la chaza,Ubicación,Descripcion");
         String[] nuevaChaza = escaner.next().split(",");
-        miControlador.agregarNuevaChaza(nuevaChaza[0], nuevaChaza[1], nuevaChaza[2], vendedor);
+        controladorChaza.agregarNuevaChaza(nuevaChaza[0], nuevaChaza[1], nuevaChaza[2], vendedor);
         System.out.println("Se ha agregado correctamento tu chaza: "+nuevaChaza[0]);
         enviarUsuarioVendedor(vendedor);
     }
@@ -204,10 +213,10 @@ public class Aplicacion {
     public void visualizarChazasPropias(Vendedor vendedor){
         System.out.println("------------------ Bienvenido(a) " + vendedor.getNombre() + " " + vendedor.getApellido() + " ------------------");
         System.out.println("Estas son las chazas que haz creado por el momento");
-        System.out.println("Usted tiene "+miControlador.numeroChazasPorVendedor(vendedor)+" chaza(s)");
+        System.out.println("Usted tiene "+controladorChaza.numeroChazasPorVendedor(vendedor)+" chaza(s)");
         System.out.println("Sus chazas son: ");
         try{
-            miControlador.buscarChazaPorVendedor(vendedor);
+            controladorChaza.buscarChazasPorVendedor(vendedor);
         }catch(NullPointerException e){
             System.out.println("No cuenta con chazas disponibles");
         }
@@ -240,12 +249,12 @@ public class Aplicacion {
     public void visualizarChazaPropia(Vendedor vendedor){
         System.out.println("------------------ Bienvenido(a) " + vendedor.getNombre() + " " + vendedor.getApellido() + " ------------------");
         System.out.println("Sus chazas son: ");
-        miControlador.buscarChazaPorVendedor(vendedor);
+        controladorChaza.buscarChazasPorVendedor(vendedor);
         System.out.println("Ingrese el nombre de la chaza que quiere visualizar: ");
         String nombreChaza = escaner.next();
         System.out.println("Esta es la información sobre la chaza: "+nombreChaza);
         try{
-            miControlador.buscarChazaPorNombre(nombreChaza);
+            controladorChaza.buscarChazaPorNombre(nombreChaza);
         }catch(Exception e){
             System.out.println("Ha ocurrido un error "+ e.toString());
         }
@@ -266,16 +275,16 @@ public class Aplicacion {
         String datoAModificar = escaner.next();
         switch (opcionIngreso) {
             case 1:
-                miControlador.actualizarChaza(nombreChaza, "Nombre", datoAModificar);
+                controladorChaza.actualizarChaza(nombreChaza, "Nombre", datoAModificar);
                 break;
             case 2:
-                miControlador.actualizarChaza(nombreChaza, "Ubicacion", datoAModificar);
+                controladorChaza.actualizarChaza(nombreChaza, "Ubicacion", datoAModificar);
                 break;
             case 3:
-                miControlador.actualizarChaza(nombreChaza, "Descripcion", datoAModificar);
+                controladorChaza.actualizarChaza(nombreChaza, "Descripcion", datoAModificar);
                 break;
             case 4:
-                miControlador.actualizarChaza(nombreChaza, "Estado de chaza", datoAModificar);
+                controladorChaza.actualizarChaza(nombreChaza, "Estado de chaza", datoAModificar);
                 break;
             default:
                 System.out.println("La opcion ingresada no es compatible, vuelva a intentar.");
@@ -290,7 +299,7 @@ public class Aplicacion {
         System.out.println("Ingrese el nombre de la chaza que quiere eliminar: ");
         String nombreChaza = escaner.next();
         try{
-            Chaza chazaEliminada = miControlador.eliminarChaza(nombreChaza);
+            Chaza chazaEliminada = controladorChaza.eliminarChaza(nombreChaza);
             System.out.println("Se ha eliminado correctamente " + chazaEliminada.getNombreChaza());
         }catch(Exception e){
             System.out.println("Ha ocurrido un error "+e.toString());

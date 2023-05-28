@@ -30,10 +30,10 @@ public class Main {
     public static void main(String[] args) {
         App.main(args);
 
-        /*
+        
         Aplicacion miAplicacion = new Aplicacion();
         miAplicacion.iniciarSistema();
-         */
+        
         //ControladorArregloDinamico miControlador = new ControladorArregloDinamico();
         /*
         miControlador.agregarNuevoCliente("Hola1", "Hola2", "Hola3", "Hola3", "Hola4");
@@ -43,7 +43,7 @@ public class Main {
         miControlador.imprimirClientes();
         
          */
-
+        /*
         Cliente cliente = new Cliente("lola@gmail.com", "lola", "gomez", "3010001234", "1234");
         Vendedor vendedor = new Vendedor("pepe@gmail.com", "pepe", "lopez", "3135671222", "1235");
         Chaza chaza = new Chaza("chaza", "bogota", "descripcion1", vendedor);
@@ -73,7 +73,7 @@ public class Main {
         cola.insert(orden10);
 
         cola.printHeap2();
-        
+        */
 }
     static public Date StringToDate(String s) {
 
