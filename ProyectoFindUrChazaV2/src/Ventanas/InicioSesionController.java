@@ -279,7 +279,7 @@ public class InicioSesionController implements Initializable {
         MensajeVendedor.setVisible(false);
         correoElectronico.setVisible(true);
         Contraseña.setVisible(true);
-        TextFieldCorreoE.setVisible(true);
+        TextFieldCorreoE.setVisible(true); //debajo de esta linea tiene que aparecer TextFieldCorreoEC
         TextFieldCorreoEC.setVisible(false);
         PasswordFieldContraseña.setVisible(true);
         PasswordFieldContraseñaC.setVisible(false);
