@@ -138,6 +138,7 @@ public class InicioSesionController implements Initializable {
 
     @FXML
     private void switchToInicioVendedor() throws IOException {
+<<<<<<< Updated upstream
         user = TextFieldCorreoE.getText().trim(); //Realmente deberia ser el nombre de la persona, no el correo :3
         pass = PasswordFieldContraseña.getText().trim();
 
@@ -147,15 +148,27 @@ public class InicioSesionController implements Initializable {
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "¡Error al iniciar sesión! :(");
             }
+=======
+        correo = TextFieldCorreoE.getText().trim(); //Realmente deberia ser el nombre de la persona, no el correo :3
+        pass = PasswordFieldContraseña.getText().trim();
+
+        if (!correo.equals("") || !pass.equals("")) {
+            App.setRoot("InicioVendedor");
+>>>>>>> Stashed changes
 
         } else {
             JOptionPane.showMessageDialog(null, "Debes llenar todos los campos para continuar! :)");
 
         }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
     }
 
     @FXML
     private void switchToInicioCliente() throws IOException {
+<<<<<<< Updated upstream
         userC = TextFieldCorreoE.getText().trim(); //Realmente deberia ser el nombre de la persona, no el correo :3
         passC = PasswordFieldContraseña.getText().trim();
 
@@ -165,11 +178,20 @@ public class InicioSesionController implements Initializable {
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "¡Error al iniciar sesión! :(");
             }
+=======
+
+        correoC = TextFieldCorreoE.getText().trim(); //Realmente deberia ser el nombre de la persona, no el correo :3
+        passC = PasswordFieldContraseña.getText().trim();
+
+        if (!correoC.equals("") || !passC.equals("")) {
+            App.setRoot("InicioCliente");
+>>>>>>> Stashed changes
 
         } else {
             JOptionPane.showMessageDialog(null, "Debes llenar todos los campos para continuar! :)");
 
         }
+<<<<<<< Updated upstream
 
     }
 
@@ -180,6 +202,15 @@ public class InicioSesionController implements Initializable {
     String passC = "";
 
     // Acciones
+=======
+    }
+
+    public static String correoC = "";
+    String passC = "";
+    public static String correo = "";
+    String pass = "";
+
+>>>>>>> Stashed changes
 // ------------------------- Animación ----------------------
     @Override
     public void initialize(URL url, ResourceBundle rb) {
