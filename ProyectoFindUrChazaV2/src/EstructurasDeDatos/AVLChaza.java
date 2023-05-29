@@ -238,7 +238,17 @@ public class AVLChaza {
         return index;
     }
 
-    
+    private int inOrderTraversalId(NodeChaza nodo, Vendedor vendedor, Chaza[] chazas, int index) {
+        if (nodo == null) {
+            return index;
+        }
+        index = inOrderTraversalVendedor(nodo.getLeft(), vendedor, chazas, index);
+        if (nodo.getKey().getVendedor().getCorreo().equals(vendedor.getCorreo())) {
+            chazas[index++] = nodo.getKey();
+        }
+        index = inOrderTraversalVendedor(nodo.getRight(), vendedor, chazas, index);
+        return index;
+    }
 
     public NodeChaza findMin() {
         NodeChaza nodeMin = findMin(this.root);
