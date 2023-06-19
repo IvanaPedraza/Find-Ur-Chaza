@@ -4,7 +4,7 @@
  */
 package Logica;
 
-import EstructurasDeDatos.ArregloDinamicoConColaVendedor;
+import EstructurasDeDatos.HashVendedor;
 import Modelo.Vendedor;
 
 /**
@@ -13,14 +13,21 @@ import Modelo.Vendedor;
  */
 public class ControladorVendedor {
     
-    private ArregloDinamicoConColaVendedor ArregloDinamicoVendedor;
+    //private ArregloDinamicoConColaVendedor ArregloDinamicoVendedor;
+    private HashVendedor hashVendedor;
     
     public ControladorVendedor(){
-        ArregloDinamicoVendedor = new ArregloDinamicoConColaVendedor();
+        //ArregloDinamicoVendedor = new ArregloDinamicoConColaVendedor();
+        hashVendedor = new HashVendedor(1000000);
     }
 
+    /*
     public ArregloDinamicoConColaVendedor getArregloDinamicoVendedor() {
         return ArregloDinamicoVendedor;
+    }
+    */
+    public HashVendedor getHashVendedor(){
+        return hashVendedor;
     }
     
     public Vendedor iniciarSesionVendedor(String correo, String contrasena) {
@@ -28,6 +35,7 @@ public class ControladorVendedor {
         Vendedor vendedorRetorno = new Vendedor();
         //long time_start, time_end;
         //time_start = System.nanoTime();
+        /*
         for (int i = 0; i < ArregloDinamicoVendedor.getConteo(); i++) {
             vendedorIngreso = (Vendedor) ArregloDinamicoVendedor.getElement(i);
             if (vendedorIngreso.getCorreo().equals(correo) && vendedorIngreso.getContrasena().equals(contrasena)) {
@@ -36,6 +44,20 @@ public class ControladorVendedor {
                 System.out.println("¡El vendedor no existe!");
                 vendedorRetorno = null;
             }
+        }
+        */
+        try{
+            vendedorIngreso = hashVendedor.get(correo);
+            if(vendedorIngreso != null){
+                if(vendedorIngreso.getContrasena().equals(contrasena)){
+                    vendedorRetorno = vendedorIngreso;
+                }
+            }else{
+                System.out.println("¡El vendedor no existe!");
+                vendedorRetorno = null;
+            }
+        }catch(Exception e){
+            System.err.println("Se ha presentado una excepcion");
         }
         //time_end = System.nanoTime();
         //System.out.println("buscarFacturaPorId con arreglo dinamico tomo " + (time_end - time_start) + " milliseconds");
@@ -46,26 +68,40 @@ public class ControladorVendedor {
         Vendedor nuevoVendedor = new Vendedor(correo, nombre, apellido, telefono, contrasena);
         long time_start, time_end;
         time_start = System.nanoTime();
-        ArregloDinamicoVendedor.pushBack(nuevoVendedor);
+        //ArregloDinamicoVendedor.pushBack(nuevoVendedor);
+        hashVendedor.insert(correo, nuevoVendedor);
         time_end = System.nanoTime();
-        System.out.println("agregarNuevoVendedor con arreglo dinamico tomo " + (time_end - time_start) + " milliseconds");
+        System.out.println("agregarNuevoVendedor con hash table tomo " + (time_end - time_start) + " milliseconds");
         System.out.println("Se ha ingresado correctamente: " + nombre + " " + apellido);
     }
     
     public Vendedor eliminarVendedor(String correo) {
         Vendedor vendedorAEliminar = new Vendedor();
-        long time_start, time_end;
-        time_start = System.nanoTime();
         try {
             vendedorAEliminar = buscarVendedorPorCorreo(correo);
-            ArregloDinamicoVendedor.delete(vendedorAEliminar);
+            long time_start, time_end;
+            time_start = System.nanoTime();
+            hashVendedor.remove(correo);
+            time_end = System.nanoTime();
+            System.out.println("eliminarVendedor con hash table tomo " + (time_end - time_start) + " milliseconds");
 
         } catch (Exception e) {
-            System.out.println("El cliente no se encontró");
+            System.out.println("El vendedor no se encontró");
         }
-        time_end = System.nanoTime();
-        System.out.println("eliminarVendedor con arreglo dinamico tomo " + (time_end - time_start) + " milliseconds");
         return vendedorAEliminar;
+    }
+    
+    public void eliminarVendedor() {
+        try {
+            long time_start, time_end;
+            time_start = System.nanoTime();
+            hashVendedor.makeEmpty();
+            time_end = System.nanoTime();
+            System.out.println("eliminarVendedor con hash table tomo " + (time_end - time_start) + " milliseconds");
+
+        } catch (Exception e) {
+            System.out.println("Ha ocurrido un error" + e.toString());
+        }
     }
     
     public Vendedor actualizarCategoriaVendedor(Vendedor vendedorActualizar, String categoria, String datoModificado) {
@@ -104,13 +140,19 @@ public class ControladorVendedor {
         time_start = System.nanoTime();
         Vendedor vendedorActualizado = actualizarCategoriaVendedor(vendedorAntiguo, categoria, datoModificado);
         time_end = System.nanoTime();
-        System.out.println("actualizarCategoriaVendedor con arreglo dinamico tomo " + (time_end - time_start) + " milliseconds");
+        System.out.println("actualizarCategoriaVendedor con hash table tomo " + (time_end - time_start) + " milliseconds");
 
         long time_start2, time_end2;
         time_start2 = System.nanoTime();
-        ArregloDinamicoVendedor.update(vendedorAntiguo, vendedorActualizado);
+        //ArregloDinamicoVendedor.update(vendedorAntiguo, vendedorActualizado);
+        if(categoria.equals("Correo")){
+            hashVendedor.remove(correoVendedorAntiguo);
+            hashVendedor.insert(datoModificado, vendedorActualizado);
+        }else{
+            hashVendedor.insert(correoVendedorAntiguo, vendedorActualizado);
+        }
         time_end2 = System.nanoTime();
-        System.out.println("actualizarVendedor con arreglo dinamico tomo " + (time_end2 - time_start2) + " milliseconds");
+        System.out.println("actualizarVendedor con hash table tomo " + (time_end2 - time_start2) + " milliseconds");
 
     }
     
@@ -118,18 +160,22 @@ public class ControladorVendedor {
         Vendedor vendedorIterado = new Vendedor();
         long time_start, time_end;
         time_start = System.nanoTime();
+        /*
         for (int i = 0; i < ArregloDinamicoVendedor.getConteo(); i++) {
             vendedorIterado = (Vendedor) ArregloDinamicoVendedor.getElement(i);
             System.out.println(vendedorIterado.getNombre() + " " + vendedorIterado.getApellido() + " " + vendedorIterado.getCorreo() + " ");
         }
+        */
+        hashVendedor.printHashTable();
         time_end = System.nanoTime();
-        System.out.println("imprimirVendedores con arreglo dinamico tomo " + (time_end - time_start) + " milliseconds");
+        System.out.println("imprimirVendedores con hash table tomo " + (time_end - time_start) + " milliseconds");
     }
     
     public void buscarVendedor(String nombre, String apellido) {
         Vendedor vendedorIterado = new Vendedor();
         long time_start, time_end;
         time_start = System.nanoTime();
+        /*
         for (int i = 0; i < ArregloDinamicoVendedor.getConteo(); i++) {
             vendedorIterado = (Vendedor) ArregloDinamicoVendedor.getElement(i);
             if (vendedorIterado.getNombre().equals(nombre) && vendedorIterado.getApellido().equals(apellido)) {
@@ -139,8 +185,18 @@ public class ControladorVendedor {
                 System.out.println("El vendedor no se ha encontrado");
             }
         }
+        */
+        try{
+            vendedorIterado = hashVendedor.getNA(nombre, apellido);
+            if(vendedorIterado != null){
+                System.out.println("El vendedor se ha encontrado: ");
+                System.out.println(vendedorIterado.getNombre() + " " + vendedorIterado.getApellido() + " " + vendedorIterado.getCorreo() + " " + vendedorIterado.getTelefono());
+            }
+        }catch(Exception e){
+            System.err.println("El vendedor no se ha encontrado");
+        }
         time_end = System.nanoTime();
-        System.out.println("buscarVendedor con arreglo dinamico tomo " + (time_end - time_start) + " milliseconds");
+        System.out.println("buscarVendedor con hash table tomo " + (time_end - time_start) + " milliseconds");
     }
 
     public Vendedor buscarVendedorPorCorreo(String correo) throws Exception {
@@ -148,6 +204,7 @@ public class ControladorVendedor {
         Vendedor vendedorIterado = new Vendedor();
         long time_start, time_end;
         time_start = System.nanoTime();
+        /*
         for (int i = 0; i < ArregloDinamicoVendedor.getConteo(); i++) {
             vendedorIterado = (Vendedor) ArregloDinamicoVendedor.getElement(i);
             if (vendedorIterado.getCorreo().equals(correo)) {
@@ -156,8 +213,17 @@ public class ControladorVendedor {
                 throw new Exception("No existe el cliente");
             }
         }
+        */
+        try{
+            vendedorIterado = hashVendedor.get(correo);
+            if(vendedorIterado != null){
+                vendedorEncontrado = vendedorIterado;
+            }
+        }catch(Exception e){
+            System.out.println("No se encontro");
+        }
         time_end = System.nanoTime();
-        System.out.println("buscarVendedorPorCorreo con arreglo dinamico tomo " + (time_end - time_start) + " milliseconds");
+        System.out.println("buscarVendedorPorCorreo con hash table tomo " + (time_end - time_start) + " milliseconds");
         return vendedorEncontrado;
     }
     

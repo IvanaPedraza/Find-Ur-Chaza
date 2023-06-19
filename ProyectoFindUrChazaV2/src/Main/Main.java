@@ -5,6 +5,7 @@
 package Main;
 
 import EstructurasDeDatos.MinHeapOrden;
+import Logica.ControladorCliente;
 import Ventanas.*;
 
 import Modelo.Chaza;
@@ -28,11 +29,11 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        App.main(args);
+        //App.main(args);
 
         
-        Aplicacion miAplicacion = new Aplicacion();
-        miAplicacion.iniciarSistema();
+        //Aplicacion miAplicacion = new Aplicacion();
+        //miAplicacion.iniciarSistema();
         
         //ControladorArregloDinamico miControlador = new ControladorArregloDinamico();
         /*
@@ -74,6 +75,13 @@ public class Main {
 
         cola.printHeap2();
         */
+        ControladorCliente conCliente = new ControladorCliente();
+        conCliente.agregarNuevoCliente("Hola1", "Hola2", "Hola3", "Hola3", "Hola4");
+        conCliente.actualizarCliente("Hola1", "Correo", "CORREOO");
+        conCliente.imprimirClientes();
+        conCliente.eliminarCliente("CORREOO");
+        conCliente.imprimirClientes();
+        
 }
     static public Date StringToDate(String s) {
 

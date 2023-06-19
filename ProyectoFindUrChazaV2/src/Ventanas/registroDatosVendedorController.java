@@ -1,6 +1,7 @@
 package Ventanas;
 
 import EstructurasDeDatos.ArregloDinamicoConColaVendedor;
+import EstructurasDeDatos.HashVendedor;
 import Logica.*;
 import Modelo.Vendedor;
 import com.sun.javafx.logging.PlatformLogger.Level;
@@ -18,7 +19,8 @@ import javax.swing.JOptionPane;
 public class registroDatosVendedorController {
 
     private ControladorVendedor controladorVendedor = InicioSesionController.getControladorVendedor();
-    private ArregloDinamicoConColaVendedor arregloVendedor = controladorVendedor.getArregloDinamicoVendedor();
+    //private ArregloDinamicoConColaVendedor arregloVendedor = controladorVendedor.getArregloDinamicoVendedor();
+    private HashVendedor hashVendedor = controladorVendedor.getHashVendedor();
     public static Vendedor vendedorActual = new Vendedor();
   
 
@@ -53,8 +55,10 @@ public class registroDatosVendedorController {
         String contrasena = passwordFieldContraseña.getText().trim();
         if (!correo.equals("") || !nombre.equals("") || !apellido.equals("") || !telefono.equals("") || !contrasena.equals("")) {
             vendedorActual = new Vendedor(correo, nombre, apellido, telefono, contrasena);
-            arregloVendedor.pushBack(vendedorActual);
-            arregloVendedor.imprimir();
+            //arregloVendedor.pushBack(vendedorActual);
+            hashVendedor.insert(correo, vendedorActual);
+            //arregloVendedor.imprimir();
+            hashVendedor.printHashTable();
             App.setRoot("RegistroChaza");
 
         } else {

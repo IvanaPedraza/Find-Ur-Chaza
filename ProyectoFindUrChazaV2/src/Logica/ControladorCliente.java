@@ -4,8 +4,7 @@
  */
 package Logica;
 
-import EstructurasDeDatos.ArregloDinamicoConCola;
-import EstructurasDeDatos.ArregloDinamicoConColaCliente;
+import EstructurasDeDatos.HashCliente;
 import Modelo.Cliente;
 
 /**
@@ -13,21 +12,29 @@ import Modelo.Cliente;
  * @author kelly
  */
 public class ControladorCliente {
-    private ArregloDinamicoConColaCliente ArregloDinamicoClientes;
+    //private ArregloDinamicoConColaCliente ArregloDinamicoClientes;
+    private HashCliente hashCliente;
     
     public ControladorCliente(){
-        ArregloDinamicoClientes = new ArregloDinamicoConColaCliente();
+        //ArregloDinamicoClientes = new ArregloDinamicoConColaCliente();
+        hashCliente = new HashCliente(1000000);
     }
 
+    /*
     public ArregloDinamicoConColaCliente getArregloDinamicoClientes() {
         return ArregloDinamicoClientes;
+    }
+    */
+    public HashCliente getHashCliente(){
+        return hashCliente;
     }
 
     public Cliente iniciarSesionCliente(String correo, String contrasena) {
         Cliente clienteIngreso = new Cliente();
         Cliente clienteRetorno = new Cliente();
-        long time_start, time_end;
-        time_start = System.nanoTime();
+        //long time_start, time_end;
+        //time_start = System.nanoTime();
+        /*
         for (int i = 0; i < ArregloDinamicoClientes.getConteo(); i++) {
             clienteIngreso = ArregloDinamicoClientes.getElement(i);
             if (clienteIngreso.getCorreo().equals(correo) && clienteIngreso.getContrasena().equals(contrasena)) {
@@ -37,8 +44,23 @@ public class ControladorCliente {
                 clienteRetorno = null;
             }
         }
-        time_end = System.nanoTime();
-        System.out.println("IniciarSesión con arreglo dinamico tomo " + (time_end - time_start) + " milliseconds");
+        */
+        try{
+            clienteIngreso = hashCliente.get(correo);
+            if(clienteIngreso != null){
+                if(clienteIngreso.getContrasena().equals(contrasena)){
+                    clienteRetorno = clienteIngreso;
+                }
+            }else{
+                System.out.println("¡El cliente no existe!");
+                clienteRetorno = null;
+            }
+            
+        }catch(Exception e){
+            System.err.println("Se ha presentado una excepcion");
+        }
+        //time_end = System.nanoTime();
+        //System.out.println("IniciarSesión con hash table tomo " + (time_end - time_start) + " milliseconds");
         return clienteRetorno;
     }
     
@@ -46,9 +68,10 @@ public class ControladorCliente {
         Cliente nuevoCliente = new Cliente(correo, nombre, apellido, telefono, contrasena);
         long time_start, time_end;
         time_start = System.nanoTime();
-        ArregloDinamicoClientes.pushBack(nuevoCliente);
+        //ArregloDinamicoClientes.pushBack(nuevoCliente);
+        hashCliente.insert(correo, nuevoCliente);
         time_end = System.nanoTime();
-        System.out.println("agregarNuevoCliente con arreglo dinamico tomo " + (time_end - time_start) + " milliseconds");
+        System.out.println("agregarNuevoCliente con hash table tomo " + (time_end - time_start) + " milliseconds");
         System.out.println("Se ha ingresado correctamente: " + nombre + " " + apellido);
     }
     
@@ -58,9 +81,10 @@ public class ControladorCliente {
             clienteAEliminar = buscarClientePorCorreo(correo);
             long time_start, time_end;
             time_start = System.nanoTime();
-            ArregloDinamicoClientes.delete(clienteAEliminar);
+            //ArregloDinamicoClientes.delete(clienteAEliminar);
+            hashCliente.remove(correo);
             time_end = System.nanoTime();
-            System.out.println("eliminarCliente con arreglo dinamico tomo " + (time_end - time_start) + " milliseconds");
+            System.out.println("eliminarCliente con hash table tomo " + (time_end - time_start) + " milliseconds");
 
         } catch (Exception e) {
             System.out.println("El cliente no se encontró");
@@ -72,9 +96,9 @@ public class ControladorCliente {
         try {
             long time_start, time_end;
             time_start = System.nanoTime();
-            ArregloDinamicoClientes.popBack();
+            hashCliente.makeEmpty();
             time_end = System.nanoTime();
-            System.out.println("eliminarCliente con arreglo dinamico tomo " + (time_end - time_start) + " milliseconds");
+            System.out.println("eliminarCliente con hash table tomo " + (time_end - time_start) + " milliseconds");
 
         } catch (Exception e) {
             System.out.println("Ha ocurrido un error" + e.toString());
@@ -115,31 +139,41 @@ public class ControladorCliente {
         time_start = System.nanoTime();
         Cliente clienteActualizado = actualizarCategoriaCliente(clienteAntiguo, categoria, datoModificado);
         time_end = System.nanoTime();
-        System.out.println("actualizarCategoriaCliente con arreglo dinamico tomo " + (time_end - time_start) + " milliseconds");
+        System.out.println("actualizarCategoriaCliente con hash table tomo " + (time_end - time_start) + " milliseconds");
         long time_start2, time_end2;
         time_start2 = System.nanoTime();
-        ArregloDinamicoClientes.update(clienteAntiguo, clienteActualizado);
+        //ArregloDinamicoClientes.update(clienteAntiguo, clienteActualizado);
+        if(categoria.equals("Correo")){
+            hashCliente.remove(correoClienteAntiguo);
+            hashCliente.insert(datoModificado, clienteActualizado);
+        }else{
+            hashCliente.insert(correoClienteAntiguo, clienteActualizado);
+        }
+        
         time_end2 = System.nanoTime();
-        System.out.println("actualizarCliente con arreglo dinamico tomo " + (time_end2 - time_start2) + " milliseconds");
+        System.out.println("actualizarCliente con hash table tomo " + (time_end2 - time_start2) + " milliseconds");
 
     }
     
     public void imprimirClientes() {
-        Cliente clienteIterado = new Cliente();
         long time_start, time_end;
         time_start = System.nanoTime();
+        /*
         for (int i = 0; i < ArregloDinamicoClientes.getConteo(); i++) {
             clienteIterado = (Cliente) ArregloDinamicoClientes.getElement(i);
             System.out.println(clienteIterado.getNombre() + " " + clienteIterado.getApellido() + " " + clienteIterado.getCorreo() + " " + clienteIterado.getTelefono());
         }
+        */
+        hashCliente.printHashTable();
         time_end = System.nanoTime();
-        System.out.println("imprimirClientes con arreglo dinamico tomo " + (time_end - time_start) + " milliseconds");
+        System.out.println("imprimirClientes con hash table tomo " + (time_end - time_start) + " milliseconds");
     }
     
     public void buscarCliente(String nombre, String apellido) {
         Cliente clienteIterado = new Cliente();
         long time_start, time_end;
         time_start = System.nanoTime();
+        /*
         for (int i = 0; i < ArregloDinamicoClientes.getConteo(); i++) {
             clienteIterado = (Cliente) ArregloDinamicoClientes.getElement(i);
             if (clienteIterado.getNombre().equals(nombre) && clienteIterado.getApellido().equals(apellido)) {
@@ -149,8 +183,18 @@ public class ControladorCliente {
                 System.out.println("El cliente no se ha encontrado");
             }
         }
+        */
+        try{
+            clienteIterado = hashCliente.getNA(nombre, apellido);
+            if(clienteIterado != null){
+                System.out.println("El cliente se ha encontrado: ");
+                System.out.println(clienteIterado.getNombre() + " " + clienteIterado.getApellido() + " " + clienteIterado.getCorreo() + " " + clienteIterado.getTelefono());
+            }
+        }catch(Exception e){
+            System.err.println("El cliente no se ha encontrado");
+        }
         time_end = System.nanoTime();
-        System.out.println("buscarCliente con arreglo dinamico tomo " + (time_end - time_start) + " milliseconds");
+        System.out.println("buscarCliente con hash table tomo " + (time_end - time_start) + " milliseconds");
     }
 
     public Cliente buscarClientePorCorreo(String correo) {
@@ -158,6 +202,7 @@ public class ControladorCliente {
         Cliente clienteIterado = new Cliente();
         long time_start, time_end;
         time_start = System.nanoTime();
+        /*
         for (int i = 0; i < ArregloDinamicoClientes.getConteo(); i++) {
             clienteIterado = (Cliente) ArregloDinamicoClientes.getElement(i);
             if (clienteIterado.getCorreo().equals(correo)) {
@@ -167,8 +212,17 @@ public class ControladorCliente {
         if (clienteEncontrado.getNombre().length() == 0) {
             System.out.println("No se encontro");
         }
+        */
+        try{
+            clienteIterado = hashCliente.get(correo);
+            if(clienteIterado != null){
+                clienteEncontrado = clienteIterado;
+            }
+        }catch(Exception e){
+            System.out.println("No se encontro");
+        }
         time_end = System.nanoTime();
-        System.out.println("buscarClientePorCorreo con arreglo dinamico tomo " + (time_end - time_start) + " milliseconds");
+        System.out.println("buscarClientePorCorreo con hash table tomo " + (time_end - time_start) + " milliseconds");
         return clienteEncontrado;
     }
     
