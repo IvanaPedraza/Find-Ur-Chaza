@@ -1,6 +1,11 @@
 package Ventanas;
 
+import BaseDeDatos.bdChaza;
 import BaseDeDatos.bdCliente;
+import BaseDeDatos.bdComentario;
+import BaseDeDatos.bdFactura;
+import BaseDeDatos.bdOrden;
+import BaseDeDatos.bdProducto;
 import BaseDeDatos.bdVendedor;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -20,6 +25,11 @@ public class App extends Application {
     
     public static bdVendedor bdVen = new bdVendedor();
     public static bdCliente bdCli = new bdCliente();
+    public static bdChaza bdCha = new bdChaza();
+    public static bdProducto bdPro = new bdProducto();
+    public static bdOrden bdOrd = new bdOrden();
+    public static bdFactura bdFac = new bdFactura();
+    public static bdComentario bdComen = new bdComentario();
     
 
     @Override
