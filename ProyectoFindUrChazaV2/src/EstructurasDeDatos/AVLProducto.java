@@ -4,6 +4,7 @@
  */
 package EstructurasDeDatos;
 
+import Modelo.Chaza;
 import Modelo.Producto;
 
 /**
@@ -29,6 +30,10 @@ public class AVLProducto{
 
     public AVLProducto(Producto producto) {
         root = newNode(producto);
+    }
+    
+    public NodeProducto getRoot(){
+        return root;
     }
 
     private void updateHeight(NodeProducto node){
@@ -148,6 +153,39 @@ public class AVLProducto{
             current = (cusComparator.compare(current.getKey().getCodigo(),codigo) < 0) ? current.getRight() : current.getLeft();
         }
         return current.getKey();
+    }
+    
+    public Producto[] findByChaza(Chaza chaza){
+        NodeProducto nodo = root;
+        int count = numProductoChaza(nodo, chaza);
+        Producto[] productos = new Producto[count];
+        inOrderTraversalChaza(nodo, chaza, productos, 0);
+        return productos;
+    }
+    
+    public int numProductoChaza(NodeProducto nodo, Chaza chaza){
+        if(nodo == null){
+            return 0;
+        }
+        int count = 0;
+        count += numProductoChaza(nodo.getLeft(), chaza);
+        if(cusComparator.compare(nodo.getKey().getChaza().getIdChaza(), chaza.getIdChaza()) == 0){
+            count++;
+        }
+        count += numProductoChaza(nodo.getRight(), chaza);
+        return count;
+    }
+    
+    private int inOrderTraversalChaza(NodeProducto nodo, Chaza chaza, Producto[] productos, int index) {
+        if (nodo == null) {
+            return index;
+        }
+        index = inOrderTraversalChaza(nodo.getLeft(), chaza, productos, index);
+        if (cusComparator.compare(nodo.getKey().getChaza().getIdChaza(), chaza.getIdChaza()) == 0) {
+            productos[index++] = nodo.getKey();
+        }
+        index = inOrderTraversalChaza(nodo.getRight(), chaza, productos, index);
+        return index;
     }
 
     public NodeProducto findMin() {

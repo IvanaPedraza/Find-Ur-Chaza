@@ -156,6 +156,28 @@ public class ControladorVendedor {
 
     }
     
+    public void actualizarVendedorCom(String correoVendedor, String nombreVendedor, String apellidoVendedor, String telefonoVendedor){
+        Vendedor vendedorAntiguo = new Vendedor();
+        try{
+            vendedorAntiguo = buscarVendedorPorCorreo(correoVendedor);
+        }catch(Exception e){
+            System.out.println("No se pudo actualizar el vendedor, porque no existe");
+        }
+        Vendedor vendedorActualizado = vendedorAntiguo;
+        
+        vendedorActualizado.setCorreo(correoVendedor);
+        vendedorActualizado.setNombre(nombreVendedor);
+        vendedorActualizado.setApellido(apellidoVendedor);
+        vendedorActualizado.setTelefono(telefonoVendedor);
+        
+        if(vendedorAntiguo.getCorreo().equals(vendedorActualizado.getCorreo())){
+            hashVendedor.remove(correoVendedor);
+            hashVendedor.insert(vendedorActualizado.getCorreo(), vendedorActualizado);
+        }else{
+            hashVendedor.insert(correoVendedor, vendedorAntiguo);
+        }
+    }
+    
     public void imprimirVendedor() {
         Vendedor vendedorIterado = new Vendedor();
         long time_start, time_end;

@@ -138,12 +138,14 @@ public class ControladorChaza {
     
     
     
-    public void buscarChazasPorVendedor(Vendedor vendedor) {
+    public Chaza[] buscarChazasPorVendedor(Vendedor vendedor) {
         //Chaza chazaEncontrada = new Chaza();
-        long time_start, time_end;
-        time_start = System.nanoTime();
+        //long time_start, time_end;
+        //time_start = System.nanoTime();
+        Chaza[] chazas = new Chaza[0];
         try{
-            Chaza[] chazas = AVLChaza.findByVendedor(vendedor);
+            chazas = AVLChaza.findByVendedor(vendedor);
+            /*
             if(chazas.length != 0){
                 for(int i = 0;i<chazas.length;i++){
                     System.out.println("La chaza es: " + chazas[i].getNombreChaza() + " "+ chazas[i].getUbicacion()+" "+chazas[i].getDescripcion());
@@ -151,12 +153,15 @@ public class ControladorChaza {
             }else{
                 System.out.println("No hay chazas");
             }
+            */
+            
         }catch(Exception e){
             System.out.println("Ha ocurrido " + e);
         }
+        return chazas;
         
-        time_end = System.nanoTime();
-        System.out.println("buscarChazaPorVendedor con arbol AVL tomo " + (time_end - time_start) + " milliseconds");
+        //time_end = System.nanoTime();
+        //System.out.println("buscarChazaPorVendedor con arbol AVL tomo " + (time_end - time_start) + " milliseconds");
         
     }
     
