@@ -10,15 +10,18 @@ import com.sun.javafx.logging.PlatformLogger.Level;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.lang.System.Logger;
+import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.fxml.*;
 import javafx.scene.*;
 import javafx.scene.control.*;
-
+import javafx.scene.text.Text;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 
-public class DatosDelUsuarioVendedorController {
+public class DatosDelUsuarioVendedorController implements Initializable{
 
     private ControladorVendedor controladorVendedor = InicioSesionController.getControladorVendedor();
     private ControladorChaza controladorChaza = App.bdCha.getControladorChaza();
@@ -27,6 +30,33 @@ public class DatosDelUsuarioVendedorController {
     private HashVendedor hashVendedor = controladorVendedor.getHashVendedor();
     public static Vendedor vendedorActual = new Vendedor(); //CAMBIAR ESTOOOOOO
     private Mensaje mensaje = new Mensaje();
+
+    @FXML
+    private ImageView Wallpaper;
+
+    @FXML
+    private Button actualizarDatos;
+
+    @FXML
+    private Text apellido;
+
+    @FXML
+    private Button botonRetornoVen;
+
+    @FXML
+    private Text correoElectronico;
+
+    @FXML
+    private Button eliminarDatos;
+
+    @FXML
+    private Text nombre;
+
+    @FXML
+    private AnchorPane panel;
+
+    @FXML
+    private Text telefono;
 
     @FXML
     private TextField textFieldApellido;
@@ -39,13 +69,10 @@ public class DatosDelUsuarioVendedorController {
 
     @FXML
     private TextField textFieldTelefono;
-
+    
     @FXML
-    private Button botonRetornoVen;
-
-    @FXML
-    private Button actualizarDatos;
-
+    private Label labelDatosVendedor;
+    
     @FXML
     private void retornarInicioVen() throws IOException {
         App.setRoot("InicioVendedor");
@@ -97,5 +124,25 @@ public class DatosDelUsuarioVendedorController {
             mensaje.mensajeError("Ha ocurrido un error " + e.toString());
         }
     }
+    
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        panel.setVisible(true);
+        Wallpaper.setVisible(true);
+        labelDatosVendedor.setText("¡Bienvenido " + vendedorActual.getNombre()+ " " + vendedorActual.getApellido()+"!");
+        actualizarDatos.setVisible(true);
+        apellido.setVisible(true);
+        botonRetornoVen.setVisible(true);
+        correoElectronico.setVisible(true);
+        eliminarDatos.setVisible(true);
+        labelDatosVendedor.setVisible(true);
+        nombre.setVisible(true);
+        telefono.setVisible(true);
+        textFieldApellido.setVisible(true);
+        textFieldCorreo.setVisible(true);
+        textFieldNombre.setVisible(true);
+        textFieldTelefono.setVisible(true);
+    }
+    
 
 }
