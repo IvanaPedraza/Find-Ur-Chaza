@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import javafx.scene.image.Image;
+import javafx.scene.layout.AnchorPane;
 
 /**
  * JavaFX App
@@ -34,7 +35,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("InicioSesion"), 1280, 720);
+        scene = new Scene(loadFXML("DatosDelUsuarioCliente"), 1280, 720);
         stage.setScene(scene);
         stage.setTitle("Find Ur Chaza");
         stage.getIcons().add(new Image("/Imagenes/michianvorguesa.png"));
