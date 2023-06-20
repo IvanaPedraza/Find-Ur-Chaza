@@ -19,7 +19,7 @@ public class DatosDelUsuarioClienteController {
 
     private ControladorCliente controladorCliente = InicioSesionController.getControladorCliente();
     //private ArregloDinamicoConColaVendedor arregloVendedor = controladorVendedor.getArregloDinamicoVendedor();
-    private HashCliente hashCliente = controladorCliente.getHashVendedor();
+    private HashCliente hashCliente = controladorCliente.getHashCliente();
     public static Vendedor vendedorActual = new Vendedor();
   
 
