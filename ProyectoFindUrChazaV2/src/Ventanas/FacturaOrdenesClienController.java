@@ -78,22 +78,22 @@ public class FacturaOrdenesClienController implements Initializable{
     private AnchorPane Panel3;
     
     @FXML
-    private TextField TextFieldFecha;
+    private Text TextFieldFecha;
     
     @FXML
-    private TextField TextFieldPrecio;
+    private Text TextFieldPrecio;
     
     @FXML
-    private TextField TextFieldID;
+    private Text TextFieldID;
     
     @FXML
-    private TextField TextFieldOrden;
+    private Text TextFieldOrden;
     
     @FXML
     private TextField TextFieldUsuario;
-    
+   
     @FXML
-    private TextField TextFieldTotal;
+    private Text TextFieldTotal;
     
     @FXML
     private TextField TextFieldCorreo;
