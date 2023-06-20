@@ -22,6 +22,7 @@ public class registroDatosVendedorController {
     //private ArregloDinamicoConColaVendedor arregloVendedor = controladorVendedor.getArregloDinamicoVendedor();
     private HashVendedor hashVendedor = controladorVendedor.getHashVendedor();
     public static Vendedor vendedorActual = new Vendedor();
+    public Mensaje mensaje = new Mensaje();
   
 
     @FXML
@@ -59,10 +60,11 @@ public class registroDatosVendedorController {
             hashVendedor.insert(correo, vendedorActual);
             //arregloVendedor.imprimir();
             hashVendedor.printHashTable();
+            mensaje.mensajeInformacion("Se ha insertado correctamente " + vendedorActual.getNombre() + " "+ vendedorActual.getApellido());
             App.setRoot("RegistroChaza");
 
         } else {
-            JOptionPane.showMessageDialog(null, "Debes llenar todos los campos para continuar! :)");
+            mensaje.mensajeAdvertencia("Debes llenar todos los campos para continuar! :)");
 
         }
 
