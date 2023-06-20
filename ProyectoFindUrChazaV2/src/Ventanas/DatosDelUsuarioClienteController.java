@@ -2,7 +2,7 @@ package Ventanas;
 
 import EstructurasDeDatos.HashCliente;
 import Logica.*;
-import Modelo.Vendedor;
+import Modelo.Cliente;
 import com.sun.javafx.logging.PlatformLogger.Level;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
@@ -20,10 +20,7 @@ public class DatosDelUsuarioClienteController {
     private ControladorCliente controladorCliente = InicioSesionController.getControladorCliente();
     //private ArregloDinamicoConColaVendedor arregloVendedor = controladorVendedor.getArregloDinamicoVendedor();
     private HashCliente hashCliente = controladorCliente.getHashCliente();
-    public static Vendedor vendedorActual = new Vendedor();
-  
-
-
+    public static Cliente clienteActual = new Cliente();
 
     @FXML
     private TextField textFieldApellido;
@@ -38,14 +35,15 @@ public class DatosDelUsuarioClienteController {
     private TextField textFieldTelefono;
 
     
-
+    
     @FXML
-    private Button Volver;
-
-    @FXML
-    private void switchToIniciarSesion() throws IOException {
-        App.setRoot("InicioSesion");
+    private void retornarInicioCli() throws IOException {
+        App.setRoot("InicioCliente");
     }
+
+    @FXML
+    private Button botonRetornoCli;
+    
 
      
  }   
