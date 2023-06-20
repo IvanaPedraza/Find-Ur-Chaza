@@ -65,7 +65,6 @@ public class RegistroChazaController {
 
         if (!nombreChaza.equals("") || !ubicacion.equals("") || !descripcion.equals("")) {
             chazaActual = new Chaza(nombreChaza, ubicacion, descripcion, vendedorChaza);
-
             arbolChaza.insert(chazaActual);
             arbolChaza.postOrderTraversal();
             App.setRoot("InicioVendedor");

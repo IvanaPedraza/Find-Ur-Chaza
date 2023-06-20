@@ -3,18 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/kelly/Documents/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Main/PruebaDeTiemposCliente.java</file>
-            <file>file:/C:/Users/kelly/Documents/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Logica/ControladorCliente.java</file>
-            <file>file:/C:/Users/kelly/Documents/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Logica/ControladorVendedor.java</file>
-            <file>file:/C:/Users/kelly/Documents/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Main/Aplicacion.java</file>
-            <file>file:/C:/Users/kelly/Documents/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/EstructurasDeDatos/AVLProducto.java</file>
+            <file>file:/C:/Users/kelly/Documents/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/InicioSesionController.java</file>
+            <file>file:/C:/Users/kelly/Documents/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/DatosDelUsuarioClienteController.java</file>
+            <file>file:/C:/Users/kelly/Documents/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/App.java</file>
             <file>file:/C:/Users/kelly/Documents/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/vistaClienteFacturaController.java</file>
-            <file>file:/C:/Users/kelly/Documents/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/registroDatosVendedorController.java</file>
-            <file>file:/C:/Users/kelly/Documents/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Logica/ArchivoCliente.java</file>
         </group>
         <group>
             <file>file:/D:/NetBeansProjects/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/InicioSesionController.java</file>
             <file>file:/D:/NetBeansProjects/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/registroDatosVendedorController.java</file>
         </group>
+        <group/>
     </open-files>
 </project-private>

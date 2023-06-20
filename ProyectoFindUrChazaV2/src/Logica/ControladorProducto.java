@@ -51,6 +51,8 @@ public class ControladorProducto {
         return productoAEliminar;
     }
     
+    
+    
     public Producto actualizarCategoriaProducto(Producto productoActualizar, String categoria, String datoModificado) throws ParseException {
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
         switch (categoria) {
@@ -129,6 +131,24 @@ public class ControladorProducto {
         time_end = System.nanoTime();
         System.out.println("buscarProductoPorCodigo con arbol AVL tomo " + (time_end - time_start) + " milliseconds");
         return productoEncontrado;
+    }
+    
+    public Producto[] buscarProductosPorChaza(Chaza chaza){
+        Producto[] productos = new Producto[0];
+        try{
+            productos = AVLProducto.findByChaza(chaza);
+        }catch(Exception e){
+            System.out.println("Ha ocurrido " + e);
+        }
+        return productos;
+    }
+    
+    public int numeroProductosPorChaza(Chaza chaza){
+        int numeroProductos = AVLProducto.numProductoChaza(AVLProducto.getRoot(), chaza);
+        if(numeroProductos == 0){
+            System.out.println("Ningún producto");
+        }
+        return numeroProductos;
     }
     
     
