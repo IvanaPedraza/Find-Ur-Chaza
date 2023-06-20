@@ -31,14 +31,14 @@ public class bdFactura {
         try{
             Connection cn = Conexion.conectar();
             PreparedStatement pst = cn.prepareStatement(
-            "select numReferenciaProd, fechaFactura, idProducto, numOrden, costoTotal from factura");
+            "select numReferenciaProd, fechaFactura, idProducto, numOrden, cantidad, costoTotal from factura");
             ResultSet rs = pst.executeQuery();
             
             while(rs.next()){
                 try{
                     Orden ordenActual = bdOrden.getControladorOrden().buscarOrdenPorId(rs.getLong("numOrden"));
                     Producto productoActual = bdProducto.getControladorProducto().buscarProductoPorCodigo(rs.getLong("idProducto"));
-                    controladorFactura.agregarNuevaFactura(rs.getLong("numReferenciaProd"), rs.getDate("fechaFactura"), productoActual, ordenActual, productoActual.getPrecio());
+                    controladorFactura.agregarNuevaFactura(rs.getLong("numReferenciaProd"), rs.getDate("fechaFactura"), productoActual, ordenActual, rs.getInt("cantidad"), productoActual.getPrecio());
                 }catch(Exception d){
                     System.err.println("Error en la asignacion de un producto y una orden");
                 }

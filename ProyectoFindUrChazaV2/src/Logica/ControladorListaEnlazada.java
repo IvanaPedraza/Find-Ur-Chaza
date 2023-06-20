@@ -490,8 +490,8 @@ public class ControladorListaEnlazada {
     }
     
     /*Factura*/
-    public void agregarNuevaFactura(long numReferencia, Date fechaFactura, Producto producto, Orden orden, double costoTotal){
-        Factura nuevaFactura = new Factura(numReferencia, fechaFactura, producto, orden, costoTotal);
+    public void agregarNuevaFactura(long numReferencia, Date fechaFactura, Producto producto, Orden orden, int cantidad, double costoTotal){
+        Factura nuevaFactura = new Factura(numReferencia, fechaFactura, producto, orden, cantidad, costoTotal);
         long time_start, time_end;
         time_start = System.nanoTime();
         ListaEnlazadaFactura.pushBack(nuevaFactura);

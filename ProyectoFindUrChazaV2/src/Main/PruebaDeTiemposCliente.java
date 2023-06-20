@@ -23,8 +23,8 @@ public class PruebaDeTiemposCliente {
         
         /*Archivo de 1 datos de Cliente*/
         
-        String archivoCliente = "datos1Cliente.csv";
-        String archivoClienteCorreo = "dato1ClienteCorreo.csv";
+        String archivoCliente = "datos100Cliente.csv";
+        String archivoClienteCorreo = "dato100ClienteCorreo.csv";
         numElementos = 1;
         
         /*-----------------INSERCIONES------------------------*/

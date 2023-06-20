@@ -16,16 +16,18 @@ public class Factura {
     private Date fechaFactura;
     private Producto producto;
     private Orden orden;
+    private int cantidad;
     private double costoTotal;
 
     public Factura() {
     }
 
-    public Factura(long numReferencia, Date fechaFactura, Producto producto, Orden orden, double costoTotal) {
+    public Factura(long numReferencia, Date fechaFactura, Producto producto, Orden orden, int cantidad, double costoTotal) {
         this.numReferencia = numReferencia;
         this.fechaFactura = fechaFactura;
         this.producto = producto;
         this.orden = orden;
+        this.cantidad = cantidad;
         this.costoTotal = costoTotal;
     }
 
