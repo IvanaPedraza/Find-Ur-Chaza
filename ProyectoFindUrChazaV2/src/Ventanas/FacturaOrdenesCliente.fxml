@@ -3,6 +3,7 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -39,32 +40,19 @@
       </ScrollPane>
       <AnchorPane fx:id="Panel2" layoutX="140.0" layoutY="166.0" prefHeight="457.0" prefWidth="864.0">
          <children>
-            <ImageView fx:id="fBlancoTransparente" fitHeight="457.0" fitWidth="864.0" pickOnBounds="true">
+            <ImageView fx:id="fBlancoTransparente" fitHeight="491.0" fitWidth="907.0" pickOnBounds="true">
                <image>
-                  <Image url="@../Imagenes/fBlancoTransparente.png" />
+                  <Image url="@../Imagenes/fBlancoTransparente1.png" />
                </image>
             </ImageView>
+            <TextField fx:id="TextFieldNumero" layoutX="65.0" layoutY="356.0" />
+            <TextField fx:id="TextFieldCorreo" layoutX="65.0" layoutY="310.0" />
             <ImageView fx:id="PerfilUsuario" fitHeight="225.0" fitWidth="384.0" layoutX="-58.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Imagenes/PerfilUsuario.png" />
                </image>
             </ImageView>
-            <Text fx:id="TextFieldUsuario" fill="#2f281e" layoutX="98.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario">
-               <font>
-                  <Font name="Nirmala UI Bold" size="23.0" />
-               </font>
-            </Text>
-            <Text fx:id="TextFieldCorreo" fill="#2f281e" layoutX="58.0" layoutY="327.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario@gmail.com" wrappingWidth="162.9521484375">
-               <font>
-                  <Font name="Nirmala UI" size="18.0" />
-               </font>
-            </Text>
             <Line fx:id="Linea" endX="286.0" endY="42.0" layoutX="-12.0" startX="286.0" startY="420.0" stroke="#2f281e" />
-            <Text fx:id="TextFieldNumero" fill="#2f281e" layoutX="79.0" layoutY="364.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+57 30000000" wrappingWidth="120.9521484375">
-               <font>
-                  <Font name="Nirmala UI" size="18.0" />
-               </font>
-            </Text>
             <ImageView fx:id="FacturaCompra" fitHeight="51.0" fitWidth="332.0" layoutX="407.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Imagenes/FacturaCompra.png" />
@@ -75,6 +63,7 @@
                   <Font name="Nirmala UI Bold" size="18.0" />
                </font>
             </Text>
+            <TextField fx:id="TextFieldUsuario" layoutX="65.0" layoutY="260.0" />
             <Text fx:id="TextFieldFecha" fill="#2f281e" layoutX="430.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha" textAlignment="CENTER" wrappingWidth="82.79102325439453">
                <font>
                   <Font name="Nirmala UI Bold" size="18.0" />
