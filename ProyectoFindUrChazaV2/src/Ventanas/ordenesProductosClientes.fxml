@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="panel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Ventanas.menuChazasController">
+   <children>
+      <ImageView fx:id="Wallpaper" fitHeight="745.0" fitWidth="1280.0" onMouseClicked="#registrarVendedor" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Imagenes/F2V.jpg" />
+         </image>
+      </ImageView>
+      <ButtonBar layoutX="495.0" layoutY="15.0" prefHeight="40.0" prefWidth="107.0" />
+      <Button fx:id="ordenes" layoutX="537.0" layoutY="15.0" mnemonicParsing="false" stylesheets="@../Estilos/Style's_1.css" text="Ordenes" />
+      <Button fx:id="productos" layoutX="638.0" layoutY="15.0" mnemonicParsing="false" stylesheets="@../Estilos/Style's_1.css" text="Productos" />
+      <Label layoutX="1126.0" layoutY="21.0" text="Label">
+         <font>
+            <Font name="Berlin Sans FB" size="37.0" />
+         </font>
+      </Label>
+      <Button fx:id="volver" layoutX="29.0" layoutY="21.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="45.0" stylesheets="@../Estilos/Style's.css" text="⬅" textOverrun="CLIP">
+         <font>
+            <Font name="Bookman Old Style" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <TableView layoutX="132.0" layoutY="99.0" prefHeight="607.0" prefWidth="1014.0">
+        <columns>
+          <TableColumn fx:id="estado" prefWidth="299.99998474121094" text="Estado de la orden" />
+          <TableColumn fx:id="nombre" prefWidth="311.20001220703125" resizable="false" text="Nombre del cliente" />
+            <TableColumn fx:id="productos" minWidth="0.0" prefWidth="169.59994506835938" text="Productos" />
+            <TableColumn fx:id="total" prefWidth="232.00003662109373" text="Total" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

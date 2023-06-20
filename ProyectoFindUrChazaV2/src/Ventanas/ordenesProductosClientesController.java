@@ -16,7 +16,8 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 
-public class DatosDelUsuarioController {
+public class ordenesProductosClientesController {
+
         
  }   
 
