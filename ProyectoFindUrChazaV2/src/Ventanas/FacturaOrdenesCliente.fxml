@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="Panel1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Ventanas.InicioSesionController">
+   <children>
+      <ImageView fx:id="degradeFondoChazasRecorte" fitHeight="720.0" fitWidth="1280.0" layoutX="-10.0" layoutY="-7.0" pickOnBounds="true">
+         <image>
+            <Image url="@../Imagenes/degradeFondoChazas.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="FindUrChazPequeño" fitHeight="51.0" fitWidth="652.0" layoutX="45.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Imagenes/FindUrChazPequeño.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="michianvorguesa" fitHeight="75.0" fitWidth="75.0" layoutX="6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Imagenes/michianvorguesa.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="CirculoDeUsuario" fitHeight="69.0" fitWidth="65.0" layoutX="1205.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Imagenes/circulo-de-usuario.png" />
+         </image>
+      </ImageView>
+      <ScrollPane fx:id="Ordenes" layoutX="94.0" layoutY="124.0" prefHeight="546.0" prefWidth="1012.0">
+        <content>
+          <AnchorPane fx:id="Panel3" minHeight="0.0" minWidth="0.0" prefHeight="547.0" prefWidth="1012.0" />
+        </content>
+      </ScrollPane>
+      <AnchorPane fx:id="Panel2" layoutX="140.0" layoutY="166.0" prefHeight="457.0" prefWidth="864.0">
+         <children>
+            <ImageView fx:id="fBlancoTransparente" fitHeight="457.0" fitWidth="864.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../Imagenes/fBlancoTransparente.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="PerfilUsuario" fitHeight="225.0" fitWidth="384.0" layoutX="-58.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/PerfilUsuario.png" />
+               </image>
+            </ImageView>
+            <Text fx:id="TextFieldUsuario" fill="#2f281e" layoutX="98.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario">
+               <font>
+                  <Font name="Nirmala UI Bold" size="23.0" />
+               </font>
+            </Text>
+            <Text fx:id="TextFieldCorreo" fill="#2f281e" layoutX="58.0" layoutY="327.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario@gmail.com" wrappingWidth="162.9521484375">
+               <font>
+                  <Font name="Nirmala UI" size="18.0" />
+               </font>
+            </Text>
+            <Line fx:id="Linea" endX="286.0" endY="42.0" layoutX="-12.0" startX="286.0" startY="420.0" stroke="#2f281e" />
+            <Text fx:id="TextFieldNumero" fill="#2f281e" layoutX="79.0" layoutY="364.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+57 30000000" wrappingWidth="120.9521484375">
+               <font>
+                  <Font name="Nirmala UI" size="18.0" />
+               </font>
+            </Text>
+            <ImageView fx:id="FacturaCompra" fitHeight="51.0" fitWidth="332.0" layoutX="407.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/FacturaCompra.png" />
+               </image>
+            </ImageView>
+            <Text fx:id="TextFieldID" fill="#2f281e" layoutX="337.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID" textAlignment="CENTER" wrappingWidth="23.9521484375">
+               <font>
+                  <Font name="Nirmala UI Bold" size="18.0" />
+               </font>
+            </Text>
+            <Text fx:id="TextFieldFecha" fill="#2f281e" layoutX="430.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha" textAlignment="CENTER" wrappingWidth="82.79102325439453">
+               <font>
+                  <Font name="Nirmala UI Bold" size="18.0" />
+               </font>
+            </Text>
+            <Text fx:id="TextFieldOrden" fill="#2f281e" layoutX="573.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Orden" textAlignment="CENTER" wrappingWidth="82.79102325439453">
+               <font>
+                  <Font name="Nirmala UI Bold" size="18.0" />
+               </font>
+            </Text>
+            <Text fx:id="TextFieldPrecio" fill="#2f281e" layoutX="710.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Precio" textAlignment="CENTER" wrappingWidth="82.79102325439453">
+               <font>
+                  <Font name="Nirmala UI Bold" size="18.0" />
+               </font>
+            </Text>
+            <ImageView fx:id="Camaron" fitHeight="75.0" fitWidth="87.0" layoutX="316.0" layoutY="354.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/Camaron.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="sushi2" fitHeight="104.0" fitWidth="134.0" layoutX="741.0" layoutY="344.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/sushi%202.png" />
+               </image>
+            </ImageView>
+            <Text fx:id="TextFieldTotal" fill="#2f281e" layoutX="490.0" layoutY="364.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total:" textAlignment="CENTER" wrappingWidth="82.79102325439453">
+               <font>
+                  <Font name="Nirmala UI Bold" size="18.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <Button fx:id="BotonOrdenar" layoutX="1135.0" layoutY="623.0" mnemonicParsing="false" onMouseClicked="#btnO" prefHeight="44.0" prefWidth="113.0" stylesheets="@../Estilos/Style's.css" text="Ordenar!" textOverrun="CLIP">
+         <font>
+            <Font name="Bookman Old Style" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
+</AnchorPane>
