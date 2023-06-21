@@ -7,8 +7,11 @@ import com.sun.javafx.logging.PlatformLogger.Level;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.lang.System.Logger;
+import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -19,7 +22,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class registroDatosClienteController {
+public class registroDatosClienteController implements Initializable{
     
     private ControladorCliente controladorCliente = InicioSesionController.getControladorCliente();
     private HashCliente hashCliente = controladorCliente.getHashCliente();
@@ -92,10 +95,29 @@ public class registroDatosClienteController {
             mensaje.mensajeInformacion("Se ha insertado correctamente \n"
                     + clienteActual.getNombre() + " \n" + clienteActual.getApellido());
             clienteActual.toString();
-            App.setRoot("InicioCliente");
+            App.setRoot("InicioSesion");
         }else{
             mensaje.mensajeAdvertencia("Debes llenar todos los campos para continuar! :)");
         }
+    }
+    
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        Pasta.setVisible(true);
+        Wallpaper.setVisible(true);
+        apellido.setVisible(true);
+        contrasena.setVisible(true);
+        correoElectronico.setVisible(true);
+        nombre.setVisible(true);
+        nuevoCliente.setVisible(true);
+        panel.setVisible(true);
+        passwordFieldContraseña.setVisible(true);
+        telefono.setVisible(true);
+        textFieldApellido.setVisible(true);
+        textFieldCorreo.setVisible(true);
+        textFieldNombre.setVisible(true);
+        textFieldTelefono.setVisible(true);
+        volverAInicio.setVisible(true);
     }
         
 

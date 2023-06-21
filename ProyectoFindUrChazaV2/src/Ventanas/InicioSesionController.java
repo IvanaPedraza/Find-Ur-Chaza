@@ -1,40 +1,31 @@
 package Ventanas;
 
-import BaseDeDatos.Conexion;
-import Logica.ControladorChaza;
 import Logica.ControladorCliente;
 import Logica.ControladorVendedor;
 import Modelo.Cliente;
 import Modelo.Vendedor;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.*;
 import java.util.ResourceBundle;
 import javafx.animation.TranslateTransition;
 import javafx.scene.layout.AnchorPane;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
-import javax.swing.JOptionPane;
-import java.net.Proxy;
-import javafx.application.Application;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
 
 public class InicioSesionController implements Initializable {
 
     private static ControladorVendedor controladorVendedor = App.bdVen.getControladorVendedor();
     private static ControladorCliente controladorCliente = App.bdCli.getControladorCliente();
+    private static Cliente clienteLog = new Cliente();
+    private static Vendedor vendedorLog = new Vendedor();
     private Mensaje mensaje = new Mensaje();
 
     public static ControladorVendedor getControladorVendedor() {
@@ -43,6 +34,14 @@ public class InicioSesionController implements Initializable {
 
     public static ControladorCliente getControladorCliente() {
         return controladorCliente;
+    }
+
+    public static Cliente getClienteLog() {
+        return clienteLog;
+    }
+
+    public static Vendedor getVendedorLog() {
+        return vendedorLog;
     }
 
     @FXML
@@ -177,7 +176,8 @@ public class InicioSesionController implements Initializable {
             try {
                 vendedorLogueado = controladorVendedor.iniciarSesionVendedor(email, pass);
                 if(vendedorLogueado != null){
-                    App.setRoot("InicioVendedor");
+                    vendedorLog = vendedorLogueado;
+                    App.setRoot("menuChazas");
                 }else{
                     mensaje.mensajeAdvertencia("¡El vendedor ingresado no es válido, vuelva a intentar! :(");
                 }
@@ -200,7 +200,8 @@ public class InicioSesionController implements Initializable {
             try {
                 clienteLogueado = controladorCliente.iniciarSesionCliente(emailC, passC);
                 if(clienteLogueado != null){
-                    App.setRoot("InicioCliente");
+                    clienteLog = clienteLogueado;
+                    App.setRoot("menuChazas");
                 }else{
                     mensaje.mensajeAdvertencia("¡El cliente ingresado no es válido, vuelva a intentar!");
                 }
