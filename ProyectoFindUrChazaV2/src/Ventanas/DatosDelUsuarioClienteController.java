@@ -69,10 +69,7 @@ public class DatosDelUsuarioClienteController implements Initializable{
     private TextField textFieldTelefono;
 
    
-    @FXML
-    private void retornarInicioCli() throws IOException {
-        App.setRoot("InicioCliente");
-    }
+    
 
     @FXML
     private void eliminarUsuarioCliente() throws IOException {
@@ -84,6 +81,11 @@ public class DatosDelUsuarioClienteController implements Initializable{
         App.setRoot("InicioCliente");
     }
     
+    @FXML
+    private void retornarInicioCli() throws IOException {
+        System.out.println("Hola");
+        App.setRoot("InicioCliente");
+    }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {

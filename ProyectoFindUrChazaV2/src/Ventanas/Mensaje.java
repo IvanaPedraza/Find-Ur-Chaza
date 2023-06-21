@@ -30,9 +30,9 @@ public class Mensaje {
     }
     
     public void mensajeInformacion(String mensaje){
-        Image icono = new ImageIcon(getClass().getResource("@../Imagenes/informacion.png")).getImage();
+        Image icono = new ImageIcon(getClass().getResource("../Imagenes/informacion.png")).getImage();
         ImageIcon img2 = new ImageIcon(icono.getScaledInstance(50, 50, Image.SCALE_SMOOTH));
-        JOptionPane.showMessageDialog(null,mensaje, "ERROR",JOptionPane.INFORMATION_MESSAGE,img2);
+        JOptionPane.showMessageDialog(null,mensaje, "INFORMACIÓN",JOptionPane.INFORMATION_MESSAGE,img2);
     }
     
 }
