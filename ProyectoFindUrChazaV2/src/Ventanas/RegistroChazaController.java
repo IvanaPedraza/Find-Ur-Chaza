@@ -16,64 +16,84 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import Ventanas.*;
 import static Ventanas.registroDatosVendedorController.vendedorActual;
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.fxml.Initializable;
 import javafx.scene.input.MouseEvent;
 import javax.swing.JOptionPane;
+import javafx.scene.text.Text;
 
-public class RegistroChazaController {
+public class RegistroChazaController implements Initializable{
     private AVLChaza arbolChaza = new AVLChaza();
     private Vendedor vendedorChaza = registroDatosVendedorController.vendedorActual;
     private Chaza chazaActual = new Chaza();
+    public Mensaje mensaje = new Mensaje();
 
     @FXML
-    private Button Registrar;
-
-      @FXML
     private AnchorPane Panel1;
 
     @FXML
     private ImageView Wallpaper;
 
     @FXML
-    private TextField añadirDescripcion;
+    private Button botonRegistroChaza;
 
     @FXML
-    private TextField nombrarChaza;
+    private Text descripcionChaza;
 
     @FXML
-    private TextField ubicacionChaza;
+    private Text nombreChaza;
 
     @FXML
-    private Button volver;
+    private TextField textFieldDescripcion;
 
     @FXML
-    private Button volver1;
+    private TextField textFieldNombreChaza;
 
     @FXML
-    private void primerEstilo() {
-        Registrar.getStylesheets().clear();
-        Registrar.getStylesheets().addAll(this.getClass().getResource("../Estilos/Style's.css").toExternalForm());
+    private TextField textFieldUbicacion;
+
+    @FXML
+    private Text ubicacionChaza;
+
+    @FXML
+    private Button volverInicioVendedor;
+    
+    @FXML
+    void registrarChaza() throws IOException {
+        String nombreChaza = textFieldNombreChaza.getText().trim();
+        String ubicacionChaza = textFieldUbicacion.getText().trim();
+        String descripcionChaza = textFieldDescripcion.getText().trim();
+        
+        if(!nombreChaza.equals("") || !ubicacionChaza.equals("") || !descripcionChaza.equals("")){
+            chazaActual = new Chaza(nombreChaza, ubicacionChaza, descripcionChaza, vendedorChaza);
+            arbolChaza.insert(chazaActual);
+            arbolChaza.postOrderTraversal();
+            mensaje.mensajeInformacion("Se ha ingresado correctamente \n" +
+                    chazaActual.getNombreChaza());
+            App.setRoot("InicioVendedor");
+        }else{
+            mensaje.mensajeAdvertencia("Debes llenar todos los campos para continuar! :)");
+        }
     }
 
     @FXML
-    private Button Volver;
-
-    @FXML
-    void registroChaza(MouseEvent event) throws IOException {
-        String nombreChaza = nombrarChaza.getText().trim();
-        String ubicacion = ubicacionChaza.getText().trim();
-        String descripcion = añadirDescripcion.getText().trim();
-
-        if (!nombreChaza.equals("") || !ubicacion.equals("") || !descripcion.equals("")) {
-            chazaActual = new Chaza(nombreChaza, ubicacion, descripcion, vendedorChaza);
-            arbolChaza.insert(chazaActual);
-            arbolChaza.postOrderTraversal();
-            App.setRoot("InicioVendedor");
-
-        } else {
-            JOptionPane.showMessageDialog(null, "Debes llenar todos los campos para continuar! :)");
-
-        }
-
+    void retornarInicioVendedor() throws IOException {
+        App.setRoot("InicioVendedor");
+    }
+    
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        Panel1.setVisible(true);
+        Wallpaper.setVisible(true);
+        botonRegistroChaza.setVisible(true);
+        descripcionChaza.setVisible(true);
+        nombreChaza.setVisible(true);
+        textFieldDescripcion.setVisible(true);
+        textFieldNombreChaza.setVisible(true);
+        textFieldUbicacion.setVisible(true);
+        ubicacionChaza.setVisible(true);
+        volverInicioVendedor.setVisible(true);
     }
 
 }

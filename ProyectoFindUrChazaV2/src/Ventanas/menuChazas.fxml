@@ -10,18 +10,28 @@
 
 <AnchorPane fx:id="panel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Ventanas.menuChazasController">
    <children>
-      <ImageView fx:id="Wallpaper" fitHeight="745.0" fitWidth="1280.0" onMouseClicked="#registrarVendedor" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Wallpaper" fitHeight="745.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Imagenes/F2V.jpg" />
          </image>
       </ImageView>
       <ButtonBar layoutX="495.0" layoutY="15.0" prefHeight="40.0" prefWidth="107.0" />
-      <Button fx:id="ordenes" layoutX="515.0" layoutY="15.0" mnemonicParsing="false" stylesheets="@../Estilos/Style's_1.css" text="Tus ordenes" />
-      <Button fx:id="productos" layoutX="647.0" layoutY="15.0" mnemonicParsing="false" stylesheets="@../Estilos/Style's_1.css" text="Productos" />
-      <Label layoutX="1126.0" layoutY="21.0" text="Label">
+      <ImageView fx:id="inicioSesion" fitHeight="91.0" fitWidth="96.0" layoutX="14.0" layoutY="13.0" onMouseClicked="#retornarInicioSesion" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Imagenes/michianvorguesa.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="botonOrdenesCliente" layoutX="515.0" layoutY="15.0" mnemonicParsing="false" onAction="#verOrdenesCliente" stylesheets="@../Estilos/Style's_1.css" text="Tus ordenes" />
+      <Button fx:id="botonChazas" layoutX="647.0" layoutY="15.0" mnemonicParsing="false" onAction="#verChazas" stylesheets="@../Estilos/Style's_1.css" text="Chazas" />
+      <Label fx:id="labelDatosCliente" layoutX="966.0" layoutY="25.0" onMouseClicked="#verInfoCliente" text="Label">
          <font>
-            <Font name="Berlin Sans FB" size="37.0" />
+            <Font name="Berlin Sans FB" size="21.0" />
          </font>
       </Label>
+      <ImageView fitHeight="57.0" fitWidth="153.0" layoutX="81.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Imagenes/FindUrChazPequeño.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
