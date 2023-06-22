@@ -31,6 +31,8 @@ import javafx.application.Application;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
@@ -78,18 +80,6 @@ public class FacturaOrdenesClienController implements Initializable{
     private AnchorPane Panel3;
     
     @FXML
-    private Text TextFieldFecha;
-    
-    @FXML
-    private Text TextFieldPrecio;
-    
-    @FXML
-    private Text TextFieldID;
-    
-    @FXML
-    private Text TextFieldOrden;
-    
-    @FXML
     private TextField TextFieldUsuario;
    
     @FXML
@@ -100,6 +90,9 @@ public class FacturaOrdenesClienController implements Initializable{
     
     @FXML
     private TextField TextFieldNumero;
+    
+    @FXML
+    private TextField TextFieldTotalOrden;
     
     @FXML
     private ImageView PerfilUsuario;
@@ -116,6 +109,23 @@ public class FacturaOrdenesClienController implements Initializable{
     @FXML
     private Line Linea;
     
+    @FXML
+    private TableView TablaFactura;
+    
+    @FXML
+    private TableColumn ColumnaID;
+    
+    @FXML
+    private TableColumn ColumnaFecha;
+    
+    @FXML
+    private TableColumn ColumnaOrden;
+    
+    @FXML
+    private TableColumn ColumnaProducto;
+    
+    
+    
     
     @Override
     public void initialize(URL url, ResourceBundle rb
@@ -130,11 +140,10 @@ public class FacturaOrdenesClienController implements Initializable{
         TextFieldCorreo.setVisible(false);
         TextFieldTotal.setVisible(false);
         TextFieldUsuario.setVisible(false);
-        TextFieldOrden.setVisible(false);
-        TextFieldID.setVisible(false);
-        TextFieldPrecio.setVisible(false);
-        TextFieldFecha.setVisible(false);
+        TextFieldTotalOrden.setVisible(false);
         Panel2.setVisible(false);
+        TablaFactura.setVisible(false);
+        ColumnaID.setVisible(false);
         Ordenes.setVisible(true);
         fBlancoTransparente.setVisible(false);
         Panel3.setVisible(true);
@@ -143,7 +152,9 @@ public class FacturaOrdenesClienController implements Initializable{
         michianvorguesa.setVisible(true);
         BotonOrdenar.setVisible(true);
         FindUrChazPequeño.setVisible(true);
-
+        ColumnaFecha.setVisible(false);
+        ColumnaOrden. setVisible(false);
+        ColumnaProducto.setVisible(false);
     }
     
      @FXML
@@ -162,15 +173,17 @@ public class FacturaOrdenesClienController implements Initializable{
         TextFieldCorreo.setVisible(true);
         TextFieldTotal.setVisible(true);
         TextFieldUsuario.setVisible(true);
-        TextFieldOrden.setVisible(true);
-        TextFieldID.setVisible(true);
-        TextFieldPrecio.setVisible(true);
-        TextFieldFecha.setVisible(true);
         Panel2.setVisible(true);
         fBlancoTransparente.setVisible(true);
         Panel1.setVisible(true);
         Panel3.setVisible(false);
         Ordenes.setVisible(false);
         CirculoDeUsuario.setVisible(true);
+        TextFieldTotalOrden.setVisible(true);
+        TablaFactura.setVisible(true);
+        ColumnaID.setVisible(true);
+        ColumnaFecha.setVisible(true);
+        ColumnaOrden. setVisible(true);
+        ColumnaProducto.setVisible(true);
     }
 }
