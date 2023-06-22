@@ -156,7 +156,6 @@ public class InicioSesionController implements Initializable {
 
     @FXML
     private void switchToRegistroDatosVendedor() throws IOException {
-
         App.setRoot("registroDatosVendedor");
     }
 
@@ -177,7 +176,7 @@ public class InicioSesionController implements Initializable {
                 vendedorLogueado = controladorVendedor.iniciarSesionVendedor(email, pass);
                 if(vendedorLogueado != null){
                     vendedorLog = vendedorLogueado;
-                    App.setRoot("menuChazas");
+                    App.setRoot("inicioVendedor");
                 }else{
                     mensaje.mensajeAdvertencia("¡El vendedor ingresado no es válido, vuelva a intentar! :(");
                 }
