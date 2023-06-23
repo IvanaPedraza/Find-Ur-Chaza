@@ -25,10 +25,13 @@
             <Image url="@../Imagenes/FindUrChazPequeño.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="michianvorguesa" fitHeight="75.0" fitWidth="75.0" layoutX="6.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="michianvorguesa" fitHeight="75.0" fitWidth="75.0" layoutX="6.0" onMouseClicked="#switchToInicioSesion" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Imagenes/michianvorguesa.png" />
          </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </ImageView>
       <ScrollPane fx:id="Ordenes" layoutX="94.0" layoutY="124.0" prefHeight="546.0" prefWidth="1012.0">
         <content>
@@ -106,8 +109,11 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="BotonOrdenes" layoutX="533.0" layoutY="12.0" mnemonicParsing="false" stylesheets="@../Estilos/Style's_1.css" text="Ordenes" />
-      <Button fx:id="BotonProductos" disable="true" layoutX="636.0" layoutY="12.0" mnemonicParsing="false" onMouseClicked="#switchToMenuProductosCliente" stylesheets="@../Estilos/Style's_1.css" text="Productos" />
+      <Button fx:id="BotonOrdenes" layoutX="535.0" layoutY="12.0" mnemonicParsing="false" stylesheets="@../Estilos/Style's_1.css" text="Ordenes" />
+      <Button fx:id="BotonProductos" layoutX="636.0" layoutY="12.0" mnemonicParsing="false" onMouseClicked="#switchToMenuProductosCliente" stylesheets="@../Estilos/Style's_1.css" text="Productos">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
       <Label fx:id="PerfilCliente" layoutX="1101.0" layoutY="31.0" text="Label">
          <font>
             <Font name="Berlin Sans FB" size="37.0" />
@@ -117,6 +123,9 @@
          <image>
             <Image url="@../Imagenes/PerfilUsuario.png" />
          </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </ImageView>
    </children>
 </AnchorPane>

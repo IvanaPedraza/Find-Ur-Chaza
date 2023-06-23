@@ -17,6 +17,7 @@ public class menuChazasController implements Initializable{
     private Cliente clienteActual = InicioSesionController.getClienteLog();
     public Mensaje mensaje = new Mensaje();
     
+   
     @FXML
     private ImageView Wallpaper;
 
@@ -34,6 +35,10 @@ public class menuChazasController implements Initializable{
 
     @FXML
     private AnchorPane panel;
+
+    @FXML
+    private ScrollPane scroll;
+
 
     @FXML
     void retornarInicioSesion() throws IOException {
