@@ -56,9 +56,29 @@ public class FacturaOrdenesClienController implements Initializable{
     private Button BotonOrdenar;
     
     @FXML
+    private Button BotonOrdenes;
+    
+    @FXML
+    private Button BotonProductos;
+    
+     @FXML
+    private void switchToMenuProductosCliente() throws IOException {
+        App.setRoot("menuProductosCliente");
+    }
+    
+     @FXML
+    private void switchToDatosDelUsuarioCliente() throws IOException {
+        App.setRoot("DatosDelUsuarioCliente");
+    }
+    
+    @FXML
     private void primerEstilo() {
         BotonOrdenar.getStylesheets().clear();
         BotonOrdenar.getStylesheets().addAll(this.getClass().getResource("../Estilos/Style's.css").toExternalForm());
+        BotonOrdenes.getStylesheets().clear();
+        BotonOrdenes.getStylesheets().addAll(this.getClass().getResource("../Estilos/Style's.css").toExternalForm());
+        BotonProductos.getStylesheets().clear();
+        BotonProductos.getStylesheets().addAll(this.getClass().getResource("../Estilos/Style's.css").toExternalForm());
     }
     
     @FXML
@@ -80,19 +100,22 @@ public class FacturaOrdenesClienController implements Initializable{
     private AnchorPane Panel3;
     
     @FXML
-    private TextField TextFieldUsuario;
+    private Label Usuario;
    
     @FXML
     private Text TextFieldTotal;
     
     @FXML
-    private TextField TextFieldCorreo;
+    private Label Correo;
     
     @FXML
-    private TextField TextFieldNumero;
+    private Label Numero;
     
     @FXML
-    private TextField TextFieldTotalOrden;
+    private Label TotalOrden;
+    
+    @FXML
+    private Label PerfilCliente;
     
     @FXML
     private ImageView PerfilUsuario;
@@ -136,11 +159,11 @@ public class FacturaOrdenesClienController implements Initializable{
         sushi2.setVisible(false);
         Camaron.setVisible(false);
         PerfilUsuario.setVisible(false);
-        TextFieldNumero.setVisible(false);
-        TextFieldCorreo.setVisible(false);
+        Numero.setVisible(false);
+        Correo.setVisible(false);
         TextFieldTotal.setVisible(false);
-        TextFieldUsuario.setVisible(false);
-        TextFieldTotalOrden.setVisible(false);
+        Usuario.setVisible(false);
+        TotalOrden.setVisible(false);
         Panel2.setVisible(false);
         TablaFactura.setVisible(false);
         ColumnaID.setVisible(false);
@@ -155,6 +178,9 @@ public class FacturaOrdenesClienController implements Initializable{
         ColumnaFecha.setVisible(false);
         ColumnaOrden. setVisible(false);
         ColumnaProducto.setVisible(false);
+        PerfilCliente.setVisible(true);
+        BotonOrdenes.setVisible(true);
+        BotonProductos.setVisible(true);
     }
     
      @FXML
@@ -169,21 +195,24 @@ public class FacturaOrdenesClienController implements Initializable{
         sushi2.setVisible(true);
         Camaron.setVisible(true);
         PerfilUsuario.setVisible(true);
-        TextFieldNumero.setVisible(true);
-        TextFieldCorreo.setVisible(true);
+        Numero.setVisible(true);
+        Correo.setVisible(true);
         TextFieldTotal.setVisible(true);
-        TextFieldUsuario.setVisible(true);
+        Usuario.setVisible(true);
         Panel2.setVisible(true);
         fBlancoTransparente.setVisible(true);
         Panel1.setVisible(true);
         Panel3.setVisible(false);
         Ordenes.setVisible(false);
         CirculoDeUsuario.setVisible(true);
-        TextFieldTotalOrden.setVisible(true);
+        TotalOrden.setVisible(true);
         TablaFactura.setVisible(true);
         ColumnaID.setVisible(true);
         ColumnaFecha.setVisible(true);
         ColumnaOrden. setVisible(true);
         ColumnaProducto.setVisible(true);
+        PerfilCliente.setVisible(true);
+        BotonOrdenes.setVisible(true);
+        BotonProductos.setVisible(true);
     }
 }
