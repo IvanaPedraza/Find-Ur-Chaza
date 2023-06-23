@@ -11,12 +11,12 @@ import javafx.scene.control.*;
 
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-<<<<<<< HEAD
+
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
-=======
->>>>>>> cd0e2a64e39b87c277cbb592223352a64a2cd142
+
+
 
 public class menuProductosClienteController implements Initializable{
     
