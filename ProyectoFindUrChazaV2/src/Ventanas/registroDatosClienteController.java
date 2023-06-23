@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.lang.System.Logger;
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -97,13 +98,19 @@ public class registroDatosClienteController implements Initializable{
             
             hashCliente.insert(correo, clienteActual);
             hashCliente.printHashTable();
-            /*
+            
             try{
                 pst = conexion.prepareStatement("insert into cliente values(?,?,?,?,?)");
-            }catch(){
-                
+                pst.setString(1, correo);
+                pst.setString(2, nombre);
+                pst.setString(3, apellido);
+                pst.setString(4, telefono);
+                pst.setString(5, contrasena);
+                pst.executeUpdate();
+            }catch(SQLException e){
+                System.out.println("Error en el insertado de la BD");
             }
-*/
+
             mensaje.mensajeInformacion("Se ha insertado correctamente \n"
                     + clienteActual.getNombre() + " \n" + clienteActual.getApellido());
             clienteActual.toString();
