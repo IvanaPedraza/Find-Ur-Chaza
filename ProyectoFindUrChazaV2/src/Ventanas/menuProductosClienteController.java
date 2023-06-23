@@ -1,26 +1,30 @@
 package Ventanas;
 
-import EstructurasDeDatos.ArregloDinamicoConColaVendedor;
-import EstructurasDeDatos.HashVendedor;
 import Logica.*;
-import Modelo.Vendedor;
-import com.sun.javafx.logging.PlatformLogger.Level;
-import java.awt.event.ActionEvent;
+import Modelo.Chaza;
+import Modelo.Cliente;
 import java.io.IOException;
-import java.lang.System.Logger;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.*;
-import javafx.scene.*;
 import javafx.scene.control.*;
 
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+<<<<<<< HEAD
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
+=======
+>>>>>>> cd0e2a64e39b87c277cbb592223352a64a2cd142
 
 public class menuProductosClienteController implements Initializable{
+    
+    private ControladorChaza controladorChaza = App.bdCha.getControladorChaza();
+    private Cliente clienteActual = InicioSesionController.getClienteLog();
+    public Chaza chazaEscogida = menuChazasController.chazaEscogida;
+    private ControladorProducto controladorProducto = App.bdPro.getControladorProducto();
+    
 
    @FXML
     private ImageView F2;

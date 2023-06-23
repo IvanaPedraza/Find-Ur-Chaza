@@ -1,5 +1,8 @@
 package Ventanas;
 
+import Logica.*;
+import Modelo.Chaza;
+import Modelo.Cliente;
 import Ventanas.*;
 import Modelo.Chaza;
 import java.awt.Insets;
@@ -11,13 +14,21 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.*;
 import javafx.scene.input.*;
 import javafx.scene.layout.*;
 
-public class menuChazasController {
 
+
+public class menuChazasController implements Initializable{
+    
+    private ControladorChaza controladorChaza = App.bdCha.getControladorChaza();
+    private Cliente clienteActual = InicioSesionController.getClienteLog();
+    public static Chaza chazaEscogida = new Chaza();
+    public Mensaje mensaje = new Mensaje();
+    
     @FXML
     private ImageView Wallpaper;
 
@@ -77,7 +88,9 @@ public class menuChazasController {
         return chazas;
     }
 
-    public void initialize(URL location, ResourceBundle resources) throws IOException {
+    
+    @Override
+    public void initialize(URL location, ResourceBundle resources){
         chazas.addAll(getData());
         int column = 0;
         int row = 1;
