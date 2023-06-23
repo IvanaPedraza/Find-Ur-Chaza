@@ -51,9 +51,7 @@ public class FacturaOrdenesClienController implements Initializable{
     
     @FXML
     private ImageView CirculoDeUsuario;
-    
-    @FXML
-    private Button BotonOrdenar;
+   
     
     @FXML
     private Button BotonOrdenes;
@@ -78,8 +76,6 @@ public class FacturaOrdenesClienController implements Initializable{
     
     @FXML
     private void primerEstilo() {
-        BotonOrdenar.getStylesheets().clear();
-        BotonOrdenar.getStylesheets().addAll(this.getClass().getResource("../Estilos/Style's.css").toExternalForm());
         BotonOrdenes.getStylesheets().clear();
         BotonOrdenes.getStylesheets().addAll(this.getClass().getResource("../Estilos/Style's.css").toExternalForm());
         BotonProductos.getStylesheets().clear();
@@ -92,8 +88,6 @@ public class FacturaOrdenesClienController implements Initializable{
     @FXML
     private ImageView fBlancoTransparente;
     
-    @FXML
-    private ScrollPane Ordenes;
     
     @FXML
     private AnchorPane Panel1;
@@ -172,13 +166,11 @@ public class FacturaOrdenesClienController implements Initializable{
         Panel2.setVisible(false);
         TablaFactura.setVisible(false);
         ColumnaID.setVisible(false);
-        Ordenes.setVisible(true);
         fBlancoTransparente.setVisible(false);
         Panel3.setVisible(true);
         Panel1.setVisible(true);
         CirculoDeUsuario.setVisible(true);
         michianvorguesa.setVisible(true);
-        BotonOrdenar.setVisible(true);
         FindUrChazPequeño.setVisible(true);
         ColumnaFecha.setVisible(false);
         ColumnaOrden. setVisible(false);
@@ -193,7 +185,6 @@ public class FacturaOrdenesClienController implements Initializable{
     ) {
         degradeFondoChazasRecorte.setVisible(true);
         michianvorguesa.setVisible(true);
-        BotonOrdenar.setVisible(true);
         FindUrChazPequeño.setVisible(true);
         Linea.setVisible(true);
         FacturaCompra.setVisible(true);
@@ -208,7 +199,6 @@ public class FacturaOrdenesClienController implements Initializable{
         fBlancoTransparente.setVisible(true);
         Panel1.setVisible(true);
         Panel3.setVisible(false);
-        Ordenes.setVisible(false);
         CirculoDeUsuario.setVisible(true);
         TotalOrden.setVisible(true);
         TablaFactura.setVisible(true);
