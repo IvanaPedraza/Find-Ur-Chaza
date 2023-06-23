@@ -4,8 +4,7 @@ import BaseDeDatos.Conexion;
 import EstructurasDeDatos.HashCliente;
 import Logica.ControladorCliente;
 import Modelo.Cliente;
-import com.mysql.cj.xdevapi.PreparableStatement;
-import com.sun.javafx.logging.PlatformLogger.Level;
+import java.sql.PreparedStatement;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.lang.System.Logger;
@@ -32,7 +31,7 @@ public class registroDatosClienteController implements Initializable{
     private HashCliente hashCliente = controladorCliente.getHashCliente();
     public static Cliente clienteActual = new Cliente();
     public Mensaje mensaje = new Mensaje();
-    private PreparableStatement pst;
+    private PreparedStatement pst;
     
     
     @FXML
