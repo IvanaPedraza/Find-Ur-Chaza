@@ -3,14 +3,24 @@ package Ventanas;
 import Logica.*;
 import Modelo.Chaza;
 import Modelo.Cliente;
+import Ventanas.*;
+import Modelo.Chaza;
+import java.awt.Insets;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
-import javafx.fxml.*;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.image.*;
+import javafx.scene.input.*;
+import javafx.scene.layout.*;
 
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
+
 
 public class menuChazasController implements Initializable{
     
@@ -19,12 +29,14 @@ public class menuChazasController implements Initializable{
     public static Chaza chazaEscogida = new Chaza();
     public Mensaje mensaje = new Mensaje();
     
-   
     @FXML
     private ImageView Wallpaper;
 
     @FXML
     private Button botonChazas;
+
+    @FXML
+    private GridPane grid;
 
     @FXML
     private Button botonOrdenesCliente;
@@ -41,41 +53,77 @@ public class menuChazasController implements Initializable{
     @FXML
     private ScrollPane scroll;
 
-
     @FXML
-    void retornarInicioSesion() throws IOException {
-        App.setRoot("InicioSesion");
+    void retornarInicioSesion(MouseEvent event) {
+
     }
 
     @FXML
-    void verChazas() throws IOException {
-        App.setRoot("menuProductosCliente");
+    void verChazas(MouseEvent event) {
+
     }
 
     @FXML
-    void verInfoCliente() throws IOException {
-        App.setRoot("DatosDelUsuarioCliente");
+    void verInfoCliente(MouseEvent event) {
+
     }
 
     @FXML
-    void verOrdenesCliente() throws IOException {
-     //   App.setRoot("FacturaOrdenesCliente");
+    void verOrdenesCliente(MouseEvent event) {
+
     }
+    private List<Chaza> chazas = new ArrayList<>();
+
+    private List<Chaza> getData() {
+        List<Chaza> chazas = new ArrayList<>();
+        Chaza chaza;
+        for (int i = 0; i < 20; i++) {
+
+            chaza = new Chaza();
+            chaza.setNombreChaza("Kiwi");
+            chaza.setImgSrc("/Imagenes/Tiendav.png");
+            chazas.add(chaza);
+        }
+
+        return chazas;
+    }
+
     
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        Wallpaper.setVisible(true);
-        botonChazas.setVisible(true);
-        botonOrdenesCliente.setVisible(true);
-        inicioSesion.setVisible(true);
-        labelDatosCliente.setVisible(true);
-        panel.setVisible(true);
-        labelDatosCliente.setText("¡Bienvenido " + clienteActual.getNombre() + " " + clienteActual.getApellido() + "!");
-        
+    public void initialize(URL location, ResourceBundle resources){
+        chazas.addAll(getData());
+        int column = 0;
+        int row = 1;
+        try {
+            for (int i = 0; i < chazas.size(); i++) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("/views/item.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
+
+                chazasController ChazasController = fxmlLoader.getController();
+                ChazasController.setData(chazas.get(i));
+
+                if (column == 3) {
+                    column = 0;
+                    row++;
+                }
+
+                grid.add(anchorPane, column++, row); //(child,column,row)
+                //set grid width
+                grid.setMinWidth(Region.USE_COMPUTED_SIZE);
+                grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                grid.setMaxWidth(Region.USE_PREF_SIZE);
+
+                //set grid height
+                grid.setMinHeight(Region.USE_COMPUTED_SIZE);
+                grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
+                grid.setMaxHeight(Region.USE_PREF_SIZE);
+
+                GridPane.setMargin(anchorPane, new javafx.geometry.Insets(10));
+            }
+        }catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
-    
-    
-
-        
- }   
-
+}

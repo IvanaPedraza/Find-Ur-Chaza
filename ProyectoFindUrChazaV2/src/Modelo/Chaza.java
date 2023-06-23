@@ -17,6 +17,7 @@ public class Chaza {
     private String descripcion;
     private Vendedor vendedor;
     private int estadoChaza;
+    private String imgSrc; 
     
     public Chaza(){
         
@@ -80,5 +81,10 @@ public class Chaza {
         this.estadoChaza = estadoChaza;
     }
     
-    
+   public void setImgSrc(String imgSrc) {
+        this.imgSrc = imgSrc;
+    } 
+    public String getImgSrc() {
+        return imgSrc;
+    }
 }
