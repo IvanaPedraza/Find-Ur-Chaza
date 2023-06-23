@@ -1,28 +1,26 @@
 package Ventanas;
 
-import EstructurasDeDatos.ArregloDinamicoConColaVendedor;
 import EstructurasDeDatos.HashVendedor;
 import Logica.*;
 import Modelo.Chaza;
 import Modelo.Producto;
 import Modelo.Vendedor;
-import com.sun.javafx.logging.PlatformLogger.Level;
-import java.awt.event.ActionEvent;
 import java.io.IOException;
-import java.lang.System.Logger;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.fxml.*;
-import javafx.scene.*;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
-import javax.swing.JOptionPane;
 
 public class DatosDelUsuarioVendedorController implements Initializable{
 
+    private Connection conexion = BaseDeDatos.Conexion.conectar();
+    private PreparedStatement pst;
     private ControladorVendedor controladorVendedor = InicioSesionController.getControladorVendedor();
     private ControladorChaza controladorChaza = App.bdCha.getControladorChaza();
     private ControladorProducto controladorProducto = App.bdPro.getControladorProducto();
@@ -88,6 +86,20 @@ public class DatosDelUsuarioVendedorController implements Initializable{
         if (!correoActual.equals("") || !nombreActual.equals("") || !apellidoActual.equals("") || !telefonoActual.equals("")) {
             try {
                 controladorVendedor.actualizarVendedorCom(correoActual, nombreActual, apellidoActual, telefonoActual);
+                
+                try {
+                    pst = conexion.prepareStatement("update vendedor set correoCliente = ?, nombreCliente = ?, apellidoCliente = ?, telefonoCliente = ? where correoCliente = " + "'"+vendedorActual.getCorreo()+"'");
+                    pst.setString(1, correoActual);
+                    pst.setString(2, nombreActual);
+                    pst.setString(3, apellidoActual);
+                    pst.setString(4, telefonoActual);
+                    int n = pst.executeUpdate();
+                    if(n > 0)
+                        System.out.println("Se actualizo en la bd");
+                } catch (SQLException e) {
+                    System.out.println("Error en el insertado de la BD");
+                }
+                
                 mensaje.mensajeInformacion("Haz actualizado tu usuario: " + nombreActual + " :D");
             } catch (Exception e) {
                 mensaje.mensajeError("Ha sucedio un error, no fue posible actualizar :(");
@@ -103,6 +115,17 @@ public class DatosDelUsuarioVendedorController implements Initializable{
         try {
             eliminarProdChazaVendedor();
             controladorVendedor.eliminarVendedor(correoAEliminar);
+            
+            try {
+                pst = conexion.prepareStatement("delete from vendedor where correoVendedor = " + "'"+ vendedorActual.getCorreo()+"'");
+                int n = pst.executeUpdate();
+                if (n > 0) {
+                    System.out.println("Se elimino en la bd");
+                }
+            } catch (SQLException e) {
+                System.out.println("Error en el insertado de la BD");
+            }
+            
             mensaje.mensajeInformacion("Haz eliminado tu usuario ");
             App.setRoot("InicioSesion");
         } catch (Exception e) {

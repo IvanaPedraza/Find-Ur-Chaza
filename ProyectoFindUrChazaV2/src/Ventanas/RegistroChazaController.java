@@ -5,29 +5,26 @@ import Modelo.Chaza;
 import Modelo.Vendedor;
 import java.io.IOException;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
-import Ventanas.*;
-import static Ventanas.registroDatosVendedorController.vendedorActual;
 import java.net.URL;
+import java.sql.Connection;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
-import javafx.scene.input.MouseEvent;
-import javax.swing.JOptionPane;
 import javafx.scene.text.Text;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class RegistroChazaController implements Initializable{
+    
+    private Connection conexion = BaseDeDatos.Conexion.conectar();
     private AVLChaza arbolChaza = new AVLChaza();
     private Vendedor vendedorChaza = registroDatosVendedorController.vendedorActual;
     private Chaza chazaActual = new Chaza();
     public Mensaje mensaje = new Mensaje();
+    private PreparedStatement pst;
 
     @FXML
     private AnchorPane Panel1;
@@ -65,10 +62,24 @@ public class RegistroChazaController implements Initializable{
         String ubicacionChaza = textFieldUbicacion.getText().trim();
         String descripcionChaza = textFieldDescripcion.getText().trim();
         
+        
         if(!nombreChaza.equals("") || !ubicacionChaza.equals("") || !descripcionChaza.equals("")){
             chazaActual = new Chaza(nombreChaza, ubicacionChaza, descripcionChaza, vendedorChaza);
             arbolChaza.insert(chazaActual);
             arbolChaza.postOrderTraversal();
+            
+            try{
+                pst = conexion.prepareStatement("insert into chaza values(?,?,?,?,?)");
+                pst.setString(1, nombreChaza);
+                pst.setString(2, ubicacionChaza);
+                pst.setString(3, descripcionChaza);
+                pst.setString(4, vendedorChaza.getCorreo());
+                pst.setString(5, "1");
+                pst.executeUpdate();
+            }catch(SQLException e){
+                System.out.println("Error en el insertado de la BD");
+            }
+            
             mensaje.mensajeInformacion("Se ha ingresado correctamente \n" +
                     chazaActual.getNombreChaza());
             App.setRoot("InicioVendedor");
