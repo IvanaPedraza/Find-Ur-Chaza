@@ -16,6 +16,7 @@ import javafx.scene.control.*;
 
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 
@@ -71,10 +72,10 @@ public class menuProductosClienteController implements Initializable{
     private AnchorPane Panel;
    
    @FXML
-    private Separator separador;
+    private AnchorPane Panel2;
    
    @FXML
-    private ScrollBar Scroll;
+    private Separator separador;
    
    @FXML
     private Label nombreVendedor;
@@ -87,6 +88,12 @@ public class menuProductosClienteController implements Initializable{
   
   @FXML
     private TextField DescripcionChaza;
+  
+  @FXML
+    private ScrollPane PanelcrollProductos;
+  
+  @FXML
+    private GridPane GrillaProductos;
       
 
   @Override
@@ -104,6 +111,8 @@ public class menuProductosClienteController implements Initializable{
         nombreChaza.setVisible(true);
         Estado.setVisible(true);
         DescripcionChaza.setVisible(true);
+        PanelcrollProductos.setVisible(true);
+        GrillaProductos.setVisible(true);
     }
  }   
 
