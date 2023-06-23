@@ -1,28 +1,22 @@
 package Ventanas;
 
-import BaseDeDatos.Conexion;
 import EstructurasDeDatos.HashCliente;
 import Logica.ControladorCliente;
 import Modelo.Cliente;
 import java.sql.PreparedStatement;
-import java.awt.event.ActionEvent;
 import java.io.IOException;
-import java.lang.System.Logger;
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 
 public class registroDatosClienteController implements Initializable{
     
@@ -97,13 +91,21 @@ public class registroDatosClienteController implements Initializable{
             
             hashCliente.insert(correo, clienteActual);
             hashCliente.printHashTable();
-            /*
+            
             try{
                 pst = conexion.prepareStatement("insert into cliente values(?,?,?,?,?)");
-            }catch(){
-                
+                pst.setString(1, correo);
+                pst.setString(2, nombre);
+                pst.setString(3, apellido);
+                pst.setString(4, telefono);
+                pst.setString(5, contrasena);
+                int n = pst.executeUpdate();
+                if(n > 0)
+                    System.out.println("Se ingreso en la bd");
+            }catch(SQLException e){
+                System.out.println("Error en el insertado de la BD");
             }
-*/
+
             mensaje.mensajeInformacion("Se ha insertado correctamente \n"
                     + clienteActual.getNombre() + " \n" + clienteActual.getApellido());
             clienteActual.toString();

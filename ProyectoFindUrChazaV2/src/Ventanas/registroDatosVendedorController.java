@@ -1,29 +1,25 @@
 package Ventanas;
 
-import EstructurasDeDatos.ArregloDinamicoConColaVendedor;
 import EstructurasDeDatos.HashVendedor;
 import Logica.*;
 import Modelo.Vendedor;
-import com.sun.javafx.logging.PlatformLogger.Level;
-import java.awt.event.ActionEvent;
 import java.io.IOException;
-import java.lang.System.Logger;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import javafx.fxml.*;
-import javafx.scene.*;
 import javafx.scene.control.*;
 
-import javafx.scene.image.ImageView;
-import javafx.stage.Stage;
-import javax.swing.JOptionPane;
 
 public class registroDatosVendedorController {
 
+    private Connection conexion = BaseDeDatos.Conexion.conectar();
     private ControladorVendedor controladorVendedor = InicioSesionController.getControladorVendedor();
     //private ArregloDinamicoConColaVendedor arregloVendedor = controladorVendedor.getArregloDinamicoVendedor();
     private HashVendedor hashVendedor = controladorVendedor.getHashVendedor();
     public static Vendedor vendedorActual = new Vendedor();
     public Mensaje mensaje = new Mensaje();
-  
+    private PreparedStatement pst;
 
     @FXML
     private Button nuevoVendedor;
@@ -60,6 +56,21 @@ public class registroDatosVendedorController {
             hashVendedor.insert(correo, vendedorActual);
             //arregloVendedor.imprimir();
             hashVendedor.printHashTable();
+            
+            try{
+                pst = conexion.prepareStatement("insert into vendedor values(?,?,?,?,?)");
+                pst.setString(1, correo);
+                pst.setString(2, nombre);
+                pst.setString(3, apellido);
+                pst.setString(4, telefono);
+                pst.setString(5, contrasena);
+                int n = pst.executeUpdate();
+                if(n > 0)
+                    System.out.println("Se inserto en la bd");
+            }catch(SQLException e){
+                System.out.println("Error en el insertado de la BD");
+            }
+            
             mensaje.mensajeInformacion("Se ha insertado correctamente " + vendedorActual.getNombre() + " "+ vendedorActual.getApellido());
             App.setRoot("RegistroChaza");
 
