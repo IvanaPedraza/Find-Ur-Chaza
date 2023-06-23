@@ -16,12 +16,6 @@
         </group>
         <group>
             <file>file:/C:/Users/kelly/Documents/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/InicioSesionController.java</file>
-            <file>file:/C:/Users/kelly/Documents/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/menuChazasController.java</file>
-            <file>file:/C:/Users/kelly/Documents/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/registroDatosClienteController.java</file>
-            <file>file:/C:/Users/kelly/Documents/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/RegistroChazaController.java</file>
-        </group>
-        <group>
-            <file>file:/C:/Users/kelly/Documents/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/InicioSesionController.java</file>
             <file>file:/C:/Users/kelly/Documents/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/registroDatosVendedorController.java</file>
             <file>file:/D:/NetBeansProjects/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/FacturaOrdenesCliente.fxml</file>
             <file>file:/D:/NetBeansProjects/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/App.java</file>
@@ -38,11 +32,9 @@
             <file>file:/C:/Users/Cata/Desktop/Proyecto/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/ordenesProductosClientes.fxml</file>
             <file>file:/C:/Users/Cata/Desktop/Proyecto/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/ordenesProductosClientesController.java</file>
             <file>file:/C:/Users/Cata/Desktop/Proyecto/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Estilos/Style's_1.css</file>
-
             <file>file:/D:/NetBeansProjects/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/FacturaOrdenesCliente.fxml</file>
             <file>file:/D:/NetBeansProjects/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/App.java</file>
             <file>file:/D:/NetBeansProjects/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/FacturaOrdenesClienController.java</file>
-
         </group>
         <group>
             <file>file:/D:/NetBeansProjects/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/InicioSesionController.java</file>
@@ -83,6 +75,9 @@
             <file>file:/C:/Users/kelly/Documents/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/DatosDelUsuarioVendedorController.java</file>
             <file>file:/C:/Users/kelly/Documents/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/menuProductosClienteController.java</file>
             <file>file:/C:/Users/kelly/Documents/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/EstructurasDeDatos/AVLChaza.java</file>
+        </group>
+        <group>
+            <file>file:/C:/Users/kelly/Documents/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/App.java</file>
         </group>
     </open-files>
 </project-private>
