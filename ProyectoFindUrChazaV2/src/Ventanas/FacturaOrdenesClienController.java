@@ -61,12 +61,17 @@ public class FacturaOrdenesClienController implements Initializable{
     @FXML
     private Button BotonProductos;
     
-     @FXML
+    @FXML
     private void switchToMenuProductosCliente() throws IOException {
         App.setRoot("menuProductosCliente");
     }
     
-     @FXML
+    @FXML
+    private void switchToInicioSesion() throws IOException {
+        App.setRoot("InicioSesion");
+    }
+    
+    @FXML
     private void switchToDatosDelUsuarioCliente() throws IOException {
         App.setRoot("DatosDelUsuarioCliente");
     }
