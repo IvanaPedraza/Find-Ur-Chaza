@@ -5,24 +5,22 @@ import Logica.*;
 import Modelo.Cliente;
 import Modelo.Factura;
 import Modelo.Orden;
-import com.sun.javafx.logging.PlatformLogger.Level;
-import java.awt.event.ActionEvent;
 import java.io.IOException;
-import java.lang.System.Logger;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.fxml.*;
-import javafx.scene.*;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
-import javax.swing.JOptionPane;
 
-public class DatosDelUsuarioClienteController implements Initializable{
+public class DatosDelUsuarioClienteController implements Initializable {
 
+    private Connection conexion = BaseDeDatos.Conexion.conectar();
+    private PreparedStatement pst;
     private ControladorCliente controladorCliente = InicioSesionController.getControladorCliente();
     private ControladorOrden controladorOrden = App.bdOrd.getControladorOrden();
     private ControladorFactura controladorFactura = App.bdFac.getControladorFactura();
@@ -30,7 +28,7 @@ public class DatosDelUsuarioClienteController implements Initializable{
     private HashCliente hashCliente = controladorCliente.getHashCliente();
     public static Cliente clienteActual = InicioSesionController.getClienteLog();
     public Mensaje mensaje = new Mensaje();
-    
+
     @FXML
     private ImageView Wallpaper;
 
@@ -73,21 +71,30 @@ public class DatosDelUsuarioClienteController implements Initializable{
     @FXML
     private TextField textFieldTelefono;
 
-   
-   
     @FXML
     private void eliminarUsuarioCliente() throws IOException {
         String correoAEliminar = textFieldCorreo.getText().trim();
         try {
             eliminarOrdenFacCliente();
             controladorCliente.eliminarCliente(correoAEliminar);
+
+            try {
+                pst = conexion.prepareStatement("delete from cliente where correoCliente = " + "'"+ clienteActual.getCorreo()+"'");
+                int n = pst.executeUpdate();
+                if (n > 0) {
+                    System.out.println("Se elimino en la bd");
+                }
+            } catch (SQLException e) {
+                System.out.println("Error en el borrado de la BD" + e.toString());
+            }
+
             mensaje.mensajeInformacion("Haz eliminado tu usuario ");
             App.setRoot("InicioSesion");
         } catch (Exception e) {
             mensaje.mensajeError("Ha sucedido un error, no fue posible eliminar :(");
         }
     }
-    
+
     @FXML
     private void actualizarUsuarioCliente() throws IOException {
         String correoActual = textFieldCorreo.getText().trim();
@@ -98,6 +105,21 @@ public class DatosDelUsuarioClienteController implements Initializable{
         if (!correoActual.equals("") || !nombreActual.equals("") || !apellidoActual.equals("") || !telefonoActual.equals("")) {
             try {
                 controladorCliente.actualizarClienteCom(correoActual, nombreActual, apellidoActual, telefonoActual);
+
+                try {
+                    pst = conexion.prepareStatement("update cliente set correoCliente = ?, nombreCliente = ?, apellidoCliente = ?, telefonoCliente = ? where correoCliente = " + "'"+ clienteActual.getCorreo()+"'");
+                    pst.setString(1, correoActual);
+                    pst.setString(2, nombreActual);
+                    pst.setString(3, apellidoActual);
+                    pst.setString(4, telefonoActual);
+                    int n = pst.executeUpdate();
+                    if (n > 0) {
+                        System.out.println("Se actualizo en la bd");
+                    }
+                } catch (SQLException e) {
+                    System.out.println("Error en el insertado de la BD");
+                }
+
                 mensaje.mensajeInformacion("Haz actualizado tu usuario: " + nombreActual + " :D");
                 App.setRoot("menuChazas");
             } catch (Exception e) {
@@ -107,33 +129,33 @@ public class DatosDelUsuarioClienteController implements Initializable{
             mensaje.mensajeAdvertencia("Debe llenar todos los campos requeridos");
         }
     }
-    
-    private void eliminarOrdenFacCliente(){
-        try{
+
+    private void eliminarOrdenFacCliente() {
+        try {
             Orden[] ordenesCliente = controladorOrden.buscarOrdenesPorCliente(clienteActual);
-            for(int i = 0; i < ordenesCliente.length;i++){
+            for (int i = 0; i < ordenesCliente.length; i++) {
                 Factura[] facturas = controladorFactura.buscarFacturasPorOrden(ordenesCliente[i]);
-                for(int j = 0; j < facturas.length; j++){
+                for (int j = 0; j < facturas.length; j++) {
                     controladorFactura.eliminarFactura(facturas[j].getNumReferencia());
                 }
                 controladorOrden.eliminarOrden(ordenesCliente[i].getNumOrden());
             }
-        }catch(Exception e){
+        } catch (Exception e) {
             mensaje.mensajeError("Ha ocurrido un error " + e.toString());
         }
     }
-    
+
     @FXML
     private void retornarInicioCli() throws IOException {
         System.out.println("Hola");
         App.setRoot("InicioCliente");
     }
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         panel.setVisible(true);
         Wallpaper.setVisible(true);
-        labelDatosCliente.setText("¡Bienvenido " + clienteActual.getNombre()+ " " + clienteActual.getApellido()+"!");
+        labelDatosCliente.setText("¡Bienvenido " + clienteActual.getNombre() + " " + clienteActual.getApellido() + "!");
         actualizarDatos.setVisible(true);
         apellido.setVisible(true);
         botonRetornoCli.setVisible(true);
@@ -151,6 +173,5 @@ public class DatosDelUsuarioClienteController implements Initializable{
         textFieldTelefono.setVisible(true);
         textFieldTelefono.setText(clienteActual.getTelefono());
     }
-     
- }   
 
+}
