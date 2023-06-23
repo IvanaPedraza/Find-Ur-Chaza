@@ -1,13 +1,15 @@
 package Ventanas;
 
+import BaseDeDatos.Conexion;
 import EstructurasDeDatos.HashCliente;
 import Logica.ControladorCliente;
 import Modelo.Cliente;
-import com.sun.javafx.logging.PlatformLogger.Level;
+import java.sql.PreparedStatement;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.lang.System.Logger;
 import java.net.URL;
+import java.sql.Connection;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -24,10 +26,13 @@ import javafx.stage.Stage;
 
 public class registroDatosClienteController implements Initializable{
     
+    private Connection conexion = BaseDeDatos.Conexion.conectar();
     private ControladorCliente controladorCliente = InicioSesionController.getControladorCliente();
     private HashCliente hashCliente = controladorCliente.getHashCliente();
     public static Cliente clienteActual = new Cliente();
     public Mensaje mensaje = new Mensaje();
+    private PreparedStatement pst;
+    
     
     @FXML
     private ImageView Pasta;
@@ -92,6 +97,13 @@ public class registroDatosClienteController implements Initializable{
             
             hashCliente.insert(correo, clienteActual);
             hashCliente.printHashTable();
+            /*
+            try{
+                pst = conexion.prepareStatement("insert into cliente values(?,?,?,?,?)");
+            }catch(){
+                
+            }
+*/
             mensaje.mensajeInformacion("Se ha insertado correctamente \n"
                     + clienteActual.getNombre() + " \n" + clienteActual.getApellido());
             clienteActual.toString();

@@ -141,6 +141,16 @@ public class ControladorOrden {
         return ordenEncontrada;
     }
     
+    public Orden[] buscarOrdenesPorCliente(Cliente cliente){
+        Orden[] ordenes = new Orden[0];
+        try{
+            ordenes = minHeapOrden.findByCliente(cliente);
+        }catch(Exception e){
+            System.out.println("Ha ocurrido " + e);
+        }
+        return ordenes;
+    }
+    
     public Orden buscarOrdenPorFecha(Date fecha) throws Exception {
         Orden ordenEncontrada = new Orden();
         long time_start, time_end;

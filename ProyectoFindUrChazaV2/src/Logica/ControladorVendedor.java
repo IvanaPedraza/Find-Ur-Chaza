@@ -174,7 +174,7 @@ public class ControladorVendedor {
             hashVendedor.remove(correoVendedor);
             hashVendedor.insert(vendedorActualizado.getCorreo(), vendedorActualizado);
         }else{
-            hashVendedor.insert(correoVendedor, vendedorAntiguo);
+            hashVendedor.insert(correoVendedor, vendedorActualizado);
         }
     }
     

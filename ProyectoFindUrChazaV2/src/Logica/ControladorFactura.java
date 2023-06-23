@@ -125,4 +125,23 @@ public class ControladorFactura {
         System.out.println("buscarFacturaPorId con arreglo dinamico tomo " + (time_end - time_start) + " milliseconds");
         return facturaEncontrado;
     }
+    
+    public Factura[] buscarFacturasPorOrden(Orden orden){
+        Factura[] facturas = new Factura[0];
+        int iterado = 0;
+        Factura facturaIterado = new Factura();
+        try{
+            for(int i = 0;i < ListaEnlazadaConColaFactura.cantidad();i++){
+                facturaIterado = (Factura) ListaEnlazadaConColaFactura.getElement(i);
+                if(facturaIterado.getOrden().getNumOrden() == orden.getNumOrden()){
+                    facturas[iterado++] = facturaIterado;
+                }else{
+                    throw new Exception("No existe la factura");
+                }
+            }
+        }catch(Exception e){
+            System.out.println("Ha ocurrido " + e);
+        }
+        return facturas;
+    }
 }

@@ -56,8 +56,8 @@ public class menuChazasController implements Initializable{
     }
 
     @FXML
-    void verOrdenesCliente() {
-
+    void verOrdenesCliente() throws IOException {
+     //   App.setRoot("FacturaOrdenesCliente");
     }
     
     @Override

@@ -163,7 +163,7 @@ public class AVLChaza {
             if(cusComparator.compare(current.getKey().getNombreChaza(), nombreChaza) == 0){
                 break;
             }
-            current = (cusComparator.compare(nombreChaza,current.getKey().getNombreChaza()) < 0) ? current.getLeft() : current.getRight();
+            current = (cusComparator.compare(nombreChaza,current.getKey().getNombreChaza()) > 0) ? current.getLeft() : current.getRight();
         }
         return current.getKey();
 
@@ -176,7 +176,7 @@ public class AVLChaza {
             if(cusComparator.compare(current.getKey().getIdChaza(), idChaza) == 0){
                 break;
             }
-            current = (cusComparator.compare(current.getKey().getIdChaza(),idChaza) < 0) ? current.getLeft() : current.getRight();
+            current = (cusComparator.compare(current.getKey().getIdChaza(),idChaza) > 0) ? current.getLeft() : current.getRight();
         }
         return current.getKey();
          

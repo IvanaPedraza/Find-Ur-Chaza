@@ -4,6 +4,7 @@
  */
 package EstructurasDeDatos;
 
+import Modelo.Cliente;
 import Modelo.Orden;
 import java.util.Date;
 
@@ -142,6 +143,26 @@ public class MinHeapOrden {
         }
         orden = Heap[ordenEncontrada];
         return orden;
+    }
+    
+    public Orden[] findByCliente(Cliente cliente){
+        int cantidad = numOrdenCliente(cliente);
+        Orden[] ordenesPorCliente = new Orden[cantidad];
+        int iterador = 0;
+        for(int i = 0; i < index;i++){
+            ordenesPorCliente[iterador++] = Heap[i];
+        }
+        return ordenesPorCliente;
+    }
+    
+    public int numOrdenCliente(Cliente cliente){
+        int cantidad = 0;
+        for(int i = 0; i < index; i++){
+            if(cusComparator.compare(Heap[i].getCliente().getCorreo(), cliente.getCorreo())==0){
+                cantidad++;
+            }
+        }
+        return cantidad;
     }
     
     public Orden findByFecha(Date fecha){
