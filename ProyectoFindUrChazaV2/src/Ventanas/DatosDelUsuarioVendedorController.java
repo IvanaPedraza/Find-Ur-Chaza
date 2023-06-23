@@ -28,7 +28,7 @@ public class DatosDelUsuarioVendedorController implements Initializable{
     private ControladorProducto controladorProducto = App.bdPro.getControladorProducto();
     //private ArregloDinamicoConColaVendedor arregloVendedor = controladorVendedor.getArregloDinamicoVendedor();
     private HashVendedor hashVendedor = controladorVendedor.getHashVendedor();
-    public static Vendedor vendedorActual = new Vendedor(); //CAMBIAR ESTOOOOOO
+    public static Vendedor vendedorActual = InicioSesionController.getVendedorLog(); //CAMBIAR ESTOOOOOO
     private Mensaje mensaje = new Mensaje();
 
     @FXML
@@ -139,9 +139,13 @@ public class DatosDelUsuarioVendedorController implements Initializable{
         nombre.setVisible(true);
         telefono.setVisible(true);
         textFieldApellido.setVisible(true);
+        textFieldApellido.setText(vendedorActual.getApellido());
         textFieldCorreo.setVisible(true);
+        textFieldCorreo.setText(vendedorActual.getCorreo());
         textFieldNombre.setVisible(true);
+        textFieldNombre.setText(vendedorActual.getNombre());
         textFieldTelefono.setVisible(true);
+        textFieldTelefono.setText(vendedorActual.getTelefono());
     }
     
 

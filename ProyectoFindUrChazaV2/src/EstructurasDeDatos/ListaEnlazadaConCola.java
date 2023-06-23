@@ -1,5 +1,8 @@
 package EstructurasDeDatos;
 
+import Modelo.Factura;
+import Modelo.Orden;
+
 public class ListaEnlazadaConCola<T> {
 
     private int cantidad;
@@ -275,5 +278,6 @@ public class ListaEnlazadaConCola<T> {
     public int cantidad() {
         return this.cantidad;
     }
-
+    
+    
 }

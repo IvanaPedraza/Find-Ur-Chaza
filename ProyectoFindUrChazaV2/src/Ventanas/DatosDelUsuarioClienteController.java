@@ -3,6 +3,8 @@ package Ventanas;
 import EstructurasDeDatos.HashCliente;
 import Logica.*;
 import Modelo.Cliente;
+import Modelo.Factura;
+import Modelo.Orden;
 import com.sun.javafx.logging.PlatformLogger.Level;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
@@ -22,9 +24,12 @@ import javax.swing.JOptionPane;
 public class DatosDelUsuarioClienteController implements Initializable{
 
     private ControladorCliente controladorCliente = InicioSesionController.getControladorCliente();
+    private ControladorOrden controladorOrden = App.bdOrd.getControladorOrden();
+    private ControladorFactura controladorFactura = App.bdFac.getControladorFactura();
     //private ArregloDinamicoConColaVendedor arregloVendedor = controladorVendedor.getArregloDinamicoVendedor();
     private HashCliente hashCliente = controladorCliente.getHashCliente();
-    public static Cliente clienteActual = new Cliente();
+    public static Cliente clienteActual = InicioSesionController.getClienteLog();
+    public Mensaje mensaje = new Mensaje();
     
     @FXML
     private ImageView Wallpaper;
@@ -69,16 +74,53 @@ public class DatosDelUsuarioClienteController implements Initializable{
     private TextField textFieldTelefono;
 
    
-    
-
+   
     @FXML
     private void eliminarUsuarioCliente() throws IOException {
-        App.setRoot("InicioCliente");
+        String correoAEliminar = textFieldCorreo.getText().trim();
+        try {
+            eliminarOrdenFacCliente();
+            controladorCliente.eliminarCliente(correoAEliminar);
+            mensaje.mensajeInformacion("Haz eliminado tu usuario ");
+            App.setRoot("InicioSesion");
+        } catch (Exception e) {
+            mensaje.mensajeError("Ha sucedido un error, no fue posible eliminar :(");
+        }
     }
     
     @FXML
     private void actualizarUsuarioCliente() throws IOException {
-        App.setRoot("InicioCliente");
+        String correoActual = textFieldCorreo.getText().trim();
+        String nombreActual = textFieldNombre.getText().trim();
+        String apellidoActual = textFieldApellido.getText().trim();
+        String telefonoActual = textFieldTelefono.getText().trim();
+
+        if (!correoActual.equals("") || !nombreActual.equals("") || !apellidoActual.equals("") || !telefonoActual.equals("")) {
+            try {
+                controladorCliente.actualizarClienteCom(correoActual, nombreActual, apellidoActual, telefonoActual);
+                mensaje.mensajeInformacion("Haz actualizado tu usuario: " + nombreActual + " :D");
+                App.setRoot("menuChazas");
+            } catch (Exception e) {
+                mensaje.mensajeError("Ha sucedio un error, no fue posible actualizar :(");
+            }
+        } else {
+            mensaje.mensajeAdvertencia("Debe llenar todos los campos requeridos");
+        }
+    }
+    
+    private void eliminarOrdenFacCliente(){
+        try{
+            Orden[] ordenesCliente = controladorOrden.buscarOrdenesPorCliente(clienteActual);
+            for(int i = 0; i < ordenesCliente.length;i++){
+                Factura[] facturas = controladorFactura.buscarFacturasPorOrden(ordenesCliente[i]);
+                for(int j = 0; j < facturas.length; j++){
+                    controladorFactura.eliminarFactura(facturas[j].getNumReferencia());
+                }
+                controladorOrden.eliminarOrden(ordenesCliente[i].getNumOrden());
+            }
+        }catch(Exception e){
+            mensaje.mensajeError("Ha ocurrido un error " + e.toString());
+        }
     }
     
     @FXML
@@ -101,9 +143,13 @@ public class DatosDelUsuarioClienteController implements Initializable{
         nombre.setVisible(true);
         telefono.setVisible(true);
         textFieldApellido.setVisible(true);
+        textFieldApellido.setText(clienteActual.getApellido());
         textFieldCorreo.setVisible(true);
+        textFieldCorreo.setText(clienteActual.getCorreo());
         textFieldNombre.setVisible(true);
+        textFieldNombre.setText(clienteActual.getNombre());
         textFieldTelefono.setVisible(true);
+        textFieldTelefono.setText(clienteActual.getTelefono());
     }
      
  }   

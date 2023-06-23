@@ -155,6 +155,28 @@ public class ControladorCliente {
 
     }
     
+    public void actualizarClienteCom(String correoCliente, String nombreCliente, String apellidoCliente, String telefonoCliente){
+        Cliente clienteAntiguo = new Cliente();
+        try{
+            clienteAntiguo = buscarClientePorCorreo(correoCliente);
+        }catch(Exception e){
+            System.out.println("No se pudo actualizar el vendedor, porque no existe");
+        }
+        Cliente clienteActualizado = clienteAntiguo;
+        
+        clienteActualizado.setCorreo(correoCliente);
+        clienteActualizado.setNombre(nombreCliente);
+        clienteActualizado.setApellido(apellidoCliente);
+        clienteActualizado.setTelefono(telefonoCliente);
+        
+        if(clienteAntiguo.getCorreo().equals(clienteActualizado.getCorreo())){
+            hashCliente.remove(correoCliente);
+            hashCliente.insert(clienteActualizado.getCorreo(), clienteActualizado);
+        }else{
+            hashCliente.insert(correoCliente, clienteActualizado);
+        }
+    }
+    
     public void imprimirClientes() {
         long time_start, time_end;
         time_start = System.nanoTime();
