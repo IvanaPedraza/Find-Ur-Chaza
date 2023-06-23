@@ -148,7 +148,7 @@ public class DatosDelUsuarioClienteController implements Initializable {
     @FXML
     private void retornarInicioCli() throws IOException {
         System.out.println("Hola");
-        App.setRoot("InicioCliente");
+        App.setRoot("menuChazas");
     }
 
     @Override

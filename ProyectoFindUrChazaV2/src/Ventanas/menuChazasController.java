@@ -1,6 +1,7 @@
 package Ventanas;
 
 import Logica.*;
+import Modelo.Chaza;
 import Modelo.Cliente;
 import java.io.IOException;
 import java.net.URL;
@@ -15,6 +16,7 @@ public class menuChazasController implements Initializable{
     
     private ControladorChaza controladorChaza = App.bdCha.getControladorChaza();
     private Cliente clienteActual = InicioSesionController.getClienteLog();
+    public static Chaza chazaEscogida = new Chaza();
     public Mensaje mensaje = new Mensaje();
     
    
