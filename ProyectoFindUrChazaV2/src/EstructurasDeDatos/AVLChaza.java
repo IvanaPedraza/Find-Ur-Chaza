@@ -200,7 +200,22 @@ public class AVLChaza {
         inOrderTraversalVendedor(nodo, vendedor, chazas, 0);
         return chazas;
     }
+    
+    public Chaza[] findAll(){
+        NodeChaza nodo = root;
+        int count = numChazasTotal(nodo);
+        Chaza[] chazasTotales = new Chaza[count];
+        inOrderTraversalAll(nodo, chazasTotales, 0);
+        return chazasTotales;
+    }
 
+    public int numChazasTotal(NodeChaza nodo){
+        if(nodo == null){
+            return 0;
+        }
+        return 1 + numChazasTotal(nodo.getLeft()) + numChazasTotal(nodo.getRight());
+    }
+    
     public int numChazaVendedor(NodeChaza nodo, Vendedor vendedor) {
         /*
         NodeChaza current = root;
@@ -235,6 +250,16 @@ public class AVLChaza {
             chazas[index++] = nodo.getKey();
         }
         index = inOrderTraversalVendedor(nodo.getRight(), vendedor, chazas, index);
+        return index;
+    }
+    
+    private int inOrderTraversalAll(NodeChaza nodo, Chaza[] chaza, int index){
+        if(nodo == null){
+            return index;
+        }
+        index = inOrderTraversalAll(nodo.getLeft(), chaza, index);
+        chaza[index++] = nodo.getKey();
+        index = inOrderTraversalAll(nodo.getRight(), chaza, index);
         return index;
     }
 
@@ -298,6 +323,7 @@ public class AVLChaza {
             inOrderTraversal(root.getRight());
         }
     }
+   
 
     public void preOrderTraversal() {
         preOrderTraversal(this.root);
