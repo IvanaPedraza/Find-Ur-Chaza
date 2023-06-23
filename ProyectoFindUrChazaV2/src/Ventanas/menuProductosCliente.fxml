@@ -77,7 +77,7 @@
             <Font name="Berlin Sans FB" size="17.0" />
          </font>
       </Label>
-      <ImageView fx:id="elgatoPerfil" fitHeight="91.0" fitWidth="87.0" layoutX="1179.0" layoutY="11.0" onMouseClicked="#switchToDatosDelUsuarioCliente" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="elgatoPerfil" fitHeight="70.0" fitWidth="69.0" layoutX="1197.0" layoutY="11.0" onMouseClicked="#switchToDatosDelUsuarioCliente" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Imagenes/PerfilUsuario.png" />
          </image>
@@ -85,6 +85,10 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <ScrollBar fx:id="Scroll" layoutX="1247.0" layoutY="334.0" orientation="VERTICAL" prefHeight="371.0" prefWidth="14.0" />
+      <AnchorPane layoutX="-6.0" layoutY="316.0" prefHeight="407.0" prefWidth="1293.0">
+         <children>
+            <ScrollBar layoutX="1251.0" layoutY="35.0" orientation="VERTICAL" prefHeight="337.0" prefWidth="14.0" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
