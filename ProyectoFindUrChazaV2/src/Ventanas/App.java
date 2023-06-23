@@ -36,11 +36,10 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-<<<<<<< HEAD
+
         scene = new Scene(loadFXML("InicioSesion"), 1280, 720);
-=======
+
         scene = new Scene(loadFXML("menuChazas"), 1280, 720);
->>>>>>> 807ef3d6522ee696f3508a1e2d5ade6722087e5b
         stage.setScene(scene);
         stage.setTitle("Find Ur Chaza");
         stage.getIcons().add(new Image("/Imagenes/michianvorguesa.png"));
