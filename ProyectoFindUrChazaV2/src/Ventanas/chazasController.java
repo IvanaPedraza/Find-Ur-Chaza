@@ -27,8 +27,10 @@ public class chazasController implements Initializable{
     private Label nombreChaza;
 
     @FXML
-    void enviarChaza(MouseEvent event) throws IOException{
-        menuProductosClienteController.chazaEscogida = chazaActual;
+    void enviarChaza(MouseEvent event) throws IOException, Exception{
+        menuProductosClienteController.chazaEscogida = controladorChaza.buscarChazaPorNombre(nombreChaza.getText());
+        Chaza chaza = menuProductosClienteController.chazaEscogida;
+        System.out.println("chaza: " + chaza.getNombreChaza());
         irAMenu(event);
     }
     

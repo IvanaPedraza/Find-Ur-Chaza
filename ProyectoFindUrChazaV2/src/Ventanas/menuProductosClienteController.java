@@ -131,7 +131,7 @@ public class menuProductosClienteController implements Initializable{
                 ProductosController cardC = load.getController();
                 cardC.setData(cardListProducto.get(i));
 
-                if (column == 4) {
+                if (column == 3) {
                     column = 0;
                     row += 1;
                 }

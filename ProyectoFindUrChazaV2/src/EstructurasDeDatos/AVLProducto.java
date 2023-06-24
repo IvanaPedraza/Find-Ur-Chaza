@@ -168,10 +168,10 @@ public class AVLProducto{
             return 0;
         }
         int count = 0;
-        count += numProductoChaza(nodo.getLeft(), chaza);
         if(cusComparator.compare(nodo.getKey().getChaza().getIdChaza(), chaza.getIdChaza()) == 0){
             count++;
         }
+        count += numProductoChaza(nodo.getLeft(), chaza);
         count += numProductoChaza(nodo.getRight(), chaza);
         return count;
     }
