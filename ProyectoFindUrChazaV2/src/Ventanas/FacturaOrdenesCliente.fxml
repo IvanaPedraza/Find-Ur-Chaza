@@ -100,12 +100,12 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Label fx:id="PerfilCliente" layoutX="1101.0" layoutY="31.0" text="Label">
+      <Label fx:id="PerfilCliente" layoutX="916.0" layoutY="29.0" onMouseClicked="#switchToDatosDelUsuarioCliente" prefHeight="30.0" prefWidth="87.0" text="Label">
          <font>
-            <Font name="Berlin Sans FB" size="37.0" />
+            <Font name="Berlin Sans FB" size="26.0" />
          </font>
       </Label>
-      <ImageView fx:id="CirculoDeUsuario" fitHeight="92.0" fitWidth="83.0" layoutX="1192.0" layoutY="10.0" onMouseClicked="#switchToDatosDelUsuarioCliente" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="CirculoDeUsuario" fitHeight="75.0" fitWidth="75.0" layoutX="1200.0" layoutY="10.0" onMouseClicked="#switchToDatosDelUsuarioCliente" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Imagenes/PerfilUsuario.png" />
          </image>

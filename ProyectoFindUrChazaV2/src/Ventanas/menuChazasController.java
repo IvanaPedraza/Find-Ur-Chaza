@@ -32,6 +32,9 @@ public class menuChazasController implements Initializable {
 
     @FXML
     private ImageView Wallpaper;
+    
+    @FXML
+    private ImageView fotoPerfilC;
 
     @FXML
     private Button botonChazas;
@@ -57,6 +60,11 @@ public class menuChazasController implements Initializable {
     @FXML
     void retornarInicioSesion(MouseEvent event) throws IOException {
         App.setRoot("InicioSesion");
+    }
+    
+    @FXML
+    void retornarDatosCliente(MouseEvent event) throws IOException {
+        App.setRoot("DatosDelUsuarioCliente");
     }
 
     @FXML
