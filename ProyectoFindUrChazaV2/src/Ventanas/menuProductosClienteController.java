@@ -52,7 +52,7 @@ public class menuProductosClienteController implements Initializable{
     }
     
     @FXML
-    private Button TusOrdenes;
+    private Button Factura;
     
     @FXML
     private void switchToFacturaOrdenesCliente() throws IOException {
@@ -66,8 +66,8 @@ public class menuProductosClienteController implements Initializable{
     private void primerEstilo() {
         BotonRegresar.getStylesheets().clear();
         BotonRegresar.getStylesheets().addAll(this.getClass().getResource("../Estilos/Style's.css").toExternalForm());
-        TusOrdenes.getStylesheets().clear();
-        TusOrdenes.getStylesheets().addAll(this.getClass().getResource("../Estilos/Style's.css").toExternalForm());
+        Factura.getStylesheets().clear();
+        Factura.getStylesheets().addAll(this.getClass().getResource("../Estilos/Style's.css").toExternalForm());
         Productos.getStylesheets().clear();
         Productos.getStylesheets().addAll(this.getClass().getResource("../Estilos/Style's.css").toExternalForm());
     }
