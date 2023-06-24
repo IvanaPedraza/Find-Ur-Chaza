@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="Panel1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Ventanas.ordenesProductosVendedorController">
+   <children>
+      <ImageView fx:id="Fondo" fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true">
+         <image>
+            <Image url="@../Imagenes/degradeFondoChazas.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="michiHamborgueso" fitHeight="90.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Imagenes/michianvorguesa.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fx:id="FindUrChazaChikito" fitHeight="150.0" fitWidth="200.0" layoutX="31.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Imagenes/FindUrChazPequeño.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="MichiPerfilVendedor" fitHeight="88.0" fitWidth="110.0" layoutX="1174.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Imagenes/elgato.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Label fx:id="Vendedor" layoutX="967.0" layoutY="46.0" onMouseClicked="#verInfoCliente" prefHeight="14.0" prefWidth="225.0" text="Label">
+         <font>
+            <Font name="Berlin Sans FB" size="21.0" />
+         </font>
+      </Label>
+      <Button fx:id="BotonProductos" layoutX="640.0" layoutY="22.0" mnemonicParsing="false" onMouseClicked="#switchToMenuProductosCliente" stylesheets="@../Estilos/Style's_1.css" text="Productos">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="BotonOrdenes" disable="true" layoutX="538.0" layoutY="22.0" mnemonicParsing="false" onMouseClicked="#switchToMenuProductosCliente" stylesheets="@../Estilos/Style's_1.css" text="Ordenes">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <ImageView fx:id="GatitoConParrilla" fitHeight="267.0" fitWidth="298.0" layoutX="1013.0" layoutY="453.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Imagenes/comida-a-la-parrilla.png" />
+         </image>
+      </ImageView>
+      <TableView fx:id="TablaOrdenesClientes" layoutX="192.0" layoutY="129.0" prefHeight="525.0" prefWidth="815.0">
+        <columns>
+          <TableColumn fx:id="ColumnaCliente" prefWidth="253.0" text="Cliente" />
+          <TableColumn fx:id="ColumnaProducto" prefWidth="228.0" text="Producto" />
+            <TableColumn fx:id="ColumnaCantidad" minWidth="0.0" prefWidth="81.0" text="Cantidad" />
+            <TableColumn fx:id="ColumnaNumeroOrden" minWidth="0.0" prefWidth="121.0" text="Número de Orden" />
+            <TableColumn fx:id="ColumnaTotal" prefWidth="131.0" text="Total" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
