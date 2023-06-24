@@ -4,6 +4,7 @@ import Logica.*;
 import Modelo.*;
 import java.io.IOException;
 import java.net.URL;
+import java.security.Timestamp;
 import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -26,7 +27,7 @@ public class menuProductosClienteController implements Initializable{
     private PreparedStatement pst;
     private ControladorChaza controladorChaza = App.bdCha.getControladorChaza();
     private Cliente clienteActual = InicioSesionController.getClienteLog();
-    public static Orden ordenActual;
+    public static Orden ordenActual = new Orden();
     public static Chaza chazaEscogida = new Chaza();
     private ControladorProducto controladorProducto = App.bdPro.getControladorProducto();
     private ControladorOrden controladorOrden = App.bdOrd.getControladorOrden();
@@ -175,17 +176,18 @@ public class menuProductosClienteController implements Initializable{
        long idOrden = numeroIdOrden();
        Date fechaProcesoOrden = new Date();
        ordenActual = new Orden(idOrden, fechaProcesoOrden, clienteActual, chazaEscogida);
-       
+       System.out.println("Se ha generado la orden " + ordenActual.getNumOrden());
+       java.sql.Date fechaSQL = new java.sql.Date(fechaProcesoOrden.getTime());
        if(idOrden != 0 || fechaProcesoOrden != null || ordenActual != null || clienteActual != null || chazaEscogida != null){
            try{
                pst = conexion.prepareStatement("insert into orden values(?,?,?,?)");
-               pst.setString(1, String.valueOf(idOrden));
-               pst.setString(2, String.valueOf(fechaProcesoOrden));
+               pst.setLong(1, idOrden);
+               pst.setDate(2, fechaSQL);
                pst.setString(3, clienteActual.getCorreo());
-               pst.setString(4, String.valueOf(chazaEscogida.getIdChaza()));
+               pst.setInt(4, chazaEscogida.getIdChaza());
                pst.executeUpdate();
            }catch(SQLException e){
-               System.out.println("Error en el insertado de la BD");
+               System.out.println("Error en el insertado de la BD" + e);
            }
        }else{
            mensaje.mensajeAdvertencia("Ha sucedido un error en la asignacion de valores, contacta al administrador.");

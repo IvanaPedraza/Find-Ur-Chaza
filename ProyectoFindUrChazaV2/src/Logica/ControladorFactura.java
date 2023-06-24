@@ -43,7 +43,7 @@ public class ControladorFactura {
             ListaEnlazadaConColaFactura.delete(facturaAEliminar);
 
         } catch (Exception e) {
-            System.out.println("La factura no se encontró");
+            System.out.println("La factura no se encontró" + e);
         }
         time_end = System.nanoTime();
         System.out.println("eliminarFactura con arreglo dinamico tomo " + (time_end - time_start) + " milliseconds");
@@ -123,9 +123,11 @@ public class ControladorFactura {
             facturaIterado = (Factura) ListaEnlazadaConColaFactura.getElement(i);
             if (facturaIterado.getNumReferencia() == referencia) {
                 facturaEncontrado = facturaIterado;
-            } else {
-                throw new Exception("No existe la factura");
+                break;
             }
+        }
+        if(facturaEncontrado == null){
+            System.out.println("No se encontro la factura");
         }
         time_end = System.nanoTime();
         System.out.println("buscarFacturaPorId con arreglo dinamico tomo " + (time_end - time_start) + " milliseconds");

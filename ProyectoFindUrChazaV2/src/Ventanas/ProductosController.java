@@ -25,10 +25,10 @@ import javafx.scene.layout.VBox;
  */
 public class ProductosController implements Initializable{
     private Producto productoActual = new Producto();
-    private Orden ordenActual = menuProductosClienteController.ordenActual;
+    private static Orden ordenActual = menuProductosClienteController.ordenActual;
     private ControladorFactura controladorFactura = App.bdFac.getControladorFactura();
     private Factura facturaActual = new Factura();
-    private long numeroFactura = numFactura();
+    private long numFactura = 0;
     public Mensaje mensaje = new Mensaje();
     private int cantidad;
     
@@ -85,11 +85,14 @@ public class ProductosController implements Initializable{
     }
     
     public void anadirProductoFac() throws Exception{
+        long numeroFactura = numFactura();
+        this.numFactura = numeroFactura;
         cantidad = Spinner.getValue();
         Date fechaFactura = new Date();
         if(cantidad != 0 && controladorFactura.existeFactura(numeroFactura) == false){
             double costoTotal = cantidad * productoActual.getPrecio();
             facturaActual = controladorFactura.agregarNuevaFactura(numeroFactura, fechaFactura, productoActual, ordenActual, cantidad, costoTotal);
+            System.out.println("La factura se creo como: " + facturaActual.getNumReferencia());
         }else if(controladorFactura.existeFactura(numeroFactura) == true && cantidad != controladorFactura.buscarFacturaPorId(numeroFactura).getCantidad()){
             controladorFactura.actualizarFactura(numeroFactura, "Cantidad", String.valueOf(cantidad));
         }
@@ -97,7 +100,8 @@ public class ProductosController implements Initializable{
     
     public void eliminarFacturaProd(){
         try{
-            controladorFactura.eliminarFactura(numeroFactura);
+            controladorFactura.eliminarFactura(numFactura);
+            spin.setValue(0);
         }catch(Exception e){
             mensaje.mensajeError("Ha ocurrido un error en la eliminación del producto");
         }
@@ -124,6 +128,7 @@ public class ProductosController implements Initializable{
         imagenComida.setVisible(true);
         nombreProducto.setVisible(true);
         precioProducto.setVisible(true);
+        setQuantity();
 
     }
     
