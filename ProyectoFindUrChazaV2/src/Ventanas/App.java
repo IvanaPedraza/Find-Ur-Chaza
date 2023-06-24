@@ -38,7 +38,7 @@ public class App extends Application {
 
 
 
-        scene = new Scene(loadFXML("menuProductosCliente"), 1280, 720);
+        scene = new Scene(loadFXML("InicioSesion"), 1280, 720);
 
 
         stage.setScene(scene);

@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="panel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Ventanas.menuChazasController">
@@ -21,14 +17,29 @@
             <Image url="@../Imagenes/F2V.jpg" />
          </image>
       </ImageView>
-      <ButtonBar layoutX="495.0" layoutY="15.0" prefHeight="40.0" prefWidth="107.0" />
       <ImageView fx:id="inicioSesion" fitHeight="91.0" fitWidth="96.0" layoutX="14.0" layoutY="13.0" onMouseClicked="#retornarInicioSesion" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Imagenes/michianvorguesa.png" />
          </image>
       </ImageView>
-      <Button fx:id="botonOrdenesCliente" layoutX="515.0" layoutY="15.0" mnemonicParsing="false" onAction="#verOrdenesCliente" onMouseClicked="#verOrdenesCliente" stylesheets="@../Estilos/Style's_1.css" text="Tus ordenes" />
-      <Button fx:id="botonChazas" layoutX="647.0" layoutY="15.0" mnemonicParsing="false" onAction="#verChazas" onMouseClicked="#verChazas" stylesheets="@../Estilos/Style's_1.css" text="Chazas" />
+      <AnchorPane fx:id="chaza_form" layoutX="100.0" layoutY="100.0" prefHeight="444.0" prefWidth="971.0" AnchorPane.bottomAnchor="68.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="100.0">
+         <children>
+            <AnchorPane prefHeight="552.0" prefWidth="1080.0">
+               <children>
+                  <ScrollPane fx:id="scrollGridPane" layoutX="14.0" layoutY="14.0" prefHeight="537.0" prefWidth="1045.0">
+                     <content>
+                        <GridPane fx:id="chaza_gridPane" prefHeight="23.0" prefWidth="104.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                        </GridPane>
+                     </content>
+                  </ScrollPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <Button fx:id="botonChazas" layoutX="595.0" layoutY="14.0" mnemonicParsing="false" onAction="#verChazas" onMouseClicked="#verChazas" stylesheets="@../Estilos/Style's_1.css" text="Chazas" />
       <Label fx:id="labelDatosCliente" layoutX="966.0" layoutY="25.0" onMouseClicked="#verInfoCliente" text="Label">
          <font>
             <Font name="Berlin Sans FB" size="21.0" />
@@ -39,26 +50,5 @@
             <Image url="@../Imagenes/FindUrChazPequeño.png" />
          </image>
       </ImageView>
-      <BorderPane layoutX="-1.0" layoutY="105.0" prefHeight="615.0" prefWidth="1280.0">
-         <bottom>
-            <VBox prefHeight="618.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
-               <children>
-                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
-                     <children>
-                        <ScrollPane fx:id="scroll" prefHeight="570.0" prefWidth="1250.0" styleClass="transparent" stylesheets="@../Estilos/style.css">
-                           <content>
-                              <GridPane prefHeight="0.0" prefWidth="0.0">
-                                <columnConstraints>
-                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                </columnConstraints>
-                              </GridPane>
-                           </content>
-                        </ScrollPane>
-                     </children>
-                  </HBox>
-               </children>
-            </VBox>
-         </bottom>
-      </BorderPane>
    </children>
 </AnchorPane>
