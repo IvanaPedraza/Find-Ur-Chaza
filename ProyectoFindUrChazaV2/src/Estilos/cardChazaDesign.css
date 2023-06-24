@@ -1,0 +1,23 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 24/06/2023, 8:44:44 a. m.
+    Author     : kelly
+*/
+
+.card{
+    -fx-background-color: white;
+    -fx-background-radius: 5px;
+}
+
+.card:hover{
+    -fx-cursor: hand;
+    
+}
+
+.shadow{
+    -fx-effect: dropshadow(three-pass-box,rgba(0,0,0,0.5), 5,0,0,0);
+}
+

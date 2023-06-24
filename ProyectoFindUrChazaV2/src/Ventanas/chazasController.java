@@ -4,18 +4,11 @@ import Logica.ControladorChaza;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import Modelo.Chaza;
-import Modelo.Producto;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Region;
 
 public class chazasController implements Initializable{
 
@@ -26,9 +19,16 @@ public class chazasController implements Initializable{
     private ImageView Imgchaza;
 
     @FXML
+    private AnchorPane chazaCard;
+
+    @FXML
     private Label nombreChaza;
 
-    
+    @FXML
+    void verProductosChaza() {
+        Chaza chazaEscogida = chazaActual;
+        
+    }
     
     public void setData(Chaza chaza){
         this.chazaActual = chaza;

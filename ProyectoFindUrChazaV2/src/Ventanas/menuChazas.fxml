@@ -22,11 +22,11 @@
             <Image url="@../Imagenes/michianvorguesa.png" />
          </image>
       </ImageView>
-      <AnchorPane fx:id="chaza_form" layoutX="100.0" layoutY="100.0" prefHeight="444.0" prefWidth="971.0" AnchorPane.bottomAnchor="68.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="100.0">
+      <AnchorPane fx:id="chaza_form" layoutX="100.0" layoutY="100.0" prefHeight="444.0" prefWidth="971.0" styleClass="scroll" stylesheets="@../Estilos/scrollPane.css" AnchorPane.bottomAnchor="68.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="100.0">
          <children>
             <AnchorPane prefHeight="552.0" prefWidth="1080.0">
                <children>
-                  <ScrollPane fx:id="scrollGridPane" layoutX="14.0" layoutY="14.0" prefHeight="537.0" prefWidth="1045.0">
+                  <ScrollPane fx:id="scrollGridPane" layoutX="14.0" layoutY="14.0" prefHeight="537.0" prefWidth="1045.0" styleClass="scroll" stylesheets="@../Estilos/scrollPane.css">
                      <content>
                         <GridPane fx:id="chaza_gridPane" prefHeight="23.0" prefWidth="104.0">
                           <columnConstraints>

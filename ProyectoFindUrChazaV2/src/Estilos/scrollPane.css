@@ -1,0 +1,16 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 24/06/2023, 8:54:03 a. m.
+    Author     : kelly
+*/
+
+.scroll> .viewport {
+   -fx-background-color: transparent;
+}
+
+.scroll {
+   -fx-background-color: transparent;
+}

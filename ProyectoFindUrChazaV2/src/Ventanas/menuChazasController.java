@@ -14,6 +14,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.image.*;
 import javafx.scene.input.*;
@@ -104,7 +105,7 @@ public class menuChazasController implements Initializable {
 
         int row = 0;
         int column = 0;
-
+        chaza_gridPane.getChildren().clear();
         chaza_gridPane.getRowConstraints().clear();
         chaza_gridPane.getColumnConstraints().clear();
         for (int i = 0; i < cardListChaza.size(); i++) {
@@ -121,6 +122,8 @@ public class menuChazasController implements Initializable {
                 }
 
                 chaza_gridPane.add(pane, column++, row);
+                
+                GridPane.setMargin(pane, new Insets(10));
             } catch (Exception e) {
                 System.out.println("Error: " + e);
             }
