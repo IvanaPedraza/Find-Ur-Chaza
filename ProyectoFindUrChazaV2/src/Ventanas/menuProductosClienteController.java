@@ -4,6 +4,7 @@ import Logica.*;
 import Modelo.*;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -22,9 +23,10 @@ public class menuProductosClienteController implements Initializable{
     
     private ControladorChaza controladorChaza = App.bdCha.getControladorChaza();
     private Cliente clienteActual = InicioSesionController.getClienteLog();
-    public static Orden ordenActual = new Orden();
+    public static Orden ordenActual;
     public static Chaza chazaEscogida = new Chaza();
     private ControladorProducto controladorProducto = App.bdPro.getControladorProducto();
+    private ControladorOrden controladorOrden = App.bdOrd.getControladorOrden();
     
     private ObservableList<Producto> cardListProducto = FXCollections.observableArrayList();
 
@@ -165,6 +167,20 @@ public class menuProductosClienteController implements Initializable{
        }
        return estado;
    }
+   
+   public Orden generarNuevaOrden(){
+       int idOrden = numeroIdOrden();
+       Date fechaProcesoOrden = new Date();
+       ordenActual = new Orden(idOrden, fechaProcesoOrden, clienteActual, chazaEscogida);
+       return ordenActual;
+   }
+   
+   
+   private int numeroIdOrden(){
+       int numeroDeOrdenes = controladorOrden.numeroOrdenesChaza(chazaEscogida);
+       int numOrden = 100 + numeroDeOrdenes;
+       return numOrden;
+   }
       
 
   @Override
@@ -194,6 +210,7 @@ public class menuProductosClienteController implements Initializable{
         scrollGridPane.setVisible(true);
         separador.setVisible(true);
         productoDisplayCard();
+        generarNuevaOrden();
     }
  }   
 
