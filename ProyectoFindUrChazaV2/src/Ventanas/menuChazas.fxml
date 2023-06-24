@@ -26,7 +26,7 @@
          <children>
             <AnchorPane prefHeight="552.0" prefWidth="1080.0">
                <children>
-                  <ScrollPane fx:id="scrollGridPane" layoutX="14.0" layoutY="14.0" prefHeight="537.0" prefWidth="1045.0" styleClass="scroll" stylesheets="@../Estilos/scrollPane.css">
+                  <ScrollPane fx:id="scrollGridPane" layoutX="8.0" layoutY="7.0" prefHeight="537.0" prefWidth="1045.0" styleClass="scroll" stylesheets="@../Estilos/scrollPane.css">
                      <content>
                         <GridPane fx:id="chaza_gridPane" prefHeight="23.0" prefWidth="104.0">
                           <columnConstraints>
