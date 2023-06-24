@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.String?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Spinner?>
 <?import javafx.scene.image.Image?>
@@ -20,11 +21,20 @@
                      <font>
                         <Font name="Berlin Sans FB Demi Bold" size="22.0" />
                      </font>
+                     <HBox.margin>
+                        <Insets left="15.0" />
+                     </HBox.margin>
                   </Label>
-                  <Label fx:id="precioProducto" alignment="CENTER" contentDisplay="CENTER" prefHeight="69.0" prefWidth="117.0" text="\$0.0" textAlignment="CENTER" textFill="#2f281e">
+                  <Label fx:id="precioProducto" alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="69.0" prefWidth="117.0" text="\$0.0" textAlignment="CENTER" textFill="#2f281e">
                      <font>
                         <Font size="22.0" />
                      </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <HBox.margin>
+                        <Insets right="15.0" />
+                     </HBox.margin>
                   </Label>
                </children>
             </HBox>
@@ -46,7 +56,7 @@
                   </AnchorPane>
                   <AnchorPane fx:id="PanelAñadir" prefHeight="74.0" prefWidth="88.0">
                      <children>
-                        <ImageView fx:id="Añadir" fitHeight="55.0" fitWidth="46.0" layoutX="21.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="anadirProducto" fitHeight="55.0" fitWidth="46.0" layoutX="21.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../Imagenes/BotonOrdenar.png" />
                            </image>

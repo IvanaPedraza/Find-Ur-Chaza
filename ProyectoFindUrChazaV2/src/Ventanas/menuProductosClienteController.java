@@ -11,23 +11,26 @@ import javafx.collections.ObservableList;
 import javafx.fxml.*;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
-
+import java.sql.Connection;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import javafx.scene.layout.GridPane;
 
 
 
 public class menuProductosClienteController implements Initializable{
     
+    private Connection conexion = BaseDeDatos.Conexion.conectar();
+    private PreparedStatement pst;
     private ControladorChaza controladorChaza = App.bdCha.getControladorChaza();
     private Cliente clienteActual = InicioSesionController.getClienteLog();
     public static Orden ordenActual;
     public static Chaza chazaEscogida = new Chaza();
     private ControladorProducto controladorProducto = App.bdPro.getControladorProducto();
     private ControladorOrden controladorOrden = App.bdOrd.getControladorOrden();
-    
+    public Mensaje mensaje = new Mensaje();
     private ObservableList<Producto> cardListProducto = FXCollections.observableArrayList();
 
    @FXML
@@ -169,16 +172,32 @@ public class menuProductosClienteController implements Initializable{
    }
    
    public Orden generarNuevaOrden(){
-       int idOrden = numeroIdOrden();
+       long idOrden = numeroIdOrden();
        Date fechaProcesoOrden = new Date();
        ordenActual = new Orden(idOrden, fechaProcesoOrden, clienteActual, chazaEscogida);
+       
+       if(idOrden != 0 || fechaProcesoOrden != null || ordenActual != null || clienteActual != null || chazaEscogida != null){
+           try{
+               pst = conexion.prepareStatement("insert into orden values(?,?,?,?)");
+               pst.setString(1, String.valueOf(idOrden));
+               pst.setString(2, String.valueOf(fechaProcesoOrden));
+               pst.setString(3, clienteActual.getCorreo());
+               pst.setString(4, String.valueOf(chazaEscogida.getIdChaza()));
+               pst.executeUpdate();
+           }catch(SQLException e){
+               System.out.println("Error en el insertado de la BD");
+           }
+       }else{
+           mensaje.mensajeAdvertencia("Ha sucedido un error en la asignacion de valores, contacta al administrador.");
+       }
+       
        return ordenActual;
    }
    
    
-   private int numeroIdOrden(){
-       int numeroDeOrdenes = controladorOrden.numeroOrdenesChaza(chazaEscogida);
-       int numOrden = 100 + numeroDeOrdenes;
+   private long numeroIdOrden(){
+       long numeroDeOrdenes = controladorOrden.numeroOrden();
+       long numOrden = 100 + numeroDeOrdenes;
        return numOrden;
    }
       

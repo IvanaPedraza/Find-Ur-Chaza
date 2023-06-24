@@ -188,6 +188,10 @@ public class MinHeapOrden {
         return cantidad;
     }
     
+    public long numOrden(){
+        return index;
+    }
+    
     public Orden[] findByFecha(Date fecha){
         int cantidad = numOrdenFecha(fecha);
         Orden[] ordenesPorFecha = new Orden[cantidad];

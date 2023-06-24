@@ -197,6 +197,10 @@ public class ControladorOrden {
         return minHeapOrden.numOrdenChaza(chaza);
     }
     
+    public long numeroOrden(){
+        return minHeapOrden.numOrden();
+    }
+    
     
 
 }

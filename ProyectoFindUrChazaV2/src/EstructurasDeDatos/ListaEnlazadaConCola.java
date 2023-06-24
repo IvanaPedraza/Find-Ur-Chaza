@@ -279,5 +279,8 @@ public class ListaEnlazadaConCola<T> {
         return this.cantidad;
     }
     
+    public long cantidadLong(){
+        return this.cantidad;
+    }
     
 }
