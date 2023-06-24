@@ -126,7 +126,7 @@ public class menuProductosClienteController implements Initializable{
         for (int i = 0; i < cardListProducto.size(); i++) {
             try {
                 FXMLLoader load = new FXMLLoader();
-                load.setLocation(getClass().getResource("Chazas.fxml"));
+                load.setLocation(getClass().getResource("Productos.fxml"));
                 AnchorPane pane = load.load();
                 ProductosController cardC = load.getController();
                 cardC.setData(cardListProducto.get(i));
@@ -193,6 +193,7 @@ public class menuProductosClienteController implements Initializable{
         producto_GridPane.setVisible(true);
         scrollGridPane.setVisible(true);
         separador.setVisible(true);
+        productoDisplayCard();
     }
  }   
 

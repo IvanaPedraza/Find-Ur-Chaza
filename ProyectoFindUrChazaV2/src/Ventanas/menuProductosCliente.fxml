@@ -92,11 +92,11 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <AnchorPane fx:id="productoForm" layoutX="112.0" layoutY="334.0" prefHeight="331.0" prefWidth="1017.0">
+      <AnchorPane fx:id="productoForm" layoutX="126.0" layoutY="334.0" prefHeight="331.0" prefWidth="1017.0" AnchorPane.bottomAnchor="38.0" AnchorPane.leftAnchor="126.0" AnchorPane.rightAnchor="124.0" AnchorPane.topAnchor="334.0">
          <children>
             <AnchorPane prefHeight="343.0" prefWidth="1060.0">
                <children>
-                  <ScrollPane fx:id="scrollGridPane" prefHeight="348.0" prefWidth="1060.0">
+                  <ScrollPane fx:id="scrollGridPane" prefHeight="348.0" prefWidth="1060.0" styleClass="scroll" stylesheets="@../Estilos/scrollPane.css">
                      <content>
                         <GridPane fx:id="producto_GridPane" prefHeight="28.0" prefWidth="114.0">
                           <columnConstraints>
