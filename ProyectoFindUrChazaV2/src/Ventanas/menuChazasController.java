@@ -23,8 +23,7 @@ import javafx.scene.layout.*;
 public class menuChazasController implements Initializable {
 
     private ControladorChaza controladorChaza = App.bdCha.getControladorChaza();
-    private Cliente clienteActual = InicioSesionController.getClienteLog();
-    public static Orden ordenActual = new Orden();
+    private Cliente clienteActual = InicioSesionController.getClienteLog(); 
     public static Chaza chazaEscogida = new Chaza();
     public Mensaje mensaje = new Mensaje();
 
@@ -116,7 +115,7 @@ public class menuChazasController implements Initializable {
                 chazasController cardC = load.getController();
                 cardC.setData(cardListChaza.get(i));
 
-                if (column == 3) {
+                if (column == 4) {
                     column = 0;
                     row += 1;
                 }
@@ -130,6 +129,8 @@ public class menuChazasController implements Initializable {
         }
 
     }
+    
+    
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

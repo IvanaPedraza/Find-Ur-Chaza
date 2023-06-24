@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="chazaCard" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#verProductosChaza" prefHeight="215.0" prefWidth="215.0" stylesheets="@../Estilos/cardChazaDesign.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Ventanas.chazasController">
+<AnchorPane fx:id="chazaCard" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#enviarChaza" prefHeight="215.0" prefWidth="215.0" stylesheets="@../Estilos/cardChazaDesign.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Ventanas.chazasController">
    <children>
       <ImageView fx:id="Imgchaza" fitHeight="175.0" fitWidth="201.0" layoutX="7.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="5.0">
          <image>

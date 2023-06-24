@@ -5,15 +5,17 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import Modelo.Chaza;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 public class chazasController implements Initializable{
 
     private ControladorChaza controladorChaza = App.bdCha.getControladorChaza();
-    private Chaza chazaActual = new Chaza();
+    private static Chaza chazaActual = new Chaza();
 
     @FXML
     private ImageView Imgchaza;
@@ -25,8 +27,13 @@ public class chazasController implements Initializable{
     private Label nombreChaza;
 
     @FXML
-    void verProductosChaza() {
-        Chaza chazaEscogida = chazaActual;
+    void enviarChaza(MouseEvent event) throws IOException{
+        menuProductosClienteController.chazaEscogida = chazaActual;
+        irAMenu(event);
+    }
+    
+    private void irAMenu(MouseEvent event) throws IOException{
+        App.setRoot("menuProductosCliente");
         
     }
     
