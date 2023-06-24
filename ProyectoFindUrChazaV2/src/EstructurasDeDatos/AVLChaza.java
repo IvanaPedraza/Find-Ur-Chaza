@@ -147,25 +147,18 @@ public class AVLChaza {
         return current;
     }
 
-    public Chaza findByName(String nombreChaza) {
-        NodeChaza current = root;
-        /*
-        System.out.println("current: " + current.getKey().getNombreChaza());
-        while(current != null){
-            if(cusComparator.compare(current.getKey().getNombreChaza(), nombreChaza) == 0){
-                break;
-            }
-            current = (cusComparator.compare(current.getKey().getNombreChaza(),nombreChaza) < 0) ? current.getRight() : current.getLeft();
+    public Chaza findByName(NodeChaza nodo, String nombreChaza) {
+        if(nodo == null){
+            return null;
         }
-        return current.getKey();
-         */
-        while(current != null){
-            if(cusComparator.compare(current.getKey().getNombreChaza(), nombreChaza) == 0){
-                break;
-            }
-            current = (cusComparator.compare(nombreChaza,current.getKey().getNombreChaza()) > 0) ? current.getLeft() : current.getRight();
+        if(cusComparator.compare(nodo.getKey().getNombreChaza(), nombreChaza)==0){
+            return nodo.getKey();
         }
-        return current.getKey();
+        Chaza chazaEncontrada = findByName(nodo.getLeft(),nombreChaza);
+        if(chazaEncontrada!=null){
+            return chazaEncontrada;
+        }
+        return findByName(nodo.getRight(), nombreChaza);
 
     }
 
@@ -182,6 +175,8 @@ public class AVLChaza {
          
 
     }
+    
+    
 
     public Chaza[] findByVendedor(Vendedor vendedor) {
         NodeChaza nodo = root;

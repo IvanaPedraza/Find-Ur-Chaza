@@ -104,7 +104,7 @@ public class ControladorChaza {
         //long time_start, time_end;
         //time_start = System.nanoTime();
         try{
-            chazaEncontrada = AVLChaza.findByName(nombreChaza);
+            chazaEncontrada = AVLChaza.findByName(AVLChaza.getRoot(),nombreChaza);
             System.out.println("La chaza es: " + chazaEncontrada.getNombreChaza()+ " "+chazaEncontrada.getUbicacion()+" "+chazaEncontrada.getDescripcion());
             
         }catch(Exception e){
