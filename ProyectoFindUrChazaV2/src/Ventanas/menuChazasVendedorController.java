@@ -23,12 +23,12 @@ import javafx.scene.layout.*;
 
 public class menuChazasVendedorController implements Initializable {
 
-    //private ControladorChaza controladorChaza = App.bdCha.getControladorChaza();
+    private ControladorChaza controladorChaza = App.bdCha.getControladorChaza();
     private Vendedor vendedorActual = InicioSesionController.getVendedorLog(); 
-   // public static Chaza chazaEscogida = new Chaza();
+    public static Chaza chazaEscogida = new Chaza();
     //public Mensaje mensaje = new Mensaje();
 
-    //private ObservableList<Chaza> cardListChaza = FXCollections.observableArrayList();
+    private ObservableList<Chaza> cardListChaza = FXCollections.observableArrayList();
 
     @FXML
     private ImageView Fondo;
@@ -89,10 +89,10 @@ public class menuChazasVendedorController implements Initializable {
         }
 
         return chazas;
-    }
+    }*/
 
-     */
-    /*
+     
+    
     public ObservableList<Chaza> chazaGetData() {
         ObservableList<Chaza> listChaza = FXCollections.observableArrayList();
         Chaza[] chazas = controladorChaza.totalChazas();
@@ -135,7 +135,7 @@ public class menuChazasVendedorController implements Initializable {
             }
         }
 
-    }*/
+    }
     
     
 
@@ -153,5 +153,6 @@ public class menuChazasVendedorController implements Initializable {
         panel.setVisible(true);
         scrollGridPane.setVisible(true);
         labelDatosVendedor.setText("¡Bienvenido " + vendedorActual.getNombre() + " " + vendedorActual.getApellido() + "!");
+        chazaDisplayCard();
     }
 }
