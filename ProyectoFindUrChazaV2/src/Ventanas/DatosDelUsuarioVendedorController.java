@@ -73,7 +73,7 @@ public class DatosDelUsuarioVendedorController implements Initializable{
     
     @FXML
     private void retornarInicioVen() throws IOException {
-        App.setRoot("InicioVendedor");
+        App.setRoot("menuChazasVendedor");
     }
 
     @FXML

@@ -176,13 +176,14 @@ public class InicioSesionController implements Initializable {
                 vendedorLogueado = controladorVendedor.iniciarSesionVendedor(email, pass);
                 if(vendedorLogueado != null){
                     vendedorLog = vendedorLogueado;
-                    App.setRoot("inicioVendedor");
+                    App.setRoot("menuChazasVendedor");
                 }else{
                     mensaje.mensajeAdvertencia("¡El vendedor ingresado no es válido, vuelva a intentar! :(");
                 }
                 
             } catch (Exception e) {
                 mensaje.mensajeError("¡Error al iniciar sesión! :(");
+                System.out.println("ola"+e);
             }
         } else {
             mensaje.mensajeAdvertencia("Debes llenar todos los campos para continuar! :)");
