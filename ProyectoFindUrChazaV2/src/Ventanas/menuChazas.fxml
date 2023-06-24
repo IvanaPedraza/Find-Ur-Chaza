@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="panel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Ventanas.menuChazasController">
+<AnchorPane fx:id="panel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Ventanas.menuChazasController">
    <children>
       <ImageView fx:id="Wallpaper" fitHeight="745.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -22,11 +22,11 @@
             <Image url="@../Imagenes/michianvorguesa.png" />
          </image>
       </ImageView>
-      <AnchorPane fx:id="chaza_form" layoutX="100.0" layoutY="100.0" prefHeight="444.0" prefWidth="971.0" AnchorPane.bottomAnchor="68.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="100.0">
+      <AnchorPane fx:id="chaza_form" layoutX="100.0" layoutY="100.0" prefHeight="444.0" prefWidth="971.0" styleClass="scroll" stylesheets="@../Estilos/scrollPane.css" AnchorPane.bottomAnchor="68.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="100.0">
          <children>
             <AnchorPane prefHeight="552.0" prefWidth="1080.0">
                <children>
-                  <ScrollPane fx:id="scrollGridPane" layoutX="14.0" layoutY="14.0" prefHeight="537.0" prefWidth="1045.0">
+                  <ScrollPane fx:id="scrollGridPane" layoutX="8.0" layoutY="7.0" prefHeight="537.0" prefWidth="1045.0" styleClass="scroll" stylesheets="@../Estilos/scrollPane.css">
                      <content>
                         <GridPane fx:id="chaza_gridPane" prefHeight="23.0" prefWidth="104.0">
                           <columnConstraints>
@@ -40,7 +40,7 @@
          </children>
       </AnchorPane>
       <Button fx:id="botonChazas" layoutX="595.0" layoutY="14.0" mnemonicParsing="false" onAction="#verChazas" onMouseClicked="#verChazas" stylesheets="@../Estilos/Style's_1.css" text="Chazas" />
-      <Label fx:id="labelDatosCliente" layoutX="966.0" layoutY="25.0" onMouseClicked="#verInfoCliente" text="Label">
+      <Label fx:id="labelDatosCliente" layoutX="929.0" layoutY="23.0" onMouseClicked="#verInfoCliente" text="Label">
          <font>
             <Font name="Berlin Sans FB" size="21.0" />
          </font>
@@ -50,6 +50,7 @@
             <Image url="@../Imagenes/FindUrChazPequeño.png" />
          </image>
       </ImageView>
+<<<<<<< HEAD
 
       <BorderPane layoutX="-1.0" layoutY="105.0" prefHeight="615.0" prefWidth="1280.0">
          <bottom>
@@ -73,5 +74,12 @@
          </bottom>
       </BorderPane>
 
+=======
+      <ImageView fx:id="fotoPerfilC" fitHeight="75.0" fitWidth="79.0" layoutX="1197.0" layoutY="8.0" onMouseClicked="#retornarDatosCliente" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Imagenes/PerfilUsuario.png" />
+         </image>
+      </ImageView>
+>>>>>>> 1a21f5691575fd22df25ab5a0be922dd26dca994
    </children>
 </AnchorPane>

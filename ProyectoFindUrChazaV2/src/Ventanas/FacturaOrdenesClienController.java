@@ -43,6 +43,9 @@ import javafx.stage.Stage;
  * @author IVANA
  */
 public class FacturaOrdenesClienController implements Initializable{
+    
+    private Cliente clienteActual = InicioSesionController.getClienteLog();
+    
     @FXML
     private ImageView FindUrChazPequeño;
     
@@ -96,9 +99,6 @@ public class FacturaOrdenesClienController implements Initializable{
     private AnchorPane Panel2;
     
     @FXML
-    private AnchorPane Panel3;
-    
-    @FXML
     private Label Usuario;
    
     @FXML
@@ -147,45 +147,10 @@ public class FacturaOrdenesClienController implements Initializable{
     private TableColumn ColumnaProducto;
     
     
-    
-    
     @Override
     public void initialize(URL url, ResourceBundle rb
     ) {
         degradeFondoChazasRecorte.setVisible(true);
-        Linea.setVisible(false);
-        FacturaCompra.setVisible(false);
-        sushi2.setVisible(false);
-        Camaron.setVisible(false);
-        PerfilUsuario.setVisible(false);
-        Numero.setVisible(false);
-        Correo.setVisible(false);
-        TextFieldTotal.setVisible(false);
-        Usuario.setVisible(false);
-        TotalOrden.setVisible(false);
-        Panel2.setVisible(false);
-        TablaFactura.setVisible(false);
-        ColumnaID.setVisible(false);
-        fBlancoTransparente.setVisible(false);
-        Panel3.setVisible(true);
-        Panel1.setVisible(true);
-        CirculoDeUsuario.setVisible(true);
-        michianvorguesa.setVisible(true);
-        FindUrChazPequeño.setVisible(true);
-        ColumnaFecha.setVisible(false);
-        ColumnaOrden. setVisible(false);
-        ColumnaProducto.setVisible(false);
-        PerfilCliente.setVisible(true);
-        BotonOrdenes.setVisible(true);
-        BotonProductos.setVisible(true);
-    }
-    
-     @FXML
-    private void btnO(MouseEvent event
-    ) {
-        degradeFondoChazasRecorte.setVisible(true);
-        michianvorguesa.setVisible(true);
-        FindUrChazPequeño.setVisible(true);
         Linea.setVisible(true);
         FacturaCompra.setVisible(true);
         sushi2.setVisible(true);
@@ -195,19 +160,25 @@ public class FacturaOrdenesClienController implements Initializable{
         Correo.setVisible(true);
         TextFieldTotal.setVisible(true);
         Usuario.setVisible(true);
+        TotalOrden.setVisible(true);
         Panel2.setVisible(true);
+        TablaFactura.setVisible(false);
+        ColumnaID.setVisible(true);
         fBlancoTransparente.setVisible(true);
         Panel1.setVisible(true);
-        Panel3.setVisible(false);
         CirculoDeUsuario.setVisible(true);
-        TotalOrden.setVisible(true);
-        TablaFactura.setVisible(true);
-        ColumnaID.setVisible(true);
+        michianvorguesa.setVisible(true);
+        FindUrChazPequeño.setVisible(true);
         ColumnaFecha.setVisible(true);
         ColumnaOrden. setVisible(true);
         ColumnaProducto.setVisible(true);
         PerfilCliente.setVisible(true);
         BotonOrdenes.setVisible(true);
         BotonProductos.setVisible(true);
+        PerfilCliente.setText(clienteActual.getNombre() + " " + clienteActual.getApellido());
+        Usuario.setText(clienteActual.getNombre());
+        Correo.setText(clienteActual.getCorreo());
+        Numero.setText(clienteActual.getTelefono());
     }
+    
 }

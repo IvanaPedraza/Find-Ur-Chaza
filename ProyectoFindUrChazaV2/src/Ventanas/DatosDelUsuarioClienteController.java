@@ -40,6 +40,11 @@ public class DatosDelUsuarioClienteController implements Initializable {
 
     @FXML
     private Button botonRetornoCli;
+  
+    @FXML
+    private void switchToMenuChazas() throws IOException {
+        App.setRoot("menuChazas");
+    }
 
     @FXML
     private Text correoElectronico;

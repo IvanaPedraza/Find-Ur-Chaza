@@ -14,6 +14,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.image.*;
 import javafx.scene.input.*;
@@ -22,8 +23,7 @@ import javafx.scene.layout.*;
 public class menuChazasController implements Initializable {
 
     private ControladorChaza controladorChaza = App.bdCha.getControladorChaza();
-    private Cliente clienteActual = InicioSesionController.getClienteLog();
-    public static Orden ordenActual = new Orden();
+    private Cliente clienteActual = InicioSesionController.getClienteLog(); 
     public static Chaza chazaEscogida = new Chaza();
     public Mensaje mensaje = new Mensaje();
 
@@ -31,6 +31,9 @@ public class menuChazasController implements Initializable {
 
     @FXML
     private ImageView Wallpaper;
+    
+    @FXML
+    private ImageView fotoPerfilC;
 
     @FXML
     private Button botonChazas;
@@ -56,6 +59,11 @@ public class menuChazasController implements Initializable {
     @FXML
     void retornarInicioSesion(MouseEvent event) throws IOException {
         App.setRoot("InicioSesion");
+    }
+    
+    @FXML
+    void retornarDatosCliente(MouseEvent event) throws IOException {
+        App.setRoot("DatosDelUsuarioCliente");
     }
 
     @FXML
@@ -104,7 +112,7 @@ public class menuChazasController implements Initializable {
 
         int row = 0;
         int column = 0;
-
+        chaza_gridPane.getChildren().clear();
         chaza_gridPane.getRowConstraints().clear();
         chaza_gridPane.getColumnConstraints().clear();
         for (int i = 0; i < cardListChaza.size(); i++) {
@@ -115,18 +123,22 @@ public class menuChazasController implements Initializable {
                 chazasController cardC = load.getController();
                 cardC.setData(cardListChaza.get(i));
 
-                if (column == 3) {
+                if (column == 4) {
                     column = 0;
                     row += 1;
                 }
 
                 chaza_gridPane.add(pane, column++, row);
+                
+                GridPane.setMargin(pane, new Insets(10));
             } catch (Exception e) {
                 System.out.println("Error: " + e);
             }
         }
 
     }
+    
+    
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
