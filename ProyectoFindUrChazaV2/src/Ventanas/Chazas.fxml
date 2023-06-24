@@ -13,7 +13,7 @@
             <Image url="@../Imagenes/Tiendav.png" />
          </image>
       </ImageView>
-      <Label fx:id="nombreChaza" alignment="CENTER" layoutX="70.0" layoutY="179.0" onMouseClicked="#verInfoCliente" text="Chazam">
+      <Label fx:id="nombreChaza" alignment="CENTER" layoutX="70.0" layoutY="179.0" text="Chazam">
          <font>
             <Font name="Berlin Sans FB" size="21.0" />
          </font>

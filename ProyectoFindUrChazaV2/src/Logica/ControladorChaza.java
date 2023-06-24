@@ -173,6 +173,10 @@ public class ControladorChaza {
         return numeroChazas;
     }
     
+    public Chaza[] totalChazas(){
+        return AVLChaza.findAll();
+    }
+    
     
     
 }

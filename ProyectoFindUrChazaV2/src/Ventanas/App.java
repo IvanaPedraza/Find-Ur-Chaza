@@ -38,12 +38,8 @@ public class App extends Application {
 
 
 
-        scene = new Scene(loadFXML("menuChazas"), 1280, 720);
-
-        
         scene = new Scene(loadFXML("InicioSesion"), 1280, 720);
 
-        scene = new Scene(loadFXML("InicioSesion"), 1280, 720);
 
         stage.setScene(scene);
         stage.setTitle("Find Ur Chaza");

@@ -1,25 +1,30 @@
 package Ventanas;
 
-import EstructurasDeDatos.ArregloDinamicoConColaVendedor;
-import EstructurasDeDatos.HashVendedor;
 import Logica.*;
-import Modelo.Vendedor;
-import com.sun.javafx.logging.PlatformLogger.Level;
-import java.awt.event.ActionEvent;
+import Modelo.Chaza;
+import Modelo.Cliente;
 import java.io.IOException;
-import java.lang.System.Logger;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.*;
-import javafx.scene.*;
 import javafx.scene.control.*;
 
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 
+
+
 public class menuProductosClienteController implements Initializable{
+    
+    private ControladorChaza controladorChaza = App.bdCha.getControladorChaza();
+    private Cliente clienteActual = InicioSesionController.getClienteLog();
+    public Chaza chazaEscogida = menuChazasController.chazaEscogida;
+    private ControladorProducto controladorProducto = App.bdPro.getControladorProducto();
+    
 
    @FXML
     private ImageView F2;
@@ -71,10 +76,10 @@ public class menuProductosClienteController implements Initializable{
     private AnchorPane Panel;
    
    @FXML
-    private Separator separador;
+    private AnchorPane Panel2;
    
    @FXML
-    private ScrollBar Scroll;
+    private Separator separador;
    
    @FXML
     private Label nombreVendedor;
@@ -87,6 +92,12 @@ public class menuProductosClienteController implements Initializable{
   
   @FXML
     private TextField DescripcionChaza;
+  
+  @FXML
+    private ScrollPane PanelcrollProductos;
+  
+  @FXML
+    private GridPane GrillaProductos;
       
 
   @Override
@@ -104,6 +115,8 @@ public class menuProductosClienteController implements Initializable{
         nombreChaza.setVisible(true);
         Estado.setVisible(true);
         DescripcionChaza.setVisible(true);
+        PanelcrollProductos.setVisible(true);
+        GrillaProductos.setVisible(true);
     }
  }   
 
