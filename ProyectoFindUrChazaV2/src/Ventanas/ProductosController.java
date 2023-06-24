@@ -30,6 +30,7 @@ public class ProductosController implements Initializable{
     private Factura facturaActual = new Factura();
     private long numeroFactura = numFactura();
     public Mensaje mensaje = new Mensaje();
+    private int cantidad;
     
     @FXML
     private ImageView anadirProducto;
@@ -74,7 +75,6 @@ public class ProductosController implements Initializable{
         
     }
     
-    private int cantidad;
     
     public void setData(Producto producto){
         this.productoActual = producto;
