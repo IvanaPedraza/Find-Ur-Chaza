@@ -4,12 +4,6 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/kelly/Documents/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/InicioSesionController.java</file>
-            <file>file:/C:/Users/kelly/Documents/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/menuChazasController.java</file>
-            <file>file:/C:/Users/kelly/Documents/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/registroDatosClienteController.java</file>
-            <file>file:/C:/Users/kelly/Documents/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/RegistroChazaController.java</file>
-        </group>
-        <group>
-            <file>file:/C:/Users/kelly/Documents/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/InicioSesionController.java</file>
             <file>file:/C:/Users/kelly/Documents/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/registroDatosVendedorController.java</file>
             <file>file:/D:/NetBeansProjects/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/FacturaOrdenesCliente.fxml</file>
             <file>file:/D:/NetBeansProjects/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/App.java</file>
@@ -84,6 +78,13 @@
             <file>file:/C:/Users/Cata/Documents/GitHub/Find%20Ur%20Chaza/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/App.java</file>
             <file>file:/C:/Users/Cata/Documents/GitHub/Find%20Ur%20Chaza/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/menuChazas.fxml</file>
             <file>file:/C:/Users/Cata/Documents/GitHub/Find%20Ur%20Chaza/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/chazas.fxml</file>
+        </group>
+        <group>
+            <file>file:/C:/Users/Cata/Documents/GitHub/Find%20Ur%20Chaza/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Modelo/Chaza.java</file>
+            <file>file:/C:/Users/Cata/Documents/GitHub/Find%20Ur%20Chaza/Find-Ur-Chaza/ProyectoFindUrChazaV2/nbproject/build-impl.xml</file>
+            <file>file:/C:/Users/Cata/Documents/GitHub/Find%20Ur%20Chaza/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/menuProductosClienteController.java</file>
+            <file>file:/C:/Users/Cata/Documents/GitHub/Find%20Ur%20Chaza/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/App.java</file>
+            <file>file:/C:/Users/Cata/Documents/GitHub/Find%20Ur%20Chaza/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/menuChazas.fxml</file>
         </group>
     </open-files>
 </project-private>
