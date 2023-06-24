@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Spinner?>
 <?import javafx.scene.image.Image?>
@@ -9,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="Panel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="273.0" prefWidth="280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Ventanas.ProductosController">
+<AnchorPane fx:id="Panel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="273.0" prefWidth="280.0" stylesheets="@../Estilos/cardDesign.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Ventanas.ProductosController">
    <children>
       <VBox fx:id="Vbox1" layoutX="78.0" prefHeight="273.0" prefWidth="280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -19,17 +21,26 @@
                      <font>
                         <Font name="Berlin Sans FB Demi Bold" size="22.0" />
                      </font>
+                     <HBox.margin>
+                        <Insets left="15.0" />
+                     </HBox.margin>
                   </Label>
-                  <Label fx:id="precioProducto" alignment="CENTER" contentDisplay="CENTER" prefHeight="69.0" prefWidth="117.0" text="\$0.0" textAlignment="CENTER" textFill="#2f281e">
+                  <Label fx:id="precioProducto" alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="69.0" prefWidth="117.0" text="\$0.0" textAlignment="CENTER" textFill="#2f281e">
                      <font>
                         <Font size="22.0" />
                      </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <HBox.margin>
+                        <Insets right="15.0" />
+                     </HBox.margin>
                   </Label>
                </children>
             </HBox>
             <AnchorPane fx:id="PanelFoto" prefHeight="154.0" prefWidth="280.0">
                <children>
-                  <ImageView fx:id="Comida2" fitHeight="154.0" fitWidth="175.0" layoutX="54.0" layoutY="1.0" pickOnBounds="true">
+                  <ImageView fx:id="imagenComida" fitHeight="154.0" fitWidth="175.0" layoutX="54.0" layoutY="1.0" pickOnBounds="true">
                      <image>
                         <Image url="@../Imagenes/Comida2.jpg" />
                      </image>
@@ -45,7 +56,7 @@
                   </AnchorPane>
                   <AnchorPane fx:id="PanelAñadir" prefHeight="74.0" prefWidth="88.0">
                      <children>
-                        <ImageView fx:id="Añadir" fitHeight="55.0" fitWidth="46.0" layoutX="21.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="anadirProducto" fitHeight="55.0" fitWidth="46.0" layoutX="21.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../Imagenes/BotonOrdenar.png" />
                            </image>
@@ -57,4 +68,8 @@
          </children>
       </VBox>
    </children>
+   <styleClass>
+      <String fx:value="card" />
+      <String fx:value="shadow" />
+   </styleClass>
 </AnchorPane>

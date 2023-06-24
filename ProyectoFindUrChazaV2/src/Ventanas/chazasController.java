@@ -15,7 +15,7 @@ import javafx.scene.layout.AnchorPane;
 public class chazasController implements Initializable{
 
     private ControladorChaza controladorChaza = App.bdCha.getControladorChaza();
-    private static Chaza chazaActual = new Chaza();
+    private Chaza chazaActual = new Chaza();
 
     @FXML
     private ImageView Imgchaza;
@@ -27,8 +27,12 @@ public class chazasController implements Initializable{
     private Label nombreChaza;
 
     @FXML
-    void enviarChaza(MouseEvent event) throws IOException{
+    void enviarChaza(MouseEvent event) throws IOException, Exception{
+        //menuProductosClienteController.chazaEscogida = controladorChaza.buscarChazaPorNombre(nombreChaza.getText());
         menuProductosClienteController.chazaEscogida = chazaActual;
+        //Chaza chaza = menuProductosClienteController.chazaEscogida;
+        //System.out.println("chaza: " + chaza.getNombreChaza());
+        System.out.println("chaza: " + chazaActual.getNombreChaza());
         irAMenu(event);
     }
     

@@ -151,22 +151,56 @@ public class ControladorOrden {
         return ordenes;
     }
     
-    public Orden buscarOrdenPorFecha(Date fecha) throws Exception {
-        Orden ordenEncontrada = new Orden();
+    public Orden[] buscarOrdenPorFecha(Date fecha) throws Exception {
+        Orden[] ordenesEncontrada = new Orden[0];
         long time_start, time_end;
         time_start = System.nanoTime();
         try{
-            ordenEncontrada = minHeapOrden.findByFecha(fecha);
-            System.out.println("La orden es: "+ordenEncontrada.getNumOrden()+" "+ordenEncontrada.getFechaOrden()+" "+ordenEncontrada.getCliente().getCorreo());
+            ordenesEncontrada = minHeapOrden.findByFecha(fecha);
+            for(int i = 0; i < ordenesEncontrada.length; i++){
+                System.out.println("La orden es: "+ordenesEncontrada[i].getNumOrden()+" "+ordenesEncontrada[i].getFechaOrden()+" "+ordenesEncontrada[i].getCliente().getCorreo());
+            }
+            
         }catch(Exception e){
             System.out.println("Ha ocurrido "+ e);
         }
-        if(String.valueOf(ordenEncontrada.getNumOrden()).length() == 0){
+        if(ordenesEncontrada.length == 0){
             System.out.println("No se encontro");
         }
         time_end = System.nanoTime();
         System.out.println("buscarOrdenPorFecha con min heap tomo " + (time_end - time_start) + " milliseconds");
-        return ordenEncontrada;
+        return ordenesEncontrada;
     }
+    
+    public Orden[] buscarOrdenPorChaza(Chaza chaza) throws Exception {
+        Orden[] ordenesEncontrada = new Orden[0];
+        long time_start, time_end;
+        time_start = System.nanoTime();
+        try{
+            ordenesEncontrada = minHeapOrden.findByChaza(chaza);
+            for(int i = 0; i < ordenesEncontrada.length; i++){
+                System.out.println("La orden es: "+ordenesEncontrada[i].getNumOrden()+" "+ordenesEncontrada[i].getFechaOrden()+" "+ordenesEncontrada[i].getCliente().getCorreo());
+            }
+            
+        }catch(Exception e){
+            System.out.println("Ha ocurrido "+ e);
+        }
+        if(ordenesEncontrada.length == 0){
+            System.out.println("No se encontro");
+        }
+        time_end = System.nanoTime();
+        System.out.println("buscarOrdenPorChaza con min heap tomo " + (time_end - time_start) + " milliseconds");
+        return ordenesEncontrada;
+    }
+    
+    public int numeroOrdenesChaza(Chaza chaza){
+        return minHeapOrden.numOrdenChaza(chaza);
+    }
+    
+    public long numeroOrden(){
+        return minHeapOrden.numOrden();
+    }
+    
+    
 
 }

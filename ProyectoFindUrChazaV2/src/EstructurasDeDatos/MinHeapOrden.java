@@ -4,6 +4,7 @@
  */
 package EstructurasDeDatos;
 
+import Modelo.Chaza;
 import Modelo.Cliente;
 import Modelo.Orden;
 import java.util.Date;
@@ -165,15 +166,53 @@ public class MinHeapOrden {
         return cantidad;
     }
     
-    public Orden findByFecha(Date fecha){
-        Orden orden = new Orden();
+    public Orden[] findByChaza(Chaza chaza){
+        int cantidad = numOrdenChaza(chaza);
+        Orden[] ordenesPorChaza = new Orden[cantidad];
+        int iterador = 0;
+        for(int i = 0; i < index;i++){
+            if(cusComparator.compare(Heap[i].getChaza().getIdChaza(), chaza.getIdChaza())==0){
+                ordenesPorChaza[iterador++] = Heap[i];
+            }
+        }
+        return ordenesPorChaza;
+    }
+     
+    public int numOrdenChaza(Chaza chaza){
+        int cantidad = 0;
+        for(int i = 0; i < index; i++){
+            if(cusComparator.compare(Heap[i].getChaza().getIdChaza(), chaza.getIdChaza())==0){
+                cantidad++;
+            }
+        }
+        return cantidad;
+    }
+    
+    public long numOrden(){
+        return index;
+    }
+    
+    public Orden[] findByFecha(Date fecha){
+        int cantidad = numOrdenFecha(fecha);
+        Orden[] ordenesPorFecha = new Orden[cantidad];
+        int iterador = 0;
         for (int i = 0; i < index; i++) {
             if (cusComparator.compare(Heap[i].getFechaOrden(), fecha) == 0 ) {
-                orden = Heap[i];
+                ordenesPorFecha[iterador++] = Heap[i];
                 break;
             }
         }
-        return orden;
+        return ordenesPorFecha;
+    }
+    
+    public int numOrdenFecha(Date date){
+        int cantidad = 0;
+        for(int i = 0; i < index; i++){
+            if(cusComparator.compare(Heap[i].getFechaOrden(), date)==0){
+                cantidad++;
+            }
+        }
+        return cantidad;
     }
     
     public int find(Orden orden){

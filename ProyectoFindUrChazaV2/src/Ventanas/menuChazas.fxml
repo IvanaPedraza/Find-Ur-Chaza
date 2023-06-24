@@ -40,7 +40,7 @@
          </children>
       </AnchorPane>
       <Button fx:id="botonChazas" layoutX="595.0" layoutY="14.0" mnemonicParsing="false" onAction="#verChazas" onMouseClicked="#verChazas" stylesheets="@../Estilos/Style's_1.css" text="Chazas" />
-      <Label fx:id="labelDatosCliente" layoutX="929.0" layoutY="23.0" onMouseClicked="#verInfoCliente" text="Label">
+      <Label fx:id="labelDatosCliente" layoutX="982.0" layoutY="33.0" onMouseClicked="#verInfoCliente" prefHeight="25.0" prefWidth="225.0" text="Label">
          <font>
             <Font name="Berlin Sans FB" size="21.0" />
          </font>

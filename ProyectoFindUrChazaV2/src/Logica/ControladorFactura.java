@@ -23,7 +23,7 @@ public class ControladorFactura {
         ListaEnlazadaConColaFactura = new ListaEnlazadaConCola();
     }
     
-    public void agregarNuevaFactura(long numReferencia, Date fechaFactura, Producto producto, Orden orden, int cantidad, double costoTotal) {
+    public Factura agregarNuevaFactura(long numReferencia, Date fechaFactura, Producto producto, Orden orden, int cantidad, double costoTotal) {
         Factura nuevaFactura = new Factura(numReferencia, fechaFactura, producto, orden, cantidad, costoTotal);
         long time_start, time_end;
         time_start = System.nanoTime();
@@ -31,6 +31,7 @@ public class ControladorFactura {
         time_end = System.nanoTime();
         System.out.println("agregarNuevaFactura con arreglo dinamico tomo " + (time_end - time_start) + " milliseconds");
         System.out.println("Se ha ingresado correctamente: " + numReferencia + " " + orden + " " + producto);
+        return nuevaFactura;
     }
     
     public Factura eliminarFactura(long numReferencia) {
@@ -59,7 +60,6 @@ public class ControladorFactura {
             } catch (Exception e) {
                 System.out.println("Ha ocurrido un error en el ingreso de la fecha, vuelve a intentar");
             }
-
             break;
             case "Producto":
                 facturaActualizar.setProducto((Producto) datoModificado);
@@ -67,9 +67,13 @@ public class ControladorFactura {
             case "Orden":
                 facturaActualizar.setOrden((Orden) datoModificado);
                 break;
+            case "Cantidad":
+                facturaActualizar.setCantidad(Integer.parseInt((String) datoModificado));
+                break;
             case "Costo total":
                 facturaActualizar.setCostoTotal(Double.parseDouble(datoModificado.toString()));
                 break;
+             
             default:
                 System.out.println("La categoria no es válida");
         }
@@ -95,6 +99,8 @@ public class ControladorFactura {
         time_end2 = System.nanoTime();
         System.out.println("ListaEnlazadaConColaFactura con arreglo dinamico tomo " + (time_end2 - time_start2) + " milliseconds");
     }
+    
+    
 
     public void imprimirFactura() {
         Factura facturaIterada = new Factura();
@@ -126,6 +132,18 @@ public class ControladorFactura {
         return facturaEncontrado;
     }
     
+    public boolean existeFactura(long referencia){
+        boolean existe = false;
+        Factura facturaIterado = new Factura();
+        for (int i = 0; i < ListaEnlazadaConColaFactura.cantidad(); i++) {
+            facturaIterado = (Factura) ListaEnlazadaConColaFactura.getElement(i);
+            if (facturaIterado.getNumReferencia() == referencia) {
+                existe = true;
+            }
+        }
+        return existe;
+    }
+    
     public Factura[] buscarFacturasPorOrden(Orden orden){
         Factura[] facturas = new Factura[0];
         int iterado = 0;
@@ -143,5 +161,9 @@ public class ControladorFactura {
             System.out.println("Ha ocurrido " + e);
         }
         return facturas;
+    }
+    
+    public long cantidadFacturas(){
+        return ListaEnlazadaConColaFactura.cantidadLong();
     }
 }
