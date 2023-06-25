@@ -8,7 +8,6 @@ package Ventanas;
  *
  * @author IVANA
  */
-
 import Logica.*;
 import Modelo.Chaza;
 import Modelo.Producto;
@@ -26,11 +25,12 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.image.*;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 
 public class menuProductosVendedorController implements Initializable {
-    
+
     private Vendedor vendedorActual = InicioSesionController.getVendedorLog();
     public static Chaza chazaEscogida = new Chaza();
     private ControladorChaza controladorChaza = App.bdCha.getControladorChaza();
@@ -38,73 +38,73 @@ public class menuProductosVendedorController implements Initializable {
     private ObservableList<Producto> cardListProducto = FXCollections.observableArrayList();
     public Mensaje mensaje = new Mensaje();
     String estados[] = {"Abierto", "Cerrado"};
-    
+
     @FXML
     private AnchorPane Panel;
-    
+
     @FXML
     private AnchorPane Panel2;
-    
+
     @FXML
     private AnchorPane Panel3;
-    
+
     @FXML
     private ImageView Fondo;
-    
+
     @FXML
     private ImageView Tienda;
-    
+
     @FXML
     private ImageView michiHamborgueso;
-    
+
     @FXML
     private ImageView findUrChaza;
-    
+
     @FXML
     private ImageView fotoPerfilV;
-    
+
     @FXML
     private ImageView fotoPerfilV2;
-    
+
     @FXML
     private Label nombreVendedor;
-    
+
     @FXML
     private Label nombreVendedorInfo;
-    
+
     @FXML
     private Label nombreChaza;
-    
+
     @FXML
     private ChoiceBox Choice_BoxEstado;
-    
+
     @FXML
     private Text Estado;
-    
+
     @FXML
-    private Button Añadir; 
-    
+    private Button Añadir;
+
     @FXML
     private Button Productos;
-    
+
     @FXML
     private Button TusChazas;
-    
+
     @FXML
     private Button TusOrdenes;
-    
+
     @FXML
     private Separator separador;
-    
+
     @FXML
     private ScrollPane scrollGridPane;
-    
+
     @FXML
     private GridPane producto_GridPane;
-    
+
     @FXML
     private Label DescripcionChaza;
-    
+
     @FXML
     private void primerEstilo() {
         TusOrdenes.getStylesheets().clear();
@@ -116,48 +116,47 @@ public class menuProductosVendedorController implements Initializable {
         Añadir.getStylesheets().clear();
         Añadir.getStylesheets().addAll(this.getClass().getResource("../Estilos/Style's.css").toExternalForm());
     }
-    
+
     @FXML
     private void switchToMenuChazasVendedor() throws IOException {
         App.setRoot("menuChazasVendedor");
     }
-    
+
     @FXML
     private void switchToOrdenesProductosVendedor() throws IOException {
         App.setRoot("ordenesProductosVendedor");
     }
-    
+
     @FXML
     private void switchToInicioSesion() throws IOException {
         App.setRoot("InicioSesion");
     }
-    
+
     @FXML
     private void switchToDatosDelVendedor() throws IOException {
         App.setRoot("DatosDelUsuarioVendedor");
     }
-    
+
     @FXML
     void anadirProducto() {
-        
+
     }
-    
-    public ObservableList<Producto> productoGetData(){
+
+    public ObservableList<Producto> productoGetData() {
         ObservableList<Producto> listProducto = FXCollections.observableArrayList();
         Producto[] productos = controladorProducto.buscarProductosPorChaza(chazaEscogida);
-        
-        for(int i = 0; i < productos.length; i++){
+
+        for (int i = 0; i < productos.length; i++) {
             listProducto.add(productos[i]);
         }
-        
+
         return listProducto;
     }
-    
-    public void productoDisplayCard(){
+
+    public void productoDisplayCard() {
         cardListProducto.clear();
         cardListProducto.addAll(productoGetData());
-        
-        
+
         int row = 0;
         int column = 0;
         producto_GridPane.getChildren().clear();
@@ -177,53 +176,49 @@ public class menuProductosVendedorController implements Initializable {
                 }
 
                 producto_GridPane.add(pane, column++, row);
-                
+
                 GridPane.setMargin(pane, new Insets(10));
             } catch (Exception e) {
                 System.out.println("Error: " + e);
             }
         }
     }
-    
-    
-    private void estadoChazaBox(){
+
+    private void estadoChazaBox() {
         Choice_BoxEstado.getSelectionModel().selectedIndexProperty().addListener(
-                new ChangeListener<Number>(){
-                    public void changed(ObservableValue ov, Number value, Number new_value){
-                        cambiarEstado(new_value.intValue());
-                    }
-                }
+                new ChangeListener<Number>() {
+            public void changed(ObservableValue ov, Number value, Number new_value) {
+                cambiarEstado(new_value.intValue());
+            }
+        }
         );
     }
-    
-    
-    private void cambiarEstado(int index){
+
+    private void cambiarEstado(int index) {
         Choice_BoxEstado.setValue(estados[index]);
         int value = 0;
-        if(index == 0){
+        if (index == 0) {
             value = 1;
         }
         controladorChaza.actualizarChaza(chazaEscogida.getNombreChaza(), "Estado", String.valueOf(value));
         mensaje.mensajeConfirmacion("Estado de la chaza " + chazaEscogida.getNombreChaza() + " cambiado con éxito!");
     }
-    
-    
-    private void estadoInicial(){
+
+    private void estadoInicial() {
         int value = chazaEscogida.getEstadoChaza();
-        if(value == 1){
+        if (value == 1) {
             Choice_BoxEstado.setValue(estados[0]);
-        }else{
+        } else {
             Choice_BoxEstado.setValue(estados[1]);
         }
     }
-    
+
     /*@FXML
     private void btnC(MouseEvent event
     ) {
     
     }*/
-    
-     @Override
+    @Override
     public void initialize(URL location, ResourceBundle resources) {
         DescripcionChaza.setVisible(true);
         producto_GridPane.setVisible(true);
@@ -248,6 +243,17 @@ public class menuProductosVendedorController implements Initializable {
         Panel3.setVisible(true);
         Panel2.setVisible(true);
         Panel.setVisible(true);
+        //----
+        ventanaAñadir.setVisible(false);
+        fondo2.setVisible(false);
+        imagenComidaV.setVisible(false);
+        nombreproductol.setVisible(false);
+        nombre.setVisible(false);
+        descripcion.setVisible(false);
+        preciolabel.setVisible(false);
+        precio.setVisible(false);
+        Agregar.setVisible(false);
+        //------
         nombreVendedorInfo.setText(vendedorActual.getNombre() + " " + vendedorActual.getApellido());
         nombreVendedor.setText(vendedorActual.getNombre());
         nombreChaza.setText(chazaEscogida.getNombreChaza());
@@ -256,5 +262,50 @@ public class menuProductosVendedorController implements Initializable {
         estadoChazaBox();
         productoDisplayCard();
     }
-    
+    ///-----------------------
+    @FXML
+    private AnchorPane ventanaAñadir;
+    @FXML
+    private ImageView fondo2;
+    @FXML
+    private ImageView imagenComidaV;
+    @FXML
+    private Label nombreproductol;
+    @FXML
+    private TextField nombre;
+    @FXML
+    private TextField descripcion;
+    @FXML
+    private Label preciolabel;
+    @FXML
+    private TextField precio;
+    @FXML
+    private Button Agregar;
+ 
+
+    @FXML
+    void cerrarVentanaAñadir(MouseEvent event) {
+        ventanaAñadir.setVisible(false);
+        fondo2.setVisible(false);
+        imagenComidaV.setVisible(false);
+        nombreproductol.setVisible(false);
+        nombre.setVisible(false);
+        descripcion.setVisible(false);
+        preciolabel.setVisible(false);
+        precio.setVisible(false);
+        Agregar.setVisible(false);
+    }
+
+    @FXML
+    void abrirVentanaAñadir(MouseEvent event) {
+        ventanaAñadir.setVisible(true);
+        fondo2.setVisible(true);
+        imagenComidaV.setVisible(true);
+        nombreproductol.setVisible(true);
+        nombre.setVisible(true);
+        descripcion.setVisible(true);
+        preciolabel.setVisible(true);
+        precio.setVisible(true);
+        Agregar.setVisible(true);
+    }
 }

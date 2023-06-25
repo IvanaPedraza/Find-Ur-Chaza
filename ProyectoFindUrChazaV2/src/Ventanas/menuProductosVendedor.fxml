@@ -6,6 +6,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -103,7 +104,7 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <Button fx:id="Añadir" layoutX="1165.0" layoutY="645.0" mnemonicParsing="false" onAction="#anadirProducto" prefHeight="42.0" prefWidth="93.0" stylesheets="@../Estilos/Style's.css" text="Añadir" textOverrun="CLIP">
+      <Button fx:id="Añadir" layoutX="1165.0" layoutY="645.0" mnemonicParsing="false" onAction="#anadirProducto" onMouseClicked="#abrirVentanaAñadir" prefHeight="42.0" prefWidth="93.0" stylesheets="@../Estilos/Style's.css" text="Añadir" textOverrun="CLIP">
          <font>
             <Font name="Bookman Old Style" size="12.0" />
          </font>
@@ -116,5 +117,48 @@
             <Font size="15.0" />
          </font>
       </Label>
+      <AnchorPane fx:id="ventanaAñadir" layoutX="234.0" layoutY="75.0" prefHeight="540.0" prefWidth="866.0">
+         <children>
+            <ImageView fx:id="fondo2" fitHeight="563.0" fitWidth="881.0" layoutX="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/cuadrado.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imagenComidaV" fitHeight="347.0" fitWidth="374.0" layoutX="78.0" layoutY="62.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../Imagenes/Comida2.jpg" />
+               </image>
+            </ImageView>
+            <Label fx:id="nombreproductol" layoutX="526.0" layoutY="61.0" prefHeight="30.0" prefWidth="247.0" text="Nombre del producto:" textFill="#2f281e">
+               <font>
+                  <Font name="Berlin Sans FB" size="26.0" />
+               </font>
+            </Label>
+            <TextField fx:id="nombre" layoutX="526.0" layoutY="98.0" prefHeight="26.0" prefWidth="247.0" promptText="Ingresa el nombre del producto" />
+            <TextField fx:id="descripcion" alignment="TOP_LEFT" layoutX="526.0" layoutY="139.0" prefHeight="216.0" prefWidth="247.0" promptText="Descripción" />
+            <Label fx:id="preciolabel" layoutX="526.0" layoutY="373.0" prefHeight="30.0" prefWidth="247.0" text="Precio:" textFill="#2f281e">
+               <font>
+                  <Font name="Berlin Sans FB" size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="precio" layoutX="593.0" layoutY="367.0" prefHeight="42.0" prefWidth="179.0" promptText="Ingresa el precio del producto" />
+            <Button fx:id="Agregar" layoutX="410.0" layoutY="464.0" mnemonicParsing="false" onAction="#anadirProducto" prefHeight="42.0" prefWidth="103.0" stylesheets="@../Estilos/Style's.css" text="Agregar" textOverrun="CLIP">
+               <font>
+                  <Font name="Bookman Old Style" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <ImageView fx:id="cerrar" fitHeight="73.0" fitWidth="39.0" layoutX="810.0" layoutY="28.0" onMouseClicked="#cerrarVentanaAñadir" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/rectangulo-xmark.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
