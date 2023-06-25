@@ -1,6 +1,7 @@
 package Ventanas;
 
 import EstructurasDeDatos.AVLChaza;
+import Logica.ControladorChaza;
 import Modelo.Chaza;
 import Modelo.Vendedor;
 import java.io.IOException;
@@ -20,8 +21,9 @@ import java.sql.SQLException;
 public class RegistroChazaController implements Initializable{
     
     private Connection conexion = BaseDeDatos.Conexion.conectar();
-    private AVLChaza arbolChaza = new AVLChaza();
+    //private AVLChaza arbolChaza = new AVLChaza();
     private Vendedor vendedorChaza = registroDatosVendedorController.vendedorActual;
+    private ControladorChaza controladorChaza = App.bdCha.getControladorChaza();
     private Chaza chazaActual = new Chaza();
     public Mensaje mensaje = new Mensaje();
     private PreparedStatement pst;
@@ -64,25 +66,25 @@ public class RegistroChazaController implements Initializable{
         
         
         if(!nombreChaza.equals("") || !ubicacionChaza.equals("") || !descripcionChaza.equals("")){
-            chazaActual = new Chaza(nombreChaza, ubicacionChaza, descripcionChaza, vendedorChaza);
-            arbolChaza.insert(chazaActual);
-            arbolChaza.postOrderTraversal();
+            chazaActual = controladorChaza.agregarNuevaChaza(nombreChaza, ubicacionChaza, descripcionChaza, vendedorChaza);
             
             try{
-                pst = conexion.prepareStatement("insert into chaza values(?,?,?,?,?)");
+                pst = conexion.prepareStatement("insert into chaza (nombreChaza, ubicacionChaza, descripcionChaza, correoVendedor, estadoChaza) values(?,?,?,?,?)");
                 pst.setString(1, nombreChaza);
                 pst.setString(2, ubicacionChaza);
                 pst.setString(3, descripcionChaza);
                 pst.setString(4, vendedorChaza.getCorreo());
                 pst.setString(5, "1");
-                pst.executeUpdate();
+                int n = pst.executeUpdate();
+                if(n > 0)
+                    mensaje.mensajeInformacion("Se ha ingresado correctamente \n" +
+                    chazaActual.getNombreChaza());
             }catch(SQLException e){
                 System.out.println("Error en el insertado de la BD");
             }
             
-            mensaje.mensajeInformacion("Se ha ingresado correctamente \n" +
-                    chazaActual.getNombreChaza());
-            App.setRoot("InicioVendedor");
+            
+            App.setRoot("InicioSesion");
         }else{
             mensaje.mensajeAdvertencia("Debes llenar todos los campos para continuar! :)");
         }
