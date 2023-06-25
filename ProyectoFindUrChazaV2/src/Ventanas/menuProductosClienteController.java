@@ -204,14 +204,14 @@ public class menuProductosClienteController implements Initializable{
    public Orden generarNuevaOrden(){
        long idOrden = numeroIdOrden();
        Date fechaProcesoOrden = new Date();
-       ordenActual = new Orden(idOrden, fechaProcesoOrden, clienteActual, chazaEscogida);
+       ordenActual = controladorOrden.agregarNuevaOrden(idOrden, fechaProcesoOrden, clienteActual, chazaEscogida);
        System.out.println("Se ha generado la orden " + ordenActual.getNumOrden());
-       java.sql.Date fechaSQL = new java.sql.Date(fechaProcesoOrden.getTime());
+       java.sql.Timestamp fechaSQL = new java.sql.Timestamp(fechaProcesoOrden.getTime());
        if(idOrden != 0 || fechaProcesoOrden != null || ordenActual != null || clienteActual != null || chazaEscogida != null){
            try{
                pst = conexion.prepareStatement("insert into orden values(?,?,?,?)");
                pst.setLong(1, idOrden);
-               pst.setDate(2, fechaSQL);
+               pst.setTimestamp(2, fechaSQL);
                pst.setString(3, clienteActual.getCorreo());
                pst.setInt(4, chazaEscogida.getIdChaza());
                pst.executeUpdate();
