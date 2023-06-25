@@ -4,63 +4,139 @@
  */
 package Ventanas;
 
-import BaseDeDatos.Conexion;
-import Logica.ControladorChaza;
-import Logica.ControladorCliente;
-import Logica.ControladorVendedor;
-import Modelo.Cliente;
-import Modelo.Vendedor;
+import Logica.ControladorFactura;
+import Logica.ControladorOrden;
+import Modelo.*;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.*;
+import java.util.Date;
 import java.util.ResourceBundle;
-import javafx.animation.TranslateTransition;
+import javafx.beans.property.SimpleLongProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.layout.AnchorPane;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
 
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
-import javafx.util.Duration;
-import javax.swing.JOptionPane;
-import java.net.Proxy;
-import javafx.application.Application;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.image.Image;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.StackPane;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.shape.Line;
-import javafx.stage.Stage;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author IVANA
  */
 public class FacturaOrdenesClienController implements Initializable{
     
+    private ControladorOrden controladorOrden = App.bdOrd.getControladorOrden();
+    private ControladorFactura controladorFactura = App.bdFac.getControladorFactura();
     private Cliente clienteActual = InicioSesionController.getClienteLog();
-    
-    @FXML
-    private ImageView FindUrChazPequeño;
-    
-    @FXML
-    private ImageView michianvorguesa;
-    
-    @FXML
-    private ImageView CirculoDeUsuario;
-   
+    private static Orden ordenActual = new Orden();
+    private ObservableList<Factura> datosFacturas;
+    public Mensaje mensaje = new Mensaje();
     
     @FXML
     private Button BotonOrdenes;
-    
+
     @FXML
     private Button BotonProductos;
+
+    @FXML
+    private Button BotonRegresar;
+    
+    @FXML
+    private ImageView Camaron;
+
+    @FXML
+    private ImageView CirculoDeUsuario;
+
+    @FXML
+    private TableColumn<Factura, Integer> ColumnaCantidad;
+
+    @FXML
+    private TableColumn<Factura, Date> ColumnaFecha;
+
+    @FXML
+    private TableColumn<Factura, Long> ColumnaID;
+
+    @FXML
+    private TableColumn<Factura, Double> ColumnaPrecioTotal;
+
+    @FXML
+    private TableColumn<Factura, String> ColumnaProducto;
+
+    @FXML
+    private Label Correo;
+
+    @FXML
+    private ImageView FacturaCompra;
+
+    @FXML
+    private ImageView FindUrChazPequeño;
+
+    @FXML
+    private Line Linea;
+
+    @FXML
+    private Label Numero;
+
+    @FXML
+    private AnchorPane Panel1;
+
+    @FXML
+    private AnchorPane Panel2;
+
+    @FXML
+    private Label PerfilCliente;
+
+    @FXML
+    private ImageView PerfilUsuario;
+
+    @FXML
+    private TableView<Factura> TablaFactura;
+
+    @FXML
+    private Text TextFieldTotal;
+
+    @FXML
+    private Label TotalOrden;
+
+    @FXML
+    private Label Usuario;
+
+    @FXML
+    private ImageView degradeFondoChazasRecorte;
+
+    @FXML
+    private ImageView fBlancoTransparente;
+
+    @FXML
+    private ImageView michianvorguesa;
+
+    @FXML
+    private ImageView sushi2;
+    
+    @FXML
+    private Label numeroOrden;
+    
+    @FXML
+    private Label labelOrden;
+    
+    @FXML
+    private void primerEstilo() {
+        BotonOrdenes.getStylesheets().clear();
+        BotonOrdenes.getStylesheets().addAll(this.getClass().getResource("../Estilos/Style's.css").toExternalForm());
+        BotonProductos.getStylesheets().clear();
+        BotonProductos.getStylesheets().addAll(this.getClass().getResource("../Estilos/Style's.css").toExternalForm());
+    }
     
     @FXML
     private void switchToMenuProductosCliente() throws IOException {
@@ -78,73 +154,42 @@ public class FacturaOrdenesClienController implements Initializable{
     }
     
     @FXML
-    private void primerEstilo() {
-        BotonOrdenes.getStylesheets().clear();
-        BotonOrdenes.getStylesheets().addAll(this.getClass().getResource("../Estilos/Style's.css").toExternalForm());
-        BotonProductos.getStylesheets().clear();
-        BotonProductos.getStylesheets().addAll(this.getClass().getResource("../Estilos/Style's.css").toExternalForm());
+    void switchToMenuChazas() throws IOException {
+        App.setRoot("menuChazas");
+
     }
     
-    @FXML
-    private ImageView degradeFondoChazasRecorte;
+    private void cargarDatosFactura(){
+        datosFacturas = FXCollections.observableArrayList();
+        Factura[] facturasPorOrden = controladorFactura.buscarFacturasPorOrden(ordenActual);
+        for(int i = 0;i < facturasPorOrden.length;i++){
+            datosFacturas.add(facturasPorOrden[i]);
+        }
+        ColumnaID.setCellValueFactory(new PropertyValueFactory<>("numReferencia"));
+        ColumnaFecha.setCellValueFactory(new PropertyValueFactory<>("fechaFactura"));
+        ColumnaProducto.setCellValueFactory(cellData -> {
+            Producto producto = cellData.getValue().getProducto();
+            String productoNombre = producto.getNombre();
+            return new SimpleObjectProperty<String>(productoNombre);
+        });
+        ColumnaCantidad.setCellValueFactory(new PropertyValueFactory<>("cantidad"));
+        ColumnaPrecioTotal.setCellValueFactory(new PropertyValueFactory<>("costoTotal"));
+        
+        TablaFactura.setItems(datosFacturas);
+    }
     
-    @FXML
-    private ImageView fBlancoTransparente;
+    private double calcularTotalOrden(){
+        Factura[] facturasPorOrden = controladorFactura.buscarFacturasPorOrden(ordenActual);
+        double totalFacturaOrden = 0;
+        for(int i = 0; i < facturasPorOrden.length;i++){
+            totalFacturaOrden += facturasPorOrden[i].getCostoTotal();
+        }
+        return totalFacturaOrden;
+    }
     
-    
-    @FXML
-    private AnchorPane Panel1;
-    
-    @FXML
-    private AnchorPane Panel2;
-    
-    @FXML
-    private Label Usuario;
-   
-    @FXML
-    private Text TextFieldTotal;
-    
-    @FXML
-    private Label Correo;
-    
-    @FXML
-    private Label Numero;
-    
-    @FXML
-    private Label TotalOrden;
-    
-    @FXML
-    private Label PerfilCliente;
-    
-    @FXML
-    private ImageView PerfilUsuario;
-    
-    @FXML
-    private ImageView sushi2;
-    
-    @FXML
-    private ImageView Camaron;
-    
-    @FXML
-    private ImageView FacturaCompra;
-    
-    @FXML
-    private Line Linea;
-    
-    @FXML
-    private TableView TablaFactura;
-    
-    @FXML
-    private TableColumn ColumnaID;
-    
-    @FXML
-    private TableColumn ColumnaFecha;
-    
-    @FXML
-    private TableColumn ColumnaOrden;
-    
-    @FXML
-    private TableColumn ColumnaProducto;
+    public static void setOrden(Orden orden){
+        ordenActual = orden;
+    }
     
     
     @Override
@@ -162,7 +207,7 @@ public class FacturaOrdenesClienController implements Initializable{
         Usuario.setVisible(true);
         TotalOrden.setVisible(true);
         Panel2.setVisible(true);
-        TablaFactura.setVisible(false);
+        TablaFactura.setVisible(true);
         ColumnaID.setVisible(true);
         fBlancoTransparente.setVisible(true);
         Panel1.setVisible(true);
@@ -170,7 +215,6 @@ public class FacturaOrdenesClienController implements Initializable{
         michianvorguesa.setVisible(true);
         FindUrChazPequeño.setVisible(true);
         ColumnaFecha.setVisible(true);
-        ColumnaOrden. setVisible(true);
         ColumnaProducto.setVisible(true);
         PerfilCliente.setVisible(true);
         BotonOrdenes.setVisible(true);
@@ -179,6 +223,9 @@ public class FacturaOrdenesClienController implements Initializable{
         Usuario.setText(clienteActual.getNombre());
         Correo.setText(clienteActual.getCorreo());
         Numero.setText(clienteActual.getTelefono());
+        numeroOrden.setText(String.valueOf(ordenActual.getNumOrden()));
+        cargarDatosFactura();
+        TotalOrden.setText(String.valueOf("$ " + calcularTotalOrden()));
     }
     
 }

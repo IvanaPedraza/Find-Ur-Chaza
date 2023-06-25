@@ -207,7 +207,7 @@ public class InicioSesionController implements Initializable {
                 }
                 
             } catch (Exception e) {
-                mensaje.mensajeError("¡Error al iniciar sesión! :(");
+                mensaje.mensajeError("¡Error al iniciar sesión! :(" + e);
             }
             
         } else {

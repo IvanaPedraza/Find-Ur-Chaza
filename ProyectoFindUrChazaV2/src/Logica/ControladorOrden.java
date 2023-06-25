@@ -19,6 +19,7 @@ import java.util.Date;
 public class ControladorOrden {
 
     private MinHeapOrden minHeapOrden;
+    private static long cantidad = 0;
 
     public ControladorOrden() {
         minHeapOrden = new MinHeapOrden(1000000);
@@ -33,6 +34,7 @@ public class ControladorOrden {
         long time_start, time_end;
         time_start = System.nanoTime();
         minHeapOrden.insert(nuevaOrden);
+        cantidad++;
         time_end = System.nanoTime();
         System.out.println("agregarNuevaOrden con min heap tomo " + (time_end - time_start) + " milliseconds");
         System.out.println("Se ha ingresado correctamente: " + numOrden + " " + fechaOrden + " " + cliente + " " + chaza);
@@ -45,6 +47,7 @@ public class ControladorOrden {
         try {
             ordenAEliminar = buscarOrdenPorId(numOrden);
             minHeapOrden.remove(ordenAEliminar);
+            cantidad--;
             //System.out.println("la orden es: " + ordenAEliminar.getNumOrden());
 
         } catch (Exception e) {
@@ -61,7 +64,7 @@ public class ControladorOrden {
         time_start = System.nanoTime();
         try {
             minHeapOrden.remove();
-
+            cantidad--;
         } catch (Exception e) {
             System.out.println("La orden no se encontró");
         }
@@ -198,7 +201,7 @@ public class ControladorOrden {
     }
     
     public long numeroOrden(){
-        return minHeapOrden.numOrden();
+        return cantidad + 1;
     }
     
     

@@ -28,13 +28,14 @@ public class menuProductosClienteController implements Initializable{
     private PreparedStatement pst;
     private ControladorChaza controladorChaza = App.bdCha.getControladorChaza();
     private Cliente clienteActual = InicioSesionController.getClienteLog();
-    public static Orden ordenActual = new Orden();
+    public Orden ordenActual = new Orden();
     public static Chaza chazaEscogida = new Chaza();
     private ControladorProducto controladorProducto = App.bdPro.getControladorProducto();
     private ControladorOrden controladorOrden = App.bdOrd.getControladorOrden();
     private ControladorFactura controladorFactura = App.bdFac.getControladorFactura();
     public Mensaje mensaje = new Mensaje();
     private ObservableList<Producto> cardListProducto = FXCollections.observableArrayList();
+    private static long valorBaseOrden = 100;
 
    @FXML
     private Button BotonRegresar;
@@ -118,6 +119,7 @@ public class menuProductosClienteController implements Initializable{
     void generarFacturaOrden() throws IOException {
         int opcionD = mensaje.mensajeConfirmacion("¿Está seguro de los productos seleccionados?");
         if(opcionD == JOptionPane.YES_OPTION){
+            FacturaOrdenesClienController.setOrden(ordenActual);
             App.setRoot("FacturaOrdenesCliente");
         }else{
             mensaje.mensajeInformacion("Realice las modificaciones debidas");
@@ -225,11 +227,14 @@ public class menuProductosClienteController implements Initializable{
    
    
    private long numeroIdOrden(){
+       /*
        long numeroDeOrdenes = controladorOrden.numeroOrden();
        long numOrden = 100 + numeroDeOrdenes;
        return numOrden;
+        */
+       valorBaseOrden += controladorOrden.numeroOrden();
+       return valorBaseOrden;
    }
-      
 
   @Override
     public void initialize(URL url, ResourceBundle rb

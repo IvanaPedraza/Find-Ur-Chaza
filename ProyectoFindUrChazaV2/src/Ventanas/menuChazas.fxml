@@ -50,36 +50,10 @@
             <Image url="@../Imagenes/FindUrChazPequeño.png" />
          </image>
       </ImageView>
-<<<<<<< HEAD
-
-      <BorderPane layoutX="-1.0" layoutY="105.0" prefHeight="615.0" prefWidth="1280.0">
-         <bottom>
-            <VBox prefHeight="618.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
-               <children>
-                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
-                     <children>
-                        <ScrollPane fx:id="scroll" prefHeight="570.0" prefWidth="1250.0" styleClass="transparent" stylesheets="@../Estilos/style.css">
-                           <content>
-                              <GridPane fx:id="grid" prefHeight="0.0" prefWidth="0.0">
-                                <columnConstraints>
-                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                </columnConstraints>
-                              </GridPane>
-                           </content>
-                        </ScrollPane>
-                     </children>
-                  </HBox>
-               </children>
-            </VBox>
-         </bottom>
-      </BorderPane>
-
-=======
       <ImageView fx:id="fotoPerfilC" fitHeight="75.0" fitWidth="79.0" layoutX="1197.0" layoutY="8.0" onMouseClicked="#retornarDatosCliente" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Imagenes/PerfilUsuario.png" />
          </image>
       </ImageView>
->>>>>>> 1a21f5691575fd22df25ab5a0be922dd26dca994
    </children>
 </AnchorPane>

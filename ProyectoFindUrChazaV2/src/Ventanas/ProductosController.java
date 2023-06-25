@@ -91,6 +91,10 @@ public class ProductosController implements Initializable {
     public void setOrden(Orden orden) {
         this.ordenActual = orden;
     }
+    
+    public Orden getOrden(){
+        return this.ordenActual;
+    }
 
     public void anadirProductoFac() throws Exception {
         cantidad = Spinner.getValue();

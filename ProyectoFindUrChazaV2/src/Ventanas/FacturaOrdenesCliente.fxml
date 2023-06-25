@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="Panel1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Ventanas.FacturaOrdenesClienController">
+<AnchorPane fx:id="Panel1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Ventanas.FacturaOrdenesClienController">
    <children>
       <ImageView fx:id="degradeFondoChazasRecorte" fitHeight="729.0" fitWidth="1292.0" layoutX="-10.0" layoutY="-7.0" pickOnBounds="true">
          <image>
@@ -39,60 +39,76 @@
                   <Image url="@../Imagenes/fBlancoTransparente1.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="PerfilUsuario" fitHeight="207.0" fitWidth="194.0" layoutX="57.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="PerfilUsuario" fitHeight="207.0" fitWidth="194.0" layoutX="45.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Imagenes/PerfilUsuario.png" />
                </image>
             </ImageView>
             <Line fx:id="Linea" endX="286.0" endY="-7.0" layoutX="-12.0" layoutY="41.0" startX="286.0" startY="485.0" stroke="#2f281e" />
-            <ImageView fx:id="FacturaCompra" fitHeight="51.0" fitWidth="332.0" layoutX="429.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="FacturaCompra" fitHeight="51.0" fitWidth="332.0" layoutX="438.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Imagenes/FacturaCompra.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="Camaron" fitHeight="75.0" fitWidth="87.0" layoutX="300.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="Camaron" fitHeight="75.0" fitWidth="87.0" layoutX="314.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Imagenes/Camaron.png" />
                </image>
             </ImageView>
-            <Label fx:id="TotalOrden" layoutX="890.0" layoutY="453.0" prefHeight="16.0" prefWidth="103.0" text="total" textAlignment="CENTER" textFill="#2f281e">
+            <Label fx:id="TotalOrden" layoutX="899.0" layoutY="473.0" prefHeight="16.0" prefWidth="103.0" text="total" textAlignment="CENTER" textFill="#2f281e">
                <font>
                   <Font name="Berlin Sans FB" size="24.0" />
                </font>
             </Label>
-            <Text fx:id="TextFieldTotal" fill="#2f281e" layoutX="807.0" layoutY="473.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total:" textAlignment="CENTER" wrappingWidth="82.79102325439453">
+            <Text fx:id="TextFieldTotal" fill="#2f281e" layoutX="819.0" layoutY="494.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total:" textAlignment="CENTER" wrappingWidth="75.0">
                <font>
-                  <Font name="Nirmala UI Bold" size="18.0" />
+                  <Font size="21.0" />
                </font>
             </Text>
-            <TableView fx:id="TablaFactura" layoutX="397.0" layoutY="87.0" prefHeight="433.0" prefWidth="401.0">
+            <TableView fx:id="TablaFactura" layoutX="300.0" layoutY="100.0" prefHeight="423.0" prefWidth="512.0" stylesheets="@../Estilos/tableStyle.css">
               <columns>
-                <TableColumn fx:id="ColumnaID" prefWidth="84.0" text="ID" />
+                  <TableColumn fx:id="ColumnaID" prefWidth="84.0" text="ID" />
                 <TableColumn fx:id="ColumnaFecha" prefWidth="105.0" text="Fecha" />
-                  <TableColumn fx:id="ColumnaOrden" prefWidth="69.0" text="Orden" />
-                  <TableColumn fx:id="ColumnaProducto" prefWidth="149.0" text="Producto" />
+                  <TableColumn fx:id="ColumnaProducto" prefWidth="93.5999755859375" text="Producto" />
+                  <TableColumn fx:id="ColumnaCantidad" prefWidth="115.20001220703125" text="Cantidad" />
+                  <TableColumn fx:id="ColumnaPrecioTotal" prefWidth="99.2000732421875" text="Precio Total" />
               </columns>
             </TableView>
-            <Label fx:id="Usuario" layoutX="117.0" layoutY="251.0" prefHeight="27.0" prefWidth="87.0" text="Usuario" textAlignment="CENTER" textFill="#2f281e">
+            <Label fx:id="Usuario" alignment="CENTER" contentDisplay="CENTER" layoutX="27.0" layoutY="276.0" prefHeight="27.0" prefWidth="232.0" text="Usuario" textAlignment="CENTER" textFill="#2f281e">
                <font>
-                  <Font name="Berlin Sans FB" size="24.0" />
+                  <Font name="Berlin Sans FB" size="27.0" />
                </font>
             </Label>
-            <Label fx:id="Correo" layoutX="63.0" layoutY="316.0" prefHeight="27.0" prefWidth="182.0" text="Correo" textFill="#2f281e">
+            <Label fx:id="Correo" alignment="CENTER" contentDisplay="CENTER" layoutX="26.0" layoutY="322.0" prefHeight="27.0" prefWidth="232.0" text="Correo" textFill="#2f281e">
                <font>
-                  <Font name="Berlin Sans FB" size="24.0" />
+                  <Font size="17.0" />
                </font>
             </Label>
-            <Label fx:id="Numero" layoutX="87.0" layoutY="375.0" prefHeight="27.0" prefWidth="164.0" text="Numero" textFill="#2f281e">
+            <Label fx:id="Numero" alignment="CENTER" contentDisplay="CENTER" layoutX="27.0" layoutY="360.0" prefHeight="27.0" prefWidth="232.0" text="Numero" textFill="#2f281e">
                <font>
-                  <Font name="Berlin Sans FB" size="24.0" />
+                  <Font size="17.0" />
                </font>
             </Label>
-            <ImageView fx:id="sushi2" fitHeight="104.0" fitWidth="134.0" layoutX="838.0" layoutY="336.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="sushi2" fitHeight="104.0" fitWidth="134.0" layoutX="844.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Imagenes/sushi%202.png" />
                </image>
             </ImageView>
+            <ImageView fitHeight="154.0" fitWidth="174.0" layoutX="816.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/letreroSinFondo.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="numeroOrden" alignment="CENTER" contentDisplay="CENTER" layoutX="823.0" layoutY="76.0" prefHeight="66.0" prefWidth="152.0" text="numero orden">
+               <font>
+                  <Font name="Berlin Sans FB" size="21.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelOrden" alignment="CENTER" contentDisplay="CENTER" layoutX="820.0" layoutY="54.0" prefHeight="44.0" prefWidth="158.0" text="Orden:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
       <Button fx:id="BotonOrdenes" disable="true" layoutX="535.0" layoutY="12.0" mnemonicParsing="false" stylesheets="@../Estilos/Style's_1.css" text="Factura" />
@@ -113,5 +129,13 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
+      <Button fx:id="BotonRegresar" layoutX="21.0" layoutY="104.0" mnemonicParsing="false" onAction="#switchToMenuChazas" prefHeight="42.0" prefWidth="45.0" stylesheets="@../Estilos/Style's.css" text="⬅" textOverrun="CLIP">
+         <font>
+            <Font name="Bookman Old Style" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
    </children>
 </AnchorPane>
