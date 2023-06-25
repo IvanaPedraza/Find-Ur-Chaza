@@ -13,11 +13,6 @@
             <file>file:/C:/Users/kelly/Documents/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/Chazas.fxml</file>
         </group>
         <group>
-            <file>file:/C:/Users/kelly/Documents/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/App.java</file>
-            <file>file:/C:/Users/kelly/Documents/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/menuChazasController.java</file>
-            <file>file:/C:/Users/kelly/Documents/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/Chazas.fxml</file>
-        </group>
-        <group>
             <file>file:/C:/Users/kelly/Documents/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/ProductosController.java</file>
             <file>file:/C:/Users/kelly/Documents/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/App.java</file>
             <file>file:/C:/Users/kelly/Documents/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/menuChazasController.java</file>
@@ -100,6 +95,13 @@
             <file>file:/C:/Users/kelly/Documents/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Modelo/Factura.java</file>
             <file>file:/C:/Users/kelly/Documents/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Modelo/Producto.java</file>
             <file>file:/C:/Users/kelly/Documents/ProyectoEstructuras/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Estilos/tableStyle.css</file>
+        </group>
+        <group>
+            <file>file:/D:/NetBeansProjects/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/menuChazasVendedorController.java</file>
+            <file>file:/D:/NetBeansProjects/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/menuProductosVendedorController.java</file>
+            <file>file:/D:/NetBeansProjects/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/chazasVendedorController.java</file>
+            <file>file:/D:/NetBeansProjects/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/RegistroChazaController.java</file>
+            <file>file:/D:/NetBeansProjects/Find-Ur-Chaza/ProyectoFindUrChazaV2/src/Ventanas/menuProductosClienteController.java</file>
         </group>
     </open-files>
 </project-private>
