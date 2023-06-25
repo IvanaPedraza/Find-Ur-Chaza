@@ -38,17 +38,17 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <Label fx:id="Vendedor" layoutX="967.0" layoutY="46.0" onMouseClicked="#verInfoCliente" prefHeight="14.0" prefWidth="225.0" text="Label">
+      <Label fx:id="Vendedor" layoutX="967.0" layoutY="46.0" prefHeight="14.0" prefWidth="225.0" text="Label">
          <font>
             <Font name="Berlin Sans FB" size="21.0" />
          </font>
       </Label>
-      <Button fx:id="BotonProductos" layoutX="640.0" layoutY="22.0" mnemonicParsing="false" onMouseClicked="#switchToMenuProductosCliente" stylesheets="@../Estilos/Style's_1.css" text="Productos">
+      <Button fx:id="BotonProductos" layoutX="640.0" layoutY="22.0" mnemonicParsing="false" stylesheets="@../Estilos/Style's_1.css" text="Productos">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="BotonOrdenes" disable="true" layoutX="538.0" layoutY="22.0" mnemonicParsing="false" onMouseClicked="#switchToMenuProductosCliente" stylesheets="@../Estilos/Style's_1.css" text="Ordenes">
+      <Button fx:id="BotonOrdenes" disable="true" layoutX="538.0" layoutY="22.0" mnemonicParsing="false" stylesheets="@../Estilos/Style's_1.css" text="Ordenes">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

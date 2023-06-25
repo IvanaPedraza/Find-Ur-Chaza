@@ -37,7 +37,7 @@
             <Image url="@../Imagenes/elgato_1.png" />
          </image>
       </ImageView>
-      <Label fx:id="nombreVendedorInfo" layoutX="964.0" layoutY="34.0" prefHeight="30.0" prefWidth="247.0" text="Label" textFill="#2f281e">
+      <Label fx:id="nombreVendedorInfo" layoutX="983.0" layoutY="34.0" prefHeight="30.0" prefWidth="247.0" text="Label" textFill="#2f281e">
          <font>
             <Font name="Berlin Sans FB" size="26.0" />
          </font>
@@ -47,12 +47,12 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="TusChazas" layoutX="539.0" layoutY="18.0" mnemonicParsing="false" onMouseClicked="#switchToMenuProductosCliente" stylesheets="@../Estilos/Style's_1.css" text="Tus Chazas">
+      <Button fx:id="TusChazas" layoutX="539.0" layoutY="18.0" mnemonicParsing="false" onMouseClicked="#switchToMenuChazasVendedor" stylesheets="@../Estilos/Style's_1.css" text="Tus Chazas">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="TusOrdenes" layoutX="403.0" layoutY="18.0" mnemonicParsing="false" onMouseClicked="#switchToMenuProductosCliente" stylesheets="@../Estilos/Style's_1.css" text="Tus Ordenes">
+      <Button fx:id="TusOrdenes" layoutX="403.0" layoutY="18.0" mnemonicParsing="false" onMouseClicked="#switchToOrdenesProductosVendedor" stylesheets="@../Estilos/Style's_1.css" text="Tus Ordenes">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -68,12 +68,12 @@
          </image>
       </ImageView>
       <Separator fx:id="separador" layoutX="-11.0" layoutY="329.0" prefHeight="21.0" prefWidth="1292.0" />
-      <Label fx:id="nombreVendedor" alignment="CENTER" contentDisplay="CENTER" layoutX="157.0" layoutY="306.0" onMouseClicked="#switchToDatosDelUsuarioCliente" prefHeight="30.0" prefWidth="179.0" text="nombre" textAlignment="CENTER" textFill="#2f281e">
+      <Label fx:id="nombreVendedor" alignment="CENTER" contentDisplay="CENTER" layoutX="157.0" layoutY="306.0" prefHeight="30.0" prefWidth="179.0" text="nombre" textAlignment="CENTER" textFill="#2f281e">
          <font>
             <Font name="Berlin Sans FB" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="nombreChaza" alignment="CENTER" contentDisplay="CENTER" layoutX="539.0" layoutY="75.0" onMouseClicked="#switchToDatosDelUsuarioCliente" prefHeight="42.0" prefWidth="328.0" text="Nombre de la chaza" textAlignment="CENTER" textFill="#2f281e">
+      <Label fx:id="nombreChaza" alignment="CENTER" contentDisplay="CENTER" layoutX="539.0" layoutY="75.0" prefHeight="42.0" prefWidth="328.0" text="Nombre de la chaza" textAlignment="CENTER" textFill="#2f281e">
          <font>
             <Font name="Berlin Sans FB" size="37.0" />
          </font>

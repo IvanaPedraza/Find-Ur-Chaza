@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="Panel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="273.0" prefWidth="280.0" stylesheets="@../Estilos/cardDesign.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Ventanas.ProductosVendedorController">
+   <children>
+      <VBox fx:id="Vbox1" layoutX="78.0" prefHeight="273.0" prefWidth="280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox fx:id="Hbox1" prefHeight="52.0" prefWidth="280.0">
+               <children>
+                  <Label fx:id="nombreProducto" alignment="CENTER" contentDisplay="CENTER" prefHeight="69.0" prefWidth="166.0" text="Estofado" textAlignment="CENTER" textFill="#2f281e" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font name="Berlin Sans FB Demi Bold" size="22.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="15.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label fx:id="precioProducto" alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="69.0" prefWidth="117.0" text="\$0.0" textAlignment="CENTER" textFill="#2f281e">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <HBox.margin>
+                        <Insets right="15.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <AnchorPane fx:id="PanelFoto" prefHeight="154.0" prefWidth="280.0">
+               <children>
+                  <ImageView fx:id="imagenComida" fitHeight="154.0" fitWidth="175.0" layoutX="54.0" layoutY="1.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../Imagenes/Comida5.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <HBox fx:id="Hbox2" prefHeight="80.0" prefWidth="136.0">
+               <children>
+                  <AnchorPane fx:id="PanelSpinner" prefHeight="73.0" prefWidth="136.0">
+                     <children>
+                        <Spinner fx:id="Spinner" focusTraversable="false" layoutX="24.0" layoutY="18.0" prefHeight="35.0" prefWidth="101.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="PanelAñadir" prefHeight="73.0" prefWidth="146.0">
+                     <children>
+                        <ImageView fx:id="anadirProducto" fitHeight="55.0" fitWidth="46.0" layoutX="73.0" layoutY="13.0" onMouseClicked="#anadirProductoFac" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Imagenes/BotonOrdenar.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="45.0" fitWidth="46.0" layoutX="14.0" layoutY="13.0" onMouseClicked="#eliminarFacturaProd" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Imagenes/BasuraCafe.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+   <styleClass>
+      <String fx:value="card" />
+      <String fx:value="shadow" />
+   </styleClass>
+</AnchorPane>

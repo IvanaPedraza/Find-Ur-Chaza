@@ -93,6 +93,21 @@ public class ordenesProductosVendedorController implements Initializable{
     @FXML
     private Button BotonProductos;
     
+    @FXML
+    private void switchToInicioSesion() throws IOException {
+        App.setRoot("InicioSesion");
+    }
+    
+    @FXML
+    private void switchTomenuProductosVendedor() throws IOException {
+        App.setRoot("menuProductosVendedor");
+    }
+    
+    @FXML
+    private void switchToDatosDelVendedor() throws IOException {
+        App.setRoot("DatosDelUsuarioVendedor");
+    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb
     ) {

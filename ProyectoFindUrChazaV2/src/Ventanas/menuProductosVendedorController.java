@@ -15,7 +15,9 @@ import Logica.*;
 import Modelo.Cliente;
 import Modelo.Chaza;
 import Modelo.Orden;
+import Modelo.Producto;
 import Modelo.Vendedor;
+import static Ventanas.menuProductosClienteController.chazaEscogida;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -32,7 +34,11 @@ import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 
 public class menuProductosVendedorController implements Initializable {
+    
     private Vendedor vendedorActual = InicioSesionController.getVendedorLog();
+    public static Chaza chazaEscogida = new Chaza();
+    private ControladorProducto controladorProducto = App.bdPro.getControladorProducto();
+    private ObservableList<Producto> cardListProducto = FXCollections.observableArrayList();
     
     @FXML
     private AnchorPane Panel;
@@ -132,6 +138,49 @@ public class menuProductosVendedorController implements Initializable {
         App.setRoot("DatosDelUsuarioVendedor");
     }
     
+    public ObservableList<Producto> productoGetData(){
+        ObservableList<Producto> listProducto = FXCollections.observableArrayList();
+        Producto[] productos = controladorProducto.buscarProductosPorChaza(chazaEscogida);
+        
+        for(int i = 0; i < productos.length; i++){
+            listProducto.add(productos[i]);
+        }
+        
+        return listProducto;
+    }
+    
+    public void productoDisplayCard(){
+        cardListProducto.clear();
+        cardListProducto.addAll(productoGetData());
+        
+        
+        int row = 0;
+        int column = 0;
+        producto_GridPane.getChildren().clear();
+        producto_GridPane.getRowConstraints().clear();
+        producto_GridPane.getColumnConstraints().clear();
+        for (int i = 0; i < cardListProducto.size(); i++) {
+            try {
+                FXMLLoader load = new FXMLLoader();
+                load.setLocation(getClass().getResource("ProductosVendedor.fxml"));
+                AnchorPane pane = load.load();
+                ProductosVendedorController cardC = load.getController();
+                cardC.setData(cardListProducto.get(i));
+
+                if (column == 3) {
+                    column = 0;
+                    row += 1;
+                }
+
+                producto_GridPane.add(pane, column++, row);
+                
+                GridPane.setMargin(pane, new Insets(10));
+            } catch (Exception e) {
+                System.out.println("Error: " + e);
+            }
+        }
+    }
+    
      @Override
     public void initialize(URL location, ResourceBundle resources) {
         DescripcionChaza.setVisible(true);
@@ -156,8 +205,8 @@ public class menuProductosVendedorController implements Initializable {
         Panel3.setVisible(true);
         Panel2.setVisible(true);
         Panel.setVisible(true);
-        nombreVendedorInfo.setText("¡Bienvenido " + vendedorActual.getNombre() + " " + vendedorActual.getApellido() + "!");
-        //chazaDisplayCard();
+        nombreVendedorInfo.setText(vendedorActual.getNombre() + " " + vendedorActual.getApellido());
+        productoDisplayCard();
     }
     
 }

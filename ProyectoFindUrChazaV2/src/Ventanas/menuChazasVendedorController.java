@@ -95,7 +95,7 @@ public class menuChazasVendedorController implements Initializable {
     
     public ObservableList<Chaza> chazaGetData() {
         ObservableList<Chaza> listChaza = FXCollections.observableArrayList();
-        Chaza[] chazas = controladorChaza.totalChazas();
+        Chaza[] chazas = controladorChaza.buscarChazasPorVendedor(vendedorActual);
 
         for (int i = 0; i < chazas.length; i++) {
             listChaza.add(chazas[i]);
@@ -119,7 +119,7 @@ public class menuChazasVendedorController implements Initializable {
                 FXMLLoader load = new FXMLLoader();
                 load.setLocation(getClass().getResource("ChazasVendedor.fxml"));
                 AnchorPane pane = load.load();
-                chazasController cardC = load.getController();
+                chazasVendedorController cardC = load.getController();
                 cardC.setData(cardListChaza.get(i));
 
                 if (column == 4) {
