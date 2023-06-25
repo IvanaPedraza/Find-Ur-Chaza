@@ -65,7 +65,7 @@
                   <Font name="Nirmala UI Bold" size="18.0" />
                </font>
             </Text>
-            <TableView fx:id="TablaFactura" layoutX="397.0" layoutY="87.0" prefHeight="433.0" prefWidth="401.0">
+            <TableView fx:id="TablaFactura" layoutX="397.0" layoutY="87.0" prefHeight="433.0" prefWidth="408.0">
               <columns>
                 <TableColumn fx:id="ColumnaID" prefWidth="84.0" text="ID" />
                 <TableColumn fx:id="ColumnaFecha" prefWidth="105.0" text="Fecha" />
