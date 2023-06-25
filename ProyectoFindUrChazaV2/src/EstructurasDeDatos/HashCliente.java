@@ -135,12 +135,19 @@ public class HashCliente {
     
     private int myhash(String x)
     {
-        int value = x.hashCode();
+        int value = stringHash(x);
         value %= tableSize;
         if (value < 0) {
             value = value + tableSize;
         }
         return value;
+    }
+    
+    private int stringHash(String x){
+        int keyValue = 0;
+        for(int i = 0; i<x.length(); i++)
+            keyValue = keyValue + x.charAt(i); 
+        return keyValue;
     }
     
     public void printHashTable()
