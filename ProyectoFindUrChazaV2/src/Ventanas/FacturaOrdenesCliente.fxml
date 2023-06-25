@@ -41,7 +41,7 @@
             </ImageView>
             <ImageView fx:id="PerfilUsuario" fitHeight="207.0" fitWidth="194.0" layoutX="45.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Imagenes/PerfilUsuario.png" />
+                  <Image url="@../Imagenes/PerfilCliente.png" />
                </image>
             </ImageView>
             <Line fx:id="Linea" endX="286.0" endY="-7.0" layoutX="-12.0" layoutY="41.0" startX="286.0" startY="485.0" stroke="#2f281e" />
@@ -66,7 +66,6 @@
                </font>
             </Text>
             <TableView fx:id="TablaFactura" layoutX="300.0" layoutY="100.0" prefHeight="423.0" prefWidth="512.0" stylesheets="@../Estilos/tableStyle.css">
-            <TableView fx:id="TablaFactura" layoutX="397.0" layoutY="87.0" prefHeight="433.0" prefWidth="408.0">
               <columns>
                   <TableColumn fx:id="ColumnaID" prefWidth="84.0" text="ID" />
                 <TableColumn fx:id="ColumnaFecha" prefWidth="105.0" text="Fecha" />

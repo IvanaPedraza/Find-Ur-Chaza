@@ -38,7 +38,7 @@ public class bdOrden {
                 try{
                 Cliente clienteNuevo = bdCliente.getControladorCliente().buscarClientePorCorreo(rs.getString("correoCliente"));
                 Chaza chazaNueva = bdChaza.getControladorChaza().buscarChazaPorId(rs.getInt("idChaza"));
-                controladorOrden.agregarNuevaOrden(rs.getLong("numOrden"), rs.getDate("fechaOrden"), clienteNuevo, chazaNueva);
+                controladorOrden.agregarNuevaOrden(rs.getLong("numOrden"), rs.getTimestamp("fechaOrden"), clienteNuevo, chazaNueva);
                 }
                 catch(Exception d){
                     System.err.println("Error en la asignacion de un cliente y una chaza");

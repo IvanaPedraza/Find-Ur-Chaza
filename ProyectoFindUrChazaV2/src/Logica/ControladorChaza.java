@@ -61,8 +61,9 @@ public class ControladorChaza {
             case "Descripcion":
                 chazaActualizar.setDescripcion(datoModificado);
                 break;
-            case "Estado de chaza":
+            case "Estado":
                 chazaActualizar.setEstadoChaza(Integer.parseInt(datoModificado));
+                break;
             default:
                 System.out.println("La categoria no es válida");
         }

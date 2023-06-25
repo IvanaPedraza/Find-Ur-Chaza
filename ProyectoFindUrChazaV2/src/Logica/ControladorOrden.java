@@ -29,7 +29,7 @@ public class ControladorOrden {
         return minHeapOrden;
     }
     
-    public void agregarNuevaOrden(long numOrden, Date fechaOrden, Cliente cliente, Chaza chaza) {
+    public Orden agregarNuevaOrden(long numOrden, Date fechaOrden, Cliente cliente, Chaza chaza) {
         Orden nuevaOrden = new Orden(numOrden, fechaOrden, cliente, chaza);
         long time_start, time_end;
         time_start = System.nanoTime();
@@ -38,6 +38,7 @@ public class ControladorOrden {
         time_end = System.nanoTime();
         System.out.println("agregarNuevaOrden con min heap tomo " + (time_end - time_start) + " milliseconds");
         System.out.println("Se ha ingresado correctamente: " + numOrden + " " + fechaOrden + " " + cliente + " " + chaza);
+        return nuevaOrden;
     }
 
     public Orden eliminarOrden(long numOrden) {
@@ -175,7 +176,7 @@ public class ControladorOrden {
         return ordenesEncontrada;
     }
     
-    public Orden[] buscarOrdenPorChaza(Chaza chaza) throws Exception {
+    public Orden[] buscarOrdenPorChaza(Chaza chaza) {
         Orden[] ordenesEncontrada = new Orden[0];
         long time_start, time_end;
         time_start = System.nanoTime();

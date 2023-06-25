@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="Panel1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Ventanas.ordenesProductosVendedorController">
+<AnchorPane fx:id="Panel1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Ventanas.ordenesProductosVendedorController">
    <children>
       <ImageView fx:id="Fondo" fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true">
          <image>
@@ -58,13 +58,14 @@
             <Image url="@../Imagenes/comida-a-la-parrilla.png" />
          </image>
       </ImageView>
-      <TableView fx:id="TablaOrdenesClientes" layoutX="164.0" layoutY="128.0" prefHeight="525.0" prefWidth="815.0">
+      <TableView fx:id="TablaOrdenesChaza" layoutX="164.0" layoutY="128.0" prefHeight="525.0" prefWidth="815.0" stylesheets="@../Estilos/tableStyle.css">
         <columns>
-          <TableColumn fx:id="ColumnaCliente" prefWidth="253.0" text="Cliente" />
-          <TableColumn fx:id="ColumnaProducto" prefWidth="228.0" text="Producto" />
-            <TableColumn fx:id="ColumnaCantidad" minWidth="0.0" prefWidth="81.0" text="Cantidad" />
-            <TableColumn fx:id="ColumnaNumeroOrden" minWidth="0.0" prefWidth="121.0" text="Número de Orden" />
-            <TableColumn fx:id="ColumnaTotal" prefWidth="131.0" text="Total" />
+          <TableColumn fx:id="ColumnaCliente" prefWidth="123.20001220703125" text="Cliente" />
+          <TableColumn fx:id="ColumnaProducto" prefWidth="244.79998779296875" text="Producto" />
+            <TableColumn fx:id="ColumnaCantidad" minWidth="0.0" prefWidth="64.0" text="Cantidad" />
+            <TableColumn fx:id="ColumnaNumeroOrden" minWidth="0.0" prefWidth="155.20001220703125" text="Número de Orden" />
+            <TableColumn fx:id="ColumnaFechaOrden" prefWidth="128.80010986328125" text="Fecha de orden" />
+            <TableColumn fx:id="ColumnaTotal" prefWidth="94.39996337890625" text="Total" />
         </columns>
       </TableView>
    </children>

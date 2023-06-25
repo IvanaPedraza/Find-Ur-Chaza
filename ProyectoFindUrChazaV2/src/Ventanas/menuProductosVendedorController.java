@@ -9,18 +9,15 @@ package Ventanas;
  * @author IVANA
  */
 
-import EstructurasDeDatos.AVLChaza;
-import EstructurasDeDatos.NodeChaza;
 import Logica.*;
-import Modelo.Cliente;
 import Modelo.Chaza;
-import Modelo.Orden;
 import Modelo.Producto;
 import Modelo.Vendedor;
-import static Ventanas.menuProductosClienteController.chazaEscogida;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -29,7 +26,6 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.image.*;
-import javafx.scene.input.*;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 
@@ -40,6 +36,8 @@ public class menuProductosVendedorController implements Initializable {
     private ControladorChaza controladorChaza = App.bdCha.getControladorChaza();
     private ControladorProducto controladorProducto = App.bdPro.getControladorProducto();
     private ObservableList<Producto> cardListProducto = FXCollections.observableArrayList();
+    public Mensaje mensaje = new Mensaje();
+    String estados[] = {"Abierto", "Cerrado"};
     
     @FXML
     private AnchorPane Panel;
@@ -139,6 +137,11 @@ public class menuProductosVendedorController implements Initializable {
         App.setRoot("DatosDelUsuarioVendedor");
     }
     
+    @FXML
+    void anadirProducto() {
+        
+    }
+    
     public ObservableList<Producto> productoGetData(){
         ObservableList<Producto> listProducto = FXCollections.observableArrayList();
         Producto[] productos = controladorProducto.buscarProductosPorChaza(chazaEscogida);
@@ -182,6 +185,38 @@ public class menuProductosVendedorController implements Initializable {
         }
     }
     
+    
+    private void estadoChazaBox(){
+        Choice_BoxEstado.getSelectionModel().selectedIndexProperty().addListener(
+                new ChangeListener<Number>(){
+                    public void changed(ObservableValue ov, Number value, Number new_value){
+                        cambiarEstado(new_value.intValue());
+                    }
+                }
+        );
+    }
+    
+    
+    private void cambiarEstado(int index){
+        Choice_BoxEstado.setValue(estados[index]);
+        int value = 0;
+        if(index == 0){
+            value = 1;
+        }
+        controladorChaza.actualizarChaza(chazaEscogida.getNombreChaza(), "Estado", String.valueOf(value));
+        mensaje.mensajeConfirmacion("Estado de la chaza " + chazaEscogida.getNombreChaza() + " cambiado con éxito!");
+    }
+    
+    
+    private void estadoInicial(){
+        int value = chazaEscogida.getEstadoChaza();
+        if(value == 1){
+            Choice_BoxEstado.setValue(estados[0]);
+        }else{
+            Choice_BoxEstado.setValue(estados[1]);
+        }
+    }
+    
     /*@FXML
     private void btnC(MouseEvent event
     ) {
@@ -200,6 +235,7 @@ public class menuProductosVendedorController implements Initializable {
         Añadir.setVisible(true);
         Estado.setVisible(true);
         Choice_BoxEstado.setVisible(true);
+        Choice_BoxEstado.setItems(FXCollections.observableArrayList(estados));
         nombreChaza.setVisible(true);
         nombreVendedorInfo.setVisible(true);
         nombreVendedor.setVisible(true);
@@ -216,6 +252,8 @@ public class menuProductosVendedorController implements Initializable {
         nombreVendedor.setText(vendedorActual.getNombre());
         nombreChaza.setText(chazaEscogida.getNombreChaza());
         DescripcionChaza.setText(chazaEscogida.getDescripcion());
+        estadoInicial();
+        estadoChazaBox();
         productoDisplayCard();
     }
     

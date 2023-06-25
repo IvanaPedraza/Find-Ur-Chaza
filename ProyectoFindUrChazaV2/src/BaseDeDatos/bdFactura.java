@@ -38,7 +38,7 @@ public class bdFactura {
                 try{
                     Orden ordenActual = bdOrden.getControladorOrden().buscarOrdenPorId(rs.getLong("numOrden"));
                     Producto productoActual = bdProducto.getControladorProducto().buscarProductoPorCodigo(rs.getLong("idProducto"));
-                    controladorFactura.agregarNuevaFactura(rs.getLong("numReferenciaProd"), rs.getDate("fechaFactura"), productoActual, ordenActual, rs.getInt("cantidad"), productoActual.getPrecio());
+                    controladorFactura.agregarNuevaFactura(rs.getLong("numReferenciaProd"), rs.getTimestamp("fechaFactura"), productoActual, ordenActual, rs.getInt("cantidad"), productoActual.getPrecio());
                 }catch(Exception d){
                     System.err.println("Error en la asignacion de un producto y una orden");
                 }

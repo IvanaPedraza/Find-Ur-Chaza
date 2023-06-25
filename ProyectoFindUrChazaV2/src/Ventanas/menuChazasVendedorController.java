@@ -23,6 +23,7 @@ import javafx.scene.layout.*;
 
 public class menuChazasVendedorController implements Initializable {
 
+    public ControladorOrden controladorOrden = App.bdOrd.getControladorOrden();
     private ControladorChaza controladorChaza = App.bdCha.getControladorChaza();
     private Vendedor vendedorActual = InicioSesionController.getVendedorLog(); 
     public static Chaza chazaEscogida = new Chaza();

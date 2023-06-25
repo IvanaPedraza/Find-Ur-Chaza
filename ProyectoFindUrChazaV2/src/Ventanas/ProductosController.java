@@ -7,6 +7,9 @@ package Ventanas;
 import Logica.ControladorFactura;
 import Modelo.*;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.scene.layout.AnchorPane;
@@ -26,6 +29,8 @@ import javafx.scene.layout.VBox;
  */
 public class ProductosController implements Initializable {
 
+    private Connection conexion = BaseDeDatos.Conexion.conectar();
+    private PreparedStatement pst;
     private Producto productoActual = new Producto();
     private Orden ordenActual = new Orden();
     private ControladorFactura controladorFactura = App.bdFac.getControladorFactura();
@@ -105,6 +110,7 @@ public class ProductosController implements Initializable {
             if (cantidad != 0 && controladorFactura.existeFactura(numFactura) == false) {
                 double costoTotal = cantidad * productoActual.getPrecio();
                 facturaActual = controladorFactura.agregarNuevaFactura(numFactura, fechaFactura, productoActual, ordenActual, cantidad, costoTotal);
+                insertarBdFactura(facturaActual);
                 botonOrdenarOprimido.setVisible(true);
                 anadirProducto.setVisible(false);
                 System.out.println("La factura se creo como: " + facturaActual.getNumReferencia() + " " + facturaActual.getOrden().getNumOrden());
@@ -132,6 +138,26 @@ public class ProductosController implements Initializable {
         numFactura = 100 + numeroFacturas;
         return numFactura;
     }
+    
+    public void insertarBdFactura(Factura factura){
+        java.sql.Timestamp fechaSQL = new java.sql.Timestamp(factura.getFechaFactura().getTime());
+        if(factura != null){
+            try{
+                pst = conexion.prepareStatement("insert into factura values(?,?,?,?,?,?)");
+                pst.setLong(1, factura.getNumReferencia());
+                pst.setTimestamp(2, fechaSQL);
+                pst.setLong(3, factura.getProducto().getCodigo());
+                pst.setLong(4, factura.getOrden().getNumOrden());
+                pst.setInt(5, factura.getCantidad());
+                pst.setDouble(6, factura.getCostoTotal());
+                pst.executeUpdate();
+                
+            }catch(SQLException e){
+                System.out.println("Error en el insertado de la BD" + e);
+            }
+        }
+    }
+    
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

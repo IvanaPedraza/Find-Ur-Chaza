@@ -9,43 +9,38 @@ package Ventanas;
  * @author IVANA
  */
 
-import BaseDeDatos.Conexion;
-import Logica.ControladorChaza;
-import Logica.ControladorCliente;
-import Logica.ControladorVendedor;
+import Logica.ControladorFactura;
+import Logica.ControladorOrden;
+import Modelo.Chaza;
 import Modelo.Cliente;
+import Modelo.Factura;
+import Modelo.Orden;
+import Modelo.Producto;
 import Modelo.Vendedor;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.*;
+import java.util.Date;
 import java.util.ResourceBundle;
-import javafx.animation.TranslateTransition;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.layout.AnchorPane;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
 
 import javafx.scene.image.ImageView;
-import javafx.scene.text.Text;
-import javafx.util.Duration;
-import javax.swing.JOptionPane;
-import java.net.Proxy;
-import javafx.application.Application;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.image.Image;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.StackPane;
-import javafx.scene.shape.Line;
-import javafx.stage.Stage;
+import javafx.scene.control.cell.PropertyValueFactory;
 public class ordenesProductosVendedorController implements Initializable{
     
     private Vendedor vendedorActual = InicioSesionController.getVendedorLog();
+    private Chaza chazaActual = menuProductosVendedorController.chazaEscogida;
+    private ControladorOrden controladorOrden = App.bdOrd.getControladorOrden();
+    private ControladorFactura controladorFactura = App.bdFac.getControladorFactura();
+    private ObservableList<Orden> datosOrdenes;
     
     @FXML
     private AnchorPane Panel1;
@@ -70,22 +65,25 @@ public class ordenesProductosVendedorController implements Initializable{
     private Label Vendedor;
     
     @FXML
-    private TableView TablaOrdenesClientes;
+    private TableView<Orden> TablaOrdenesChaza;
     
     @FXML
-    private TableColumn ColumnaCliente;
+    private TableColumn<Orden, String> ColumnaCliente;
     
     @FXML
-    private TableColumn ColumnaProducto;
+    private TableColumn<Orden, String> ColumnaProducto;
     
     @FXML
-    private TableColumn ColumnaCantidad;
+    private TableColumn<Orden, Integer> ColumnaCantidad;
     
     @FXML
-    private TableColumn ColumnaNumeroOrden;
+    private TableColumn<Orden, Long> ColumnaNumeroOrden;
     
     @FXML
-    private TableColumn ColumnaTotal;
+    private TableColumn<Orden, Date> ColumnaFechaOrden;
+    
+    @FXML
+    private TableColumn<Orden, Double> ColumnaTotal;
     
     @FXML
     private Button BotonOrdenes;
@@ -109,6 +107,66 @@ public class ordenesProductosVendedorController implements Initializable{
         App.setRoot("DatosDelUsuarioVendedor");
     }
     
+    private void cargarDatosOrden(){
+        datosOrdenes = FXCollections.observableArrayList();
+        String productosOrden = "";
+        Orden[] ordenesPorChaza = controladorOrden.buscarOrdenPorChaza(chazaActual);
+        for(int i = 0; i < ordenesPorChaza.length;i++){
+            datosOrdenes.add(ordenesPorChaza[i]);
+        }
+        ColumnaCliente.setCellValueFactory(cellData -> {
+            Cliente cliente = cellData.getValue().getCliente();
+            String nombreCliente = cliente.getNombre();
+            return new SimpleObjectProperty<String>(nombreCliente);
+        });
+        ColumnaProducto.setCellValueFactory(cellData -> {
+            String productos = verProductosPorOrden(cellData.getValue());
+            return new SimpleObjectProperty<String>(productos);
+        });
+        ColumnaCantidad.setCellValueFactory(cellData -> {
+            int cantidadTotal = cantidadTotalOrden(cellData.getValue());
+            return new SimpleObjectProperty<Integer>(cantidadTotal);
+        });
+        ColumnaNumeroOrden.setCellValueFactory(new PropertyValueFactory<>("numOrden"));
+        ColumnaFechaOrden.setCellValueFactory(new PropertyValueFactory<>("fechaOrden"));
+        
+        ColumnaTotal.setCellValueFactory(cellData -> {
+            double costoTotal = costoTotalOrden(cellData.getValue());
+            return new SimpleObjectProperty<Double>(costoTotal);
+        });
+        
+        TablaOrdenesChaza.setItems(datosOrdenes);
+        
+    }
+    
+    private String verProductosPorOrden(Orden orden){
+        Factura[] facturasPorOrden = controladorFactura.buscarFacturasPorOrden(orden);
+        String ProductosPorOrden = "";
+        for(int i = 0; i < facturasPorOrden.length;i++){
+            String prod = facturasPorOrden[i].getProducto().getNombre();
+            ProductosPorOrden = ProductosPorOrden + " " + prod + ", ";
+        }
+        return ProductosPorOrden;
+    }
+    
+    private int cantidadTotalOrden(Orden orden){
+        Factura[] facturasPorOrden = controladorFactura.buscarFacturasPorOrden(orden);
+        int cantidadTotal = 0;
+        for(int i = 0; i < facturasPorOrden.length;i++){
+            cantidadTotal += facturasPorOrden[i].getCantidad();
+        }
+        return cantidadTotal;
+    }
+    
+    private double costoTotalOrden(Orden orden){
+        Factura[] facturasPorOrden = controladorFactura.buscarFacturasPorOrden(orden);
+        double costoTotal = 0;
+        for(int i = 0; i < facturasPorOrden.length;i++){
+            costoTotal += facturasPorOrden[i].getCostoTotal();
+        }
+        return costoTotal;
+    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb
     ) {
@@ -120,7 +178,7 @@ public class ordenesProductosVendedorController implements Initializable{
         ColumnaNumeroOrden.setVisible(true);
         ColumnaCantidad.setVisible(true);
         ColumnaCliente.setVisible(true);
-        TablaOrdenesClientes.setVisible(true);
+        TablaOrdenesChaza.setVisible(true);
         Vendedor.setVisible(true);
         GatitoConParrilla.setVisible(true);
         MichiPerfilVendedor.setVisible(true);
@@ -129,6 +187,6 @@ public class ordenesProductosVendedorController implements Initializable{
         Fondo.setVisible(true);
         ColumnaTotal.setVisible(true);
         Vendedor.setText(vendedorActual.getNombre() + " " + vendedorActual.getApellido());
-        
+        cargarDatosOrden();
     }
 }
