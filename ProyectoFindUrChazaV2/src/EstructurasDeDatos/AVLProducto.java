@@ -314,7 +314,17 @@ public class AVLProducto{
         return (leftLCA != null) ? leftLCA : rightLCA;
     }
     
+    public int numtotalProducto(){
+        NodeProducto rootCopy = root;
+        return numProductoTotal(rootCopy);
+    }
     
+    private int numProductoTotal(NodeProducto nodo){
+        if(nodo == null){
+            return 0;
+        }
+        return 1 + numProductoTotal(nodo.getLeft()) + numProductoTotal(nodo.getRight());
+    }
 
 }
 

@@ -1,0 +1,16 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 25/06/2023, 4:57:33 p. m.
+    Author     : kelly
+*/
+
+.combo-box {
+  -fx-background-color: linear-gradient(to bottom, #1dbbdd44, #93f9b944);
+  -fx-mark-color: white;
+}
+
+.combo-box > .label { -fx-text-fill: #2F281E; 
+-fx-background-color: #93f9b944;}

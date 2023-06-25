@@ -31,9 +31,13 @@ import javafx.scene.control.Label;
 
 import javafx.scene.image.ImageView;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.util.converter.DefaultStringConverter;
 public class ordenesProductosVendedorController implements Initializable{
     
     private Vendedor vendedorActual = InicioSesionController.getVendedorLog();
@@ -119,9 +123,31 @@ public class ordenesProductosVendedorController implements Initializable{
             String nombreCliente = cliente.getNombre();
             return new SimpleObjectProperty<String>(nombreCliente);
         });
+        /*
         ColumnaProducto.setCellValueFactory(cellData -> {
             String productos = verProductosPorOrden(cellData.getValue());
             return new SimpleObjectProperty<String>(productos);
+        });
+        */
+        ColumnaProducto.setCellFactory(column -> new TableCell<Orden, String>(){
+            private final ComboBox<String> comboBox = new ComboBox<>();
+            {
+            comboBox.prefWidthProperty().bind(column.widthProperty());
+            comboBox.getStylesheets().add(getClass().getResource("/Estilos/comboBox.css").toExternalForm());
+            }
+            @Override
+            protected void updateItem(String item, boolean empty){
+                super.updateItem(item, empty);
+                if(empty){
+                    setGraphic(null);
+                }else{
+                    Orden orden = getTableView().getItems().get(getIndex());
+                    String[] productos = verProductosPorOrden(orden);
+                    comboBox.setItems(FXCollections.observableArrayList(productos));
+                    comboBox.setValue(item);
+                    setGraphic(comboBox);
+                }
+            }
         });
         ColumnaCantidad.setCellValueFactory(cellData -> {
             int cantidadTotal = cantidadTotalOrden(cellData.getValue());
@@ -139,14 +165,24 @@ public class ordenesProductosVendedorController implements Initializable{
         
     }
     
-    private String verProductosPorOrden(Orden orden){
+    private String[] verProductosPorOrden(Orden orden){
         Factura[] facturasPorOrden = controladorFactura.buscarFacturasPorOrden(orden);
         String ProductosPorOrden = "";
         for(int i = 0; i < facturasPorOrden.length;i++){
             String prod = facturasPorOrden[i].getProducto().getNombre();
-            ProductosPorOrden = ProductosPorOrden + " " + prod + ", ";
+            ProductosPorOrden = ProductosPorOrden + " " + prod + ",";
         }
-        return ProductosPorOrden;
+        ProductosPorOrden = ProductosPorOrden.substring(0, ProductosPorOrden.length()-1);
+        String[] productosNombre = ProductosPorOrden.trim().split(", ");
+        return productosNombre;
+    }
+    
+    private ObservableList obsLiProd(String[] prodName){
+        ObservableList<String> obs = FXCollections.observableArrayList();
+        for(int i = 0;i < prodName.length;i++){
+            obs.add(prodName[i]);
+        }
+        return obs;
     }
     
     private int cantidadTotalOrden(Orden orden){

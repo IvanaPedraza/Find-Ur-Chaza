@@ -14,6 +14,14 @@ import Modelo.Producto;
 import Modelo.Vendedor;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -31,6 +39,8 @@ import javafx.scene.text.Text;
 
 public class menuProductosVendedorController implements Initializable {
 
+    private Connection conexion = BaseDeDatos.Conexion.conectar();
+    private PreparedStatement pst;
     private Vendedor vendedorActual = InicioSesionController.getVendedorLog();
     public static Chaza chazaEscogida = new Chaza();
     private ControladorChaza controladorChaza = App.bdCha.getControladorChaza();
@@ -38,6 +48,7 @@ public class menuProductosVendedorController implements Initializable {
     private ObservableList<Producto> cardListProducto = FXCollections.observableArrayList();
     public Mensaje mensaje = new Mensaje();
     String estados[] = {"Abierto", "Cerrado"};
+    private long numProducto = 101;
 
     @FXML
     private AnchorPane Panel;
@@ -139,7 +150,49 @@ public class menuProductosVendedorController implements Initializable {
 
     @FXML
     void anadirProducto() {
-
+        long numeroDeProducto = numProducto();
+        String nombreProducto = nombreNuevoProducto.getText().trim();
+        String descripcionProducto = descripcionNuevoProducto.getText().trim();
+        double precioProducto = Double.parseDouble(precioNuevoProducto.getText().trim());
+        LocalDate localValue = fechaExpNuevo.getValue();
+        Instant instant = localValue.atStartOfDay(ZoneId.systemDefault()).toInstant();
+        Date fechaExp = Date.from(instant);
+        Date nuevaFechaIngreso = new Date();
+        java.sql.Timestamp fechaIngresoSql = new Timestamp(nuevaFechaIngreso.getTime());
+        java.sql.Timestamp fechaExpiracionSql = new Timestamp(fechaExp.getTime());
+        if(!nombreProducto.equals("") || !descripcionProducto.equals("") || precioProducto != 0){
+            controladorProducto.agregarNuevoProducto(numeroDeProducto, nombreProducto, precioProducto, descripcionProducto, nuevaFechaIngreso, fechaExp, chazaEscogida);
+            
+            try{
+                pst = conexion.prepareStatement("insert into producto (codigoProducto, nombreProducto, precioProducto, detalleProducto, fechaIngresoProd, fechaExpiracionProd,idChaza) values(?,?,?,?,?,?,?)");
+                pst.setLong(1, numeroDeProducto);
+                pst.setString(2, nombreProducto);
+                pst.setDouble(3, precioProducto);
+                pst.setString(4, descripcionProducto);
+                pst.setTimestamp(5, fechaIngresoSql);
+                pst.setTimestamp(6, fechaExpiracionSql);
+                pst.setLong(7, chazaEscogida.getIdChaza());
+                int n = pst.executeUpdate();
+                if(n > 0)
+                    System.out.println("Se ingreso en la bd");
+                mensaje.mensajeInformacion("Se ingreso correctamente " + nombreProducto);
+                productoDisplayCard();
+            }catch(SQLException e){
+                System.out.println("Error en el insertado de la BD " + e.toString());
+            }
+        }else{
+            mensaje.mensajeAdvertencia("Debes llenar todos los campos seleccionados :(");
+        }
+    }
+    
+    private long numProducto() {
+        /*
+        long numeroProductos = controladorProducto.numeroTotalProductos();
+        numProducto = 100 + numeroProductos;
+        return numProducto;
+*/
+        numProducto +=controladorProducto.numeroTotalProductos();
+        return numProducto;
     }
 
     public ObservableList<Producto> productoGetData() {
@@ -213,11 +266,6 @@ public class menuProductosVendedorController implements Initializable {
         }
     }
 
-    /*@FXML
-    private void btnC(MouseEvent event
-    ) {
-    
-    }*/
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         DescripcionChaza.setVisible(true);
@@ -248,10 +296,10 @@ public class menuProductosVendedorController implements Initializable {
         fondo2.setVisible(false);
         imagenComidaV.setVisible(false);
         nombreproductol.setVisible(false);
-        nombre.setVisible(false);
-        descripcion.setVisible(false);
+        nombreNuevoProducto.setVisible(false);
+        descripcionNuevoProducto.setVisible(false);
         preciolabel.setVisible(false);
-        precio.setVisible(false);
+        precioNuevoProducto.setVisible(false);
         Agregar.setVisible(false);
         //------
         nombreVendedorInfo.setText(vendedorActual.getNombre() + " " + vendedorActual.getApellido());
@@ -272,40 +320,42 @@ public class menuProductosVendedorController implements Initializable {
     @FXML
     private Label nombreproductol;
     @FXML
-    private TextField nombre;
+    private TextField nombreNuevoProducto;
     @FXML
-    private TextField descripcion;
+    private TextField descripcionNuevoProducto;
     @FXML
     private Label preciolabel;
     @FXML
-    private TextField precio;
+    private TextField precioNuevoProducto;
+    @FXML
+    private DatePicker fechaExpNuevo;
     @FXML
     private Button Agregar;
  
 
     @FXML
-    void cerrarVentanaAñadir(MouseEvent event) {
+    void cerrarVentanaAñadir() {
         ventanaAñadir.setVisible(false);
         fondo2.setVisible(false);
         imagenComidaV.setVisible(false);
         nombreproductol.setVisible(false);
-        nombre.setVisible(false);
-        descripcion.setVisible(false);
+        nombreNuevoProducto.setVisible(false);
+        descripcionNuevoProducto.setVisible(false);
         preciolabel.setVisible(false);
-        precio.setVisible(false);
+        precioNuevoProducto.setVisible(false);
         Agregar.setVisible(false);
     }
 
     @FXML
-    void abrirVentanaAñadir(MouseEvent event) {
+    void abrirVentanaAñadir() {
         ventanaAñadir.setVisible(true);
         fondo2.setVisible(true);
         imagenComidaV.setVisible(true);
         nombreproductol.setVisible(true);
-        nombre.setVisible(true);
-        descripcion.setVisible(true);
+        nombreNuevoProducto.setVisible(true);
+        descripcionNuevoProducto.setVisible(true);
         preciolabel.setVisible(true);
-        precio.setVisible(true);
+        precioNuevoProducto.setVisible(true);
         Agregar.setVisible(true);
     }
 }

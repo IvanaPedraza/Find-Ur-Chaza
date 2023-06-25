@@ -87,10 +87,7 @@ public class registroDatosClienteController implements Initializable{
         String contrasena = passwordFieldContraseña.getText().trim();
         
         if (!correo.equals("") || !nombre.equals("") || !apellido.equals("") || !telefono.equals("") || !contrasena.equals("")) {
-            clienteActual = new Cliente(correo, nombre, apellido, telefono, contrasena);
-            
-            hashCliente.insert(correo, clienteActual);
-            hashCliente.printHashTable();
+            clienteActual = controladorCliente.agregarNuevoCliente(correo, nombre, apellido, telefono, contrasena);
             
             try{
                 pst = conexion.prepareStatement("insert into cliente values(?,?,?,?,?)");

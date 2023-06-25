@@ -36,7 +36,7 @@ public class bdProducto {
             while(rs.next()){
                 try{
                     Chaza chazaNueva = bdChaza.getControladorChaza().buscarChazaPorId(rs.getInt("idChaza"));
-                    controladorProducto.agregarNuevoProducto(rs.getLong("codigoProducto"), rs.getString("nombreProducto"), rs.getDouble("precioProducto"), rs.getString("detalleProducto"), rs.getDate("fechaIngresoProd"), rs.getDate("fechaExpiracionProd"), chazaNueva);
+                    controladorProducto.agregarNuevoProducto(rs.getLong("codigoProducto"), rs.getString("nombreProducto"), rs.getDouble("precioProducto"), rs.getString("detalleProducto"), rs.getTimestamp("fechaIngresoProd"), rs.getTimestamp("fechaExpiracionProd"), chazaNueva);
                 }
                 catch(Exception e){
                     System.err.println("Error en la asignacion de una chaza");

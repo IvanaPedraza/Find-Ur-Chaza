@@ -64,7 +64,7 @@ public class ControladorCliente {
         return clienteRetorno;
     }
     
-    public void agregarNuevoCliente(String correo, String nombre, String apellido, String telefono, String contrasena) {
+    public Cliente agregarNuevoCliente(String correo, String nombre, String apellido, String telefono, String contrasena) {
         Cliente nuevoCliente = new Cliente(correo, nombre, apellido, telefono, contrasena);
         long time_start, time_end;
         time_start = System.nanoTime();
@@ -73,6 +73,7 @@ public class ControladorCliente {
         time_end = System.nanoTime();
         System.out.println("agregarNuevoCliente con hash table tomo " + (time_end - time_start) + " milliseconds");
         System.out.println("Se ha ingresado correctamente: " + nombre + " " + apellido);
+        return nuevoCliente;
     }
     
     public Cliente eliminarCliente(String correo) {
