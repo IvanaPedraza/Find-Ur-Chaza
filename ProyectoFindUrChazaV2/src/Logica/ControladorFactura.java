@@ -147,7 +147,7 @@ public class ControladorFactura {
     }
     
     public Factura[] buscarFacturasPorOrden(Orden orden){
-        Factura[] facturas = new Factura[0];
+        Factura[] facturas = new Factura[cantidadFacturasPorOrden(orden)];
         int iterado = 0;
         Factura facturaIterado = new Factura();
         try{
@@ -155,14 +155,31 @@ public class ControladorFactura {
                 facturaIterado = (Factura) ListaEnlazadaConColaFactura.getElement(i);
                 if(facturaIterado.getOrden().getNumOrden() == orden.getNumOrden()){
                     facturas[iterado++] = facturaIterado;
-                }else{
-                    throw new Exception("No existe la factura");
                 }
+            }
+            if(facturas.length == 0){
+                System.out.println("No hay facturas por la orden");
             }
         }catch(Exception e){
             System.out.println("Ha ocurrido " + e);
         }
         return facturas;
+    }
+    
+    public int cantidadFacturasPorOrden(Orden orden){
+        int cantidad = 0;
+        Factura facturaIterado = new Factura();
+        try{
+            for(int i = 0;i < ListaEnlazadaConColaFactura.cantidad();i++){
+                facturaIterado = (Factura) ListaEnlazadaConColaFactura.getElement(i);
+                if(facturaIterado.getOrden().getNumOrden() == orden.getNumOrden()){
+                    cantidad++;
+                }
+            }
+        }catch(Exception e){
+            System.out.println("Ha ocurrido " + e);
+        }
+        return cantidad;
     }
     
     public long cantidadFacturas(){

@@ -23,7 +23,7 @@
          </image>
       </ImageView>
       <ButtonBar layoutX="495.0" layoutY="15.0" prefHeight="40.0" prefWidth="107.0" />
-      <Button fx:id="Factura" layoutX="550.0" layoutY="15.0" mnemonicParsing="false" onMouseClicked="#switchToFacturaOrdenesCliente" stylesheets="@../Estilos/Style's_1.css" text="Factura">
+      <Button fx:id="Factura" layoutX="550.0" layoutY="15.0" mnemonicParsing="false" onAction="#generarFacturaOrden" stylesheets="@../Estilos/Style's_1.css" text="Factura">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
@@ -61,7 +61,7 @@
             <Font name="Berlin Sans FB" size="46.0" />
          </font>
       </Label>
-      <Button fx:id="BotonRegresar" layoutX="24.0" layoutY="24.0" mnemonicParsing="false" onMouseClicked="#switchToMenuChazas" prefHeight="42.0" prefWidth="45.0" stylesheets="@../Estilos/Style's.css" text="⬅" textOverrun="CLIP">
+      <Button fx:id="BotonRegresar" layoutX="24.0" layoutY="24.0" mnemonicParsing="false" onAction="#switchToMenuChazas" prefHeight="42.0" prefWidth="45.0" stylesheets="@../Estilos/Style's.css" text="⬅" textOverrun="CLIP">
          <font>
             <Font name="Bookman Old Style" size="12.0" />
          </font>

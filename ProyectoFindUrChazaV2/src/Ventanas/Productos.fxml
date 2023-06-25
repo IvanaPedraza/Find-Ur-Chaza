@@ -61,6 +61,11 @@
                               <Image url="@../Imagenes/BotonOrdenar.png" />
                            </image>
                         </ImageView>
+                        <ImageView fx:id="botonOrdenarOprimido" fitHeight="46.0" fitWidth="46.0" layoutX="73.0" layoutY="13.0" onMouseClicked="#anadirProductoFac" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Imagenes/BotonOrdenarOprimido.png" />
+                           </image>
+                        </ImageView>
                         <ImageView fitHeight="45.0" fitWidth="46.0" layoutX="14.0" layoutY="13.0" onMouseClicked="#eliminarFacturaProd" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../Imagenes/BasuraCafe.png" />

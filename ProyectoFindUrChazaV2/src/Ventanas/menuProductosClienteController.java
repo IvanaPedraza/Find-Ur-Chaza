@@ -18,6 +18,7 @@ import javafx.scene.layout.AnchorPane;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import javafx.scene.layout.GridPane;
+import javax.swing.JOptionPane;
 
 
 
@@ -31,6 +32,7 @@ public class menuProductosClienteController implements Initializable{
     public static Chaza chazaEscogida = new Chaza();
     private ControladorProducto controladorProducto = App.bdPro.getControladorProducto();
     private ControladorOrden controladorOrden = App.bdOrd.getControladorOrden();
+    private ControladorFactura controladorFactura = App.bdFac.getControladorFactura();
     public Mensaje mensaje = new Mensaje();
     private ObservableList<Producto> cardListProducto = FXCollections.observableArrayList();
 
@@ -98,15 +100,39 @@ public class menuProductosClienteController implements Initializable{
     
     @FXML
     private void switchToMenuChazas() throws IOException {
-        App.setRoot("menuChazas");
+        Factura[] facturasRegistradas = controladorFactura.buscarFacturasPorOrden(ordenActual);
+        if(facturasRegistradas.length == 0){
+            App.setRoot("menuChazas");
+        }else{
+            int opcionE = mensaje.mensajeConfirmacion("¿Desea cancelar la orden con los productos escogidos?");
+            if(opcionE == JOptionPane.YES_OPTION){
+                eliminarOrdenFacActual(ordenActual);
+                App.setRoot("menuChazas");
+            }
+        }
     }
     
     
     
     @FXML
-    private void switchToFacturaOrdenesCliente() throws IOException {
-        App.setRoot("FacturaOrdenesCliente");
+    void generarFacturaOrden() throws IOException {
+        int opcionD = mensaje.mensajeConfirmacion("¿Está seguro de los productos seleccionados?");
+        if(opcionD == JOptionPane.YES_OPTION){
+            App.setRoot("FacturaOrdenesCliente");
+        }else{
+            mensaje.mensajeInformacion("Realice las modificaciones debidas");
+        }
     }
+    
+    public void eliminarOrdenFacActual(Orden orden){
+        Factura[] facturasOrden = controladorFactura.buscarFacturasPorOrden(orden);
+        for(int i = 0; i < facturasOrden.length;i++){
+            controladorFactura.eliminarFactura(facturasOrden[i].getNumReferencia());
+        }
+        controladorOrden.eliminarOrden(ordenActual.getNumOrden());
+    }
+    
+    
     
     public ObservableList<Producto> productoGetData(){
         ObservableList<Producto> listProducto = FXCollections.observableArrayList();
@@ -135,6 +161,7 @@ public class menuProductosClienteController implements Initializable{
                 load.setLocation(getClass().getResource("Productos.fxml"));
                 AnchorPane pane = load.load();
                 ProductosController cardC = load.getController();
+                cardC.setOrden(ordenActual);
                 cardC.setData(cardListProducto.get(i));
 
                 if (column == 3) {
@@ -230,8 +257,9 @@ public class menuProductosClienteController implements Initializable{
         producto_GridPane.setVisible(true);
         scrollGridPane.setVisible(true);
         separador.setVisible(true);
-        productoDisplayCard();
         generarNuevaOrden();
+        productoDisplayCard();
+        
     }
  }   
 
