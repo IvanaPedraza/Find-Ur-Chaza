@@ -66,6 +66,7 @@
                </font>
             </Text>
             <TableView fx:id="TablaFactura" layoutX="300.0" layoutY="100.0" prefHeight="423.0" prefWidth="512.0" stylesheets="@../Estilos/tableStyle.css">
+            <TableView fx:id="TablaFactura" layoutX="397.0" layoutY="87.0" prefHeight="433.0" prefWidth="408.0">
               <columns>
                   <TableColumn fx:id="ColumnaID" prefWidth="84.0" text="ID" />
                 <TableColumn fx:id="ColumnaFecha" prefWidth="105.0" text="Fecha" />

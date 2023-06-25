@@ -17,7 +17,7 @@
             <Image url="@../Imagenes/degradeFondoChazas.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="michiHamborgueso" fitHeight="90.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="michiHamborgueso" fitHeight="90.0" fitWidth="81.0" onMouseClicked="#switchToInicioSesion" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Imagenes/michianvorguesa.png" />
          </image>
@@ -30,7 +30,7 @@
             <Image url="@../Imagenes/FindUrChazPequeño.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="MichiPerfilVendedor" fitHeight="88.0" fitWidth="110.0" layoutX="1174.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="MichiPerfilVendedor" fitHeight="88.0" fitWidth="110.0" layoutX="1174.0" layoutY="14.0" onMouseClicked="#switchToDatosDelVendedor" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Imagenes/elgato.png" />
          </image>
@@ -43,7 +43,7 @@
             <Font name="Berlin Sans FB" size="21.0" />
          </font>
       </Label>
-      <Button fx:id="BotonProductos" layoutX="640.0" layoutY="22.0" mnemonicParsing="false" stylesheets="@../Estilos/Style's_1.css" text="Productos">
+      <Button fx:id="BotonProductos" layoutX="640.0" layoutY="22.0" mnemonicParsing="false" onMouseClicked="#switchTomenuProductosVendedor" stylesheets="@../Estilos/Style's_1.css" text="Productos">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -58,7 +58,7 @@
             <Image url="@../Imagenes/comida-a-la-parrilla.png" />
          </image>
       </ImageView>
-      <TableView fx:id="TablaOrdenesClientes" layoutX="192.0" layoutY="129.0" prefHeight="525.0" prefWidth="815.0">
+      <TableView fx:id="TablaOrdenesClientes" layoutX="164.0" layoutY="128.0" prefHeight="525.0" prefWidth="815.0">
         <columns>
           <TableColumn fx:id="ColumnaCliente" prefWidth="253.0" text="Cliente" />
           <TableColumn fx:id="ColumnaProducto" prefWidth="228.0" text="Producto" />

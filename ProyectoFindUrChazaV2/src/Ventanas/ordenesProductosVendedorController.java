@@ -93,6 +93,7 @@ public class ordenesProductosVendedorController implements Initializable{
     @FXML
     private Button BotonProductos;
     
+    
     @FXML
     private void switchToInicioSesion() throws IOException {
         App.setRoot("InicioSesion");
