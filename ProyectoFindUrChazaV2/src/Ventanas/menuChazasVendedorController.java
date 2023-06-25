@@ -26,7 +26,7 @@ public class menuChazasVendedorController implements Initializable {
     private ControladorChaza controladorChaza = App.bdCha.getControladorChaza();
     private Vendedor vendedorActual = InicioSesionController.getVendedorLog(); 
     public static Chaza chazaEscogida = new Chaza();
-    //public Mensaje mensaje = new Mensaje();
+    public Mensaje mensaje = new Mensaje();
 
     private ObservableList<Chaza> cardListChaza = FXCollections.observableArrayList();
 
@@ -117,7 +117,7 @@ public class menuChazasVendedorController implements Initializable {
         for (int i = 0; i < cardListChaza.size(); i++) {
             try {
                 FXMLLoader load = new FXMLLoader();
-                load.setLocation(getClass().getResource("Chazas.fxml"));
+                load.setLocation(getClass().getResource("ChazasVendedor.fxml"));
                 AnchorPane pane = load.load();
                 chazasController cardC = load.getController();
                 cardC.setData(cardListChaza.get(i));
