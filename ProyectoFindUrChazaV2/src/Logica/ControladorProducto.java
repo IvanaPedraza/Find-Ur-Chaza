@@ -151,5 +151,9 @@ public class ControladorProducto {
         return numeroProductos;
     }
     
+    public int numeroTotalProductos(){
+        return AVLProducto.numtotalProducto();
+    }
+    
     
 }

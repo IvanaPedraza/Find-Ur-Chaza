@@ -23,7 +23,7 @@ public class ControladorChaza {
         return AVLChaza;
     }
     
-    public void agregarNuevaChaza(String nombreChaza, String ubicacion, String descripcion, Vendedor vendedor) {
+    public Chaza agregarNuevaChaza(String nombreChaza, String ubicacion, String descripcion, Vendedor vendedor) {
         Chaza nuevaChaza = new Chaza(nombreChaza, ubicacion, descripcion, vendedor);
         long time_start, time_end;
         time_start = System.nanoTime();
@@ -31,6 +31,7 @@ public class ControladorChaza {
         time_end = System.nanoTime();
         System.out.println("agregarNuevaChaza con arbol AVL tomo " + (time_end - time_start) + " milliseconds");
         System.out.println("Se ha ingresado correctamente " + nuevaChaza.getNombreChaza());
+        return nuevaChaza;
     }
     
     public Chaza eliminarChaza(String nombreChaza) {
