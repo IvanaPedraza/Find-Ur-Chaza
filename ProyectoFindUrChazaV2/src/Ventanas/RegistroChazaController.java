@@ -87,7 +87,7 @@ public class RegistroChazaController implements Initializable{
             mensaje.mensajeAdvertencia("Debes llenar todos los campos para continuar! :)");
         }
     }
-
+    
     @FXML
     void retornarInicioVendedor() throws IOException {
         App.setRoot("InicioVendedor");

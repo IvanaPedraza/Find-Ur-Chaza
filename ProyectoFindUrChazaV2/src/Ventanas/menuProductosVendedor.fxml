@@ -6,7 +6,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -84,14 +83,6 @@
             <Font name="Berlin Sans FB" size="19.0" />
          </font>
       </Text>
-      <Button fx:id="Editar" layoutX="1165.0" layoutY="278.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="93.0" stylesheets="@../Estilos/Style's.css" text="Editar" textOverrun="CLIP">
-         <font>
-            <Font name="Bookman Old Style" size="12.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
       <AnchorPane fx:id="Panel2" layoutX="61.0" layoutY="360.0" prefHeight="347.0" prefWidth="1110.0">
          <children>
             <AnchorPane fx:id="Panel3" prefHeight="343.0" prefWidth="1060.0">
@@ -109,6 +100,18 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <TextArea fx:id="DescripcionChaza" layoutX="511.0" layoutY="163.0" prefHeight="166.0" prefWidth="405.0" text="Descripción de la chaza" />
+      <Button fx:id="Añadir" layoutX="1165.0" layoutY="645.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="93.0" stylesheets="@../Estilos/Style's.css" text="Añadir" textOverrun="CLIP">
+         <font>
+            <Font name="Bookman Old Style" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Label fx:id="DescripcionChaza" alignment="TOP_LEFT" layoutX="506.0" layoutY="179.0" prefHeight="136.0" prefWidth="355.0" text="Label" textFill="#2f281e">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

@@ -37,6 +37,7 @@ public class menuProductosVendedorController implements Initializable {
     
     private Vendedor vendedorActual = InicioSesionController.getVendedorLog();
     public static Chaza chazaEscogida = new Chaza();
+    private ControladorChaza controladorChaza = App.bdCha.getControladorChaza();
     private ControladorProducto controladorProducto = App.bdPro.getControladorProducto();
     private ObservableList<Producto> cardListProducto = FXCollections.observableArrayList();
     
@@ -83,7 +84,7 @@ public class menuProductosVendedorController implements Initializable {
     private Text Estado;
     
     @FXML
-    private Button Editar; 
+    private Button Añadir; 
     
     @FXML
     private Button Productos;
@@ -104,7 +105,7 @@ public class menuProductosVendedorController implements Initializable {
     private GridPane producto_GridPane;
     
     @FXML
-    private TextArea DescripcionChaza;
+    private Label DescripcionChaza;
     
     @FXML
     private void primerEstilo() {
@@ -114,8 +115,8 @@ public class menuProductosVendedorController implements Initializable {
         TusChazas.getStylesheets().addAll(this.getClass().getResource("../Estilos/Style's.css").toExternalForm());
         Productos.getStylesheets().clear();
         Productos.getStylesheets().addAll(this.getClass().getResource("../Estilos/Style's.css").toExternalForm());
-        Editar.getStylesheets().clear();
-        Editar.getStylesheets().addAll(this.getClass().getResource("../Estilos/Style's.css").toExternalForm());
+        Añadir.getStylesheets().clear();
+        Añadir.getStylesheets().addAll(this.getClass().getResource("../Estilos/Style's.css").toExternalForm());
     }
     
     @FXML
@@ -181,6 +182,12 @@ public class menuProductosVendedorController implements Initializable {
         }
     }
     
+    /*@FXML
+    private void btnC(MouseEvent event
+    ) {
+    
+    }*/
+    
      @Override
     public void initialize(URL location, ResourceBundle resources) {
         DescripcionChaza.setVisible(true);
@@ -190,7 +197,7 @@ public class menuProductosVendedorController implements Initializable {
         separador.setVisible(true);
         TusChazas.setVisible(true);
         Productos.setVisible(true);
-        Editar.setVisible(true);
+        Añadir.setVisible(true);
         Estado.setVisible(true);
         Choice_BoxEstado.setVisible(true);
         nombreChaza.setVisible(true);
@@ -206,6 +213,9 @@ public class menuProductosVendedorController implements Initializable {
         Panel2.setVisible(true);
         Panel.setVisible(true);
         nombreVendedorInfo.setText(vendedorActual.getNombre() + " " + vendedorActual.getApellido());
+        nombreVendedor.setText(vendedorActual.getNombre());
+        nombreChaza.setText(chazaEscogida.getNombreChaza());
+        DescripcionChaza.setText(chazaEscogida.getDescripcion());
         productoDisplayCard();
     }
     

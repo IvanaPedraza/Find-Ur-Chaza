@@ -3,7 +3,6 @@
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Spinner?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -17,7 +16,7 @@
          <children>
             <HBox fx:id="Hbox1" prefHeight="52.0" prefWidth="280.0">
                <children>
-                  <Label fx:id="nombreProducto" alignment="CENTER" contentDisplay="CENTER" prefHeight="69.0" prefWidth="166.0" text="Estofado" textAlignment="CENTER" textFill="#2f281e" HBox.hgrow="ALWAYS">
+                  <Label fx:id="nombreProducto" contentDisplay="CENTER" prefHeight="69.0" prefWidth="166.0" text="Estofado" textAlignment="CENTER" textFill="#2f281e" HBox.hgrow="ALWAYS">
                      <font>
                         <Font name="Berlin Sans FB Demi Bold" size="22.0" />
                      </font>
@@ -49,19 +48,9 @@
             </AnchorPane>
             <HBox fx:id="Hbox2" prefHeight="80.0" prefWidth="136.0">
                <children>
-                  <AnchorPane fx:id="PanelSpinner" prefHeight="73.0" prefWidth="136.0">
+                  <AnchorPane fx:id="Paneleliminar" prefHeight="73.0" prefWidth="146.0">
                      <children>
-                        <Spinner fx:id="Spinner" focusTraversable="false" layoutX="24.0" layoutY="18.0" prefHeight="35.0" prefWidth="101.0" />
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane fx:id="PanelAñadir" prefHeight="73.0" prefWidth="146.0">
-                     <children>
-                        <ImageView fx:id="anadirProducto" fitHeight="55.0" fitWidth="46.0" layoutX="73.0" layoutY="13.0" onMouseClicked="#anadirProductoFac" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../Imagenes/BotonOrdenar.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="45.0" fitWidth="46.0" layoutX="14.0" layoutY="13.0" onMouseClicked="#eliminarFacturaProd" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="Basura" fitHeight="45.0" fitWidth="46.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#eliminarFacturaProd" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../Imagenes/BasuraCafe.png" />
                            </image>
