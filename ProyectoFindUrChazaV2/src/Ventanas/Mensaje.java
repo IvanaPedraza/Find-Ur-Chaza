@@ -35,4 +35,11 @@ public class Mensaje {
         JOptionPane.showMessageDialog(null,mensaje, "INFORMACIÓN",JOptionPane.INFORMATION_MESSAGE,img2);
     }
     
+    public int mensajeConfirmacion(String mensaje){
+        Image icono = new ImageIcon(getClass().getResource("../Imagenes/yes.png")).getImage();
+        ImageIcon img2 = new ImageIcon(icono.getScaledInstance(50, 50, Image.SCALE_SMOOTH));
+        int opcionEscogida = JOptionPane.showConfirmDialog(null, mensaje, "CONFIRMACIÓN", JOptionPane.YES_NO_OPTION,3,img2);
+        return opcionEscogida;
+    }
+    
 }
